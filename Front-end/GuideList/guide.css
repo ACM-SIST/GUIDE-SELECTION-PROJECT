@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+    height: 100vh;
+    overflow: hidden;
+    background-blend-mode: darken;
+}
+
+.head {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+}
+
+header{
+    background: #831238;
+    color: white;
+    padding-top: 0px;
+    min-height: 50px;
+}
+
+header li{
+    float: right;
+    display: inline;
+    padding: 0px 2rem 0 20px;
+}
+
+a:link {
+    color: white;
+    text-decoration: None;
+}
+
+a {
+    color: white;
+}
+
+.img {
+    width: 200px;
+    height: 40px;
+    padding-right: 20rem;
+    padding-left: 1rem;
+    padding-top: 5px;
+}
+
+li a:hover {
+    color: grey;
+
+}

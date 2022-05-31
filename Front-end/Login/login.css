@@ -65,7 +65,7 @@ form .txt_field{
   .txt_field input:focus ~ label,
   .txt_field input:valid ~ label{
     top: -5px;
-    color: #2691d9;
+    color: #831238;
 }
 .txt_field input:focus ~ span::before,
 .txt_field input:valid ~ span::before{
@@ -83,7 +83,7 @@ form .txt_field{
 
 .pass a:hover {
     text-decoration: underline;
-    color: black;
+    color: #831238;
 }
 
 input[type="submit"]{
@@ -109,7 +109,7 @@ input[type="submit"]:hover{
     color: black;
 }
 .signup_link a{
-    color: #2691d9;
+    color: #831238;
     text-decoration: none;
 }
 .signup_link a:hover{

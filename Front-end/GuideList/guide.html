@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" text="text/css" href="./guide.css">
     <title>List</title>
 </head>
@@ -11,7 +12,7 @@
     <header>
         <nav class="head" >
             <a href="../Home/home.html">
-                <img src="Image/headimg.jpeg" class="img">
+                <img src="Image/headimg.jpeg" class="img" alt="Home" >
             </a>
             <ul>
                 <li><a href="../Register/register.html">Register</a></li>
@@ -20,22 +21,57 @@
             </ul>
         </nav>
     </header>
-    <!-- <table>
-        <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Country</th>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-        </tr>
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
-        </tr>
-      </table> -->
+    <h1 class="select">Select your Guide</h1>
+    <table border="1" cellspacing="0" class="content-table" >
+        <div class="row col-md-6 table-responsive" style="position: relative; float: center; width: 100%; margin-top: 0; margin-left: 10px;">
+          <table id="tblData" class="table table-bordered table-striped table-hover" style="margin-top:10px; ">
+              <thead>
+              <tr>
+                  <th class="text-center">Sr. No.</th>
+                  <th class="text-center">Supervisor's Name</th>
+                  <th class="text-center">Specialization</th>
+                  <th class="text-center">Guideship Vacancy</th>
+                  <th class="text-center">Select</th>
+              </tr>
+              </thead>
+              <tbody>
+                              <tr>
+                      </tr>
+                              <tr>
+                      <td align="center">1</td>
+                      <td align="center">
+                          <img src="https://sist.sathyabama.ac.in/staffPhotos/5701.jpg" height="150px" width="150px"> <br>
+                          Dr. T. Sasipraba<br>Professor<br>Vice Chancellor<br>vc@sathyabama.ac.in</td>
+                      <td>
+                          <ul>
+                                                          <li>QoS in Wireless Networks</li>
+                                                          <li>Sensor enabled Web Services</li>
+                                                          <li>Predictive Data Analysis</li>
+                                                          <li>Decision Support System</li>
+                                                          <li>Distributed Data Mining</li>
+                                                          <br>
+                                                          <br>
+                                                          <br>
+                                                          <li>Years of Experience: 10-12</li>
+                                                  </ul>
+                      </td>
+                      <td align="center" class="vac">3</td>
+                      <td align="center"><button>Select</button></td>
+                  </tr>
+                          <tr>
+                      <td align="center">2</td>
+                      <td align="center">
+                          <img src="https://sist.sathyabama.ac.in/staffPhotos/5201.jpg" height="150px" width="150px"> <br>
+                          Dr.T.Sasikala<br>Professor<br>Dean (School of Computing)<br>dean.computing@sathyabama.ac.in</td>
+                      <td>
+                          <ul>
+                                                          <li>COMPUTER NETWORKS</li>
+                                                          <li>NETWORK SECURITY</li>
+                                                          <li>WIRELESS NETWORKS</li>
+                                                  </ul>
+                      </td>
+                      <td align="center">4</td>
+                  </tr>
+      </table>
 </body>
 </html>

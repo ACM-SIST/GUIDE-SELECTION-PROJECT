@@ -16,14 +16,14 @@ body {
 header{
     background: #831238;
     color: white;
-    padding-top: 0px;
+    padding-top: 10px;
     min-height: 50px;
 }
 
 header li{
     float: right;
     display: inline;
-    padding: 0px 2rem 0 20px;
+    padding: 0px 2rem 10px 20px;
 }
 
 a:link {
@@ -41,9 +41,38 @@ a {
     padding-right: 20rem;
     padding-left: 1rem;
     padding-top: 5px;
+    color: #fff;
 }
 
 li a:hover {
     color: grey;
+}
 
+h1 {
+    text-align: center;
+    background-color: #831238;
+    color: #fff;
+    margin: 20px;
+    padding: 5px;
+    font-size: 30px;
+}
+
+.select {
+    font-size: 25px;
+}
+
+button {
+    margin-top: 90px;
+    color: white;
+    background-color: #831238;
+    border:rgb(83, 173, 83);
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: rgb(83, 173, 83);
+}
+
+.vac {
+    padding-top: 50rem;
 }

@@ -157,7 +157,8 @@ cloudinary.config(
     cloud_name="dzg5jildq",
     api_key="321237999372576",
     api_secret="5Gxrc6a6yZxY8QvQlsDPF-9TKnE",
-    upload_prefix="http://api.cloudinary.com"
+    # upload_prefix="http://api.cloudinary.com",
 )
+
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

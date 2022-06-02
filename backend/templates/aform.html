@@ -10,7 +10,7 @@
     </head>   
     <body>
         <div class="testbox">
-            <form action="{% url 'guides' %}" method="POST" >
+            <form action="{% url 'guides' %}" method="POST" enctype="multipart/form-data" >
                 {% csrf_token %}
               <div class="banner">
                 <h1>Staff Details</h1>

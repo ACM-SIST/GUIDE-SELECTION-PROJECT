@@ -16,7 +16,7 @@ def guides(request):
         domain_3 = request.POST['domain_3']
         email = request.POST['email']
         experience = request.POST['experience']
-        myImage = request.POST['myImage']
+        myImage = request.FILES['myImage']
 
         name = first_name + ' ' + last_name
 

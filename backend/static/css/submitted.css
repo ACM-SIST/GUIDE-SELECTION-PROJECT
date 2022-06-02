@@ -1,0 +1,60 @@
+html, body {
+    min-height: 100%;
+    }
+    body, div, form, input, label { 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 20px;
+    color: #666;
+    line-height: 22px;
+    }
+    h1 {
+    position: absolute;
+    margin: 0;
+    font-size: 38px;
+    color: #fff;
+    z-index: 2;
+    }
+    .testbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    padding: 20px;
+    }
+    form {
+    width: 100%;
+    padding: 30px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 0 20px 0  #831238; 
+    }
+  .banner {
+    background-color: #831238;
+    border-radius: 15px;
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+  .banner::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0); 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    }
+  
+
+    @media (min-width: 768px) {
+      .name-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+}

@@ -30,6 +30,4 @@ def guides(request):
 
 
 def submitted(request):
-    # return render(request, 'index.html')
-    # return render(request, 'index.html')
     return render(request, 'index.html')

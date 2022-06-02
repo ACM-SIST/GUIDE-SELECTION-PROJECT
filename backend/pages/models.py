@@ -7,10 +7,10 @@ from cloudinary.models import CloudinaryField
 
 class Guide(models.Model):
     name = models.CharField(max_length=100)
-    domain_1 = models.CharField(max_length=20)
-    domain_2 = models.CharField(max_length=20)
-    domain_3 = models.CharField(max_length=20)
-    email = models.CharField(max_length=29)
+    domain_1 = models.CharField(max_length=200)
+    domain_2 = models.CharField(max_length=200)
+    domain_3 = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
     experience = models.IntegerField()
     # myImage = models.ImageField(upload_to='photos/%Y/%m/%d')
     myImage = CloudinaryField('image')

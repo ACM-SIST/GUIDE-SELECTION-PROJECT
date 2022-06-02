@@ -13,26 +13,28 @@
             <form action="{% url 'guides' %}" method="POST" enctype="multipart/form-data" >
                 {% csrf_token %}
               <div class="banner">
-                <h1>Staff Details</h1>
+                <h1>Staff Details (Department of CSE)</h1>
+
               </div>
-            <p class="bluebox">Please fill out the form with the requested information.Thank you!</p>
+              <h1></h1>
+            <p class="bluebox" style=" padding-right: 15rem; text-align:center;" >Please fill out the form with the requested information.Thank you!</p>
             <div class="staffs">
             <div class="team" id="staff">
                 <fieldset class="staff-form" >
                     <legend>Staff Details</legend>
                     <div class="item">
-                        <label for="name">Name<span>*</span></label>
+                        <label for="name" style="color: black ;" >Name<span>*</span></label>
                     <div class="name-item">
                         <input id="name" type="text" name="first_name" placeholder="First Name" required/>
                         <input id="name" type="text" name="last_name" placeholder="Last Name" required/>
                     </div>
                     </div>
                     <div class="item">
-                        <label for="domain"> Designation<span>*</span></label>
+                        <label for="domain" style="color: black ;" > Designation<span>*</span></label>
                         <input id="domain" type="text" name="domain_1" placeholder="Enter Your Designation" required />
                     </div>
                     <div class="item">
-                        <label for="domain"> Area of Specalization<span>*</span></label>
+                        <label for="domain" style="color: black ;" > Area of Specalization<span>*</span></label>
                         <input id="domain" type="text" name="domain_1" placeholder="Enter Your Specialized Domain" required />
                         <div class="item">
                         <input id="domain" type="text" name="domain_2" placeholder="Enter Your Specialized Domain" />
@@ -42,15 +44,15 @@
                         </div>
                     </div>
                     <div class="item">
-                        <label for="email">Email<span>*</span></label>
+                        <label for="email" style="color: black ;" >Email<span>*</span></label>
                         <input id="email" type="email" name="email" placeholder="Enter Your Email Id" required/>
                     </div>
                     <div class="item">
-                        <label for="experience">Year of Expertise<span>*</span></label>
+                        <label for="experience" style="color: black ;" >Year of Expertise<span>*</span></label>
                         <input id="experience" type="number" name="experience" placeholder="Enter Your Years of Experience " required />
                     </div>
                     <div class="item">
-                        <label for="photo">Upload Your photo <span>*</span> <p class="img-text"> (Please upload only .jpeg / .jpg) </p> </label>
+                        <label for="photo" style="color: black ;" >Upload Your photo <span>*</span> <p class="img-text"> (Please upload only .jpeg / .jpg) </p> </label>
                         <input id="photo" type="file" name="myImage" max-size="200kb" accept="image/jpeg" required  />    
                     </div>
                     <div class="btn-block">

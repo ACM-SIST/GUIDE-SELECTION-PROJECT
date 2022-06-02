@@ -1,5 +1,5 @@
 .bluebox{
-    padding-left: 20rem;
+    padding-left: 10rem;
     font-size: 17;
   }
   html, body {
@@ -49,9 +49,10 @@
       .banner {
         background-color: #831238;
         position: relative;
-        height: 300px;
+        height: 12000px;
         background-size: cover;
-        display: flex;
+        /* display: flex;
+        flex-direction: row; */
         justify-content: center;
         align-items: center;
         text-align: center;
@@ -62,6 +63,9 @@
         position: absolute;
         width: 100%;
         height: 100%;
+        }
+        .label {
+          color: #101010;
         }
         input {
         width: calc(100% - 10px);

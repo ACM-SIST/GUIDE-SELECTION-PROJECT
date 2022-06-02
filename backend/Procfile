@@ -1,0 +1,1 @@
+web: gunicorn guide_project.wsgi

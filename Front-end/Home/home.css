@@ -42,6 +42,7 @@ header li{
     float: right;
     display: inline;
     padding: 0px 2rem 0 20px;
+    overflow: hidden;
 }
 
 a:link {
@@ -63,8 +64,8 @@ a {
 
 li a:hover {
     color: grey;
-
 }
+<<<<<<< HEAD
 @media (max-width: 768px){
     .head{
     display: flex;
@@ -82,3 +83,31 @@ li a:hover {
         
     }
 }
+=======
+
+@media screen and (max-width: 600px) {
+    body {
+        background: fixed;
+        color: white;
+    }
+
+    header li:not(:first-child){
+        float: right;
+        display: block; 
+        /* flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1px; */
+    }
+
+    li {
+        padding: 10rem;
+    }    
+}
+
+/* @media screen and (max-height: 300px) {
+    body {
+        background: cover;
+    }
+} */
+>>>>>>> 142190b73799b324ea08ca848658ed7fd76d0a8a

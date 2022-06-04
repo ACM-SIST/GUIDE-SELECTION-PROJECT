@@ -3,9 +3,12 @@ body {
     padding: 0;
     font-family: cursive;
     height: 100vh;
-    overflow: hidden;
     background-blend-mode: darken;
 }
+
+::-webkit-scrollbar {
+    width: 20px;
+  }
 
 .head {
     display: flex;
@@ -74,5 +77,14 @@ button:hover {
 }
 
 .vac {
-    padding-top: 50rem;
+    top: 10rem ;
+    align-self:center;
+    text-align: center;
+    transform: translateY(38%);
 }
+
+/* @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 20px;
+    }
+} */

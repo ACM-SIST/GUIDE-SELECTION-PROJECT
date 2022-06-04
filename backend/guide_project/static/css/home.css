@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+    height: 100vh;
+    overflow: hidden;
+    background-blend-mode: darken;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 999;
+    top: 54px;
+    background: cover;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.head {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+}
+
+header{
+    background: #831238;
+    color: white;
+    padding-top: 0px;
+    min-height: 50px;
+}
+
+header li{
+    float: right;
+    display: inline;
+    padding: 0px 2rem 0 20px;
+    overflow: hidden;
+}
+
+a:link {
+    color: white;
+    text-decoration: None;
+}
+
+a {
+    color: white;
+}
+
+.img {
+    width: 200px;
+    height: 40px;
+    padding-right: 20rem;
+    padding-left: 1rem;
+    padding-top: 5px;
+}
+
+li a:hover {
+    color: grey;
+}
+@media (max-width: 768px){
+    .head{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: auto;
+    width: auto;
+}
+    .body{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 100vh;
+        width: 100vh;
+        
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background: fixed;
+        color: white;
+    }
+
+    header li:not(:first-child){
+        float: right;
+        display: block; 
+        /* flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1px; */
+    }
+
+    li {
+        padding: 10rem;
+    }    
+}
+
+/* @media screen and (max-height: 300px) {
+    body {
+        background: cover;
+    }
+} */

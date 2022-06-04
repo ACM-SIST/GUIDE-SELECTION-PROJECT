@@ -6,10 +6,6 @@ body {
     background-blend-mode: darken;
 }
 
-::-webkit-scrollbar {
-    width: 20px;
-  }
-
 .head {
     display: flex;
     color: white;

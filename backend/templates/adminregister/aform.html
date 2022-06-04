@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> ADMIN FORM</title> 
+        <link rel="stylesheet" type="text/css" href="aform.css">
+    </head>   
+    <body>
+        <div class="testbox">
+            <form action="/" method="POST" enctype="multipart/form-data" >
+              <div class="banner">
+                <h1>Staff Details</h1>
+              </div>
+            <p class="bluebox">Please fill out the form with the requested information.Thank you!</p>
+            <div class="staffs">
+            <div class="team" id="staff">
+                <fieldset class="staff-form" >
+                    <legend>Staff Details</legend>
+                    <div class="item">
+                        <label for="name">Name<span>*</span></label>
+                    <div class="name-item">
+                        <input id="name" type="text" name="name" placeholder="First Name" required/>
+                        <input id="name" type="text" name="name" placeholder="Last Name" required/>
+                    </div>
+                    </div>
+                    <div class="item">
+                        <label for="domain"> Area of Specalization<span>*</span></label>
+                        <input id="domain" type="text" name="domain" placeholder="Enter Your Specialized Domain" required />
+                        <div class="item">
+                        <input id="domain" type="text" name="domain" placeholder="Enter Your Specialized Domain" />
+                        </div>
+                        <div class="item">
+                        <input id="domain" type="text" name="domain" placeholder="Enter Your Specialized Domain" />
+                        </div>
+                    </div>
+                    <div class="item">
+                        <label for="email">Email<span>*</span></label>
+                        <input id="email" type="email" name="text" placeholder="Enter Your Email Id" required/>
+                    </div>
+                    <div class="item">
+                        <label for="experience">Year of Expertise<span>*</span></label>
+                        <input id="experience" type="number" name="experience" placeholder="Enter Your Years of Experience " required />
+                    </div>
+                    <div class="item">
+                        <label for="photo">Upload Your photo</label><span>*</span>
+                        <input id="photo" type="file" name="myImage" max-size="200kb" accept="image/jpeg" required />    
+                    </div>
+                    <div class="btn-block">
+                        <button type="submit"  onclick="myFunction()" >
+                            <a href="../adminregister/submitted.html">SUBMIT</a>
+                        </button>
+                    </div>
+                </fieldset>
+            </div>
+            </div>
+        </div>  
+        </form>  
+        <script type="text/javascript" src="aform.js"></script>
+    </body>
+</html> 

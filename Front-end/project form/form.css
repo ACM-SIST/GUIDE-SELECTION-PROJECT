@@ -88,18 +88,15 @@ html, body {
       color: #666;
       line-height: 22px;
       }
-
       textarea {
         width: 100%;
         height: 100px;
       }
-
     .project {
       display: grid;
       gap: 5rem;
       grid-template-columns: 1fr 1fr;
     }
-
       legend { 
       color: #fff;
       background-color: #831238;
@@ -153,11 +150,6 @@ html, body {
       width: calc(100% - 10px);
       padding: 5px;
       }
-      /*select {
-      width: 100%;
-      padding: 7px 0;
-      background: transparent;
-      }*/
       .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
       color:#831238;
       }
@@ -173,9 +165,6 @@ html, body {
       .item span {
       color: red;
       }
-     /* input[type="date"]::-webkit-inner-spin-button {
-      display: none;
-      }*/
       .question span {
       margin-left: 30px;
       }
@@ -202,7 +191,7 @@ html, body {
       flex-wrap: wrap;
       justify-content: space-between;
       }
-      .name-item input, .city-item input,.name-item div {
+      .name-item input,.name-item div {
       width: calc(50% - 20px);
       }
       .name-item div input {
@@ -217,17 +206,13 @@ html, body {
   padding-left: 5rem;
   padding-right: 5rem;
   width: 70%;
-
 }
-
 #team-1 {
   padding-left: 4rem !important;
 }
-
 .team {
   padding-bottom: 2rem;
 }
-
 .team-member {
   display: grid;
   grid-template-columns: 1fr 1fr;

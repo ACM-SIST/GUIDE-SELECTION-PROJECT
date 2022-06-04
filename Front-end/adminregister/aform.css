@@ -67,9 +67,6 @@
         width: calc(100% - 10px);
         padding: 5px;
         }
-       /*.item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
-        color:#831238;
-        }*/
        .item input:hover {
         border: 1px solid transparent;
         box-shadow: 0 0 6px 0 #831238;
@@ -104,7 +101,7 @@
         button:hover {
         background: lightslategray;
         }
-        @media (min-width: 568px) {
+        @media (max-width: 768px) {
         .name-item {
         display: flex;
         flex-wrap: wrap;

@@ -31,3 +31,7 @@ def guides(request):
 
 def submitted(request):
     return render(request, 'index.html')
+
+
+def register(request):
+    return render(request, 'Register/register.html')

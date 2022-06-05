@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +6,7 @@
         <title>FORM</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" >
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="form.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
     </head>
     <body>
         <nav id="menu">
@@ -16,7 +17,8 @@
             </ul>
         </nav>
         <div class="testbox">
-            <form action="/">
+            <form action="{% url 'project-details' %}" method="POST">
+              {% csrf_token %}
               <div class="banner">
                 <h1>Final Year Project Guide selection</h1>
               </div>
@@ -27,22 +29,22 @@
                 <div class="project">
                     <div class="item">
                         <label for="name">Project Title<span>*</span></label>
-                        <input id="name" type="text" name="text" placeholder="Project title" required/>
+                        <input id="name" type="text" name="project_name" placeholder="Project title" required/>
                     </div>
                     <div class="item">
-                        <label for="domain">Project Domain<span>*</span><p>(EX:Machine Learning,Clocud Computing,Web Development)</p></label>
-                        <input id="domain" type="text" name="domain" placeholder="Project domain" required/>
+                        <label for="domain">Project Domain<span>*</span>(Eg: ML,Clocud Computing,Web Development)</label>
+                        <input id="domain" type="text" name="project_domain" placeholder="Project domain" required/>
                     </div>
                 </div>
                 <div class="item">
                   <label for="description">Project Description<span>*</span></label>
-                  <textarea id="description" type="text" name=descriptionn" placeholder="Project description" required></textarea>
+                  <textarea id="description" type="text" name="project_description" placeholder="Project description" required></textarea>
                 </div>
                 <div class="item">
                   <div class="name-item">
                     <div>
                       <label for="teammembers">Number Of Team Members<span>*</span></label>
-                      <input type="number" name="teammembers" placeholder="No of Members" />
+                      <input type="number" name="no_of_members" placeholder="No of Members" />
                     </div>
                   </div>
                 </div>  
@@ -59,21 +61,21 @@
                         <div class="item">
                         <label for="name">Name<span>*</span></label>
                         <div class="name-item">
-                        <input id="name" type="text" name="name" placeholder="First" required/>
-                        <input id="name" type="text" name="name" placeholder="Last" required/>
+                        <input id="name" type="text" name="first_name" placeholder="First" required/>
+                        <input id="name" type="text" name="last_name" placeholder="Last" required/>
                         </div>
                         </div>
                         <div class="item">
                         <label for="regno">Register Number<span>*</span></label>
-                        <input id="regno" type="number" name="regno" placeholder="Register Number" required/>
+                        <input id="regno" type="number" name="reg_no_1" placeholder="Register Number" required/>
                         </div>
                         <div class="item">
                         <label for="email">Email<span>*</span></label>
-                        <input id="email" type="email" name="text" placeholder="Email Id" required/>
+                        <input id="email" type="email" name="student_1_email" placeholder="Email Id" required/>
                         </div>
                         <div class="item">
                         <label for="phno">Phone Number<span>*</span></label>
-                        <input id="phno" type="number" name="phno" placeholder="Phone Number" required />
+                        <input id="phno" type="number" name="student_1_no" placeholder="Phone Number" required />
                         </div>
                     </fieldset>
                 </div>
@@ -83,28 +85,28 @@
                         <div class="item">
                         <label for="name">Name</label>
                         <div class="name-item">
-                        <input id="name" type="text" name="name" placeholder="First" required/>
-                        <input id="name" type="text" name="name" placeholder="Last" required/>
+                        <input id="name" type="text" name="first_name_2" placeholder="First" />
+                        <input id="name" type="text" name="last_name_2" placeholder="Last" />
                         </div>
                         </div>
                         <div class="item">
                         <label for="regno">Register Number</label>
-                        <input id="regno" type="number" name="regno" placeholder="Register Number" required/>
+                        <input id="regno" type="number" name="reg_no_2" placeholder="Register Number" />
                         </div>
                         <div class="item">
                         <label for="email">Email</label>
-                        <input id="email" type="email" name="text" placeholder="Email Id" required/>
+                        <input id="email" type="email" name="student_2_email" placeholder="Email Id" />
                         </div>
                         <div class="item">
                         <label for="phno">Phone Number</label>
-                        <input id="phno" type="number" name="phno" placeholder="Phone Number" required />
+                        <input id="phno" type="number" name="student_2_no" placeholder="Phone Number"  />
                         </div>
                     </fieldset>
                 </div>
             </div>
                     <fieldset>
                     <div class="btn-block">
-                    <button onclick="myFunction()" type="submit">submit<a href="../Home/home.html"></a></button>
+                    <button onclick="myFunction()" type="submit">Submit</button>
                     </div>
                 </fieldset>
             </form>

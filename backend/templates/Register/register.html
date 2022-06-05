@@ -12,14 +12,14 @@
 <body>
     <header>
         <nav class="head" >
-            <a href="../Home/home.html">
+            <a href="{% url 'home' %}">
                 <!-- <img src="Image/headimg.jpeg" class="img"> -->
                 
             </a>
             <ul>
-                <li><a href="../Register/register.html">Register</a></li>
-                <li><a href="../Login/login.html">Login</a></li>
-                <li><a href="../Home/home.html">Home</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
         </nav>
 </header>

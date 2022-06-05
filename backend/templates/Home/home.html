@@ -1,26 +1,29 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" text="text/css" href="./home.css">
+    <!-- <link rel="stylesheet" text="text/css" href="./home.css"> -->
+    <link rel="stylesheet" text="text/css" href="{% static 'css/home.css' %}">
     <title>Home</title>
 </head>
 <body>
     <header>
         <nav class="head" >
             <a href="../Home/home.html">
-                <img src="Image/headimg.jpeg" class="img">
+                <img src="{% static 'img/headimg.jpeg' %}" class="img">
             </a>
             <ul>
-                <li><a href="../Register/register.html">Register</a></li>
-                <li><a href="../Login/login.html">Login</a></li>
-                <li><a href="../Home/home.html">Home</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
         </nav>
         <video autoplay muted loop id="myVideo">
-            <source src="Image/SIST.mp4" type="video/mp4">
+            <source src="{% static 'img/SIST.mp4' %}" type="video/mp4">
         </video>
     </header>
 </body>

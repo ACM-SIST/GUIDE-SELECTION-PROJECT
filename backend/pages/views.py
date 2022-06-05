@@ -42,6 +42,8 @@ def register(request):
 
 
 def login(request):
+    if request.method == 'POST':
+        return redirect('project-details')
     return render(request, 'Login/login.html')
 
 
@@ -66,6 +68,10 @@ def project_details(request):
             student_2_email = request.POST['student_1_email']
             student_2_no = request.POST['student_1_no']
 
-        return redirect('submitted')
+        return redirect('select-guide')
     else:
         return render(request, 'project_form/project_form.html')
+
+
+def select_guide(request):
+    return render(request, 'GuideList/guide.html')

@@ -25,21 +25,22 @@
 </header>
 <div class="center">
     <h1>Create Account</h1>
-    <form method="post">
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
         <div class="txt_field">
-            <input type="text" required>
+            <input type="text" name="name" required>
             <label>Enter Name</label>
         </div>
         <div class="txt_field">
-            <input type="text" required>
+            <input type="text" name="email" required>
             <label>Enter Email id</label>
         </div>
         <div class="txt_field">
-            <input type="password" required>
+            <input type="password" name="password" required>
             <label>Enter Password</label>
         </div>
         <div class="txt_field">
-            <input type="password" required>
+            <input type="password" name="password1" required>
             <label>Confirm Password <span>*</span></label>
         </div>
         <input type="submit" value="Register">

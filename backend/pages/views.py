@@ -40,13 +40,13 @@ def submitted(request):
 
 def register(request):
     if request.method == 'POST':
-        user_name = request.POST['Username']
-        email = request.POST['Email']
-        password = request.POST['Password']
-        ConfirmPassword = request.POST['Password1']
+        # user_name = request.POST['Username']
+        email = request.POST['email']
+        password = request.POST['password']
+        ConfirmPassword = request.POST['password1']
 
         if password == ConfirmPassword:
-            if User.objects.filter(username=user_name).exists():
+            if User.objects.filter(username=email).exists():
                 messages.info(request, 'Username Taken')
                 return redirect('register')
             elif User.objects.filter(email=email).exists():
@@ -54,20 +54,20 @@ def register(request):
                 return redirect('register')
             else:
                 user = User.objects.create_user(
-                    username=user_name, email=email, password=password)
+                    username=email, email=email, password=password)
                 user.save()
                 return redirect('login')
         else:
             messages.info(request, 'Password not matching')
             return redirect('register')
     else:
-        return render(request, 'register.html')
+        return render(request, 'Register/register.html')
 
 
 def login(request):
     if request.method == 'POST':
-        user_name = request.POST['Username']
-        password = request.POST['Password']
+        user_name = request.POST['email']
+        password = request.POST['password']
 
         user = auth.authenticate(username=user_name, password=password)
         if user is not None:
@@ -77,14 +77,16 @@ def login(request):
             messages.info(request, 'Invalid Credentials')
             return redirect('login')
     else:
-        return render(request, 'login.html')
+        return render(request, 'Login/login.html')
+
 
 def logout(request):
     auth.logout(request)
     return redirect('login')
 
+
 def form(request):
-    return render(request,'form.html')
+    return render(request, 'project_form/project_form.html')
 
 
 def project_details(request):

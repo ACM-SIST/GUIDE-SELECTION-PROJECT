@@ -24,13 +24,14 @@
     </header>
     <div class="center">
         <h1>Login</h1>
-        <form method="post">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
             <div class="txt_field">
-                <input type="text" required>
+                <input type="text" name="email" required>
                 <label>Email</label>
             </div>
             <div class="txt_field">
-                <input type="password" required>
+                <input type="password" name="password" required>
                 <label>Password</label>
             </div>
             <div class="pass">Don't have an account! <a href="../Register/register.html">Create Account</a></div>

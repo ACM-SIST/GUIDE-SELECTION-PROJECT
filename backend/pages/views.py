@@ -1,6 +1,7 @@
 
 from django.shortcuts import redirect, render
-
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
 from pages.models import Guide
 
 # Create your views here.
@@ -38,13 +39,52 @@ def submitted(request):
 
 
 def register(request):
-    return render(request, 'Register/register.html')
+    if request.method == 'POST':
+        user_name = request.POST['Username']
+        email = request.POST['Email']
+        password = request.POST['Password']
+        ConfirmPassword = request.POST['Password1']
+
+        if password == ConfirmPassword:
+            if User.objects.filter(username=user_name).exists():
+                messages.info(request, 'Username Taken')
+                return redirect('register')
+            elif User.objects.filter(email=email).exists():
+                messages.info(request, 'Email Taken')
+                return redirect('register')
+            else:
+                user = User.objects.create_user(
+                    username=user_name, email=email, password=password)
+                user.save()
+                return redirect('login')
+        else:
+            messages.info(request, 'Password not matching')
+            return redirect('register')
+    else:
+        return render(request, 'register.html')
 
 
 def login(request):
     if request.method == 'POST':
-        return redirect('project-details')
-    return render(request, 'Login/login.html')
+        user_name = request.POST['Username']
+        password = request.POST['Password']
+
+        user = auth.authenticate(username=user_name, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('form')
+        else:
+            messages.info(request, 'Invalid Credentials')
+            return redirect('login')
+    else:
+        return render(request, 'login.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
+
+def form(request):
+    return render(request,'form.html')
 
 
 def project_details(request):

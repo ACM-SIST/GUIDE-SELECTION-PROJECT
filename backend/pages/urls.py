@@ -24,6 +24,8 @@ urlpatterns = [
     path('submitted', views.submitted, name='submitted'),
     path('register', views.register, name='register'),
     path('login', views.login, name='login'),
+    path('logout', views.logout, name= 'logout'),
+    path('form', views.form, name='form'),
     path('project-details', views.project_details, name='project-details'),
     path('select-guide', views.select_guide, name='select-guide'),
 ]

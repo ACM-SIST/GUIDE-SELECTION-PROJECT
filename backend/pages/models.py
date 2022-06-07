@@ -1,4 +1,5 @@
 
+from .choices import no_members_choices
 from django.db import models
 from cloudinary.models import CloudinaryField
 
@@ -18,3 +19,31 @@ class Guide(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Team(models.Model):
+    teamID = models.CharField(max_length=100)
+    project_name = models.CharField(max_length=100)
+    project_domain = models.CharField(max_length=100)
+    project_description = models.TextField()
+    no_of_members = models.CharField(
+        max_length=10, choices=no_members_choices, default='1')
+
+    reg_no_1 = models.BigIntegerField()
+
+    student_1_name = models.CharField(max_length=100)
+
+    student_1_email = models.CharField(max_length=100)
+
+    student_1_no = models.BigIntegerField()
+
+    reg_no_2 = models.BigIntegerField(blank=True, null=True)
+
+    student_2_name = models.CharField(max_length=100, blank=True, null=True)
+
+    student_2_email = models.CharField(max_length=100, blank=True, null=True)
+
+    student_2_no = models.BigIntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return self.project_name + ' ' + self.student_1_name + ' Added Sucessfully.'

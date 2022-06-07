@@ -25,7 +25,7 @@ body {
     z-index: -1;
 }
 
-.head {
+#head {
     display: flex;
     color: white;
     justify-content: space-between;
@@ -65,7 +65,6 @@ a {
 li a:hover {
     color: grey;
 }
-<<<<<<< HEAD
 @media (max-width: 768px){
     .head{
     display: flex;
@@ -83,7 +82,6 @@ li a:hover {
         
     }
 }
-=======
 
 @media screen and (max-width: 600px) {
     body {
@@ -110,4 +108,3 @@ li a:hover {
         background: cover;
     }
 } */
->>>>>>> 142190b73799b324ea08ca848658ed7fd76d0a8a

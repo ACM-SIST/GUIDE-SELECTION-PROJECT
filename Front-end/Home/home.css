@@ -25,7 +25,7 @@ body {
     z-index: -1;
 }
 
-.head {
+#head {
     display: flex;
     color: white;
     justify-content: space-between;
@@ -82,3 +82,29 @@ li a:hover {
         
     }*/
 }
+
+@media screen and (max-width: 600px) {
+    body {
+        background: fixed;
+        color: white;
+    }
+
+    header li:not(:first-child){
+        float: right;
+        display: block; 
+        /* flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1px; */
+    }
+
+    li {
+        padding: 10rem;
+    }    
+}
+
+/* @media screen and (max-height: 300px) {
+    body {
+        background: cover;
+    }
+} */

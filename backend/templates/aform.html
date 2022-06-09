@@ -13,7 +13,7 @@
             <form action="{% url 'guides' %}" method="POST" enctype="multipart/form-data" >
                 {% csrf_token %}
               <div class="banner">
-                <h1>Staff Details (Department of CSE)</h1>
+                <h1>Faculty Profile (Department of CSE)</h1>
 
               </div>
               <h1></h1>
@@ -21,7 +21,7 @@
             <div class="staffs">
             <div class="team" id="staff">
                 <fieldset class="staff-form" >
-                    <legend>Staff Details</legend>
+                    <legend>Faculty Details</legend>
                     <div class="item">
                         <label for="name" style="color: black ;" >Name<span>*</span></label>
                     <div class="name-item">
@@ -30,17 +30,21 @@
                     </div>
                     </div>
                     <div class="item">
+                        <label for="domain" style="color: black ;" > Employee ID<span>*</span></label>
+                        <input id="domain" type="text" name="domain_1" placeholder="Enter Your Employee ID" required />
+                    </div>
+                    <div class="item">
                         <label for="domain" style="color: black ;" > Designation<span>*</span></label>
                         <input id="domain" type="text" name="domain_1" placeholder="Enter Your Designation" required />
                     </div>
                     <div class="item">
-                        <label for="domain" style="color: black ;" > Area of Specalization<span>*</span></label>
-                        <input id="domain" type="text" name="domain_1" placeholder="Enter Your Specialized Domain" required />
+                        <label for="domain" style="color: black ;" > Area of Specialisation<span>*</span></label>
+                        <input id="domain" type="text" name="domain_1" placeholder="Enter Your Specialised Domain" required />
                         <div class="item">
-                        <input id="domain" type="text" name="domain_2" placeholder="Enter Your Specialized Domain" />
+                        <input id="domain" type="text" name="domain_2" placeholder="Enter Your Specialised Domain" />
                         </div>
                         <div class="item">
-                        <input id="domain" type="text" name="domain_3" placeholder="Enter Your Specialized Domain" />
+                        <input id="domain" type="text" name="domain_3" placeholder="Enter Your Specialised Domain" />
                         </div>
                     </div>
                     <div class="item">
@@ -48,7 +52,7 @@
                         <input id="email" type="email" name="email" placeholder="Enter Your Email Id" required/>
                     </div>
                     <div class="item">
-                        <label for="experience" style="color: black ;" >Year of Expertise<span>*</span></label>
+                        <label for="experience" style="color: black ;" >Years of Experience<span>*</span></label>
                         <input id="experience" type="number" name="experience" placeholder="Enter Your Years of Experience " required />
                     </div>
                     <div class="item">

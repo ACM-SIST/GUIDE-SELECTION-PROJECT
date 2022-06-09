@@ -1,4 +1,5 @@
 
+from tkinter import N
 from .choices import no_members_choices
 from django.db import models
 from cloudinary.models import CloudinaryField
@@ -7,10 +8,12 @@ from cloudinary.models import CloudinaryField
 
 
 class Guide(models.Model):
+    # s_no = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
+    designation = models.CharField(max_length=100, blank=True, null=True)
     domain_1 = models.CharField(max_length=200)
-    domain_2 = models.CharField(max_length=200)
-    domain_3 = models.CharField(max_length=200)
+    domain_2 = models.CharField(max_length=200, blank=True)
+    domain_3 = models.CharField(max_length=200, blank=True)
     email = models.CharField(max_length=200)
     experience = models.IntegerField()
     # myImage = models.ImageField(upload_to='photos/%Y/%m/%d')

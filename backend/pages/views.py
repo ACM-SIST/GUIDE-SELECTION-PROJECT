@@ -1,4 +1,5 @@
 
+
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
@@ -24,10 +25,10 @@ def guides(request):
 
         name = first_name + ' ' + last_name
 
-        guide = Guide(name=name, domain_1=domain_1, domain_2=domain_2,
-                      domain_3=domain_3, email=email, experience=experience, myImage=myImage)
+        # guide = Guide(name=name, domain_1=domain_1, domain_2=domain_2,
+        #               domain_3=domain_3, email=email, experience=experience, myImage=myImage)
 
-        guide.save()
+        # guide.save()
         return render(request, 'adminregister/submitted.html')
     else:
 
@@ -55,6 +56,7 @@ def register(request):
             else:
                 user = User.objects.create_user(
                     username=email, email=email, password=password)
+                # opt verify under if cond.
                 user.save()
                 return redirect('login')
         else:
@@ -72,7 +74,7 @@ def login(request):
         user = auth.authenticate(username=user_name, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('form')
+            return redirect('project-details')
         else:
             messages.info(request, 'Invalid Credentials')
             return redirect('login')
@@ -83,10 +85,6 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
-
-
-def form(request):
-    return render(request, 'project_form/project_form.html')
 
 
 def project_details(request):
@@ -116,4 +114,22 @@ def project_details(request):
 
 
 def select_guide(request):
-    return render(request, 'GuideList/guide.html')
+
+    if request.method == 'POST':
+
+        return redirect('guide-selected')
+
+    guides = Guide.objects.order_by('id')
+
+    # print(type(guides.id))
+
+    context = {
+        'guides': guides,
+    }
+
+    return render(request, 'GuideList/guide.html', context)
+
+
+def guide_selected(request, id):
+
+    return render(request, 'submitted.html')

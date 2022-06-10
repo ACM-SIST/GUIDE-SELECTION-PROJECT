@@ -79,7 +79,7 @@ ul {
 html, body {
       min-height: 100%;
       }
-      body, div, form, input, label { 
+      body, div, form, input, label, textarea { 
       padding: 0;
       margin: 0;
       outline: none;
@@ -125,7 +125,8 @@ html, body {
       box-shadow: 0 0 15px 0  #831238; 
       }
     .banner {
-      background-color: lightcyan;
+      /* background-color: lightcyan; */
+      background-color: #831238;
       position: relative;
       height: 320px;
       background-size: cover;
@@ -145,15 +146,23 @@ html, body {
       margin-bottom: 10px;
       border: 1px solid #ccc;
       border-radius: 3px;
+      background-color: lightgrey;
+      color: rgb(1, 1, 1);
       }
       input {
       width: calc(100% - 10px);
       padding: 5px;
       }
+
+      textarea {
+        background-color: lightgrey;
+        color: black;
+      }
       .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
       color:#831238;
       }
-      .item input:hover {
+
+      .item input:hover, .item textarea:hover {
       border: 1px solid transparent;
       box-shadow: 0 0 6px 0 #831238;
       color:#831238;
@@ -164,6 +173,10 @@ html, body {
       }
       .item span {
       color: red;
+      }
+
+      .item-guide {
+        text-align: left;
       }
       .question span {
       margin-left: 30px;
@@ -181,6 +194,9 @@ html, body {
       font-size: 16px;
       color: #fff;
       cursor: pointer;
+      }
+      .guide {
+        margin-bottom: 2rem;
       }
       button:hover {
       background: lightslategray;

@@ -28,5 +28,5 @@ urlpatterns = [
     # path('form', views.form, name='form'),
     path('project-details', views.project_details, name='project-details'),
     path('select-guide', views.select_guide, name='select-guide'),
-    path('guide-selected/<int:pk>', views.guide_selected, name='guide-selected'),
+    path('guide-selected/<int:id>', views.guide_selected, name='guide-selected'),
 ]

@@ -76,6 +76,19 @@ button:hover {
     background-color: rgb(83, 173, 83);
 }
 
+
+.btn {
+    margin-top: 90px;
+    color: white;
+    background-color: #831238;
+    border:rgb(83, 173, 83);
+    border-radius: 3px;
+}
+
+.btn:hover{
+    background-color: rgb(83, 173, 83);
+}
+
 .vac {
     top: 10rem ;
     align-self:center;

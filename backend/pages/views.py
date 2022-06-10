@@ -119,11 +119,10 @@ def project_details(request):
 
 def select_guide(request):
 
+    guides = Guide.objects.order_by('id')
     if request.method == 'POST':
 
         return redirect('guide-selected')
-
-    guides = Guide.objects.order_by('id')
 
     # print(type(guides.id))
 
@@ -136,7 +135,13 @@ def select_guide(request):
 
 def guide_selected(request, id):
 
-    return render(request, 'submitted.html')
+    guides = Guide.objects.filter(id=id)
+
+    context = {
+        'guides': guides,
+    }
+
+    return render(request, 'submitted.html', context)
 
 
 def export_team_csv(request):

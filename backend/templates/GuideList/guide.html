@@ -62,7 +62,12 @@
                                 </ul>
                             </td>
                             <td align="" class="vac">{{ guide.vacancy }}</td>
-                            <td align="center"><button>Select</button></td>
+                            <td align="center"> 
+                                
+                            <form action="{% url 'guide-selected' guide.id %}" method="POST" >
+                                {% csrf_token %}
+                                <button>Select</button>
+                            </form> </td>
                         </tr>
                     {% else %}
                     <tr>
@@ -86,7 +91,12 @@
                         </ul>
                       </td>
                       <td align="" class="vac">{{ guide.vacancy }}</td>
-                      <td align="center"><button>Select</button></td>
+                      <td align="center">
+                        <form action="{% url 'guide-selected' guide.id %}" method="POST" >
+                            {% csrf_token %}
+                            <button>Select</button>
+                        </form>
+                      </td>
                   </tr>
                   {% endif %}
             </tbody>

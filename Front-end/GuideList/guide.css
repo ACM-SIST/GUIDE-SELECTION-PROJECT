@@ -4,6 +4,7 @@ body {
     font-family: cursive;
     height: 100vh;
     background-blend-mode: darken;
+    overflow-x: hidden;
 }
 
 .head {
@@ -88,7 +89,7 @@ button:hover {
 .footer {
     background-color: #831238;
     color: white;
-    padding: 30px;
+    padding: 10px;
 }
 
 footer p {
@@ -103,4 +104,12 @@ footer i{
 
 .icon {
     padding-left: 3rem;
+}
+
+.footer_a {
+    padding-left: 700px;
+}
+
+footer a:focus {
+    color: white;
 }

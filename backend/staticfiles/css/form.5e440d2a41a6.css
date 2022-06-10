@@ -79,7 +79,7 @@ ul {
 html, body {
       min-height: 100%;
       }
-      body, div, form, input, label, textarea { 
+      body, div, form, input, label { 
       padding: 0;
       margin: 0;
       outline: none;

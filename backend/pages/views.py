@@ -1,5 +1,9 @@
 
+import csv
 
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
@@ -133,3 +137,18 @@ def select_guide(request):
 def guide_selected(request, id):
 
     return render(request, 'submitted.html')
+
+
+def export_team_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="users.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Username', 'First name', 'Last name', 'Email address'])
+
+    users = User.objects.all().values_list(
+        'username', 'first_name', 'last_name', 'email')
+    for user in users:
+        writer.writerow(user)
+
+    return response

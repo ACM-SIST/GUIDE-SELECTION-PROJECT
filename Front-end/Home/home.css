@@ -3,17 +3,18 @@ body {
     padding: 0;
     font-family: cursive;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-blend-mode: darken;
+    background: cover;
 }
 
 #myVideo {
-    position: fixed;
+    position: absolute;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    z-index: 999;
+    /* z-index: 999; */
     top: 54px;
     background: cover;
     width: 100vw;
@@ -65,6 +66,11 @@ a {
 li a:hover {
     color: grey;
 }
+
+.footer {
+    background-color: #831238;
+}
+
 @media (max-width: 768px){
     .head{
     display: flex;

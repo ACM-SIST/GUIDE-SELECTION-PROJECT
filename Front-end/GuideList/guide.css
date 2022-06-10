@@ -84,3 +84,23 @@ button:hover {
         width: 20px;
     }
 } */
+
+.footer {
+    background-color: #831238;
+    color: white;
+    padding: 30px;
+}
+
+footer p {
+    text-align: center;
+}
+
+footer i{
+    align-items: center;
+    font-size: 2rem;
+    padding-left: 1rem;
+}
+
+.icon {
+    padding-left: 3rem;
+}

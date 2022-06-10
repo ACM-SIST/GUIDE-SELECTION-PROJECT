@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'pages',
     'cloudinary',
     'cloudinary_storage',
+    'import_export',
 ]
 
 MIDDLEWARE = [

@@ -1,7 +1,9 @@
 
+
 from django.contrib import admin
 from pages.models import Team, Guide
-from import_export.admin import ExportActionMixin
+from import_export.admin import ImportExportModelAdmin, ExportActionMixin
+from import_export import resources
 
 
 # Register your models here.
@@ -12,12 +14,18 @@ class GuideAdmin(ExportActionMixin, admin.ModelAdmin):
                     'email', 'experience', 'vacancy')
 
 
-class TeamAdmin(ExportActionMixin, admin.ModelAdmin):
+class TeamResource(resources.ModelResource):
+    class Meta:
+        model = Team
+        fields = ('TeamID', 'project_name', 'reg_no_1',
+                  'student_1_name', 'reg_no_2', 'student_2_name')
+
+
+class TeamAdmin(ImportExportModelAdmin):
     list_display = ('project_name', 'no_of_members', 'reg_no_1',
                     'student_1_name', 'reg_no_2', 'student_2_name')
-    # list_display = ('project_name', 'project_domain', 'project_description', 'no_of_members', 'reg_no_1', 'student_1_name',
-    #                 'student_1_email', 'student_1_no',
-    #                 'reg_no_2', 'student_2_name', 'student_2_email', 'student_2_no')
+
+    resource_class = TeamResource
 
 
 admin.site.register(Guide, GuideAdmin)

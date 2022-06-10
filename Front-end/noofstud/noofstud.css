@@ -16,6 +16,12 @@ body {
     justify-content: space-between;
 }
 
+h1 {
+    text-align: center;
+    font-size: 1.7em;
+    padding-top: 50px;
+}
+
 header{
     background: #831238;
     color: white;
@@ -53,20 +59,29 @@ li a:hover {
 
 .text-center {
     text-align: center;
-    padding-top: 10rem;
+    align-items:center;
+    margin-left: 4rem;
+    margin-top: 5rem;
+    padding-left: -10rem;
+    padding-right: 0rem;
+    
 }
 
 button {
     background-color: #831238; /* Green */
     border: none;
     color: white;
-    padding: 10px 28px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 28px;
+    margin-top: -90px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 30px;
     border-radius: 10px;
     font-family: cursive !important;
+    width: 100px;
 }
 
 button:hover {
@@ -92,21 +107,28 @@ form .txt_field{
     align-items: center;
 }
 
-
-/*     ****************************************** */
 .center{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -45%);
-    width: 600px;
-    height: 600px;
+    width: 400px;
+    height: 350px;
     background: rgba(255, 255, 255, 0.695); 
     border-radius: 10px;
     padding-bottom: 2rem;
     /* box-shadow: 5px 5px 25px rgba(0,0,0,0.5); */
 }
 
+
+.student-form {
+    display:flex;
+    flex-direction: row;
+}
+
+/* #btn-stud{
+    padding-left: 3rem;
+} */
 
 
 

@@ -39,10 +39,10 @@
               </thead>
                 <tbody>
                     {% for guide in guides %}
-                    {% if guide.id|divisibleby:"2" %}
+                    {% if guide.serial_no|divisibleby:"2" %}
                               <tr></tr>
                         <tr>
-                            <td align="" class="vac">{{ guide.id }}</td>
+                            <td align="" class="vac">{{ guide.serial_no }}</td>
                             <td align="center">
                                 <img src="{{ guide.myImage.url }}" height="150px" width="150px"> <br>
                                 {{ guide.name }}<br>{{ guide.designation }}<br>{{ guide.email }}</td>
@@ -64,17 +64,17 @@
                             <td align="" class="vac">{{ guide.vacancy }}</td>
                             <td align="center"> 
                                 
-                            <form action="{% url 'guide-selected' guide.id %}" method="POST" >
+                            <form action="{% url 'guide-selected' guide.serial_no %}" method="POST" >
                                 {% csrf_token %}
                                 <button>Select</button>
                             </form> </td>
                         </tr>
                     {% else %}
                     <tr>
-                        <td align="" class="vac">{{ guide.id }}</td>
+                        <td align="" class="vac">{{ guide.serial_no }}</td>
                         <td align="center">
                             <img src="{{ guide.myImage.url }}" height="150px" width="150px"> <br>
-                            {{ guide.name }}<br>{{ guide.designation }}<br>Dean (School of Computing)<br>{{ guide.email }}</td>
+                            {{ guide.name }}<br>{{ guide.designation }}<br>{{ guide.email }}</td>
                         <td>
                         <ul>
                             <li>{{ guide.domain_1 }}</li>
@@ -92,7 +92,7 @@
                       </td>
                       <td align="" class="vac">{{ guide.vacancy }}</td>
                       <td align="center">
-                        <form action="{% url 'guide-selected' guide.id %}" method="POST" >
+                        <form action="{% url 'guide-selected' guide.serial_no %}" method="POST" >
                             {% csrf_token %}
                             <button>Select</button>
                         </form>

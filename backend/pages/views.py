@@ -1,6 +1,10 @@
 
 import csv
-
+import re
+import string 
+from random import choice
+from django.core.mail import send_mail
+from guide_project.settings import EMAIL_HOST_USER
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.http import HttpResponse
@@ -160,3 +164,24 @@ def export_team_csv(request):
         writer.writerow(user)
 
     return response
+
+
+def verify(request):
+    if request.method == 'POST':
+        email = request.POST['mail']
+        verify.user_email = email
+        chars = string.digits
+        random = ''.join(choice(chars) for i in range(4))
+        random_otp = int(random)
+        verify.user_otp = random_otp
+        send_mail(
+            'RANDOM OTP', 
+            'The OTP is: '+random,
+            EMAIL_HOST_USER,
+            [verify.user_email, ],
+            fail_silently=False,
+        )
+        return render(request,'result.html',{'e': verify.user_otp})
+
+    else:
+        return render(request,'mail.html')

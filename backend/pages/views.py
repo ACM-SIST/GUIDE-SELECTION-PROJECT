@@ -20,6 +20,9 @@ def guides(request):
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
+        emp_id = request.POST['emp_id']
+        serial_no = request.POST['serial_no']
+        designation = request.POST['designation']
         domain_1 = request.POST['domain_1']
         domain_2 = request.POST['domain_2']
         domain_3 = request.POST['domain_3']

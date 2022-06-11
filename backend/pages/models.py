@@ -10,6 +10,8 @@ from cloudinary.models import CloudinaryField
 class Guide(models.Model):
     # s_no = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
+    emp_id = models.IntegerField(max_length=6)
+    serial_no = models.IntegerField(max_length=3)
     designation = models.CharField(max_length=100, blank=True, null=True)
     domain_1 = models.CharField(max_length=200)
     domain_2 = models.CharField(max_length=200, blank=True)

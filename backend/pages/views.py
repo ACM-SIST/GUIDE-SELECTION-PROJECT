@@ -171,23 +171,64 @@ def guide_selected(request, id):
 
     return response'''
 
-
-def verify(request):
+def mail_single(request):
     if request.method == 'POST':
         email = request.POST['mail']
-        verify.user_email = email
+        mail_single.user_email = email
         chars = string.digits
         random = ''.join(choice(chars) for i in range(4))
         random_otp = int(random)
-        verify.user_otp = random_otp
-        send_mail(
-            'RANDOM OTP',
-            'The OTP is: '+random,
-            EMAIL_HOST_USER,
-            [verify.user_email, ],
-            fail_silently=False,
-        )
-        return render(request, 'result.html', {'e': verify.user_otp})
+        mail_single.user_otp = random_otp
+        send_mail('RANDOM OTP', 'The OTP is: '+random,EMAIL_HOST_USER,[mail_single.user_email, ],fail_silently=False,)
+        return render(request,'verify.html',{'o': mail_single.user_otp})
+        #return render(request,'verify.html')
+    else:
+        return render(request,'mail.html')
 
+def mail_two(request):
+    if request.method == 'POST':
+        email = request.POST['mail']
+        email1 = request.POST.get('maill', False);
+        mail_two.user_email = email
+        mail_two.user_email1 = email1
+        chars = string.digits
+        random = ''.join(choice(chars) for i in range(4))
+        random_otp = int(random)
+        mail_two.user_otp = random_otp
+        otp = str(random)
+        mail_two.user_otp1 = otp[:2]
+        mail_two.user_otp2 = otp[2:]
+        m=[mail_two.user_otp1,mail_two.user_otp2]
+        send_mail('RANDOM OTP', 'The OTP is: '+ mail_two.user_otp1,EMAIL_HOST_USER,[mail_two.user_email, ],fail_silently=False,)
+        send_mail('RANDOM OTP', 'The OTP is: '+ mail_two.user_otp2,EMAIL_HOST_USER,[mail_two.user_email1, ],fail_silently=False,)
+        return render(request,'verify1.html',{'e': m})
+    else:
+        return render(request, 'mail1.html')
+
+def verify_single(request):
+    if request.method == 'POST':
+        opt = request.POST['otp']
+        user_otp = int(opt)
+        if mail_single.user_otp  == user_otp:
+            send_mail('THANK YOU','Your Email is verified ',EMAIL_HOST_USER,[mail_single.user_email],fail_silently=False,)
+            return redirect('main')
+        else:
+            return render(request, 'mail.html')
     else:
         return render(request, 'mail.html')
+
+def verify_two(request):
+    if request.method == 'POST':
+        otp = request.POST['otp']
+        otp1 = request.POST.get('otp1',False)
+        user_otp = int(otp)
+        user_otp1 = int(otp1) 
+        if int(mail_two.user_otp1) == user_otp and int(mail_two.user_otp2) == user_otp1:
+            send_mail('THANK YOU','Your Email is verified ',EMAIL_HOST_USER,[mail_two.user_email],fail_silently=False,)
+            send_mail('THANK YOU','Your Email is verified ',EMAIL_HOST_USER,[mail_two.user_email1],fail_silently=False,)
+            return redirect('main')
+        else:
+            return render(request, 'mail1.html')
+    else:
+        return render(request, 'mail1.html')
+

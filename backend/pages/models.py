@@ -10,7 +10,7 @@ from cloudinary.models import CloudinaryField
 class Guide(models.Model):
     name = models.CharField(max_length=100)
     emp_id = models.IntegerField(default=1)
-    serial_no = models.IntegerField(primary_key=True,)
+    serial_no = models.IntegerField(primary_key=True)
     designation = models.CharField(max_length=100, blank=True, null=True)
     domain_1 = models.CharField(max_length=200)
     domain_2 = models.CharField(max_length=200, blank=True)
@@ -20,7 +20,7 @@ class Guide(models.Model):
     # myImage = models.ImageField(upload_to='photos/%Y/%m/%d')
     myImage = CloudinaryField('image')
     vacancy = models.IntegerField(default=7)
-
+    
     def __str__(self):
         return self.name
 

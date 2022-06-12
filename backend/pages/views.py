@@ -35,8 +35,15 @@ def guides(request):
 
         name = first_name + ' ' + last_name
 
+        serial_no = int(serial_no)
+
+        if serial_no >= 1 and serial_no <= 3:
+            vacancy = 7
+        elif serial_no >= 4 and serial_no <= 6:
+            vacancy = 2
+
         guide = Guide(serial_no=serial_no, emp_id=emp_id, designation=designation, name=name, domain_1=domain_1, domain_2=domain_2,
-                      domain_3=domain_3, email=email, experience=experience, myImage=myImage)
+                      domain_3=domain_3, email=email, experience=experience, myImage=myImage, vacancy=vacancy)
 
         guide.save()
         return render(request, 'adminregister/submitted.html')
@@ -141,7 +148,7 @@ def select_guide(request):
 
 def guide_selected(request, id):
 
-    guides = Guide.objects.filter(id=id)
+    guides = Guide.objects.filter(serial_no=id)
 
     context = {
         'guides': guides,
@@ -150,7 +157,7 @@ def guide_selected(request, id):
     return render(request, 'submitted.html')
 
 
-def export_team_csv(request):
+'''def export_team_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="users.csv"'
 
@@ -162,7 +169,7 @@ def export_team_csv(request):
     for user in users:
         writer.writerow(user)
 
-    return response
+    return response'''
 
 
 def verify(request):

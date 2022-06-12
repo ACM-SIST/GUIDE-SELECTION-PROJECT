@@ -173,3 +173,10 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+# Email Configuration
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'funnythings012@gmail.com'
+EMAIL_HOST_PASSWORD = 'fzuszbtkhfsnufsr'
+EMAIL_USE_TLS = True

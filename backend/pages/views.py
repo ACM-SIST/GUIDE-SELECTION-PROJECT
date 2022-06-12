@@ -1,6 +1,9 @@
 
 import csv
-
+import string
+from random import choice
+from django.core.mail import send_mail
+from guide_project.settings import EMAIL_HOST_USER
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.http import HttpResponse
@@ -20,6 +23,9 @@ def guides(request):
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
+        emp_id = request.POST['emp_id']
+        serial_no = request.POST['serial_no']
+        designation = request.POST['designation']
         domain_1 = request.POST['domain_1']
         domain_2 = request.POST['domain_2']
         domain_3 = request.POST['domain_3']
@@ -29,10 +35,10 @@ def guides(request):
 
         name = first_name + ' ' + last_name
 
-        # guide = Guide(name=name, domain_1=domain_1, domain_2=domain_2,
-        #               domain_3=domain_3, email=email, experience=experience, myImage=myImage)
+        guide = Guide(serial_no=serial_no, emp_id=emp_id, designation=designation, name=name, domain_1=domain_1, domain_2=domain_2,
+                      domain_3=domain_3, email=email, experience=experience, myImage=myImage)
 
-        # guide.save()
+        guide.save()
         return render(request, 'adminregister/submitted.html')
     else:
 
@@ -119,7 +125,7 @@ def project_details(request):
 
 def select_guide(request):
 
-    guides = Guide.objects.order_by('id')
+    guides = Guide.objects.order_by('serial_no')
     if request.method == 'POST':
 
         return redirect('guide-selected')
@@ -141,7 +147,7 @@ def guide_selected(request, id):
         'guides': guides,
     }
 
-    return render(request, 'submitted.html', context)
+    return render(request, 'submitted.html')
 
 
 def export_team_csv(request):
@@ -157,3 +163,24 @@ def export_team_csv(request):
         writer.writerow(user)
 
     return response
+
+
+def verify(request):
+    if request.method == 'POST':
+        email = request.POST['mail']
+        verify.user_email = email
+        chars = string.digits
+        random = ''.join(choice(chars) for i in range(4))
+        random_otp = int(random)
+        verify.user_otp = random_otp
+        send_mail(
+            'RANDOM OTP',
+            'The OTP is: '+random,
+            EMAIL_HOST_USER,
+            [verify.user_email, ],
+            fail_silently=False,
+        )
+        return render(request, 'result.html', {'e': verify.user_otp})
+
+    else:
+        return render(request, 'mail.html')

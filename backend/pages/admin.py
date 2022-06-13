@@ -10,8 +10,8 @@ from import_export import resources
 class GuideResource(resources.ModelResource):
     class Meta:
         model = Guide
-        fields = ('TeamID', 'project_name', 'reg_no_1',
-                  'student_1_name', 'reg_no_2', 'student_2_name')
+        fields = ('name', 'domain_1', 'domain_2', 'domain_3',
+                  'email', 'experience', 'vacancy')
 
 
 class GuideAdmin(ImportExportModelAdmin, admin.ModelAdmin):

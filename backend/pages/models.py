@@ -20,7 +20,7 @@ class Guide(models.Model):
     # myImage = models.ImageField(upload_to='photos/%Y/%m/%d')
     myImage = CloudinaryField('image')
     vacancy = models.IntegerField(default=7)
-    
+
     def __str__(self):
         return self.name
 

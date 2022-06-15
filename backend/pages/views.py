@@ -1,12 +1,11 @@
 
-import csv
+
 import string
 from random import choice
 from django.core.mail import send_mail
 from guide_project.settings import EMAIL_HOST_USER
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
@@ -30,20 +29,22 @@ def guides(request):
         domain_2 = request.POST['domain_2']
         domain_3 = request.POST['domain_3']
         email = request.POST['email']
-        experience = request.POST['experience']
+        # experience = request.POST['experience']
         myImage = request.FILES['myImage']
 
         name = first_name + ' ' + last_name
 
         serial_no = int(serial_no)
 
-        if serial_no >= 1 and serial_no <= 3:
+        if serial_no >= 1 and serial_no <= 53:
             vacancy = 7
-        elif serial_no >= 4 and serial_no <= 6:
+        elif serial_no >= 54 and serial_no <= 102:
+            vacancy = 4
+        else:
             vacancy = 2
 
         guide = Guide(serial_no=serial_no, emp_id=emp_id, designation=designation, name=name, domain_1=domain_1, domain_2=domain_2,
-                      domain_3=domain_3, email=email, experience=experience, myImage=myImage, vacancy=vacancy)
+                      domain_3=domain_3, email=email, myImage=myImage, vacancy=vacancy)
 
         guide.save()
         return render(request, 'adminregister/submitted.html')

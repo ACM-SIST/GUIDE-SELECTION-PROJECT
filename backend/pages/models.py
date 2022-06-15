@@ -16,7 +16,7 @@ class Guide(models.Model):
     domain_2 = models.CharField(max_length=200, blank=True)
     domain_3 = models.CharField(max_length=200, blank=True)
     email = models.CharField(max_length=200)
-    experience = models.IntegerField()
+    # experience = models.IntegerField()
     # myImage = models.ImageField(upload_to='photos/%Y/%m/%d')
     myImage = CloudinaryField('image')
     vacancy = models.IntegerField(default=7)
@@ -29,7 +29,7 @@ class Team(models.Model):
     teamID = models.CharField(max_length=100)
     project_name = models.CharField(max_length=100)
     project_domain = models.CharField(max_length=100)
-    project_description = models.TextField()
+    project_description = models.TextField(blank=True, null=True)
     no_of_members = models.CharField(
         max_length=10, choices=no_members_choices, default='1')
 

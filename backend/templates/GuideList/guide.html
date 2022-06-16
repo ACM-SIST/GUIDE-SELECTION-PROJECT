@@ -49,16 +49,15 @@
                             <td>
                                 <ul>
                                     <li>{{ guide.domain_1 }}</li>
-                                    {% if domain_2 %}
+                                    {% if guide.domain_2 %}
                                         <li>{{ guide.domain_2 }}</li>
-                                    {% endif %} 
-                                    {% if domain_3 %} 
+                                    {% endif %}
+                                    {% if guide.domain_3 %}
                                         <li>{{ guide.domain_3 }}</li>
                                     {% endif %}
                                     <br>
                                     <br>
                                     <br>
-                                    <li>Years of Experience: {{ guide.experience }}</li>
                                 </ul>
                             </td>
                             <td align="" class="vac">{{ guide.vacancy }}</td>

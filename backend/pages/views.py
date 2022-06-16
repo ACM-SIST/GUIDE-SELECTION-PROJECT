@@ -46,6 +46,8 @@ def guides(request):
         guide = Guide(serial_no=serial_no, emp_id=emp_id, designation=designation, name=name, domain_1=domain_1, domain_2=domain_2,
                       domain_3=domain_3, email=email, myImage=myImage, vacancy=vacancy)
 
+        # if guide.serial_no.
+
         guide.save()
         return render(request, 'adminregister/submitted.html')
     else:

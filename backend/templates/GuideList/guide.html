@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,98 +6,292 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" text="text/css" href="{% static 'css/guide.css' %}">
-    <title>SELECT GUIDE</title>
+    <title>List</title>
 </head>
 <body>
     <header>
         <nav class="head" >
-            <a href="#">
-                <!-- <img src="{% static 'img/headimg.jpeg' %}" class="img" alt="Home" > -->
+            <a href="../Home/home.html">
+                <img src="Image/headimg.jpeg" class="img" alt="Home" >
             </a>
             <ul>
-                <li><a href="{% url 'register' %}">Register</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="../Register/register.html">Register</a></li>
+                <li><a href="../Login/login.html">Login</a></li>
+                <li><a href="../Home/home.html">Home</a></li>
             </ul>
         </nav>
     </header>
     <h1 class="select">Select your Guide</h1>
-    <table border="1" cellspacing="0" class="content-table" >
-        <div class="row col-md-6 table-responsive" style="position: relative; float: center; width: 100%; margin-top: 0; margin-left: 10px;">
-        
-        <table id="tblData" class="table table-bordered table-striped table-hover" style="margin-top:10px; ">
-            <thead>
-            <tr>
-                <th class="text-center">Sr. No.</th>
-                <th class="text-center">Supervisor's Name</th>
-                <th class="text-center">Specialization</th>
-                <th class="text-center">Guideship Vacancy</th>
-                <th class="text-center">Select</th>
-            </tr>
-              </thead>
+    <div class="table-responsive-xxl" >
+        <table border="1" cellspacing="0" class="content-table" >
+            <div class="row" style="position: relative; float: center; width: 100%; margin-top: 0; margin-left: 10px;">
+            <table id="tblData" class="table table-bordered table-striped table-hover" style="margin-top:10px; ">
+                <thead>
+                <tr>
+                    <th class="text-center">Sr. No.</th>
+                    <th class="text-center">Supervisor's Name</th>
+                    <th class="text-center">Specialization</th>
+                    <th class="text-center">Guideship Vacancy</th>
+                    <th class="text-center">Select</th>
+                </tr>
+                </thead>
                 <tbody>
-                    {% for guide in guides %}
-                    {% if guide.serial_no|divisibleby:"2" %}
-                              <tr></tr>
-                        <tr>
-                            <td align="" class="vac">{{ guide.serial_no }}</td>
-                            <td align="center">
-                                <img src="{{ guide.myImage.url }}" height="150px" width="150px"> <br>
-                                {{ guide.name }}<br>{{ guide.designation }}<br>{{ guide.email }}</td>
-                            <td>
-                                <ul>
-                                    <li>{{ guide.domain_1 }}</li>
-                                    {% if guide.domain_2 %}
-                                        <li>{{ guide.domain_2 }}</li>
-                                    {% endif %}
-                                    {% if guide.domain_3 %}
-                                        <li>{{ guide.domain_3 }}</li>
-                                    {% endif %}
-                                    <br>
-                                    <br>
-                                    <br>
-                                </ul>
-                            </td>
-                            <td align="" class="vac">{{ guide.vacancy }}</td>
-                            <td align="center"> 
-                                
-                            <form action="{% url 'guide-selected' guide.serial_no %}" method="POST" >
-                                {% csrf_token %}
-                                <button>Select</button>
-                            </form> </td>
+                                <tr>
                         </tr>
-                    {% else %}
-                    <tr>
-                        <td align="" class="vac">{{ guide.serial_no }}</td>
+                                <tr>
+                        <td align="" class="vac">1</td>
                         <td align="center">
-                            <img src="{{ guide.myImage.url }}" height="150px" width="150px"> <br>
-                            {{ guide.name }}<br>{{ guide.designation }}<br>{{ guide.email }}</td>
+                            <img src="https://sist.sathyabama.ac.in/staffPhotos/5701.jpg" height="150px" width="150px"> <br>
+                            Dr. T. Sasipraba<br>Professor<br>Vice Chancellor<br>vc@sathyabama.ac.in</td>
                         <td>
-                        <ul>
-                            <li>{{ guide.domain_1 }}</li>
-                            {% if guide.domain_2 %}
-                                <li>{{ guide.domain_2 }}</li>
-                            {% endif %}
-                            {% if guide.domain_3 %}
-                                <li>{{ guide.domain_3 }}</li>
-                            {% endif %}
-                            <br>
-                            <br>
-                            <br>
-                        </ul>
-                      </td>
-                      <td align="" class="vac">{{ guide.vacancy }}</td>
-                      <td align="center">
-                        <form action="{% url 'guide-selected' guide.serial_no %}" method="POST" >
-                            {% csrf_token %}
-                            <button>Select</button>
-                        </form>
-                      </td>
-                  </tr>
-                  {% endif %}
-            </tbody>
-            {% endfor %}
-        </table>  
+                            <ul>
+                                                            <li>QoS in Wireless Networks</li>
+                                                            <li>Sensor enabled Web Services</li>
+                                                            <li>Predictive Data Analysis</li>
+                                                            <li>Decision Support System</li>
+                                                            <li>Distributed Data Mining</li>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <li>Years of Experience: 10-12</li>
+                                                    </ul>
+                        </td>
+                        <td align="" class="vac">3</td>
+                        <td align="center"><button>Select</button></td>
+                    </tr>
+                        <tr>
+                        <td align="" class="vac">2</td>
+                        <td align="center">
+                            <img src="https://sist.sathyabama.ac.in/staffPhotos/5201.jpg" height="150px" width="150px"> <br>
+                            Dr.T.Sasikala<br>Professor<br>Dean (School of Computing)<br>dean.computing@sathyabama.ac.in</td>
+                        <td>
+                            <ul>
+                                                            <li>COMPUTER NETWORKS</li>
+                                                            <li>NETWORK SECURITY</li>
+                                                            <li>WIRELESS NETWORKS</li>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <li>Years of Experience: 10-12</li>
+                                                    </ul>
+                        </td>
+                        <td align="" class="vac">4</td>
+                        <td align="center"><button>Select</button></td>
+                    </tr>
+                    <tr>
+                        <td align="" class="vac">3</td>
+                        <td align="center">
+                            <img src="https://sist.sathyabama.ac.in/staffPhotos/11203.jpg" height="150px" width="150px"> <br>
+                            Dr. G. Meera Gandhi<br>Professor<br>meeragandhi.cse@sathyabama.ac.in</td>
+                        <td>
+                            <ul>
+                                                            <li>Social Network Analysis</li>
+                                                            <li>Data Mining</li>
+                                                            <li>Applied Machine Learning and Databases</li>
+                                                            <li>Deep Learning</li>
+                                                            <li>Emotional Intelligence</li>
+                                                            <li>Network</li>
+                                                            <li>Graph theories</li>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <li>Years of Experience: 10-12</li>
+                                                    </ul>
+                        </td>
+                        <td align="" class="vac">7</td>
+                        <td align="center"><button>Select</button></td>
+                    </tr>
+                    <tr>
+                        <td align="" class="vac">4</td>
+                        <td align="center">
+                            <img src="https://sist.sathyabama.ac.in/staffPhotos/9211.jpg" height="150px" width="150px"> <br>
+                            Dr. R. Subhashini<br>Professor<br>subhashini.it@sathyabama.ac.in</td>
+                        <td>
+                            <ul>
+                                                            <li>Data Mining</li>
+                                                            <li>Image Processing</li>
+                                                            <li>Data Analytics</li>
+                                                            <li>Big Data</li>
+                                                            <li>Internet of Things</li>
+                                                            <li>Machine Learning</li>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <li>Years of Experience: 10-12</li>
+                                                    </ul>
+                        </td>
+                        <td align="" class="vac">0</td>
+                        <td align="center"><button>Select</button></td>
+                    </tr>
+                    <tr>
+                        <td align="" class="vac">5</td>
+                        <td align="center">
+                            <img src="https://sist.sathyabama.ac.in/staffPhotos/5203.jpg" height="150px" width="150px"> <br>
+                            Dr. B. Bharathi<br>Professor<br>bharathi.cse@sathyabama.ac.in</td>
+                        <td>
+                            <ul>
+                                                            <li>Software Engineering</li>
+                                                            <li>Software Testing</li>
+                                                            <li>Big Data</li>
+                                                            <li>Machine Learning</li>
+                                                            <li>Image Processing</li>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <li>Years of Experience: 10-12</li>
+                                                    </ul>
+                        </td>
+                        <td align="" class="vac">2</td>
+                        <td align="center"><button>Select</button></td>
+                    </tr>
+                    <tr>
+                        <td align="" class="vac">6</td>
+                        <td align="center">
+                            <img src="https://sist.sathyabama.ac.in/staffPhotos/9202.jpg" height="150px" width="150px"> <br>
+                            Dr. S. Murugan<br>Professor<br>murugan.cse@sathyabama.ac.in</td>
+                        <td>
+                            <ul>
+                                                            <li>Web Technology</li>
+                                                            <li>Big Data</li>
+                                                            <li>Cloud Computing</li>
+                                                            <li>Networks and Security</li>
+                                                            <li>Image Processing</li>
+                                                            <li>Machine Learning</li>
+                                                            <li>Fuzzy Sets and Rough Sets</li>
+                                                            <br>
+                                                            <br>
+                                                            <li>Years of Experience: 10-12</li>
+                                                    </ul>
+                        </td>
+                        <td align="" class="vac">3</td>
+                        <td align="center"><button>Select</button></td>
+                    </tr>
+                    <tr>
+                        <td align="" class="vac">7</td>
+                        <td align="center">
+                            <img src="https://sist.sathyabama.ac.in/staffPhotos/5235.jpg" height="150px" width="150px"> <br>
+                            Dr. V. Ulagamuthalvi<br>Assistant Professor<br>ulagamuthalvi.cse@sathyabama.ac.in</td>
+                        <td>
+                            <ul>
+                                                            <li>Web Technology</li>
+                                                            <li>Big Data</li>
+                                                            <li>Cloud Computing</li>
+                                                            <li>Networking</li>
+                                                            <li>Image Processing</li>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <li>Years of Experience: 10-12</li>
+                                                    </ul>
+                        </td>
+                        <td align="" class="vac">1</td>
+                        <td align="center"><button>Select</button></td>
+                    </tr>
+                    <tr>
+                        <td align="" class="vac">8</td>
+                        <td align="center">
+                            <img src="https://sist.sathyabama.ac.in/staffPhotos/7205.jpg" height="150px" width="150px"> <br>
+                            Dr. M. R. Ebenezar Jebarani<br>Associate Professor<br>ebenezarjebarani.ece@sathyabama.ac.in</td>
+                        <td>
+                            <ul>
+                                                            <li>Wireless sensor networks</li>
+                                                            <li>Embedded systems</li>
+                                                            <li>Wireless communication</li>
+                                                            <li>Digital image processing</li>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <li>Years of Experience: 10-12</li>
+                                                    </ul>
+                        </td>
+                        <td align="" class="vac">0</td>
+                        <td align="center"><button>Select</button></td>
+                    </tr>
+                    <tr>
+                        <td align="" class="vac">9</td>
+                        <td align="center">
+                            <img src="https://sist.sathyabama.ac.in/staffPhotos/5208.jpg" height="150px" width="150px"> <br>
+                            Dr. A. Pravin<br>Associate Professor<br>pravin.cse@sathyabama.ac.in</td>
+                        <td>
+                            <ul>
+                                                            <li>Software Testing</li>
+                                                            <li>Big Data Analytics</li>
+                                                            <li>Data Mining</li>
+                                                            <li>Cloud Computing</li>
+                                                            <li>Image Processing</li>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <li>Years of Experience: 10-12</li>
+                                                    </ul>
+                        </td>
+                        <td align="" class="vac">1</td>
+                        <td align="center"><button>Select</button></td>
+                    </tr>
+                    <tr>
+                        <td align="" class="vac">10</td>
+                        <td align="center">
+                            <img src="https://sist.sathyabama.ac.in/staffPhotos/5213.jpg" height="150px" width="150px"> <br>
+                            Dr. T. Prem Jacob<br>Associate professor<br>premjacob.cse@sathyabama.ac.in</td>
+                        <td>
+                            <ul>
+                                                            <li>Software Testing</li>
+                                                            <li>Big Data</li>
+                                                            <li>Data Science</li>
+                                                            <li>Artificial Intelligence</li>
+                                                            <li>Cloud Computing</li>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                            <li>Years of Experience: 10-12</li>
+                                                    </ul>
+                        </td>
+                        <td align="" class="vac">0</td>
+                        <td align="center"><button>Select</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </table> 
+    </div>
+
+    <!-- <table border="1" cellspacing="0" class="table">
+        <thead  >
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="position: relative; float: center; width: 100%; margin-top: 0; margin-left: 10px;" >
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table> -->
+
+    <footer class="footer">
+        <p>&copy; Copyright 2022; ACM Sathyabama Institute of Science and Technology, All rights reserved.</p>
+        <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram" class="icon"></i></a>
+        <a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
+    </footer>
+        
 </body>
 </html>

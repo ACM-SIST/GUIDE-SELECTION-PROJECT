@@ -1,10 +1,8 @@
 
-
 import string
 from random import choice
 from django.core.mail import send_mail
 from guide_project.settings import EMAIL_HOST_USER
-# from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
@@ -118,18 +116,22 @@ def project_details(request):
         project_details.project_domain = request.POST['project_domain']
         project_details.project_description = request.POST['project_description']
         project_details.no_of_members = request.POST['no_of_members']
-        project_details.first_name = request.POST['first_name']
-        project_details.last_name = request.POST['last_name']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
         project_details.reg_no_1 = request.POST['reg_no_1']
         project_details.student_1_email = request.POST['student_1_email']
         project_details.student_1_no = request.POST['student_1_no']
 
+        project_details.name = first_name + ' ' + last_name
+
         if project_details.no_of_members == '2':
-            project_details.first_name_2 = request.POST['first_name']
-            project_details.last_name_2 = request.POST['last_name']
+            first_name_2 = request.POST['first_name']
+            last_name_2 = request.POST['last_name']
             project_details.reg_no_2 = request.POST['reg_no_1']
             project_details.student_2_email = request.POST['student_1_email']
             project_details.student_2_no = request.POST['student_1_no']
+
+            project_details.name_2 = first_name_2 + ' ' + last_name_2
 
         return redirect('select-guide')
     else:

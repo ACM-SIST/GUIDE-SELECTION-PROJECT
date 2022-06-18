@@ -1,19 +1,64 @@
+.member1{
+    padding-bottom:20px;
+    
+}
+ul{
+    padding: 0; 
+    margin: 0;
+    list-style: none; 
+}
+li{
+    float: left;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #831238;
+  }
+  
+  li {
+    float: right;
+  } 
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    -webkit-transition: font-size 0.3s ease;
+    -moz-transition: font-size 0.3s ease;
+    -o-transition: font-size 0.3s ease;
+    -ms-transition: font-size 0.3s ease;
+    transition: font-size 0.3s ease;
+    line-height: 20px;
+  }
+  li a:hover {
+    background-color: lightslategray;
+    font-weight: bold;
+  }
+  #menu{
+    font-family: cursive !important;
+  }
+
 body {
     margin: 0;
     padding: 0;
     font-family: cursive;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-blend-mode: darken;
+    background: cover;
 }
 
 #myVideo {
-    position: fixed;
+    position: absolute;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    z-index: 999;
+    /* z-index: 999; */
     top: 54px;
     background: cover;
     width: 100vw;
@@ -25,7 +70,7 @@ body {
     z-index: -1;
 }
 
-.head {
+/*#head {
     display: flex;
     color: white;
     justify-content: space-between;
@@ -64,26 +109,12 @@ a {
 
 li a:hover {
     color: grey;
-}
-@media (max-width: 768px){
-    .head{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    height: auto;
-    width: auto;
-}
-    .body{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        height: 100vh;
-        width: 100vh;
-        
-    }
-}
+}*/
 
-@media screen and (max-width: 600px) {
+.footer {
+    background-color: #831238;
+}
+/*@media screen and (max-width: 600px) {
     body {
         background: fixed;
         color: white;
@@ -95,16 +126,15 @@ li a:hover {
         /* flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 1px; */
+        padding-top: 1px; 
     }
 
     li {
         padding: 10rem;
     }    
+}*/
+@media (max-width: 768px) {
+    /* .body{
+    } */
 }
-
-/* @media screen and (max-height: 300px) {
-    body {
-        background: cover;
-    }
-} */
+    

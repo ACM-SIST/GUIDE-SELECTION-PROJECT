@@ -1,61 +1,61 @@
 .bluebox{
-  padding-left: 10rem ;
-  font-size: 17 ;
+  padding-left: 10rem !important;
+  font-size: 17 !important;
 }
 html, body {
-      min-height: 100% ;
+      min-height: 100% !important;
       }
       body, div, form, input, label { 
-      padding: 0 ;
-      margin: 0 ;
-      outline: none;
-      font-family: Roboto, Arial, sans-serif ;
-      font-size: 20px ;
-      color: #666 ;
-      line-height: 22px ;
+      padding: 0 !important;
+      margin: 0 !important;
+      outline: none!important;
+      font-family: Roboto, Arial, sans-serif !important;
+      font-size: 20px !important;
+      color: #666 !important;
+      line-height: 22px !important;
       }
 
       textarea {
-        width: 100% ;
-        height: 100px ;
+        width: 100% !important;
+        height: 100px !important;
       }
-      legend { 
-      color: #fff ;
-      background-color: #831238 ;
-      padding: 3px 5px ;
-      font-size: 20px ;
+      h2 { 
+      color: #fff !important;
+      background-color: #831238 !important;
+      padding: 3px 5px !important;
+      font-size: 20px !important;
       }
       h1 {
-      position: absolute;
-      margin: 0;
-      font-size: 40px;
-      color: #fff;
-      z-index: 2;
+      position: absolute!important;
+      margin: 0!important;
+      font-size: 40px!important;
+      color: #fff!important;
+      z-index: 2!important;
       }
       .testbox {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: inherit;
-      padding: 20px;
+      display: flex!important;
+      justify-content: center!important;
+      align-items: center!important;
+      height: inherit!important;
+      padding: 20px!important;
       }
       form {
-      width: 100%;
-      padding: 25px;
-      border-radius: 8px;
-      background: #fff;
+      width: 100%!important;
+      padding: 25px!important;
+      border-radius: 8px!important;
+      background: #fff!important;
       box-shadow: 0 0 15px 0  #831238; 
       }
     .banner {
       background-color: #831238;
-    position: relative;
-    height: 300px;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 20px;
+      position: relative;
+      /* height: 12000px; */
+      background-size: cover;
+      /* display: flex;
+      flex-direction: row; */
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       }
     .banner::after {
       content: "";
@@ -131,7 +131,7 @@ html, body {
 }
 
 #staff {
-  padding-left: 15rem ;
+  padding-left: 15rem !important;
 }
 .team {
   padding-bottom: 2rem;

@@ -36,19 +36,22 @@ def guides(request):
 
         serial_no = int(serial_no)
 
-        if serial_no >= 1 and serial_no <= 53:
+        if serial_no >= 1 and serial_no <= 52:
             vacancy = 7
-        elif serial_no >= 54 and serial_no <= 102:
+        elif serial_no >= 53 and serial_no <= 79:
             vacancy = 4
         else:
-            vacancy = 2
+            vacancy = 3
 
-        guide = Guide(serial_no=serial_no, emp_id=emp_id, designation=designation, name=name, domain_1=domain_1, domain_2=domain_2,
-                      domain_3=domain_3, email=email, myImage=myImage, vacancy=vacancy)
+        if Guide.objects.filter(serial_no=serial_no).exists():
+            messages.error(
+                request, 'This serial number already exists. Please enter your own serial number')
+            return redirect('guides')
+        else:
+            guide = Guide(serial_no=serial_no, emp_id=emp_id, designation=designation, name=name, domain_1=domain_1, domain_2=domain_2,
+                          domain_3=domain_3, email=email, myImage=myImage, vacancy=vacancy)
 
-        # if guide.serial_no.
-
-        guide.save()
+            guide.save()
         return render(request, 'adminregister/submitted.html')
     else:
 

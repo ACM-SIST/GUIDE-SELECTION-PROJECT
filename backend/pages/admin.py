@@ -10,13 +10,13 @@ from import_export import resources
 class GuideResource(resources.ModelResource):
     class Meta:
         model = Guide
-        fields = ('serial_no', 'name', 'domain_1', 'domain_2', 'domain_3',
-                  'email')
+        fields = ('serial_no', 'name', 'emp_id', 'designation', 'domain_1', 'domain_2', 'domain_3',
+                  'email', 'myImage', 'vacancy')
 
 
 class GuideAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display = ('serial_no', 'name', 'domain_1', 'domain_2', 'domain_3',
-                    'email', 'vacancy')
+    list_display = ('serial_no', 'name', 'emp_id', 'designation', 'domain_1', 'domain_2', 'domain_3',
+                    'email', 'myImage', 'vacancy')
     ordering = ('serial_no',)
 
     resource_class = GuideResource

@@ -3,75 +3,84 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title> ADMIN FORM</title> 
-        <link rel="stylesheet" type="text/css" href="{% static 'css/aform.css' %}">
-    </head>   
-    <body>
-        <div class="testbox">
-            <form action="{% url 'guides' %}" method="POST" enctype="multipart/form-data" >
-                {% csrf_token %}
-              <div class="banner">
-                <h1>Faculty Profile (Department of CSE)</h1>
 
-              </div>
-              <h1></h1>
-            <p class="bluebox" style=" padding-right: 15rem; text-align:center;" >Please fill out the form with the requested information.Thank you!</p>
+<head>
+    <meta charset="utf-8">
+    <title> GUIDE FORM</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/aform.css' %}">
+</head>
+
+<body>
+    <div class="testbox">
+        <form action="{% url 'guides' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="banner">
+                <h1 style="color: #fff !important;" >Faculty Profile (Department of CSE)</h1>
+            </div>
+            <p class="bluebox" style=" padding-right: 15rem; text-align:center;">Please fill out the form with the requested information.Thank you!</p>
+            {% include 'partials/_alerts.html' %}
             <div class="staffs">
-            <div class="team" id="staff">
-                <fieldset class="staff-form" >
-                    <legend>Faculty Details</legend>
-                    <div class="item">
-                        <label for="name" style="color: black ;" >Name<span>*</span></label>
-                    <div class="name-item">
-                        <input id="name" type="text" name="first_name" placeholder="First Name" required/>
-                        <input id="name" type="text" name="last_name" placeholder="Last Name" required/>
-                    </div>
-                    </div>
-                    <div class="item">
-                        <label for="empid" style="color: black ;" > Employee ID<span>*</span></label>
-                        <input id="empid" type="number" name="emp_id" placeholder="Enter Your Employee ID" required />
-                    </div>
-                    <div class="item">
-                        <label for="serialno" style="color: black ;" > Serial Number<span>*</span></label>
-                        <input id="serialno" type="number" name="serial_no" placeholder="Enter Your Serial Number" required />
-                    </div>
-                    <div class="item">
-                        <label for="designation" style="color: black ;" > Designation<span>*</span></label>
-                        <input id="designation" type="text" name="designation" placeholder="Enter Your Designation" required />
-                    </div>
-                    <div class="item">
-                        <label for="domain" style="color: black ;" > Area of Specialisation<span>*</span></label>
-                        <input id="domain" type="text" name="domain_1" placeholder="Enter Your Specialised Domain" required />
+                <div class="team" id="staff">
+                    <fieldset class="staff-form">
+                        <legend>Faculty Details</legend>
                         <div class="item">
-                        <input id="domain" type="text" name="domain_2" placeholder="Enter Your Specialised Domain" />
+                            <label for="name" style="color: black ;">Name (Dr./Mr./Ms.)<span>*</span></label>
+                            <div class="name-item">
+                                <input id="name" type="text" name="first_name" placeholder="First Name (Dr./Mr./Ms.)"
+                                    required />
+                                <input id="name" type="text" name="last_name" placeholder="Last Name" required />
+                            </div>
                         </div>
                         <div class="item">
-                        <input id="domain" type="text" name="domain_3" placeholder="Enter Your Specialised Domain" />
+                            <label for="empid" style="color: black ;"> Employee ID (As Per ERP)<span>*</span></label>
+                            <input id="empid" type="number" name="emp_id"
+                                placeholder="Enter Your Employee ID (As Per ERP)" required />
                         </div>
-                    </div>
-                    <div class="item">
-                        <label for="email" style="color: black ;" >Email<span>*</span></label>
-                        <input id="email" type="email" name="email" placeholder="Enter Your Email Id" required/>
-                    </div>
-                    <div class="item">
-                        <label for="experience" style="color: black ;" >Years of Experience<span>*</span></label>
-                        <input id="experience" type="number" name="experience" placeholder="Enter Your Years of Experience " required />
-                    </div>
-                    <div class="item">
-                        <label for="photo" style="color: black ;" >Upload Your photo <span>*</span> <p class="img-text"> (Please upload only .jpeg / .jpg) </p> </label>
-                        <input id="photo" type="file" name="myImage" max-size="200kb" accept="image/jpeg" required  />    
-                    </div>
-                    <div class="btn-block">
-                        <button type="submit" onclick="myFunction()" class="btn-dark">Submit</button>
-                        <!-- <button onclick="myFunction()" type="submit" >submit</button> -->
-                    </div>
-                </fieldset>
+                        <div class="item">
+                            <label for="serialno" style="color: black ;"> Serial Number<span>*</span></label>
+                            <input id="serialno" type="number" name="serial_no" placeholder="Enter Your Serial Number"
+                                required />
+                        </div>
+                        <div class="item">
+                            <label for="designation" style="color: black ;"> Designation<span>*</span></label>
+                            <input id="designation" type="text" name="designation" placeholder="Enter Your Designation"
+                                required />
+                        </div>
+                        <div class="item">
+                            <label for="domain" style="color: black ;"> Area of Specialisation<span>*</span></label>
+                            <input id="domain" type="text" name="domain_1" placeholder="Enter Your Specialised Domain"
+                            style="font-size: 1rem;"    required />
+                            <div class="item">
+                                <input id="domain" type="text" name="domain_2"
+                                    placeholder="Enter Your Specialised Domain" />
+                            </div>
+                            <div class="item">
+                                <input id="domain" type="text" name="domain_3"
+                                    placeholder="Enter Your Specialised Domain" />
+                            </div>
+                        </div>
+                        <div class="item">
+                            <label for="email" style="color: black ;">Email<span>*</span></label>
+                            <input id="email" type="email" name="email" placeholder="Enter Your Email Id" required />
+                        </div>
+                        <div class="item">
+                            <label for="photo" style="color: black ;">Upload Your photo <span>*</span>
+                                <p class="img-text"> (Please upload only .jpeg / .jpg Max 200kb) </p>
+                            </label>
+                            <input id="photo" type="file" name="myImage" max-size="500kb" accept="image/jpeg"
+                                required />
+                        </div>
+                        <div class="btn-block">
+                            <button type="submit" onclick="myFunction()" class="btn-dark">Submit</button>
+                        </div>
+                    </fieldset>
+                </div>
             </div>
-            </div>
-        </div>  
-        </form>  
-        <script type="text/javascript" src="{% static 'js/aform.js' %}"></script>
-    </body>
-    </html> 
+    </div>
+    </form>
+    <script type="text/javascript" src="{% static 'js/aform.js' %}"></script>
+    <script src="{% static 'js/main.js' %} "></script>
+</body>
+
+</html>

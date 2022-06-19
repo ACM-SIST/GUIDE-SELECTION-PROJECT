@@ -1,9 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title> ADMIN FORM</title> 
-        <link rel="stylesheet" type="text/css" href="aform.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/aform.css' %}">
     </head>   
     <body>
         <div class="testbox">
@@ -37,18 +39,16 @@
                         <label for="email">Email<span>*</span></label>
                         <input id="email" type="email" name="text" placeholder="Enter Your Email Id" required/>
                     </div>
-                    <div class="item">
+                    <!-- <div class="item">
                         <label for="experience">Year of Expertise<span>*</span></label>
-                        <input id="experience" type="number" name="experience" placeholder="Enter Your Years of Experience " required />
-                    </div>
+                        <input id="experience" type="number" name="" placeholder="Enter Your Years of Experience " required />
+                    </div> -->
                     <div class="item">
                         <label for="photo">Upload Your photo</label><span>*</span>
                         <input id="photo" type="file" name="myImage" max-size="200kb" accept="image/jpeg" required />    
                     </div>
                     <div class="btn-block">
-                        <button type="submit"  onclick="myFunction()" >
-                            <a href="../adminregister/submitted.html">SUBMIT</a>
-                        </button>
+                        <button type="submit" onclick="myFunction()" class="btn-dark">Submit</button>
                     </div>
                 </fieldset>
             </div>

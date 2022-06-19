@@ -1,12 +1,9 @@
 
-import csv
 import string
 from random import choice
 from django.core.mail import send_mail
 from guide_project.settings import EMAIL_HOST_USER
-from django.http import HttpResponse
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
@@ -30,15 +27,29 @@ def guides(request):
         domain_2 = request.POST['domain_2']
         domain_3 = request.POST['domain_3']
         email = request.POST['email']
-        experience = request.POST['experience']
+        # experience = request.POST['experience']
         myImage = request.FILES['myImage']
 
         name = first_name + ' ' + last_name
 
-        guide = Guide(serial_no=serial_no, emp_id=emp_id, designation=designation, name=name, domain_1=domain_1, domain_2=domain_2,
-                      domain_3=domain_3, email=email, experience=experience, myImage=myImage)
+        serial_no = int(serial_no)
 
-        guide.save()
+        if serial_no >= 1 and serial_no <= 52:
+            vacancy = 7
+        elif serial_no >= 53 and serial_no <= 79:
+            vacancy = 4
+        else:
+            vacancy = 3
+
+        if Guide.objects.filter(serial_no=serial_no).exists():
+            messages.error(
+                request, 'This serial number already exists. Please enter your own serial number')
+            return redirect('guides')
+        else:
+            guide = Guide(serial_no=serial_no, emp_id=emp_id, designation=designation, name=name, domain_1=domain_1, domain_2=domain_2,
+                          domain_3=domain_3, email=email, myImage=myImage, vacancy=vacancy)
+
+            guide.save()
         return render(request, 'adminregister/submitted.html')
     else:
 
@@ -101,22 +112,26 @@ def project_details(request):
 
     if request.method == 'POST':
 
-        project_name = request.POST['project_name']
-        project_domain = request.POST['project_domain']
-        project_description = request.POST['project_description']
-        no_of_members = request.POST['no_of_members']
+        project_details.project_name = request.POST['project_name']
+        project_details.project_domain = request.POST['project_domain']
+        project_details.project_description = request.POST['project_description']
+        project_details.no_of_members = request.POST['no_of_members']
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
-        reg_no_1 = request.POST['reg_no_1']
-        student_1_email = request.POST['student_1_email']
-        student_1_no = request.POST['student_1_no']
+        project_details.reg_no_1 = request.POST['reg_no_1']
+        project_details.student_1_email = request.POST['student_1_email']
+        project_details.student_1_no = request.POST['student_1_no']
 
-        if no_of_members == '2':
+        project_details.name = first_name + ' ' + last_name
+
+        if project_details.no_of_members == '2':
             first_name_2 = request.POST['first_name']
             last_name_2 = request.POST['last_name']
-            reg_no_2 = request.POST['reg_no_1']
-            student_2_email = request.POST['student_1_email']
-            student_2_no = request.POST['student_1_no']
+            project_details.reg_no_2 = request.POST['reg_no_1']
+            project_details.student_2_email = request.POST['student_1_email']
+            project_details.student_2_no = request.POST['student_1_no']
+
+            project_details.name_2 = first_name_2 + ' ' + last_name_2
 
         return redirect('select-guide')
     else:
@@ -141,7 +156,7 @@ def select_guide(request):
 
 def guide_selected(request, id):
 
-    guides = Guide.objects.filter(id=id)
+    guides = Guide.objects.filter(serial_no=id)
 
     context = {
         'guides': guides,
@@ -150,7 +165,7 @@ def guide_selected(request, id):
     return render(request, 'submitted.html')
 
 
-def export_team_csv(request):
+'''def export_team_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="users.csv"'
 
@@ -162,25 +177,92 @@ def export_team_csv(request):
     for user in users:
         writer.writerow(user)
 
-    return response
+    return response'''
 
 
-def verify(request):
+def mail_single(request):
     if request.method == 'POST':
         email = request.POST['mail']
-        verify.user_email = email
+        mail_single.user_email = email
         chars = string.digits
         random = ''.join(choice(chars) for i in range(4))
         random_otp = int(random)
-        verify.user_otp = random_otp
-        send_mail(
-            'RANDOM OTP',
-            'The OTP is: '+random,
-            EMAIL_HOST_USER,
-            [verify.user_email, ],
-            fail_silently=False,
-        )
-        return render(request, 'result.html', {'e': verify.user_otp})
-
+        mail_single.user_otp = random_otp
+        send_mail('RANDOM OTP', 'The OTP is: '+random, EMAIL_HOST_USER,
+                  [mail_single.user_email, ], fail_silently=False,)
+        return render(request, 'verify.html', {'o': mail_single.user_otp})
+        # return render(request,'verify.html')
     else:
         return render(request, 'mail.html')
+
+
+def mail_two(request):
+    if request.method == 'POST':
+        email = request.POST['mail']
+        email1 = request.POST.get('maill', False)
+        mail_two.user_email = email
+        mail_two.user_email1 = email1
+        chars = string.digits
+        random = ''.join(choice(chars) for i in range(4))
+        random_otp = int(random)
+        mail_two.user_otp = random_otp
+        otp = str(random)
+        mail_two.user_otp1 = otp[:2]
+        mail_two.user_otp2 = otp[2:]
+        m = [mail_two.user_otp1, mail_two.user_otp2]
+        send_mail(
+            'RANDOM OTP',
+            'The OTP is: ' + mail_two.user_otp1,
+            EMAIL_HOST_USER,
+            [mail_two.user_email, ],
+            fail_silently=False,
+        )
+
+        send_mail(
+            'RANDOM OTP',
+            'The OTP is: ' + mail_two.user_otp2,
+            EMAIL_HOST_USER,
+            [mail_two.user_email1, ],
+            fail_silently=False,
+        )
+
+        return render(request, 'verify1.html', {'e': m})
+    else:
+        return render(request, 'mail1.html')
+
+
+def verify_single(request):
+    if request.method == 'POST':
+        opt = request.POST['otp']
+        user_otp = int(opt)
+        if mail_single.user_otp == user_otp:
+            send_mail(
+                'THANK YOU',
+                'Your Email is verified ',
+                EMAIL_HOST_USER,
+                [mail_single.user_email],
+                fail_silently=False,
+            )
+            return redirect('main')
+        else:
+            return render(request, 'mail.html')
+    else:
+        return render(request, 'mail.html')
+
+
+def verify_two(request):
+    if request.method == 'POST':
+        otp = request.POST['otp']
+        otp1 = request.POST.get('otp1', False)
+        user_otp = int(otp)
+        user_otp1 = int(otp1)
+        if int(mail_two.user_otp1) == user_otp and int(mail_two.user_otp2) == user_otp1:
+            send_mail('THANK YOU', 'Your Email is verified ', EMAIL_HOST_USER, [
+                      mail_two.user_email], fail_silently=False,)
+            send_mail('THANK YOU', 'Your Email is verified ', EMAIL_HOST_USER, [
+                      mail_two.user_email1], fail_silently=False,)
+            return redirect('main')
+        else:
+            return render(request, 'mail1.html')
+    else:
+        return render(request, 'mail1.html')

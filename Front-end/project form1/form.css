@@ -206,6 +206,7 @@ html, body {
   margin-right: 20rem;
   padding:7px 15px 12.5px;
   width: 70%;
+  float: center;
 }
 /*#team-1 {
   padding-left: 4rem !important;
@@ -213,8 +214,20 @@ html, body {
 .team {
   padding-bottom: 2rem;
 }
-/*.team-member {
+.team-member {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  padding-left: 2rem !important;
+  /* grid-template-columns: 90fr 1fr; */
   gap: 5rem;
-}*/
+  width: 134%;
+}
+
+#name {
+  width: 45%;
+  clear: both;
+}
+
+.some {
+  margin-left: 5rem;
+  width: 50%;
+}

@@ -17,6 +17,7 @@ def home(request):
 
 
 def no_of_stud(request):
+
     return render(request, 'no_of_stud/no_of_stud.html')
 
 
@@ -60,7 +61,7 @@ def guides(request):
 
 
 def submitted(request):
-    return render(request, 'index.html')
+    return render(request, 'submitted.html')
 
 
 def register(request):
@@ -82,19 +83,16 @@ def register(request):
                     username=email, email=email, password=password)
 
                 # opt verify under if cond.
-<<<<<<< HEAD
                 #
-=======
             if email:
                 chars = string.digits
                 random = ''.join(choice(chars) for i in range(4))
                 random_otp = int(random)
                 user_otp = random_otp
                 send_mail('RANDOM OTP', 'The OTP is: '+random, EMAIL_HOST_USER,
-                [email, ], fail_silently=False,)
+                          [email, ], fail_silently=False,)
                 return render(request, 'Register/verify.html')
 
->>>>>>> af4a9ff84149272b726b6705a3b251da55e9ed84
                 user.save()
 
                 return redirect('login')
@@ -115,9 +113,8 @@ def login(request):
             auth.login(request, user)
             team = Team.objects.filter(teamID=user.username).exists()
             if team is not None:
-                if team.no_of_members == 2:
-                    return redirect('project-details-2')
-            return redirect('project-details-1')
+                return redirect('submitted')
+            return redirect('no-of-stud')
         else:
             messages.error(request, 'Invalid Credentials')
             return redirect('login')
@@ -127,6 +124,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
+    messages.success(request, 'You are successfully logged Out and can login!')
     return redirect('login')
 
 
@@ -155,8 +153,6 @@ def project_details_1(request):
         team = Team.objects.create(teamID=curr_user.username, project_name=project_name, project_domain=project_domain, project_description=project_description,
                                    no_of_members='1', reg_no_1=reg_no_1, student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no)
 
-        print('NAME IS: ', team.project_name)
-        print('TEAMID IS: ', team.teamID)
         user.username = new_username
 
         user.save()
@@ -259,6 +255,7 @@ def guide_selected(request, id):
         writer.writerow(user)
 
     return response'''
+
 
 def verify_single(request):
     if request.method == 'POST':

@@ -7,9 +7,8 @@ body {
     /* overflow: hidden; */
     background-blend-mode: darken;
     background: cover;
-    background-image: url(./Image/slider-1.jpg);
+    background-image: url(/guide_project/static/img/slider-1.jpg);
 }
-
 #head {
     display: flex;
     color: white;

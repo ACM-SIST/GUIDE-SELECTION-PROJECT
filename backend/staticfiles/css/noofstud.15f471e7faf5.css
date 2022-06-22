@@ -7,7 +7,7 @@ body {
     /* overflow: hidden; */
     background-blend-mode: darken;
     background: cover;
-    background-image: url(../img/slider-1.jpg) !important;
+    background-image: url("../img/slider-1.c3c5d04fa1b2.jpg") !important;
 }
 #head {
     display: flex;

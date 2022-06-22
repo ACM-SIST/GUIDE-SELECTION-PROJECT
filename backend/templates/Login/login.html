@@ -24,6 +24,7 @@
     </header>
     <div class="center">
         <h1>Login</h1>
+        {% include 'partials/_alerts.html' %}
         <form action="{% url 'login' %}" method="post">
             {% csrf_token %}
             <div class="txt_field">

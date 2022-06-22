@@ -10,6 +10,8 @@ from import_export import resources
 class GuideResource(resources.ModelResource):
     class Meta:
         model = Guide
+        import_id_fields = ('serial_no',)
+        exclude = ('id',)
         fields = ('serial_no', 'name', 'emp_id', 'designation', 'domain_1', 'domain_2', 'domain_3',
                   'email', 'myImage', 'vacancy')
 

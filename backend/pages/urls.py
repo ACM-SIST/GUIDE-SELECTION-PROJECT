@@ -26,8 +26,9 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
-    # path('form', views.form, name='form'),
-    path('project-details', views.project_details, name='project-details'),
+    path('no-of-stud', views.no_of_stud, name='no-of-stud'),
+    path('project-details-1', views.project_details_1, name='project-details-1'),
+    path('project-details-2', views.project_details_2, name='project-details-2'),
     path('select-guide', views.select_guide, name='select-guide'),
     path('guide-selected/<int:id>', views.guide_selected, name='guide-selected'),
     # /*****************/

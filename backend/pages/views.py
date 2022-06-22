@@ -4,16 +4,20 @@ from random import choice
 from django.core.mail import send_mail
 from guide_project.settings import EMAIL_HOST_USER
 from django.contrib.auth.models import User
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from pages.models import Guide
+from pages.models import Guide, Team
 
 # Create your views here.
 
 
 def home(request):
     return render(request, 'Home/home.html')
+
+
+def no_of_stud(request):
+    return render(request, 'no_of_stud/no_of_stud.html')
 
 
 def guides(request):
@@ -27,7 +31,6 @@ def guides(request):
         domain_2 = request.POST['domain_2']
         domain_3 = request.POST['domain_3']
         email = request.POST['email']
-        # experience = request.POST['experience']
         myImage = request.FILES['myImage']
 
         name = first_name + ' ' + last_name
@@ -62,26 +65,29 @@ def submitted(request):
 
 def register(request):
     if request.method == 'POST':
-        # user_name = request.POST['Username']
         email = request.POST['email']
         password = request.POST['password']
         ConfirmPassword = request.POST['password1']
 
         if password == ConfirmPassword:
             if User.objects.filter(username=email).exists():
-                messages.info(request, 'Username Taken')
+                messages.error(request, 'Username Taken')
                 return redirect('register')
             elif User.objects.filter(email=email).exists():
-                messages.info(request, 'Email Taken')
+                messages.error(request, 'Email Taken')
                 return redirect('register')
             else:
+
                 user = User.objects.create_user(
                     username=email, email=email, password=password)
+
                 # opt verify under if cond.
+                #
                 user.save()
+
                 return redirect('login')
         else:
-            messages.info(request, 'Password not matching')
+            messages.error(request, 'Password not matching')
             return redirect('register')
     else:
         return render(request, 'Register/register.html')
@@ -95,9 +101,13 @@ def login(request):
         user = auth.authenticate(username=user_name, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('project-details')
+            team = Team.objects.filter(teamID=user.username).exists()
+            if team is not None:
+                if team.no_of_members == 2:
+                    return redirect('project-details-2')
+            return redirect('project-details-1')
         else:
-            messages.info(request, 'Invalid Credentials')
+            messages.error(request, 'Invalid Credentials')
             return redirect('login')
     else:
         return render(request, 'Login/login.html')
@@ -108,34 +118,84 @@ def logout(request):
     return redirect('login')
 
 
-def project_details(request):
+def project_details_1(request):
 
     if request.method == 'POST':
 
-        project_details.project_name = request.POST['project_name']
-        project_details.project_domain = request.POST['project_domain']
-        project_details.project_description = request.POST['project_description']
-        project_details.no_of_members = request.POST['no_of_members']
+        project_name = request.POST['project_name']
+        project_domain = request.POST['project_domain']
+        project_description = request.POST['project_description']
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
-        project_details.reg_no_1 = request.POST['reg_no_1']
-        project_details.student_1_email = request.POST['student_1_email']
-        project_details.student_1_no = request.POST['student_1_no']
+        reg_no_1 = request.POST['reg_no_1']
+        student_1_email = request.POST['student_1_email']
+        student_1_no = request.POST['student_1_no']
 
-        project_details.name = first_name + ' ' + last_name
+        student_1_name = first_name + ' ' + last_name
 
-        if project_details.no_of_members == '2':
-            first_name_2 = request.POST['first_name']
-            last_name_2 = request.POST['last_name']
-            project_details.reg_no_2 = request.POST['reg_no_1']
-            project_details.student_2_email = request.POST['student_1_email']
-            project_details.student_2_no = request.POST['student_1_no']
+        curr_user = request.user
 
-            project_details.name_2 = first_name_2 + ' ' + last_name_2
+        user = User.objects.get(username=curr_user.username)
+        print("TYPE OF user.id: ", type(user.id))
+
+        # CSE-<team_id_num> for eg: CSE-007, CSE-008....
+        new_username = "CSE-%03d" % user.id
+        team = Team.objects.create(teamID=curr_user.username, project_name=project_name, project_domain=project_domain, project_description=project_description,
+                                   no_of_members='1', reg_no_1=reg_no_1, student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no)
+
+        print('NAME IS: ', team.project_name)
+        print('TEAMID IS: ', team.teamID)
+        user.username = new_username
+
+        user.save()
 
         return redirect('select-guide')
     else:
-        return render(request, 'project_form/project_form.html')
+        return render(request, '1_project_form/1_project_form.html')
+
+
+def project_details_2(request):
+
+    if request.method == 'POST':
+
+        project_name = request.POST['project_name']
+        project_domain = request.POST['project_domain']
+        project_description = request.POST['project_description']
+        no_of_members = request.POST['no_of_members']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        reg_no_1 = request.POST['reg_no_1']
+        student_1_email = request.POST['student_1_email']
+        student_1_no = request.POST['student_1_no']
+
+        student_1_name = first_name + ' ' + last_name
+
+        first_name_2 = request.POST['first_name']
+        last_name_2 = request.POST['last_name']
+        reg_no_2 = request.POST['reg_no_1']
+        student_2_email = request.POST['student_1_email']
+        student_2_no = request.POST['student_1_no']
+
+        student_2_name = first_name_2 + ' ' + last_name_2
+
+        curr_user = request.user
+
+        user = User.objects.get(username=curr_user.username)
+        print("TYPE OF user.id: ", type(user.id))
+
+        # CSE-<team_id_num> for eg: CSE-007, CSE-008....
+        team = Team.objects.create(teamID=curr_user.username, project_name=project_name, project_domain=project_domain, project_description=project_description,
+                                   no_of_members='1', reg_no_1=reg_no_1, student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no, reg_no_2=reg_no_2, student_2_name=student_2_name, student_2_email=student_2_email, student_2_no=student_2_no)
+        new_username = "CSE-%03d" % user.id
+        print('NAME IS: ', team.project_name)
+        print('TEAMID IS: ', team.project_name)
+        user.username = new_username
+
+        user.save()
+
+        return redirect('select-guide')
+    else:
+        return render(request, '2_project_form/2_project_form.html')
 
 
 def select_guide(request):
@@ -156,13 +216,22 @@ def select_guide(request):
 
 def guide_selected(request, id):
 
-    guides = Guide.objects.filter(serial_no=id)
+    guide = Guide.objects.filter(serial_no=id)
+
+    # you can get teamID from username as both are same.
+    team = get_object_or_404(Team, teamID='CSE-001')
+
+    # print('TEAM IS: ', queryset_list.filter(teamID__iexact='CNN'))
+    print('TEAM IS: ', team)
+    # print('TEAM IS: ', queryset_list.project_name)
+    print('GUIDE IS: ', guide)
 
     context = {
-        'guides': guides,
+        'guide': guide,
+        'team': team,
     }
 
-    return render(request, 'submitted.html')
+    return render(request, 'confirmation_2/confirmation.html', context)
 
 
 '''def export_team_csv(request):

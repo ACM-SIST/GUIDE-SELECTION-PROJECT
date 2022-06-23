@@ -258,6 +258,9 @@ footer i{
     color: grey;
 }
 
+footer a {
+    color: white;
+}
 footer a:focus {
     color: white;
 }

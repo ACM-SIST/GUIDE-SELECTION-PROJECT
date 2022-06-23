@@ -111,8 +111,11 @@ def login(request):
         user = auth.authenticate(username=user_name, password=password)
         if user is not None:
             auth.login(request, user)
-            team = Team.objects.filter(teamID=user.username).exists()
-            if team is not None:
+            # team = Team.objects.filter(teamID=user.username).exists()
+
+            if Team.objects.filter(teamID=user.username).exists():
+                print("TEAM PRESENT: ", Team.objects.filter(
+                    teamID=user.username).get())
                 return redirect('submitted')
             return redirect('no-of-stud')
         else:
@@ -129,7 +132,15 @@ def logout(request):
 
 
 def project_details_1(request):
-
+    print("INSIDE PROJECT DETAILS")
+    user = request.user
+    print(user.username)
+    if Team.objects.filter(teamID=user.username).exists():
+        is_team = Team.objects.filter(teamID=user.username).get()
+        is_team.delete()
+        print("TEAM IS: ", is_team)
+        print("TEAM PRESENT AND DELETED!!!!")
+    print("SKIPPED IF STATEMENT")
     if request.method == 'POST':
 
         project_name = request.POST['project_name']
@@ -169,7 +180,6 @@ def project_details_2(request):
         project_name = request.POST['project_name']
         project_domain = request.POST['project_domain']
         project_description = request.POST['project_description']
-        no_of_members = request.POST['no_of_members']
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         reg_no_1 = request.POST['reg_no_1']
@@ -227,7 +237,7 @@ def guide_selected(request, id):
     guide = Guide.objects.filter(serial_no=id)
 
     # you can get teamID from username as both are same.
-    team = get_object_or_404(Team, teamID='CSE-001')
+    team = get_object_or_404(Team, teamID=request.user.username)
 
     # print('TEAM IS: ', queryset_list.filter(teamID__iexact='CNN'))
     print('TEAM IS: ', team)
@@ -239,22 +249,7 @@ def guide_selected(request, id):
         'team': team,
     }
 
-    return render(request, 'confirmation_2/confirmation.html', context)
-
-
-'''def export_team_csv(request):
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="users.csv"'
-
-    writer = csv.writer(response)
-    writer.writerow(['Username', 'First name', 'Last name', 'Email address'])
-
-    users = User.objects.all().values_list(
-        'username', 'first_name', 'last_name', 'email')
-    for user in users:
-        writer.writerow(user)
-
-    return response'''
+    return render(request, 'confirmation_1/confirmation.html', context)
 
 
 def verify_single(request):

@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>FORM</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" >
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/confirmation_1.css' %}">
+    </head>
+    <body>
+        <nav id="menu">
+            <ul>
+                <li><a href="logout">Logout</a></li>
+                <li><a href="#">Rules</a></li>
+                <li><a href="../GuideList/guide.html">Guide List</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+            </ul>
+        </nav>
+        <div class="testbox">
+            <form action="{% url 'project-details-1' %}" method="POST">
+              <div class="banner">
+                <h1>Confirmation Details</h1>
+              </div>
+              <!-- <p class="bluebox">Please fill out with the information that is requested below and submit the Guide selection form. Thank you!</p> -->
+              <hr/>
+              <fieldset>
+                <legend>Project Information</legend>
+                <div class="project">
+                    <div class="item">
+                        <label for="name">Project Title</label>
+                        <input class="input-text" id="name" type="text" name="project_name" placeholder="Project title" value="Some Title" disabled/>
+                    </div>
+                    <div class="item">
+                        <label for="domain">Project Domain (Eg: ML,AI,DL,Web Dev)</label>
+                        <input class="input-text" id="domain" type="text" name="project_domain" placeholder="Project domain" value="Some Domain" disabled/>
+                    </div>
+                </div>
+                <div class="item">
+                  <label for="description">Project Description</label>
+                  <textarea class="input-text" id="description" type="text" name="project_description" placeholder="Something" disabled></textarea>
+                </div>
+                <div class="item">
+                  <div class="name-item">
+                    <div>
+                      <label for="teammembers">Number Of Team Members</label>
+                      <input class="input-text" type="number" name="no_of_members" placeholder="No of Members" value="12" disabled/>
+                    </div>
+                  </div>
+                </div>  
+                  <div class="item">
+                    <div class="name-item">
+                    </div>
+                  </div>
+              </fieldset>
+              </br>
+             <div class="team-member">
+                <div class="team" id="team-1">
+                    <fieldset class="team-form" >
+                        <legend>Team Member 1</legend>
+                        <div class="item">
+                        <label for="name">Name</label>
+                        <div class="name-item">
+                        <input id="name" type="text" name="first_name" placeholder="First" value="Something" disabled/>
+                        <input id="name" type="text" name="last_name" placeholder="Last" value="Something" disabled/>
+                        </div>
+                        </div>
+                        <div class="item">
+                        <label for="regno">Register Number</label>
+                        <input id="regno" type="number" name="reg_no_1" placeholder="Register Number" value="39110" disabled/>
+                        </div>
+                        <div class="item">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="student_1_email" placeholder="Email Id" value="Something" disabled/>
+                        </div>
+                        <div class="item">
+                        <label for="phno">Phone Number</label>
+                        <input id="phno" type="number" name="student_1_no" placeholder="Phone Number" value="0123456789" disabled />
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <fieldset class="guide">
+              <legend>Guide Details</legend>
+              <div class="btn-block">
+                <div class="project">
+                  <div class="item-guide">
+                      <label for="name">Guide Name</label>
+                      <input class="input-text" id="name" type="text" name="guide_name" placeholder="Guide Name" value="Some Guide" disabled/>
+                  </div>
+                  <div class="item-guide">
+                      <label for="email">Guide Email Id</label>
+                      <input class="input-text" id="email" type="email" name="guide_email" placeholder="Guide Email Id" value="Some email" disabled/>
+                  </div>
+              </div>  
+              </div>
+          </fieldset>
+                    <fieldset>
+                    <div class="btn-block">
+                    <button onclick="myFunction()" type="submit">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+            </div>
+        <script type="text/javascript" src="form.js"></script>
+    </body> 
+</html>
+

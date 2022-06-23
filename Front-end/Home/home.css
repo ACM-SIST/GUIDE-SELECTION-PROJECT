@@ -35,7 +35,7 @@ h1 {
     margin: 0;
     list-style: none; 
 }
-li{
+#red{
     float: left;
 }
 .blackbox {
@@ -46,10 +46,10 @@ li{
     background-color: #831238;
   }
   
-  li {
+  #red {
     float: right;
   } 
-  li a {
+  #red a {
     display: block;
     color: white;
     text-align: center;
@@ -62,7 +62,7 @@ li{
     transition: font-size 0.3s ease;
     line-height: 20px;
   }
-  li a:hover {
+  #red a:hover {
     background-color: lightslategray;
     font-weight: bold;
   }
@@ -122,19 +122,19 @@ body {
     font-size: 10px;
 }
 
-.sidebar ul{
+.sidebar ol{
     padding-top: 8px;   
 }
-#leftsidebar ul li{
+#leftsidebar ol li{
     padding: 4px 0 4px 10px;
     list-style-image: url(images/arrow.png);
 }
 
-#rightsidebar ul li{
+#rightsidebar ol li{
     padding: 17px 0 17px 70px;
    background: url(images/tick.png) no-repeat left center;
 }
-.sidebar ul li a{
+.sidebar ol li a{
     text-decoration: none;
     font-size: 10px;
     color: black;
@@ -145,7 +145,7 @@ body {
     transition: font-size 0.3s ease;
 }
 
-.sidebar ul li a:hover, .sidebar ul li a.active{
+.sidebar ol li a:hover, .sidebar ol li a.active{
     text-decoration: none;
     color: black;
     font-size: 10px;
@@ -154,20 +154,19 @@ body {
 
 
 #leftsidebar{
-    height: 400px;
+    height: 390px;
     width: 1130px;
     margin-left: 10rem;   
     margin-top: 1rem;
     margin-right: 5rem;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 #rightsidebar{
-    height: 160px;
+    height: 130px;
     width: 1100px;
     margin-left: 10rem;   
     margin-top: 1rem;
-    margin-bottom: 2rem;
     margin-right: 5rem;
     padding-right: 2rem;
 }
@@ -178,6 +177,25 @@ body {
 .blue{
     margin-top: 1rem;
     font-size: 20px;
+}
+#black{
+    vertical-align: bottom;
+    
+}
+#button{
+    width: 80px;
+    padding: 6px;
+    border: none;
+    border-radius: 5px; 
+    background: #831238;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 30rem;
+    margin-top: 1rem;
+}
+#button:hover{
+    background-color: lightslategray;
 }
 .footer {
     background-color: #831238;

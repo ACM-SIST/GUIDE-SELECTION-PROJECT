@@ -4,7 +4,7 @@ body {
     padding: 0;
     font-family: cursive;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-blend-mode: darken;
 }
 
@@ -127,14 +127,14 @@ input[type="submit"]:hover{
     justify-content: space-between;
 }
 
-header{
+.header{
     background: #831238;
     color: white;
     padding-top: 0px;
     min-height: 50px;
 }
 
-header li{
+.header li{
     float: right;
     display: inline;
     padding: 0px 2rem 0 20px;
@@ -165,4 +165,42 @@ li a:hover {
 
 .footer {
     background-color: #831238;
+    /* margin-top: 39.8rem; */
+    padding-top: 9px;
+    color: white;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+footer p {
+    text-align: center;
+    padding-left: 10px;
+}
+
+footer i{
+    align-items: center;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 10px;
+    padding-top: 17px;
+    
+}
+
+.icon {
+    padding-left: 3rem;
+}
+
+.footer_a {
+    padding-left: 700px;
+}
+
+footer a.hover {
+    color: blue;
+}
+footer a:focus {
+    color: white;
 }

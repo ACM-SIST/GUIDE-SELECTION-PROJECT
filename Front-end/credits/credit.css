@@ -42,16 +42,14 @@ ul {
     font-family: cursive !important;
   }
 
-<<<<<<< HEAD
-/*@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
-=======
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
   .head {
     display: flex;
     color: white;
     justify-content: space-between;
 }
 
-header{
+/*header{
     background: #831238;
     color: white;
     padding-top: 10px;
@@ -72,7 +70,7 @@ a:link {
 a {
     color: white;
 }
-
+*/
 .img {
     width: 200px;
     height: 40px;
@@ -88,7 +86,6 @@ li a:hover {
 
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
->>>>>>> 9bc42ee10dfa021ff00cc340d0d3c7455c45779e
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 figure.snip0056 {
   font-family: 'Raleway', Arial, sans-serif;
@@ -186,10 +183,8 @@ figure.snip0056:hover > img,
 figure.snip0056.hover > img {
   right: -12%;
 }*/
-
-
 /* Demo purposes only */
-/*html {
+html {
   height: 100%;
 }
 body,form {

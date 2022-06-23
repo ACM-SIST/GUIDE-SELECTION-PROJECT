@@ -1,8 +1,8 @@
 body {
-    background-image: url("Image/slider-1.jpg");
+    background-image: url("Image/slider-1.jpg")  ;
 }
 
-/* .center{
+.center{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -12,7 +12,7 @@ body {
     background: rgba(250, 250, 250, 0.695); 
     border-radius: 10px;
     box-shadow: 5px 5px 25px rgba(0,0,0,0.5);
-} */
+} 
 
 .img {
     width: 200px;
@@ -30,7 +30,7 @@ h1 {
     margin: 10px 0px 0px 0px;
     padding: 5px;
 }
-ul{
+.blackbox{
     padding: 0; 
     margin: 0;
     list-style: none; 
@@ -38,7 +38,7 @@ ul{
 li{
     float: left;
 }
-ul {
+.blackbox {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -102,8 +102,89 @@ body {
         padding: 10rem;
     }    
 }*/
+.sidebar{
+    /*height: 160px;
+    width: 1100px;*/
+    border: 1px solid #831238;
+    border-radius: 50px;
+    padding: 10px 30px;
+    margin: auto;
+    margin-top: 3%;
+    background: rgba(255, 255, 255, 0.695);
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 10px;
+    
+}
+
+.sidebar h3{
+    color:black;
+    font-size: 10px;
+}
+
+.sidebar ul{
+    padding-top: 8px;   
+}
+#leftsidebar ul li{
+    padding: 4px 0 4px 10px;
+    list-style-image: url(images/arrow.png);
+}
+
+#rightsidebar ul li{
+    padding: 17px 0 17px 70px;
+   background: url(images/tick.png) no-repeat left center;
+}
+.sidebar ul li a{
+    text-decoration: none;
+    font-size: 10px;
+    color: black;
+    -webkit-transition: font-size 0.3s ease;
+    -moz-transition: font-size 0.3s ease;
+    -o-transition: font-size 0.3s ease;
+    -ms-transition: font-size 0.3s ease;
+    transition: font-size 0.3s ease;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active{
+    text-decoration: none;
+    color: black;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+
+#leftsidebar{
+    height: 400px;
+    width: 1130px;
+    margin-left: 10rem;   
+    margin-top: 1rem;
+    margin-right: 5rem;
+    margin-bottom: 20px;
+}
+
+#rightsidebar{
+    height: 160px;
+    width: 1100px;
+    margin-left: 10rem;   
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-right: 5rem;
+    padding-right: 2rem;
+}
+.yellow{
+    font-size: 30px;
+    padding-left: 2rem;
+}
+.blue{
+    margin-top: 1rem;
+    font-size: 20px;
+}
 @media (max-width: 768px) {
-    .body{
+    #menu{
+        width: 100%;
+    }
+    body{
+        width: auto;
     }
 }
     

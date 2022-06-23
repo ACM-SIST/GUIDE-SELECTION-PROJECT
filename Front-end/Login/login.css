@@ -51,7 +51,7 @@ li{
   } */
 
 body {
-    background-image: url("Image/slider-1.jpg");
+    background: url("Image/slider-1.jpg") no-repeat;
     margin: 0;
     padding: 0;
     font-family: cursive;
@@ -211,8 +211,8 @@ a {
 /*li a:hover {
     color: grey;
 
-}*/
-
+}
+*/
 .footer {
     background-color: #831238;
     /* margin-top: 39.8rem; */
@@ -273,4 +273,3 @@ footer a:focus {
         /* font-size:5px; */
     }
 }
- /*ddgfdhgjj*/

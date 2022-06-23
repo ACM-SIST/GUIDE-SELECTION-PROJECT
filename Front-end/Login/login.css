@@ -250,6 +250,7 @@ footer i{
 
 footer a {
     color: white;
+    padding-top: 10px;
 }
 
 .footer a:hover {
@@ -266,10 +267,9 @@ footer a:focus {
     footer {
         width: 100%;
     }
-    /* body {
-        background: no-repeat;
-    } */
     footer p {
         text-align: center;
+        width: 100%;
+        /* font-size:5px; */
     }
 }

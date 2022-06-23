@@ -43,6 +43,35 @@ li a:hover {
 }
 
 
+ 
+/*#menu ul li{
+  float: left;
+  padding: 0 20px;
+  height: 27px;
+  border-right: 1px solid black;
+}    
+#menu ul li:last-child{
+  border-right: none; 
+}
+#menu ul li a{
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 17px;
+  color:black;
+  line-height: 30px;
+  -webkit-transition: font-size 0.3s ease;
+  -moz-transition: font-size 0.3s ease;
+  -o-transition: font-size 0.3s ease;
+  -ms-transition: font-size 0.3s ease;
+  transition: font-size 0.3s ease;
+}
+#menu ul li a:hover, #menu ul li a.active{
+  font-size: 20px;
+  font-weight: bold;
+  color:black;
+}*/
+
+
 .bluebox{
 padding-left: 20rem;
 font-size: 17;
@@ -50,7 +79,7 @@ font-size: 17;
 html, body {
     min-height: 100%;
     }
-    body, div, form, input, label { 
+    body, div, form, input, label, textarea { 
     padding: 0;
     margin: 0;
     outline: none;
@@ -62,8 +91,6 @@ html, body {
     textarea {
       width: 100%;
       height: 100px;
-      font-family: Roboto,arial,sans-serif;
-      font-size: larger;
     }
   .project {
     display: grid;
@@ -98,7 +125,8 @@ html, body {
     box-shadow: 0 0 15px 0  #831238; 
     }
   .banner {
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
+    background-color: #831238;
     position: relative;
     height: 320px;
     background-size: cover;
@@ -118,15 +146,23 @@ html, body {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    background-color: lightgrey;
+    color: rgb(1, 1, 1);
     }
     input {
     width: calc(100% - 10px);
     padding: 5px;
     }
+
+    textarea {
+      background-color: lightgrey;
+      color: black;
+    }
     .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
     color:#831238;
     }
-    .item input:hover {
+
+    .item input:hover, .item textarea:hover {
     border: 1px solid transparent;
     box-shadow: 0 0 6px 0 #831238;
     color:#831238;
@@ -137,6 +173,10 @@ html, body {
     }
     .item span {
     color: red;
+    }
+
+    .item-guide {
+      text-align: left;
     }
     .question span {
     margin-left: 30px;
@@ -154,6 +194,9 @@ html, body {
     font-size: 16px;
     color: #fff;
     cursor: pointer;
+    }
+    .guide {
+      margin-bottom: 2rem;
     }
     button:hover {
     background: lightslategray;
@@ -176,12 +219,14 @@ html, body {
     }
 
 .team-form {
-padding-left: 5rem;
-padding-right: 5rem;
-width: 70%;
+  margin-right: 1px;
+  padding:7px 15px 12.5px;
+  width: 97.5%;
+  margin-bottom: 1.2rem;
 }
-#team-1 {
-padding-left: 4rem !important;
+/* #team-1 {
+padding-left: 3rem !important;
+margin-left: 10rem;
 }
 .team {
 padding-bottom: 2rem;
@@ -190,4 +235,4 @@ padding-bottom: 2rem;
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 5rem;
-}
+} */

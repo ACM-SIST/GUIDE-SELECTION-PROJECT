@@ -129,7 +129,9 @@ form .txt_field{
 /* #btn-stud{
     padding-left: 3rem;
 } */
+@media (max-width: 768px) {
 
+}
 
 
 

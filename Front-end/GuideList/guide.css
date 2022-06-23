@@ -1,6 +1,5 @@
 .member1{
-    padding-bottom:20px;
-    
+    padding-bottom:20px;    
 }
 .blackbox{
     padding: 0; 
@@ -162,4 +161,4 @@ footer a:focus {
    #menu{
     width: 100vh;
    }
-    }
+}

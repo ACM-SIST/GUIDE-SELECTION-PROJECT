@@ -200,6 +200,12 @@ html, body {
       display:block;
       padding-bottom:5px;
       }
+      #menu{
+        width: 100vh;
+      }
+      #team-2{
+        
+      }
       }
 
 .team-form {

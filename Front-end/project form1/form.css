@@ -211,15 +211,25 @@ html, body {
 /*#team-1 {
   padding-left: 4rem !important;
 }*/
+
+.name-item {
+  display: flex;
+  width: 50rem !important;
+}
 .team {
   padding-bottom: 2rem;
+  margin-left: 5rem;
+  /* padding-left: 15rem; */
+  margin-right: 5rem;
 }
 .team-member {
   display: grid;
-  padding-left: 2rem !important;
+  /* padding-left: 2rem !important; */
   /* grid-template-columns: 90fr 1fr; */
   gap: 5rem;
-  width: 134%;
+  /* padding-left: 15rem;    */
+  /* margin-right: 1100rem; */
+  width: 100%;
 }
 
 #name {
@@ -230,4 +240,54 @@ html, body {
 .some {
   margin-left: 5rem;
   width: 50%;
+}
+
+.footer {
+  background-color: #831238;
+  /* margin-top: 39.8rem; */
+  padding-top: 1px;
+  height: auto;
+  color: white;
+  height: 50px;
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  /* align-items: center; */
+}
+
+footer p {
+  /* text-align: center; */
+  padding-left: 10px;
+}
+
+footer i{
+  align-items: center;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 10px;
+  padding-top: 8px;
+  
+}
+
+.icon {
+  padding-left: 3rem;
+}
+
+.footer_a {
+  padding-left: 35rem;
+  float: right;
+}
+
+footer a {
+  color: white;
+  padding-top: 10px;
+}
+
+.footer a:hover {
+  color: grey;
+}
+
+footer a:focus {
+  color: white;
 }

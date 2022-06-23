@@ -67,41 +67,63 @@ def submitted(request):
 
 def register(request):
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        ConfirmPassword = request.POST['password1']
+        register.email = request.POST['email']
+        register.password = request.POST['password']
+        register.ConfirmPassword = request.POST['password1']
 
-        if password == ConfirmPassword:
-            if User.objects.filter(username=email).exists():
+        if register.password == register.ConfirmPassword:
+            if User.objects.filter(username=register.email).exists():
                 messages.error(request, 'Username Taken')
                 return redirect('register')
-            elif User.objects.filter(email=email).exists():
+            elif User.objects.filter(email=register.email).exists():
                 messages.error(request, 'Email Taken')
                 return redirect('register')
             else:
 
-                user = User.objects.create_user(
-                    username=email, email=email, password=password)
+                #user = User.objects.create_user(username=email, email=email, password=password)
 
                 # opt verify under if cond.
                 #
-            if email:
                 chars = string.digits
                 random = ''.join(choice(chars) for i in range(4))
                 random_otp = int(random)
-                user_otp = random_otp
-                send_mail('RANDOM OTP', 'The OTP is: '+random, EMAIL_HOST_USER,
-                          [email, ], fail_silently=False,)
+                register.user_otp = random_otp
+                send_mail('OTP EMAIL VERIFICATION FOR GUIDE', 'The OTP is: '+random, EMAIL_HOST_USER,
+                          [register.email, ], fail_silently=False,)
                 return render(request, 'Register/verify.html')
 
-                user.save()
-
-                return redirect('login')
+                #user.save()
         else:
             messages.error(request, 'Password not matching')
             return redirect('register')
     else:
         return render(request, 'Register/register.html')
+
+
+def verify(request):
+    if request.method == 'POST':
+        otp = request.POST['otp']
+        print("from user: ",otp)
+        user_otp = int(otp)
+        print(type(user_otp))
+        print("register otp: ",register.user_otp)
+        print("email: ",register.email)
+        if register.user_otp == user_otp:
+            # send_mail(
+            #     'THANK YOU',
+            #     'Your Email is verified ',
+            #     EMAIL_HOST_USER,
+            #     [register.user_email],
+            #     fail_silently=False,
+            # )
+            user = User.objects.create_user(username=register.email, email=register.email, password=register.password)
+            user.save()
+            return redirect('login')
+        else:
+            return redirect('register')
+    else:
+        return redirect('register')
+
 
 
 def login(request):
@@ -264,21 +286,3 @@ def guide_selected(request, id):
 
     return render(request, 'confirmation_1/confirmation.html', context)
 
-
-def verify_single(request):
-    if request.method == 'POST':
-        opt = request.POST['otp']
-        user_otp = int(opt)
-        if mail_single.user_otp == user_otp:
-            send_mail(
-                'THANK YOU',
-                'Your Email is verified ',
-                EMAIL_HOST_USER,
-                [mail_single.user_email],
-                fail_silently=False,
-            )
-            return redirect('main')
-        else:
-            return redirect('register')
-    else:
-        return redirect('register')

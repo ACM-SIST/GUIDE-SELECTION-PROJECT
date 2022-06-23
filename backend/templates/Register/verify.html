@@ -1,38 +1,44 @@
-
-{% extends 'css.html' %}
 {% load static %}
-{% block content %}
-    <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>verify | Sathyabama Institute of Science and Technology</title>
-    <link rel = "icon" href = "{% static 'C:\\Users\\hp\\projects\\guide\\home\\static\\image\\logo.png' %}" type = "image/x-icon">
-    </head>
-    <body>
-        <header>
-            <nav class="head">
-                <img src="{% static 'C:\\Users\\hp\\projects\\guide\\home\\static\\image\\head.jpeg' %}" class="img">
-                <ul>
-                    <li><a class="w" href="register">Register</a></li>
-                    <li><a class="w" href="login">Login</a></li>
-                    <li><a class="w" href="main">Home</a></li>
-                </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" text="text/css" href="{% static 'css/login.css' %}">
+    <title>Verify Page</title>
+</head>
+
+<body>
+    <header>
+            <nav id="menu">
+                <!--<a href="../Home/home.html">
+                 <img src="Image/headimg.jpeg" class="img">
+                </a>-->
+                    <ul class="blackbox">
+                        <li><a href="#">Rules</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                    </ul>
+                <!--<ul>
+                <li><a href="../Register/register.html">Register</a></li>
+                <li><a href="../Login/login.html">Login</a></li>
+                <li><a href="../Home/home.html">Home</a></li>
+                </ul>-->
             </nav>
-            <img class="img1" src="{% static 'C:\\Users\\hp\\projects\\guide\\home\\static\\image\\sat.jpeg' %}">
-        
     </header>
-        <div class="container">
-                <div class="login">
-                   <!-- <h3>Login</h3>-->
-                </div>
-            <form action="verify_single" method="POST" style="height: 370px;">
-                {% csrf_token %}
-                <h1>verify</h1>
-                <input type="None" name="otp" placeholder="Enter the otp sent to your email">
+    <div class="center">
+        <h1>Verify</h1>
+        <form action="{% url 'verify' %}" method="POST">
+            {% csrf_token %}
+            <div  class="txt_field">
+                <input type="None" name="otp" placeholder="Enter the OTP sent to your email">
                 <input type="submit">
-            </form>
-        </div>
-         <div>
-             <h3>{{o}}</h3>
-         </div>
-    </body>
-{% endblock %}
+            </div>
+        </form>
+    </div>
+    <!-- <footer class="footer">
+        <p>Already</p>
+    </footer> -->
+</body>
+</html>

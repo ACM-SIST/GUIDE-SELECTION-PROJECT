@@ -35,7 +35,8 @@ SECRET_KEY = 'django-insecure-bn!gb+_&96p0e7j+0@in%!o5xxl23m$907%3sgyqlekw&85sgv
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-DEBUG = os.environ.get('DEBUG')
+# DEBUG = os.environ.get('DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://guideselection.herokuapp.com/',
                  'localhost', '127.0.0.1', ]
@@ -177,6 +178,6 @@ django_heroku.settings(locals())
 # Email Configuration
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'funnythings012@gmail.com'
-EMAIL_HOST_PASSWORD = 'fzuszbtkhfsnufsr'
+EMAIL_HOST_USER = 'codecho.community@gmail.com'
+EMAIL_HOST_PASSWORD = 'jctcqrxwuukneiqa'
 EMAIL_USE_TLS = True

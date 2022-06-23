@@ -181,9 +181,15 @@ html, body {
     .question span {
     margin-left: 30px;
     }
-    .btn-block {
+    .btn-block1 {
     margin-top: 10px;
     text-align: center;
+    align-items: center;
+    /* padding-left: 33rem; */
+    /* display: flex; */
+    }
+    .submit {
+      margin-left: 2rem;
     }
     button {
     width: 150px;

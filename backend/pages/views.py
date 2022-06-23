@@ -88,11 +88,16 @@ def register(request):
                 random = ''.join(choice(chars) for i in range(4))
                 random_otp = int(random)
                 register.user_otp = random_otp
-                send_mail('OTP EMAIL VERIFICATION FOR GUIDE', 'The OTP is: '+random, EMAIL_HOST_USER,
-                          [register.email, ], fail_silently=False,)
+                # send_mail(
+                #     'OTP EMAIL VERIFICATION FOR GUIDE',
+                #     'The OTP is: '+random,
+                #     EMAIL_HOST_USER,
+                #     [register.email, ],
+                #     fail_silently=False,
+                # )
                 return render(request, 'Register/verify.html')
 
-                #user.save()
+                # user.save()
         else:
             messages.error(request, 'Password not matching')
             return redirect('register')
@@ -103,11 +108,11 @@ def register(request):
 def verify(request):
     if request.method == 'POST':
         otp = request.POST['otp']
-        print("from user: ",otp)
+        print("from user: ", otp)
         user_otp = int(otp)
         print(type(user_otp))
-        print("register otp: ",register.user_otp)
-        print("email: ",register.email)
+        print("register otp: ", register.user_otp)
+        print("email: ", register.email)
         if register.user_otp == user_otp:
             # send_mail(
             #     'THANK YOU',
@@ -116,14 +121,14 @@ def verify(request):
             #     [register.user_email],
             #     fail_silently=False,
             # )
-            user = User.objects.create_user(username=register.email, email=register.email, password=register.password)
+            user = User.objects.create_user(
+                username=register.email, email=register.email, password=register.password)
             user.save()
             return redirect('login')
         else:
             return redirect('register')
     else:
         return redirect('register')
-
 
 
 def login(request):
@@ -285,4 +290,3 @@ def guide_selected(request, id):
     }
 
     return render(request, 'confirmation_1/confirmation.html', context)
-

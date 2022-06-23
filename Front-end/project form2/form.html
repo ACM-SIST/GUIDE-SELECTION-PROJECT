@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <title>FORM</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" >
+        <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="form.css">
     </head>
     <body>
         <nav id="menu">
             <ul>
-                <li><a href="#">Rules</a></li>
-                <li><a href="../GuideList/guide.html">Guide List</a></li>
+                <li><a href="">Logout</a></li>
                 <li><a href="../Home/home.html">Home</a></li>
             </ul>
         </nav>
@@ -73,22 +73,22 @@
                     <fieldset class="team-form" >
                         <legend>Team Member 2</legend>
                         <div class="item">
-                        <label for="name">Name</label>
+                        <label for="name">Name<span>*</span></label>
                         <div class="name-item">
                         <input id="name" type="text" name="name" placeholder="  First" required/>
                         <input id="name" type="text" name="name" placeholder="  Last" required/>
                         </div>
                         </div>
                         <div class="item">
-                        <label for="regno">Register Number</label>
+                        <label for="regno">Register Number<span>*</span></label>
                         <input id="regno" type="number" name="regno" placeholder="  Register Number" required/>
                         </div>
                         <div class="item">
-                        <label for="email">Email</label>
+                        <label for="email">Email<span>*</span></label>
                         <input id="email" type="email" name="text" placeholder="  Email Id" required/>
                         </div> 
                         <div class="item">
-                        <label for="phno">Phone Number</label>
+                        <label for="phno">Phone Number<span>*</span></label>
                         <input id="phno" type="number" name="phno" placeholder="  Phone Number" required />
                         </div>
                     </fieldset>
@@ -101,6 +101,13 @@
                 </fieldset>
             </form>
             </div>
+            <section>
+                <footer class="footer">
+                    <p>| &copy; Copyright 2022; ACM Sathyabama Institute of Science and Technology, All rights reserved.|</p>
+                    <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram" class="icon"></i></a>
+                    <a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
+                </footer>
+            </section>
         <script type="text/javascript" src="form.js"></script>
     </body> 
 </html>

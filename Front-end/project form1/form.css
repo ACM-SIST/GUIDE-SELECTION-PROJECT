@@ -84,7 +84,7 @@ html, body {
       margin: 0;
       outline: none;
       font-family: Roboto,arial,sans-serif;
-      font-size: 20px;
+      /* font-size: 20px; */
       color: #666;
       line-height: 22px;
       }
@@ -275,7 +275,7 @@ footer i{
 }
 
 .footer_a {
-  padding-left: 35rem;
+  padding-left: 45rem;
   float: right;
 }
 

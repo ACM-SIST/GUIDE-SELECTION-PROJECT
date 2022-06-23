@@ -219,7 +219,7 @@ html, body {
 .team {
   padding-bottom: 2rem;
   margin-left: 5rem;
-  padding-left: 15rem;
+  /* padding-left: 15rem; */
   margin-right: 5rem;
 }
 .team-member {
@@ -227,6 +227,7 @@ html, body {
   /* padding-left: 2rem !important; */
   /* grid-template-columns: 90fr 1fr; */
   gap: 5rem;
+  /* padding-left: 15rem;    */
   /* margin-right: 1100rem; */
   width: 100%;
 }
@@ -244,18 +245,19 @@ html, body {
 .footer {
   background-color: #831238;
   /* margin-top: 39.8rem; */
-  padding-top: 9px;
+  padding-top: 1px;
+  height: auto;
   color: white;
   height: 50px;
   /* position: absolute; */
-  /* bottom: 0; */
+  bottom: 0;
   width: 100%;
-  /* display: flex; */
+  display: flex;
   /* align-items: center; */
 }
 
 footer p {
-  text-align: center;
+  /* text-align: center; */
   padding-left: 10px;
 }
 
@@ -273,7 +275,13 @@ footer i{
 }
 
 .footer_a {
-  padding-left: 700px;
+  padding-left: 35rem;
+  float: right;
+}
+
+footer a {
+  color: white;
+  padding-top: 10px;
 }
 
 .footer a:hover {

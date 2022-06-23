@@ -42,6 +42,9 @@ ul {
     font-family: cursive !important;
   }
 
+<<<<<<< HEAD
+/*@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
+=======
   .head {
     display: flex;
     color: white;
@@ -85,6 +88,7 @@ li a:hover {
 
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
+>>>>>>> 9bc42ee10dfa021ff00cc340d0d3c7455c45779e
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 figure.snip0056 {
   font-family: 'Raleway', Arial, sans-serif;
@@ -181,11 +185,11 @@ figure.snip0056.yellow .position {
 figure.snip0056:hover > img,
 figure.snip0056.hover > img {
   right: -12%;
-}
+}*/
 
 
 /* Demo purposes only */
-html {
+/*html {
   height: 100%;
 }
 body,form {

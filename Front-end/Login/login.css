@@ -1,3 +1,47 @@
+.member1{
+    padding-bottom:20px;
+    
+}
+.blackbox{
+    padding: 0; 
+    margin: 0;
+    list-style: none; 
+}
+li{
+    float: left;
+}
+.blackbox {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #831238;
+  }
+  
+  li {
+    float: right;
+  } 
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    -webkit-transition: font-size 0.3s ease;
+    -moz-transition: font-size 0.3s ease;
+    -o-transition: font-size 0.3s ease;
+    -ms-transition: font-size 0.3s ease;
+    transition: font-size 0.3s ease;
+    line-height: 20px;
+  }
+  li a:hover {
+    background-color: lightslategray;
+    font-weight: bold;
+  }
+ 
+  #menu{
+    font-family: cursive !important;
+  }
 body {
     background-image: url("Image/slider-1.jpg");
     margin: 0;
@@ -121,7 +165,7 @@ input[type="submit"]:hover{
     margin: auto;
     overflow: hidden;
 }
-.head {
+/*.head {
     display: flex;
     color: white;
     justify-content: space-between;
@@ -138,9 +182,7 @@ input[type="submit"]:hover{
     float: right;
     display: inline;
     padding: 0px 2rem 0 20px;
-}
-
-
+}*/
 a:link {
     color: white;
     text-decoration: None;
@@ -158,10 +200,10 @@ a {
     padding-top: 5px;
 }
 
-li a:hover {
+/*li a:hover {
     color: grey;
 
-}
+}*/
 
 .footer {
     background-color: #831238;
@@ -204,3 +246,10 @@ footer a.hover {
 footer a:focus {
     color: white;
 }
+@media (max-width: 768px) {
+    #menu{
+        width: auto;
+    }
+
+}
+ /*ddgfdhgjj*/

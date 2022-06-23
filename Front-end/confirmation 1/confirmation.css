@@ -185,8 +185,8 @@ html, body {
     margin-top: 10px;
     text-align: center;
     align-items: center;
-    padding-left: 33rem;
-    display: flex;
+    /* padding-left: 33rem; */
+    /* display: flex; */
     }
     .submit {
       margin-left: 2rem;

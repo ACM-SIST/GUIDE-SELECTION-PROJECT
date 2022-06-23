@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" text="text/css" href="{% static 'css/login.css' %}">
-    <title>Login Page</title>
+    <title>Verify Page</title>
 </head>
 
 <body>
@@ -20,24 +20,22 @@
                         <li><a href="{% url 'register' %}">Register</a></li>
                         <li><a href="{% url 'home' %}">Home</a></li>
                     </ul>
+                <!--<ul>
+                <li><a href="../Register/register.html">Register</a></li>
+                <li><a href="../Login/login.html">Login</a></li>
+                <li><a href="../Home/home.html">Home</a></li>
+                </ul>-->
             </nav>
     </header>
     <div class="center">
-        <h1>Login</h1>
-        {% include 'partials/_alerts.html' %}
-        <form action="{% url 'login' %}" method="POST">
+        <h1>Verifying OTPs</h1>
+        <form action="{% url 'verify1' %}" method="POST">
             {% csrf_token %}
-            <div class="txt_field">
-                <input type="text" name="email" required>
-                <label>Email</label>
+            <div  class="txt_field">
+                <input type="None" name="otp" style="text-align: center;" placeholder="Enter the otp of team member 1"><br><br>
+                <input type="None" name="otp1" style="text-align: center;" placeholder="Enter the otp of team member 2"><br><br>
+                <input type="submit">
             </div>
-            <div class="txt_field">
-                <input type="password" name="password" required>
-                <label>Password</label>
-            </div>
-            <div class="pass">Don't have an account! <a href="{% url 'register' %}">Create Account</a></div>
-            <input type="submit" value="Login">
-            <div class="signup_link"></div>
         </form>
     </div>
     <!-- <footer class="footer">

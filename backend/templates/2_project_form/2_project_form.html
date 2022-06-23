@@ -17,7 +17,8 @@
             </ul>
         </nav>
         <div class="testbox">
-            <form action="/">
+            <form action="{% url 'project-details-2' %}" method="POST">
+                {% csrf_token %}
               <div class="banner">
                 <h1>Final Year Project Guide selection</h1>
               </div>
@@ -52,21 +53,21 @@
                         <div class="item">
                         <label for="name">Name<span>*</span></label>
                         <div class="name-item">
-                        <input id="name" type="text" name="name" placeholder="  First" required/>
-                        <input id="name" type="text" name="name" placeholder="  Last" required/>
+                        <input id="name" type="text" name="first_name" placeholder="  First" required/>
+                        <input id="name" type="text" name="last_name" placeholder="  Last" required/>
                         </div>
                         </div>
                         <div class="item">
                         <label for="regno">Register Number<span>*</span></label>
-                        <input id="regno" type="number" name="regno" placeholder="  Register Number" required/>
+                        <input id="regno" type="text" name="reg_no_1" placeholder="  Register Number" required/>
                         </div>
                         <div class="item">
                         <label for="email">Email<span>*</span></label>
-                        <input id="email" type="email" name="text" placeholder="  Email Id" required/>
+                        <input id="email" type="email" name="student_1_email" placeholder="  Email Id" required/>
                         </div>
                         <div class="item">
                         <label for="phno">Phone Number<span>*</span></label>
-                        <input id="phno" type="number" name="phno" placeholder="  Phone Number" required />
+                        <input id="phno" type="text" name="student_1_no" placeholder="  Phone Number" required />
                         </div>
                     </fieldset>
                 </div>
@@ -76,21 +77,21 @@
                         <div class="item">
                         <label for="name">Name</label>
                         <div class="name-item">
-                        <input id="name" type="text" name="name" placeholder="  First" required/>
-                        <input id="name" type="text" name="name" placeholder="  Last" required/>
+                        <input id="name" type="text" name="first_name_2" placeholder="  First" required/>
+                        <input id="name" type="text" name="last_name_2" placeholder="  Last" required/>
                         </div>
                         </div>
                         <div class="item">
                         <label for="regno">Register Number</label>
-                        <input id="regno" type="number" name="regno" placeholder="  Register Number" required/>
+                        <input id="regno" type="text" name="reg_no_2" placeholder="  Register Number" required/>
                         </div>
                         <div class="item">
                         <label for="email">Email</label>
-                        <input id="email" type="email" name="text" placeholder="  Email Id" required/>
+                        <input id="email" type="email" name="student_2_email" placeholder="  Email Id" required/>
                         </div> 
                         <div class="item">
                         <label for="phno">Phone Number</label>
-                        <input id="phno" type="number" name="phno" placeholder="  Phone Number" required />
+                        <input id="phno" type="text" name="student_2_no" placeholder="  Phone Number" required />
                         </div>
                     </fieldset>
                 </div>

@@ -101,9 +101,11 @@ button:hover {
     padding-top: 9px;
     color: white;
     height: 50px;
+    position: absolute;
     bottom: 0;
     width: 100%;
     display: flex;
+    /* align-items: center; */
 }
 
 footer p {

@@ -91,10 +91,10 @@
                                     </td>
                                     <td align="" class="vac">{{ guide.vacancy }}</td>
                                     <td align="center">
-                                        <form action="{% url 'guide-selected' guide.serial_no %}" method="POST" >
-                                            {% csrf_token %}
+                                        <a href="{% url 'guide-selected' guide.serial_no %}"  >
+                                            <!-- {% csrf_token %} -->
                                             <button>Select</button>
-                                        </form>
+                                        </a>
                                     </td>
                                 </tr>
                             {% endif %}
@@ -104,11 +104,13 @@
             </div>
         </table>
     </div>
-      <footer class="footer">
-        <p>&copy; Copyright 2022; ACM Sathyabama Institute of Science and Technology, All rights reserved.</p>
-        <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram" class="icon"></i></a>
-        <a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
-    </footer>
+    <section>
+        <footer class="footer">
+            <p>| &copy; Copyright 2022; ACM Sathyabama Institute of Science and Technology, All rights reserved.|</p>
+            <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram" class="icon"></i></a>
+            <a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
+        </footer>
+    </section>
         
 </body>
 </html>

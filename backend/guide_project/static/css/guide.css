@@ -96,6 +96,50 @@ button:hover {
     transform: translateY(38%);
 }
 
+.footer {
+    background-color: #831238;
+    padding-top: 9px;
+    color: white;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+}
+
+footer p {
+    /* text-align: center; */
+    padding-left: 10px;
+}
+
+footer i{
+    align-items: center;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 10px;
+    padding-top: 8px;
+    
+}
+
+.icon {
+    padding-left: 3rem;
+}
+
+.footer_a {
+    padding-left: 700px;
+}
+
+footer a {
+    color: white;
+}
+
+.footer a:hover {
+    color: grey;
+}
+
+footer a:focus {
+    color: white;
+}
+
 /* @media (min-width: 768px) {
     ::-webkit-scrollbar {
         width: 20px;

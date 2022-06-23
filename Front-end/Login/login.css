@@ -222,12 +222,12 @@ a {
     position: absolute;
     bottom: 0;
     width: 100%;
-    /* display: flex; */
+    display: flex;
     /* align-items: center; */
 }
 
 footer p {
-    text-align: center;
+    /* text-align: center; */
     padding-left: 10px;
 }
 
@@ -246,6 +246,10 @@ footer i{
 
 .footer_a {
     padding-left: 700px;
+}
+
+footer a {
+    color: white;
 }
 
 .footer a:hover {

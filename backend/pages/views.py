@@ -131,6 +131,45 @@ def verify(request):
         return redirect('register')
 
 
+def mail1(request):
+    if request.method == 'POST':
+        email = request.POST['mail']
+        email1 = request.POST.get('maill', False)
+        mail1.user_email = email
+        mail1.user_email1 = email1
+        chars = string.digits
+        random = ''.join(choice(chars) for i in range(4))
+        random_otp = int(random)
+        mail1.user_otp = random_otp
+        otp = str(random)
+        mail1.user_otp1 = otp[:2]
+        mail1.user_otp2 = otp[2:]
+        m = [mail1.user_otp1, mail1.user_otp2]
+        send_mail('RANDOM OTP', 'The OTP is: ' + mail1.user_otp1,
+                  EMAIL_HOST_USER, [mail1.user_email, ], fail_silently=False,)
+        send_mail('RANDOM OTP', 'The OTP is: ' + mail1.user_otp2,
+                  EMAIL_HOST_USER, [mail1.user_email1, ], fail_silently=False,)
+        return render(request, 'Register/verify1.html')
+    else:
+        return render(request, 'Register/mail1.html')
+
+
+def verify1(request):
+    if request.method == 'POST':
+        otp = request.POST['otp']
+        otp1 = request.POST.get('otp1', False)
+        user_otp = int(otp)
+        user_otp1 = int(otp1)
+        if int(mail1.user_otp1) == user_otp and int(mail1.user_otp2) == user_otp1:
+            # send_mail('THANK YOU','Your Email is verified ',EMAIL_HOST_USER,[mail1.user_email],fail_silently=False,)
+            # send_mail('THANK YOU','Your Email is verified ',EMAIL_HOST_USER,[mail1.user_email1],fail_silently=False,)
+            return redirect('project-details-2')
+        else:
+            return render(request, 'mail1.html')
+    else:
+        return render(request, 'Register/verify1.html')
+
+
 def login(request):
     if request.method == 'POST':
         user_name = request.POST['email']

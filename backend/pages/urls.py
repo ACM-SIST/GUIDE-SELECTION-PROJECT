@@ -44,4 +44,7 @@ urlpatterns = [
     # /*****************/
     # otp verify 
     path('verify',views.verify,name='verify'),
+    path('verify1',views.verify1,name='verify1'),
+    # selected 2 mail 
+    path('mail1',views.mail1,name='mail1'),
 ]

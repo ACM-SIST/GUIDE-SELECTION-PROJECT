@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" text="text/css" href="{% static 'css/login.css' %}">
+    <title>Mail Page</title>
+</head>
+
+<body>
+    <header>
+            <nav id="menu">
+                <!--<a href="../Home/home.html">
+                 <img src="Image/headimg.jpeg" class="img">
+                </a>-->
+                    <ul class="blackbox">
+                        <li><a href="#">Rules</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                    </ul>
+                <!--<ul>
+                <li><a href="../Register/register.html">Register</a></li>
+                <li><a href="../Login/login.html">Login</a></li>
+                <li><a href="../Home/home.html">Home</a></li>
+                </ul>-->
+            </nav>
+    </header>
+    <div class="center">
+        <h1>Verifying Mails</h1>
+        <form action="{% url 'mail1' %}" method="POST">
+            {% csrf_token %}
+            <div  class="txt_field">
+                <input type="None" name="mail" style="text-align: center;" placeholder="Email of team member 1"><br><br>
+                <input type="None" name="maill" style="text-align: center;" placeholder="Email of team member 2"><br><br> 
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+    <!-- <footer class="footer">
+        <p>Already</p>
+    </footer> -->
+</body>
+</html>

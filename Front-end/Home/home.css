@@ -179,6 +179,53 @@ body {
     margin-top: 1rem;
     font-size: 20px;
 }
+.footer {
+    background-color: #831238;
+    /* margin-top: 39.8rem; */
+    padding-top: 9px;
+    color: white;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    /* align-items: center; */
+}
+
+footer p {
+    /* text-align: center; */
+    padding-left: 10px;
+}
+
+footer i{
+    align-items: center;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 10px;
+    padding-top: 8px;
+    
+}
+
+.icon {
+    padding-left: 3rem;
+}
+
+.footer_a {
+    padding-left: 700px;
+}
+
+footer a {
+    color: white;
+    padding-top: 10px;
+}
+
+.footer a:hover {
+    color: grey;
+}
+
+footer a:focus {
+    color: white;
+}
 @media (max-width: 768px) {
     #menu{
         width: 100%;

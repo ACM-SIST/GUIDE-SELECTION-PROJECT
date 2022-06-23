@@ -1,5 +1,5 @@
 body {
-    background-image: url("Image/slider-1.jpg")  ;
+    background: url("Image/slider-1.jpg") no-repeat  ;
 }
 
 .center{
@@ -184,7 +184,7 @@ body {
         width: 100%;
     }
     body{
-        width: auto;
+        width: 100%;
     }
 }
     

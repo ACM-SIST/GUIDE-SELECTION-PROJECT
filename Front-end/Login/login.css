@@ -261,10 +261,10 @@ footer a:focus {
 }
 @media (max-width: 768px) {
     #menu{
-        width: auto;
+        width: 100%;
     }
     footer {
-        width: auto;
+        width: 100%;
     }
     /* body {
         background: no-repeat;

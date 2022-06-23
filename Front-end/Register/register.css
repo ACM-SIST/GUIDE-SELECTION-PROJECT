@@ -47,7 +47,7 @@ li{
   }
  
 body {
-    background-image: url("Image/slider-1.jpg");
+    background: url("Image/slider-1.jpg") no-repeat;
     margin: 0;
     padding: 0;
     font-family: cursive;

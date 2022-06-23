@@ -88,13 +88,13 @@ def register(request):
                 random = ''.join(choice(chars) for i in range(4))
                 random_otp = int(random)
                 register.user_otp = random_otp
-                # send_mail(
-                #     'OTP EMAIL VERIFICATION FOR GUIDE',
-                #     'The OTP is: '+random,
-                #     EMAIL_HOST_USER,
-                #     [register.email, ],
-                #     fail_silently=False,
-                # )
+                send_mail(
+                    'OTP EMAIL VERIFICATION FOR GUIDE',
+                    'The OTP is: '+random,
+                    EMAIL_HOST_USER,
+                    [register.email, ],
+                    fail_silently=False,
+                )
                 return render(request, 'Register/verify.html')
 
                 # user.save()
@@ -271,12 +271,13 @@ def project_details_2(request):
         print("TYPE OF user.id: ", type(user.id))
 
         # CSE-<team_id_num> for eg: CSE-007, CSE-008....
-        team = Team.objects.create(teamID=curr_user.username, project_name=project_name, project_domain=project_domain, project_description=project_description,
-                                   no_of_members='1', reg_no_1=reg_no_1, student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no, reg_no_2=reg_no_2, student_2_name=student_2_name, student_2_email=student_2_email, student_2_no=student_2_no)
         new_username = "CSE-%03d" % user.id
-        print('NAME IS: ', team.project_name)
-        print('TEAMID IS: ', team.project_name)
+        team = Team.objects.create(teamID=new_username, project_name=project_name, project_domain=project_domain, project_description=project_description, no_of_members='1', reg_no_1=reg_no_1,
+                                   student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no, reg_no_2=reg_no_2,  student_2_name=student_2_name, student_2_email=student_2_email, student_2_no=student_2_no)
+
         user.username = new_username
+
+        team.save()
 
         user.save()
 
@@ -306,22 +307,17 @@ def guide_selected(request, id):
     # select_guide = Guide.objects.filter(serial_no=id).get()
     guide_inst = Guide.objects.get(serial_no=id)
 
-    print("USERNAME IS: ", request.user.username)
     # you can get teamID from username as both are same.
     team = Team.objects.get(teamID=request.user.username)
     # team = get_object_or_404(Team, teamID=request.user.username)
-    print("TEAM IS: ", team)
-    team.guide = guide_inst
-    print('TEAM IS: ', team)
 
-    print('GUIDE IS: ', guide_inst.name)
-    print("STORED GUIDE : ", team.guide)
-    print("REQUEST METHOD IS: ", type(request.method), request.method)
+    team.guide = guide_inst
+
     if request.method == 'POST':
         print("REQUEST METHOD IS: ", request.method)
         team.save()
         return redirect('submitted')
-    print("TEAM IS: ", team)
+
     context = {
         'guide': select_guide,
         'team': team,

@@ -42,4 +42,6 @@ urlpatterns = [
     path('reset/done', auth_views.PasswordResetCompleteView.as_view(),
          name='password_reset_complete'),
     # /*****************/
+    # otp verify 
+    path('verify',views.verify,name='verify'),
 ]

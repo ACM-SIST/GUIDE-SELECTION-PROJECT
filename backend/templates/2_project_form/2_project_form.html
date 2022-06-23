@@ -53,8 +53,8 @@
                         <div class="item">
                         <label for="name">Name<span>*</span></label>
                         <div class="name-item">
-                        <input id="name" type="text" name="first_name" placeholder="  First" required/>
-                        <input id="name" type="text" name="last_name" placeholder="  Last" required/>
+                        <input id="name" type="text" name="first_name" placeholder="  First" value="{{ user.first_name }}" disabled/>
+                        <input id="name" type="text" name="last_name" placeholder="  Last" value="{{ user.last_name }}" disabled/>
                         </div>
                         </div>
                         <div class="item">
@@ -63,7 +63,7 @@
                         </div>
                         <div class="item">
                         <label for="email">Email<span>*</span></label>
-                        <input id="email" type="email" name="student_1_email" placeholder="  Email Id" required/>
+                        <input id="email" type="email" name="student_1_email" placeholder="  Email Id" value="{{ user.email }}" disabled/>
                         </div>
                         <div class="item">
                         <label for="phno">Phone Number<span>*</span></label>

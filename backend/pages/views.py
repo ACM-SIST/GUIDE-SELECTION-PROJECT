@@ -62,11 +62,14 @@ def guides(request):
 
 
 def submitted(request):
+    auth.logout(request)
     return render(request, 'submitted.html')
 
 
 def register(request):
     if request.method == 'POST':
+        register.first_name = request.POST['first_name']
+        register.last_name = request.POST['last_name']
         register.email = request.POST['email']
         register.password = request.POST['password']
         register.ConfirmPassword = request.POST['password1']
@@ -122,7 +125,7 @@ def verify(request):
             #     fail_silently=False,
             # )
             user = User.objects.create_user(
-                username=register.email, email=register.email, password=register.password)
+                username=register.email, first_name=register.first_name, last_name=register.last_name, email=register.email, password=register.password)
             user.save()
             return redirect('login')
         else:
@@ -181,9 +184,10 @@ def login(request):
             # team = Team.objects.filter(teamID=user.username).exists()
 
             if Team.objects.filter(teamID=user.username).exists():
-                print("TEAM PRESENT: ", Team.objects.filter(
-                    teamID=user.username).get())
-                return redirect('submitted')
+                auth.logout(request)
+                messages.info(
+                    request, 'Your team is already registered and submitted!')
+                return redirect('login')
             return redirect('no-of-stud')
         else:
             messages.error(request, 'Invalid Credentials')
@@ -207,6 +211,9 @@ def project_details_1(request):
         is_team.delete()
         print("TEAM IS: ", is_team)
         print("TEAM PRESENT AND DELETED!!!!")
+        messages.info(
+            request, 'Your team is already registered and submitted!')
+        return redirect('login')
     print("SKIPPED IF STATEMENT")
     if request.method == 'POST':
 
@@ -227,7 +234,7 @@ def project_details_1(request):
         print("TYPE OF user.id: ", type(user.id))
 
         # CSE-<team_id_num> for eg: CSE-007, CSE-008....
-        new_username = "CSE-%03d" % user.id
+        new_username = "CSE-%03d" % (user.id - 1)
         team = Team.objects.create(teamID=new_username, project_name=project_name, project_domain=project_domain, project_description=project_description,
                                    no_of_members='1', reg_no_1=reg_no_1, student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no)
 
@@ -236,6 +243,11 @@ def project_details_1(request):
         team.save()
 
         user.save()
+        send_mail(
+            'YOUR TEAM ID FOR FINAL YEAR PROJECT',
+            'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username +
+            '\n\nNow you can login with your TEAMID and password(The one you created earlier)'
+        )
 
         return redirect('select-guide')
     else:
@@ -243,25 +255,25 @@ def project_details_1(request):
 
 
 def project_details_2(request):
-
+    user = request.user
+    user.save()
+    guides = Guide.objects.order_by('serial_no')
     if request.method == 'POST':
 
         project_name = request.POST['project_name']
         project_domain = request.POST['project_domain']
         project_description = request.POST['project_description']
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
         reg_no_1 = request.POST['reg_no_1']
-        student_1_email = request.POST['student_1_email']
         student_1_no = request.POST['student_1_no']
 
-        student_1_name = first_name + ' ' + last_name
+        student_1_name = user.first_name + ' ' + user.last_name
+        student_1_email = user.email
 
-        first_name_2 = request.POST['first_name']
-        last_name_2 = request.POST['last_name']
-        reg_no_2 = request.POST['reg_no_1']
-        student_2_email = request.POST['student_1_email']
-        student_2_no = request.POST['student_1_no']
+        first_name_2 = request.POST['first_name_2']
+        last_name_2 = request.POST['last_name_2']
+        reg_no_2 = request.POST['reg_no_2']
+        student_2_email = request.POST['student_2_email']
+        student_2_no = request.POST['student_2_no']
 
         student_2_name = first_name_2 + ' ' + last_name_2
 
@@ -271,17 +283,28 @@ def project_details_2(request):
         print("TYPE OF user.id: ", type(user.id))
 
         # CSE-<team_id_num> for eg: CSE-007, CSE-008....
-        new_username = "CSE-%03d" % user.id
-        team = Team.objects.create(teamID=new_username, project_name=project_name, project_domain=project_domain, project_description=project_description, no_of_members='1', reg_no_1=reg_no_1,
+        new_username = "CSE-%03d" % (user.id-1)
+        team = Team.objects.create(teamID=new_username, project_name=project_name, project_domain=project_domain, project_description=project_description, no_of_members='2', reg_no_1=reg_no_1,
                                    student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no, reg_no_2=reg_no_2,  student_2_name=student_2_name, student_2_email=student_2_email, student_2_no=student_2_no)
 
         user.username = new_username
 
         team.save()
-
         user.save()
-
-        return redirect('select-guide')
+        send_mail(
+            'YOUR TEAM ID FOR FINAL YEAR PROJECT',
+            'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username +
+            '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
+            EMAIL_HOST_USER,
+            [user.email, mail1.user_email1],
+            fail_silently=False,
+        )
+        context = {
+            'user': user,
+            'guides': guides,
+        }
+        # return redirect('select-guide')
+        return render(request, 'GuideList/guide.html', context)
     else:
         return render(request, '2_project_form/2_project_form.html')
 
@@ -310,18 +333,40 @@ def guide_selected(request, id):
     # you can get teamID from username as both are same.
     team = Team.objects.get(teamID=request.user.username)
     # team = get_object_or_404(Team, teamID=request.user.username)
-
+    user = request.user
     team.guide = guide_inst
-
+    print("GUIDE PRESENT VACANCY: ", guide_inst.vacancy)
     if request.method == 'POST':
         print("REQUEST METHOD IS: ", request.method)
+        guide_inst.vacancy -= 1
+        print("GUIDE AFTER VACANCY: ", "guide_inst.vacancy")
+        guide_inst.save()
         team.save()
+        if team.no_of_members == '2':
+            send_mail(
+                'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
+                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + '\n\nMembers: ' + team.student_1_name + ' and '+team.student_2_name +
+                '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
+                EMAIL_HOST_USER,
+                [user.email, mail1.user_email1],
+                fail_silently=False,
+            )
+        else:
+            send_mail(
+                'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
+                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + 'Members: ' + team.student_1_name + ' '+team.student_2_name +
+                '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
+                EMAIL_HOST_USER,
+                [user.email, ],
+                fail_silently=False,
+            )
         return redirect('submitted')
 
     context = {
         'guide': select_guide,
         'team': team,
         'id': id,
+        'user': user,
     }
 
     return render(request, 'confirmation_1/confirmation.html', context)

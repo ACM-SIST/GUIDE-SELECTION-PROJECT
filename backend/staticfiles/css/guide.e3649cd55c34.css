@@ -98,12 +98,15 @@ button:hover {
 
 .footer {
     background-color: #831238;
+    /* margin-top: 39.8rem; */
     padding-top: 9px;
     color: white;
     height: 50px;
+    position: absolute;
     bottom: 0;
     width: 100%;
     display: flex;
+    /* align-items: center; */
 }
 
 footer p {

@@ -43,35 +43,6 @@ li a:hover {
 }
 
 
- 
-/*#menu ul li{
-  float: left;
-  padding: 0 20px;
-  height: 27px;
-  border-right: 1px solid black;
-}    
-#menu ul li:last-child{
-  border-right: none; 
-}
-#menu ul li a{
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 17px;
-  color:black;
-  line-height: 30px;
-  -webkit-transition: font-size 0.3s ease;
-  -moz-transition: font-size 0.3s ease;
-  -o-transition: font-size 0.3s ease;
-  -ms-transition: font-size 0.3s ease;
-  transition: font-size 0.3s ease;
-}
-#menu ul li a:hover, #menu ul li a.active{
-  font-size: 20px;
-  font-weight: bold;
-  color:black;
-}*/
-
-
 .bluebox{
 padding-left: 20rem;
 font-size: 17;
@@ -85,7 +56,7 @@ html, body {
     outline: none;
     font-family: Roboto,arial,sans-serif;
     font-size: 20px;
-    color: #666;
+    /* color: #666; */
     line-height: 22px;
     }
     textarea {
@@ -146,7 +117,7 @@ html, body {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
     color: rgb(1, 1, 1);
     }
     input {
@@ -155,7 +126,6 @@ html, body {
     }
 
     textarea {
-      background-color: lightgrey;
       color: black;
     }
     .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {

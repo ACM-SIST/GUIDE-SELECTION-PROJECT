@@ -1,6 +1,7 @@
 
 
 from tkinter import N
+from tkinter.tix import Tree
 from .choices import no_members_choices
 from django.db import models
 from cloudinary.models import CloudinaryField
@@ -51,7 +52,7 @@ class Team(models.Model):
     student_2_no = models.BigIntegerField(blank=True, null=True)
 
     guide = models.ForeignKey(
-        Guide, on_delete=models.DO_NOTHING, blank=True, null=True)
+        Guide, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.project_name + ' ' + self.student_1_name + ' Added Sucessfully.'

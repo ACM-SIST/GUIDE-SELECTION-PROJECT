@@ -2,6 +2,7 @@
 import string
 from random import choice
 from django.core.mail import send_mail
+from requests import ReadTimeout
 from guide_project.settings import EMAIL_HOST_USER
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, redirect, render
@@ -161,10 +162,12 @@ def project_details_1(request):
 
         # CSE-<team_id_num> for eg: CSE-007, CSE-008....
         new_username = "CSE-%03d" % user.id
-        team = Team.objects.create(teamID=curr_user.username, project_name=project_name, project_domain=project_domain, project_description=project_description,
+        team = Team.objects.create(teamID=new_username, project_name=project_name, project_domain=project_domain, project_description=project_description,
                                    no_of_members='1', reg_no_1=reg_no_1, student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no)
 
         user.username = new_username
+
+        team.save()
 
         user.save()
 
@@ -234,19 +237,29 @@ def select_guide(request):
 
 def guide_selected(request, id):
 
-    guide = Guide.objects.filter(serial_no=id)
+    # select_guide = Guide.objects.filter(serial_no=id).get()
+    guide_inst = Guide.objects.get(serial_no=id)
 
+    print("USERNAME IS: ", request.user.username)
     # you can get teamID from username as both are same.
-    team = get_object_or_404(Team, teamID=request.user.username)
-
-    # print('TEAM IS: ', queryset_list.filter(teamID__iexact='CNN'))
+    team = Team.objects.get(teamID=request.user.username)
+    # team = get_object_or_404(Team, teamID=request.user.username)
+    print("TEAM IS: ", team)
+    team.guide = guide_inst
     print('TEAM IS: ', team)
-    # print('TEAM IS: ', queryset_list.project_name)
-    print('GUIDE IS: ', guide)
 
+    print('GUIDE IS: ', guide_inst.name)
+    print("STORED GUIDE : ", team.guide)
+    print("REQUEST METHOD IS: ", type(request.method), request.method)
+    if request.method == 'POST':
+        print("REQUEST METHOD IS: ", request.method)
+        team.save()
+        return redirect('submitted')
+    print("TEAM IS: ", team)
     context = {
-        'guide': guide,
+        'guide': select_guide,
         'team': team,
+        'id': id,
     }
 
     return render(request, 'confirmation_1/confirmation.html', context)

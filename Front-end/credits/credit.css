@@ -42,7 +42,53 @@ ul {
     font-family: cursive !important;
   }
 
+<<<<<<< HEAD
 /*@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
+=======
+  .head {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+}
+
+header{
+    background: #831238;
+    color: white;
+    padding-top: 10px;
+    min-height: 50px;
+}
+
+header li{
+    float: right;
+    display: inline;
+    padding: 0px 2rem 10px 20px;
+}
+
+a:link {
+    color: white;
+    text-decoration: None;
+}
+
+a {
+    color: white;
+}
+
+.img {
+    width: 200px;
+    height: 40px;
+    padding-right: 20rem;
+    padding-left: 1rem;
+    padding-top: 5px;
+    color: #fff;
+}
+
+li a:hover {
+    color: grey;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
+>>>>>>> 9bc42ee10dfa021ff00cc340d0d3c7455c45779e
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 figure.snip0056 {
   font-family: 'Raleway', Arial, sans-serif;

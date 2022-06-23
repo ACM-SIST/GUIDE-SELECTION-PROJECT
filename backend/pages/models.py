@@ -1,5 +1,6 @@
 
 
+from tkinter import N
 from .choices import no_members_choices
 from django.db import models
 from cloudinary.models import CloudinaryField
@@ -16,10 +17,10 @@ class Guide(models.Model):
     domain_2 = models.CharField(max_length=200, blank=True)
     domain_3 = models.CharField(max_length=200, blank=True)
     email = models.CharField(max_length=200)
-    # experience = models.IntegerField()
-    # myImage = models.ImageField(upload_to='photos/%Y/%m/%d')
     myImage = CloudinaryField('image')
     vacancy = models.IntegerField(default=7)
+    # guide = models.ForeignKey('Team', on_delete=models.CASCADE,
+    #                           blank=True, null=False)
 
     def __str__(self):
         return self.name
@@ -48,6 +49,9 @@ class Team(models.Model):
     student_2_email = models.CharField(max_length=100, blank=True, null=True)
 
     student_2_no = models.BigIntegerField(blank=True, null=True)
+
+    guide = models.ForeignKey(
+        Guide, on_delete=models.DO_NOTHING, blank=True, null=True)
 
     def __str__(self):
         return self.project_name + ' ' + self.student_1_name + ' Added Sucessfully.'

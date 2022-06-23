@@ -24,6 +24,7 @@
     </header>
     <div class="center">
         <h1>Login</h1>
+        {% include 'partials/_alerts.html' %}
         <form action="{% url 'login' %}" method="post">
             {% csrf_token %}
             <div class="txt_field">
@@ -34,8 +35,8 @@
                 <input type="password" name="password" required>
                 <label>Password</label>
             </div>
-            <div class="pass">Don't have an account! <a href="../Register/register.html">Create Account</a></div>
-            <a href="{% url "password_reset" %}" style="color: #000;">forgot your password?</a><br><br>
+            <div class="pass">Don't have an account! <a href="{% url 'register' %}">Create Account</a></div>
+            <a href="{% url 'password_reset' %}" style="color: #000;">forgot your password?</a><br><br>
             <input type="submit" value="Login">
             <div class="signup_link"></div>
         </form>

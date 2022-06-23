@@ -1,0 +1,38 @@
+
+{% extends 'css.html' %}
+{% load static %}
+{% block content %}
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>verify | Sathyabama Institute of Science and Technology</title>
+    <link rel = "icon" href = "{% static 'C:\\Users\\hp\\projects\\guide\\home\\static\\image\\logo.png' %}" type = "image/x-icon">
+    </head>
+    <body>
+        <header>
+            <nav class="head">
+                <img src="{% static 'C:\\Users\\hp\\projects\\guide\\home\\static\\image\\head.jpeg' %}" class="img">
+                <ul>
+                    <li><a class="w" href="register">Register</a></li>
+                    <li><a class="w" href="login">Login</a></li>
+                    <li><a class="w" href="main">Home</a></li>
+                </ul>
+            </nav>
+            <img class="img1" src="{% static 'C:\\Users\\hp\\projects\\guide\\home\\static\\image\\sat.jpeg' %}">
+        
+    </header>
+        <div class="container">
+                <div class="login">
+                   <!-- <h3>Login</h3>-->
+                </div>
+            <form action="verify_single" method="POST" style="height: 370px;">
+                {% csrf_token %}
+                <h1>verify</h1>
+                <input type="None" name="otp" placeholder="Enter the otp sent to your email">
+                <input type="submit">
+            </form>
+        </div>
+         <div>
+             <h3>{{o}}</h3>
+         </div>
+    </body>
+{% endblock %}

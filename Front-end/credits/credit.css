@@ -40,16 +40,17 @@ ul {
   }
   #menu{
     font-family: cursive !important;
+    width: 100%;
   }
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
-  .head {
+ /* .head {
     display: flex;
     color: white;
     justify-content: space-between;
 }
 
-/*header{
+header{
     background: #831238;
     color: white;
     padding-top: 10px;
@@ -193,6 +194,7 @@ body,form {
   justify-content: center;
   align-items: center;
   flex-flow: wrap;
+  flex-direction: column;
   margin: 0;
   height: 100%;
   padding: 0;

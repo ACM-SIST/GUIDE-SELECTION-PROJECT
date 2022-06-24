@@ -2,7 +2,7 @@ body {
     background: url("Image/slider-1.jpg") no-repeat  ;
 }
 
-.center{
+/*.center{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -13,7 +13,7 @@ body {
     border-radius: 10px;
     box-shadow: 5px 5px 25px rgba(0,0,0,0.5);
 } 
-
+*/
 .img {
     width: 200px;
     height: 40px;
@@ -29,6 +29,9 @@ h1 {
     /* margin-top: 30px; */
     margin: 10px 0px 0px 0px;
     padding: 5px;
+}
+.member1{
+    padding-bottom: 20px;
 }
 .blackbox{
     padding: 0; 
@@ -103,8 +106,8 @@ body {
     }    
 }*/
 .sidebar{
-    /*height: 160px;
-    width: 1100px;*/
+    /* height: 160px;
+    width: 1100px; */
     border: 1px solid #831238;
     border-radius: 50px;
     padding: 10px 30px;
@@ -115,6 +118,12 @@ body {
     padding: 5px;
     font-size: 10px;
     
+}
+.sidebar ul {
+       display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .sidebar h3{
@@ -154,21 +163,22 @@ body {
 
 
 #leftsidebar{
-    height: 390px;
+   /* height: 390px;
     width: 1130px;
     margin-left: 10rem;   
     margin-top: 1rem;
     margin-right: 5rem;
-    margin-bottom: 2rem;
-}
+    margin-bottom: 2rem;*/
+} 
 
 #rightsidebar{
-    height: 130px;
+    /* height: 130px;
     width: 1100px;
     margin-left: 10rem;   
     margin-top: 1rem;
     margin-right: 5rem;
-    padding-right: 2rem;
+    padding-right: 2rem;*/ 
+ 
 }
 .yellow{
     font-size: 30px;
@@ -182,28 +192,28 @@ body {
     vertical-align: bottom;
     
 }
-#button{
+#submit_button{
     width: 80px;
     padding: 6px;
     border: none;
     border-radius: 5px; 
-    background: #831238;
+    /*background: #831238;*/
     font-size: 16px;
     color: #fff;
     cursor: pointer;
-    margin-left: 30rem;
-    margin-top: 1rem;
+    /* margin-left: 30rem;
+    margin-top: 1rem; */
 }
-#button:hover{
+/*#submit_button:hover{
     background-color: lightslategray;
-}
+}*/
 .footer {
     background-color: #831238;
     /* margin-top: 39.8rem; */
     padding-top: 9px;
     color: white;
     height: 50px;
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     width: 100%;
     display: flex;
@@ -251,5 +261,39 @@ footer a:focus {
     body{
         width: 100%;
     }
+    .container-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        padding-top: 70px;
+    }
+    body{
+        width: 100%;
+    }
+    .yellow{
+        padding-left: 20px;
+    }
+    #rightsidebar{
+        padding-right: 40px;
+    }
+    #leftsidebar{
+    }
+
 }
     
+
+/* test */
+/*.container-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}*/

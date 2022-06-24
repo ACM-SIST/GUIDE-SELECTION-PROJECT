@@ -1,17 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Credits</title>
-    <link rel="stylesheet" type="text/css" href="./credit.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/credit.css' %}">
 </head>
 <body>
-    <nav id="menu">
+    <!-- <nav id="menu">
         <ul>
-            <li><a href="#">Rules</a></li>
-            <li><a href="../GuideList/guide.html">Guide List</a></li>
-            <li><a href="../Home/home.html">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
         </ul>
-    </nav>
+    </nav> -->
+    {% include 'partials/_navbar.html' %}
     <form action="">
     <fieldset class="box">                 
     <figure class="snip0056">
@@ -19,7 +19,7 @@
       <h2>HARIHARAN <span>BP</span></h2>
       <p></p>
       <div class="icons"><a href="#"><i class="ion-ios-home"></i></a><a href="#"><i class="ion-ios-email"></i></a><a href="#"><i class="ion-ios-telephone"></i></a></div>
-    </figcaption><img src="./self-dp.jpeg" alt="sample8" />
+    </figcaption><img src="{% static 'img/hbp.jpeg' %}" alt="sample8" />
     <div class="position">FULL STACK DEVELOPER</div>
   </figure>
   <figure class="snip0056 ">

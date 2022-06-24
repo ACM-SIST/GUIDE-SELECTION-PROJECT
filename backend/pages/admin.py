@@ -27,13 +27,14 @@ class GuideAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 class TeamResource(resources.ModelResource):
     class Meta:
         model = Team
+
         fields = ('id', 'project_name', 'no_of_members', 'reg_no_1',
-                  'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no')
+                  'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'guide')
 
 
 class TeamAdmin(ImportExportModelAdmin):
-    list_display = ('project_name', 'no_of_members', 'reg_no_1',
-                    'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no')
+    list_display = ('teamID', 'project_name', 'no_of_members', 'reg_no_1',
+                    'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'guide')
 
     resource_class = TeamResource
 

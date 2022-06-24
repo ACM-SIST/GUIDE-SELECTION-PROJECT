@@ -135,10 +135,11 @@ def verify(request):
 
 
 def mail1(request):
+    user = request.user
     if request.method == 'POST':
-        email = request.POST['mail']
+        # email = request.POST['mail']
         email1 = request.POST.get('maill', False)
-        mail1.user_email = email
+        mail1.user_email = user.email
         mail1.user_email1 = email1
         chars = string.digits
         random = ''.join(choice(chars) for i in range(4))
@@ -154,7 +155,10 @@ def mail1(request):
                   EMAIL_HOST_USER, [mail1.user_email1, ], fail_silently=False,)
         return render(request, 'Register/verify1.html')
     else:
-        return render(request, 'Register/mail1.html')
+        context = {
+            'user': user,
+        }
+        return render(request, 'Register/mail1.html', context)
 
 
 def verify1(request):
@@ -168,7 +172,7 @@ def verify1(request):
             # send_mail('THANK YOU','Your Email is verified ',EMAIL_HOST_USER,[mail1.user_email1],fail_silently=False,)
             return redirect('project-details-2')
         else:
-            return render(request, 'mail1.html')
+            return render(request, 'register/mail1.html')
     else:
         return render(request, 'Register/verify1.html')
 
@@ -203,6 +207,7 @@ def logout(request):
 
 
 def project_details_1(request):
+    guides = Guide.objects.order_by('serial_no')
     print("INSIDE PROJECT DETAILS")
     user = request.user
     print(user.username)
@@ -220,14 +225,11 @@ def project_details_1(request):
         project_name = request.POST['project_name']
         project_domain = request.POST['project_domain']
         project_description = request.POST['project_description']
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
         reg_no_1 = request.POST['reg_no_1']
-        student_1_email = request.POST['student_1_email']
         student_1_no = request.POST['student_1_no']
 
-        student_1_name = first_name + ' ' + last_name
-
+        student_1_name = user.first_name + ' ' + user.last_name
+        student_1_email = user.email
         curr_user = request.user
 
         user = User.objects.get(username=curr_user.username)
@@ -246,18 +248,31 @@ def project_details_1(request):
         send_mail(
             'YOUR TEAM ID FOR FINAL YEAR PROJECT',
             'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username +
-            '\n\nNow you can login with your TEAMID and password(The one you created earlier)'
+            '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
+            EMAIL_HOST_USER,
+            [user.email, ],
+            fail_silently=False,
+
         )
 
-        return redirect('select-guide')
+        context = {
+            'user': user,
+            'guides': guides,
+        }
+        # return redirect('select-guide')
+        return render(request, 'GuideList/guide.html', context)
     else:
-        return render(request, '1_project_form/1_project_form.html')
+        context = {
+            'user': user
+        }
+        return render(request, '1_project_form/1_project_form.html', context)
 
 
 def project_details_2(request):
     user = request.user
     # user.save()
     guides = Guide.objects.order_by('serial_no')
+    mail_2 = mail1.user_email1
     if request.method == 'POST':
 
         project_name = request.POST['project_name']
@@ -272,11 +287,10 @@ def project_details_2(request):
         first_name_2 = request.POST['first_name_2']
         last_name_2 = request.POST['last_name_2']
         reg_no_2 = request.POST['reg_no_2']
-        student_2_email = request.POST['student_2_email']
         student_2_no = request.POST['student_2_no']
 
         student_2_name = first_name_2 + ' ' + last_name_2
-
+        student_2_email = mail1.user_email1
         curr_user = request.user
 
         user = User.objects.get(username=curr_user.username)
@@ -296,17 +310,20 @@ def project_details_2(request):
             'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username +
             '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
             EMAIL_HOST_USER,
-            [user.email, mail1.user_email1],
+            [user.email, student_2_email],
             fail_silently=False,
         )
         context = {
-            'user': user,
             'guides': guides,
         }
         # return redirect('select-guide')
         return render(request, 'GuideList/guide.html', context)
     else:
-        return render(request, '2_project_form/2_project_form.html')
+        print('INSIDE GET REQUEST ELSE')
+        context = {
+            'email': mail_2,
+        }
+        return render(request, '2_project_form/2_project_form.html', context)
 
 
 def select_guide(request):
@@ -336,10 +353,12 @@ def guide_selected(request, id):
     user = request.user
     team.guide = guide_inst
     print("GUIDE PRESENT VACANCY: ", guide_inst.vacancy)
+    print("REQUEST METHOD IS: ", request.method)
     if request.method == 'POST':
+        print("INSIDE POST IF")
         print("REQUEST METHOD IS: ", request.method)
         guide_inst.vacancy -= 1
-        print("GUIDE AFTER VACANCY: ", "guide_inst.vacancy")
+        print("GUIDE AFTER VACANCY: ", guide_inst.vacancy)
         guide_inst.save()
         team.save()
         if team.no_of_members == '2':
@@ -348,28 +367,33 @@ def guide_selected(request, id):
                 'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + '\n\nMembers: ' + team.student_1_name + ' and '+team.student_2_name +
                 '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
                 EMAIL_HOST_USER,
-                [user.email, mail1.user_email1],
+                [user.email, team.student_2_email],
                 fail_silently=False,
             )
         else:
             send_mail(
                 'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
-                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + 'Members: ' + team.student_1_name + ' '+team.student_2_name +
+                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + 'Members: ' + team.student_1_name +
                 '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
                 EMAIL_HOST_USER,
                 [user.email, ],
                 fail_silently=False,
             )
         return redirect('submitted')
-
+    print("SKIPPED POST IF")
     context = {
         'guide': select_guide,
         'team': team,
         'id': id,
         'user': user,
     }
-
-    return render(request, 'confirmation_1/confirmation.html', context)
+    print("TEAM MEM: ", team.no_of_members)
+    if team.no_of_members == '2':
+        print('CONFIRM 2')
+        return render(request, 'confirmation_2/confirmation.html', context)
+    else:
+        print('CONFIRM 1')
+        return render(request, 'confirmation_1/confirmation.html', context)
 
 
 def credits(request):

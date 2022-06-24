@@ -11,9 +11,9 @@
     <body>
         <nav id="menu">
             <ul>
-                <li><a href="#">Rules</a></li>
-                <li><a href="../GuideList/guide.html">Guide List</a></li>
-                <li><a href="../Home/home.html">Home</a></li>
+                <!-- <li><a href="#">Rules</a></li> -->
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
         </nav>
         <div class="testbox">
@@ -87,7 +87,7 @@
                         </div>
                         <div class="item">
                         <label for="email">Email</label>
-                        <input id="email" type="email" name="student_2_email" placeholder="  Email Id" required/>
+                        <input id="email" type="email" name="student_2_email" placeholder="  Email Id" value="{{ email }}" disabled/>
                         </div> 
                         <div class="item">
                         <label for="phno">Phone Number</label>

@@ -44,7 +44,7 @@
                   <div class="name-item">
                     <div>
                       <label for="teammembers">Number Of Team Members</label>
-                      <input class="input-text" type="text" name="no_of_members" placeholder="No of Members" value="{{ team.no_of_members }}" />
+                      <input class="input-text" type="text" name="no_of_members" placeholder="No of Members" value="{{ team.no_of_members }}" disabled />
                     </div>
                   </div>
                 </div>  
@@ -61,7 +61,8 @@
                         <div class="item">
                         <label for="name">Name</label>
                         <div class="name-item">
-                        <input id="name" type="text" name="first_name" placeholder="First" value="{{ user.first_name }}" />
+                        <input id="name" type="text" name="first_name" placeholder="First" value="{{ user.first_name }}" disabled />
+                        <input id="name" type="text" name="last_name" placeholder="First" value="{{ user.last_name }}" disabled />
                         </div>
                         </div>
                         <div class="item">
@@ -70,7 +71,7 @@
                         </div>
                         <div class="item">
                         <label for="email">Email</label>
-                        <input id="email" type="email" name="student_1_email" placeholder="Email Id" value="{{ user.email }}" dis/>
+                        <input id="email" type="email" name="student_1_email" placeholder="Email Id" value="{{ user.email }}" disabled/>
                         </div>
                         <div class="item">
                         <label for="phno">Phone Number</label>
@@ -85,11 +86,11 @@
                   <div class="project">
                     <div class="item-guide">
                         <label for="name">Guide Name</label>
-                        <input class="input-text" id="name" type="text" name="guide_name" placeholder="Guide Name" value="{{ team.guide.name }}" />
+                        <input class="input-text" id="name" type="text" name="guide_name" placeholder="Guide Name" value="{{ team.guide.name }}" disabled />
                     </div>
                     <div class="item-guide">
                         <label for="email">Guide Email Id</label>
-                        <input class="input-text" id="email" type="email" name="guide_email" placeholder="Guide Email Id" value="{{ team.guide.email }}" />
+                        <input class="input-text" id="email" type="email" name="guide_email" placeholder="Guide Email Id" value="{{ team.guide.email }}" disabled />
                     </div>
                 </div>  
                 </div>

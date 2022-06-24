@@ -42,11 +42,20 @@
                 <li><a href="#">sdgsdg</a></li>
                 <li><a href="#">sdgsdgsdg</a></li>
             </ol>
-            <div id="black">
-            <input type="checkbox" required>
+            <form method="post" id="black">
+                <div>
+                    <input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" />
+                    <label for="terms_and_conditions">I have read all the rules and regulations to fill the form and i accept all of these.:</label>
+                </div>
+                <div>
+                    <button type="submit" id="submit_button" disabled>Submit</button>
+                </div>
+            </form>
+            <!--<div id="black">
+            <input  id="checkbox"type="checkbox"  value="1" onclick="terms_changed(this)"  required>
             <label>I have read all the rules and regulations to fill the form and i accept all of these.<span>*</span></label><br>
-            <input  id="button" type="submit" value="submit">
-            </div>
+            <input  id="button" type="submit" value="submit" disabled>
+            </div>-->
         </div>
        <!--<h1 class="nav">Guide Selection for Final years</h1>
         <div class="center">
@@ -88,12 +97,13 @@
             <source src="Image/SIST.mp4" type="video/mp4">
         </video> -->
     </header>
-     <section>
+     <!--<section>
         <footer class="footer">
             <p>| &copy; Copyright 2022; ACM Sathyabama Institute of Science and Technology, All rights reserved.|</p>
             <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram" class="icon"></i></a>
             <a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
         </footer>
-    </section> 
+    </section> -->
+    <script type="text/javascript" src="home.js"></script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+<header>
+  <nav id="menu">
+      <!--<a href="../Home/home.html">
+       <img src="Image/headimg.jpeg" class="img">
+      </a>-->
+          <ul class="blackbox">
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+              <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+              <li><a href="{% url 'register' %}">Register</a></li>
+              <li><a href="{% url 'home' %}">Home</a></li>
+          </ul>
+  </nav>
+</header>
+

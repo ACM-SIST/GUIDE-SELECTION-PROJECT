@@ -256,7 +256,7 @@ def project_details_1(request):
 
 def project_details_2(request):
     user = request.user
-    user.save()
+    # user.save()
     guides = Guide.objects.order_by('serial_no')
     if request.method == 'POST':
 
@@ -370,3 +370,7 @@ def guide_selected(request, id):
     }
 
     return render(request, 'confirmation_1/confirmation.html', context)
+
+
+def credits(request):
+    return render(request, 'credits/credit.html')

@@ -32,7 +32,7 @@
         <form action="{% url 'mail1' %}" method="POST">
             {% csrf_token %}
             <div  class="txt_field">
-                <input type="None" name="mail" style="text-align: center;" placeholder="Email of team member 1"><br><br>
+                <input type="None" name="mail" style="text-align: center;" value="{{ user.email }}" placeholder="Email of team member 1" disabled ><br><br>
                 <input type="None" name="maill" style="text-align: center;" placeholder="Email of team member 2"><br><br> 
                 <input type="submit">
             </div>

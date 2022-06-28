@@ -179,7 +179,7 @@ footer a:focus {
     /* margin: 100px auto; */
     width: 300px;
     height: 50px;
-    margin-left: 60rem;
+    margin-left: 99rem;
   }
   
   .container-2{
@@ -227,10 +227,10 @@ footer a:focus {
   }
   
   .container-2 .icon{
-    position: absolute;
+    /* position: absolute; */
     top: 50%;
-    /* margin-left: 25px; */
-    /* margin-top: 17px; */
+    margin-left: -25px;
+    margin-top: 35px !important;
     z-index: 1;
     color: #4f5b66;
   }
@@ -241,7 +241,7 @@ footer a:focus {
   }
    
   .container-2:hover input#search{
-  width: 300px;
+  width: 250px;
   }
    
   .container-2:hover .icon{

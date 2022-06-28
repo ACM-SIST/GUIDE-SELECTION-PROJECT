@@ -100,7 +100,11 @@
                                     <td align="center">
                                         <a href="{% url 'guide-selected' guide.serial_no %}">
                                             <!-- {% csrf_token %} -->
-                                            <button>Select</button>
+                                            {% if guide.vacancy < 1 %}
+                                                <p>Guide Full</p>
+                                            {% else %}
+                                                <button>Select</button>
+                                            {% endif %}
                                         </a>
                                     </td>
                                 </tr>

@@ -122,12 +122,12 @@ form .txt_field{
 }
 
 .pass a{
-    color: gray;
+    color:#831238;
 }
 
 .pass a:hover {
     text-decoration: underline;
-    color: #831238;
+    color: grey;
 }
 
 input[type="submit"]{

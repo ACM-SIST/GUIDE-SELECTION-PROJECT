@@ -1,7 +1,4 @@
 
-
-from tkinter import N
-from tkinter.tix import Tree
 from .choices import no_members_choices
 from django.db import models
 from cloudinary.models import CloudinaryField
@@ -20,15 +17,15 @@ class Guide(models.Model):
     email = models.CharField(max_length=200)
     myImage = CloudinaryField('image')
     vacancy = models.IntegerField(default=7)
-    # guide = models.ForeignKey('Team', on_delete=models.CASCADE,
-    #                           blank=True, null=False)
+    # team = models.ManyToOneRel(
+    #     field='Team.guide', to='Team', field_name='Team.guide', related_name='teamID')
 
     def __str__(self):
         return self.name
 
 
 class Team(models.Model):
-    teamID = models.CharField(max_length=100)
+    teamID = models.CharField(max_length=100, default='CSE')
     project_name = models.CharField(max_length=100)
     project_domain = models.CharField(max_length=100)
     project_description = models.TextField(blank=True, null=True)
@@ -56,3 +53,20 @@ class Team(models.Model):
 
     def __str__(self):
         return self.project_name + ' ' + self.student_1_name + ' Added Sucessfully.'
+
+
+class Otp(models.Model):
+    user_email = models.CharField(max_length=100)
+    otp = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.user_email
+
+
+class Otp_Two(models.Model):
+    user_email = models.CharField(max_length=100)
+    temp_email = models.CharField(max_length=100, blank=True, null=True)
+    otp = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.user_email

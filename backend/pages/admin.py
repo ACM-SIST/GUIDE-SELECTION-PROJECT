@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from pages.models import Team, Guide
+from pages.models import Otp, Otp_Two, Team, Guide
 from import_export.admin import ImportExportModelAdmin, ExportActionMixin
 from import_export import resources
 
@@ -35,9 +35,11 @@ class TeamResource(resources.ModelResource):
 class TeamAdmin(ImportExportModelAdmin):
     list_display = ('teamID', 'project_name', 'no_of_members', 'reg_no_1',
                     'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'guide')
-
+    ordering = ('teamID',)
     resource_class = TeamResource
 
 
 admin.site.register(Guide, GuideAdmin)
 admin.site.register(Team, TeamAdmin)
+admin.site.register(Otp)
+admin.site.register(Otp_Two)

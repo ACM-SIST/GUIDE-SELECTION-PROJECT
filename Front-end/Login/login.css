@@ -223,7 +223,12 @@ a {
     bottom: 0;
     width: 100%;
     display: flex;
-    /* align-items: center; */
+    align-items: center;
+    text-align: center;
+}
+
+footer span {
+    padding-left: 25rem;
 }
 
 footer p {
@@ -240,13 +245,13 @@ footer i{
     
 }
 
-.icon {
+/* .icon {
     padding-left: 3rem;
-}
+} */
 
-.footer_a {
+/* .footer_a {
     padding-left: 700px;
-}
+} */
 
 footer a {
     color: white;

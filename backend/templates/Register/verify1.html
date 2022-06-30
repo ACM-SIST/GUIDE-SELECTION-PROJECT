@@ -30,10 +30,13 @@
     <div class="center">
         <h1>Verifying OTPs</h1>
         <form action="{% url 'verify1' %}" method="POST">
+            {% include 'partials/_alerts.html' %}
             {% csrf_token %}
             <div  class="txt_field">
-                <input type="None" name="otp" style="text-align: center;" placeholder="Enter the otp of team member 1"><br><br>
-                <input type="None" name="otp1" style="text-align: center;" placeholder="Enter the otp of team member 2"><br><br>
+                <input type="None" name="otp" style="text-align: center;" placeholder="Enter the otp of team member 2 email">
+                <br>
+                <br>
+                <!-- <input type="None" name="otp1" style="text-align: center;" placeholder="Enter the otp of team member 2"><br><br> -->
                 <input type="submit">
             </div>
         </form>

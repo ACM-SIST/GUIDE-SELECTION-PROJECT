@@ -30,10 +30,11 @@
     <div class="center">
         <h1>Verifying Mails</h1>
         <form action="{% url 'mail1' %}" method="POST">
+            {% include 'partials/_alerts.html' %}
             {% csrf_token %}
             <div  class="txt_field">
-                <input type="None" name="mail" style="text-align: center;" value="{{ user.email }}" placeholder="Email of team member 1" disabled ><br><br>
-                <input type="None" name="maill" style="text-align: center;" placeholder="Email of team member 2"><br><br> 
+                <input type="None" name="email_1" style="text-align: center;" value="{{ user.email }}" placeholder="Email of team member 1" disabled ><br><br>
+                <input type="None" name="email_2" style="text-align: center;" placeholder="Email of team member 2"><br><br> 
                 <input type="submit">
             </div>
         </form>

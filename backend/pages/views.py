@@ -1,14 +1,15 @@
 
+from http.client import HTTPResponse
 import string
-from random import choice
+from random import choice, randrange
 from django.core.mail import send_mail
-from requests import ReadTimeout
+from django.http import HttpResponse
 from guide_project.settings import EMAIL_HOST_USER
 from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from pages.models import Guide, Team
+from pages.models import Guide, Team, Otp, Otp_Two
 
 # Create your views here.
 
@@ -68,39 +69,31 @@ def submitted(request):
 
 def register(request):
     if request.method == 'POST':
-        register.first_name = request.POST['first_name']
-        register.last_name = request.POST['last_name']
-        register.email = request.POST['email']
-        register.password = request.POST['password']
-        register.ConfirmPassword = request.POST['password1']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        password = request.POST['password']
+        ConfirmPassword = request.POST['password1']
 
-        if register.password == register.ConfirmPassword:
-            if User.objects.filter(username=register.email).exists():
+        if password == ConfirmPassword:
+            if User.objects.filter(username=email).exists():
                 messages.error(request, 'Username Taken')
                 return redirect('register')
-            elif User.objects.filter(email=register.email).exists():
+            elif User.objects.filter(email=email).exists():
                 messages.error(request, 'Email Taken')
                 return redirect('register')
             else:
 
-                #user = User.objects.create_user(username=email, email=email, password=password)
-
-                # opt verify under if cond.
-                #
-                chars = string.digits
-                random = ''.join(choice(chars) for i in range(4))
-                random_otp = int(random)
-                register.user_otp = random_otp
-                send_mail(
-                    'OTP EMAIL VERIFICATION FOR GUIDE',
-                    'The OTP is: '+random,
-                    EMAIL_HOST_USER,
-                    [register.email, ],
-                    fail_silently=False,
+                user = User.objects.create_user(
+                    first_name=first_name, last_name=last_name, username=email, email=email, password=password
                 )
-                return render(request, 'Register/verify.html')
 
-                # user.save()
+                user.save()
+
+                auth.login(request, user)
+
+                return redirect('verify')
+
         else:
             messages.error(request, 'Password not matching')
             return redirect('register')
@@ -109,52 +102,76 @@ def register(request):
 
 
 def verify(request):
+    user = request.user
+    t = Otp.objects.filter(user_email=user.email)
     if request.method == 'POST':
         otp = request.POST['otp']
-        print("from user: ", otp)
-        user_otp = int(otp)
-        print(type(user_otp))
-        print("register otp: ", register.user_otp)
-        print("email: ", register.email)
-        if register.user_otp == user_otp:
-            # send_mail(
-            #     'THANK YOU',
-            #     'Your Email is verified ',
-            #     EMAIL_HOST_USER,
-            #     [register.user_email],
-            #     fail_silently=False,
-            # )
-            user = User.objects.create_user(
-                username=register.email, first_name=register.first_name, last_name=register.last_name, email=register.email, password=register.password)
-            user.save()
+        g_otp = Otp.objects.filter(user_email=user.email).get()
+
+        if otp == g_otp.otp:
+            auth.logout(request)
+            t.delete()
+            messages.success(request, 'Account Verified! You can login.')
             return redirect('login')
         else:
+            auth.logout(request)
+            user.delete()
+            t.delete()
+            messages.error(request, 'Invalid OTP. Please try again.')
             return redirect('register')
     else:
-        return redirect('register')
+
+        no = randrange(1000, 9999)
+        print("OTP IS: ", no)
+        if Otp.objects.filter(user_email=user.email).exists():
+            t = Otp.objects.filter(user_email=user.email)
+            t.delete()
+            print("OTP DELETED AND SENT AGAIN")
+        email = Otp.objects.create(user_email=user.email, otp=no)
+        email.save()
+        send_mail(
+            'YOUR OTP for verification',
+            'Your OTP is: {}'.format(no),
+            EMAIL_HOST_USER,
+            [user.email, ],
+            fail_silently=False,
+        )
+
+        return render(request, 'Register/verify.html')
 
 
 def mail1(request):
-    user = request.user
     if request.method == 'POST':
-        # email = request.POST['mail']
-        email1 = request.POST.get('maill', False)
-        mail1.user_email = user.email
-        mail1.user_email1 = email1
-        chars = string.digits
-        random = ''.join(choice(chars) for i in range(4))
-        random_otp = int(random)
-        mail1.user_otp = random_otp
-        otp = str(random)
-        mail1.user_otp1 = otp[:2]
-        mail1.user_otp2 = otp[2:]
-        m = [mail1.user_otp1, mail1.user_otp2]
-        send_mail('RANDOM OTP', 'The OTP is: ' + mail1.user_otp1,
-                  EMAIL_HOST_USER, [mail1.user_email, ], fail_silently=False,)
-        send_mail('RANDOM OTP', 'The OTP is: ' + mail1.user_otp2,
-                  EMAIL_HOST_USER, [mail1.user_email1, ], fail_silently=False,)
-        return render(request, 'Register/verify1.html')
+        # email_1 = request.POST['email_1']
+        email_2 = request.POST['email_2']
+
+        no = randrange(1000, 9999)
+        print("2nd MEMBER OTP IS: ", no)
+        if Otp.objects.filter(user_email=email_2).exists():
+            t = Otp.objects.filter(user_email=email_2)
+            t.delete()
+            print("OTP DELETED AND SENT AGAIN")
+        elif Team.objects.filter(student_1_email=request.user.email).exists():
+            messages.error(
+                request, 'The First mail id already exists with another team!')
+            return redirect('mail1')
+        elif Team.objects.filter(student_2_email=email_2).exists():
+            messages.error(
+                request, 'The Second mail id already exists with another team!')
+            return redirect('mail1')
+        email = Otp_Two.objects.create(
+            user_email=email_2, temp_email=request.user.email, otp=no)
+        email.save()
+        send_mail(
+            'YOUR OTP for verification',
+            'Your OTP is: {}'.format(no),
+            EMAIL_HOST_USER,
+            [email_2, ],
+            fail_silently=False,
+        )
+        return redirect('verify1')
     else:
+        user = request.user
         context = {
             'user': user,
         }
@@ -164,15 +181,10 @@ def mail1(request):
 def verify1(request):
     if request.method == 'POST':
         otp = request.POST['otp']
-        otp1 = request.POST.get('otp1', False)
-        user_otp = int(otp)
-        user_otp1 = int(otp1)
-        if int(mail1.user_otp1) == user_otp and int(mail1.user_otp2) == user_otp1:
-            # send_mail('THANK YOU','Your Email is verified ',EMAIL_HOST_USER,[mail1.user_email],fail_silently=False,)
-            # send_mail('THANK YOU','Your Email is verified ',EMAIL_HOST_USER,[mail1.user_email1],fail_silently=False,)
+        g_otp = Otp_Two.objects.filter(temp_email=request.user.email).get()
+
+        if otp == g_otp.otp:
             return redirect('project-details-2')
-        else:
-            return render(request, 'register/mail1.html')
     else:
         return render(request, 'Register/verify1.html')
 
@@ -236,15 +248,16 @@ def project_details_1(request):
         print("TYPE OF user.id: ", type(user.id))
 
         # CSE-<team_id_num> for eg: CSE-007, CSE-008....
-        new_username = "CSE-%03d" % (user.id - 1)
-        team = Team.objects.create(teamID=new_username, project_name=project_name, project_domain=project_domain, project_description=project_description,
-                                   no_of_members='1', reg_no_1=reg_no_1, student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no)
 
+        team = Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description,
+                                   no_of_members='1', reg_no_1=reg_no_1, student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no)
+        new_username = "CSE-%03d" % (team.id)
+        team.teamID = new_username
         user.username = new_username
 
         team.save()
-
         user.save()
+
         send_mail(
             'YOUR TEAM ID FOR FINAL YEAR PROJECT',
             'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username +
@@ -270,9 +283,8 @@ def project_details_1(request):
 
 def project_details_2(request):
     user = request.user
-    # user.save()
     guides = Guide.objects.order_by('serial_no')
-    mail_2 = mail1.user_email1
+    student_2_email = Otp_Two.objects.filter(temp_email=user.email).get()
     if request.method == 'POST':
 
         project_name = request.POST['project_name']
@@ -290,21 +302,23 @@ def project_details_2(request):
         student_2_no = request.POST['student_2_no']
 
         student_2_name = first_name_2 + ' ' + last_name_2
-        student_2_email = mail1.user_email1
+        # student_2_email = mail1.user_email1
         curr_user = request.user
 
         user = User.objects.get(username=curr_user.username)
         print("TYPE OF user.id: ", type(user.id))
 
-        # CSE-<team_id_num> for eg: CSE-007, CSE-008....
-        new_username = "CSE-%03d" % (user.id-1)
-        team = Team.objects.create(teamID=new_username, project_name=project_name, project_domain=project_domain, project_description=project_description, no_of_members='2', reg_no_1=reg_no_1,
-                                   student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no, reg_no_2=reg_no_2,  student_2_name=student_2_name, student_2_email=student_2_email, student_2_no=student_2_no)
+        team = Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description, no_of_members='2', reg_no_1=reg_no_1,
+                                   student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no, reg_no_2=reg_no_2,  student_2_name=student_2_name, student_2_email=student_2_email.user_email, student_2_no=student_2_no)
 
+        # CSE-<team_id_num> for eg: CSE-007, CSE-008....
+        new_username = "CSE-%03d" % (team.id)
+        team.teamID = new_username
         user.username = new_username
 
         team.save()
         user.save()
+
         send_mail(
             'YOUR TEAM ID FOR FINAL YEAR PROJECT',
             'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username +
@@ -321,7 +335,8 @@ def project_details_2(request):
     else:
         print('INSIDE GET REQUEST ELSE')
         context = {
-            'email': mail_2,
+            'email': student_2_email,
+            'user': user,
         }
         return render(request, '2_project_form/2_project_form.html', context)
 
@@ -351,6 +366,7 @@ def guide_selected(request, id):
     team = Team.objects.get(teamID=request.user.username)
     # team = get_object_or_404(Team, teamID=request.user.username)
     user = request.user
+    obj = Otp_Two.objects.filter(temp_email=user.email)
     team.guide = guide_inst
     print("GUIDE PRESENT VACANCY: ", guide_inst.vacancy)
     print("REQUEST METHOD IS: ", request.method)
@@ -370,6 +386,7 @@ def guide_selected(request, id):
                 [user.email, team.student_2_email],
                 fail_silently=False,
             )
+            obj.delete()
         else:
             send_mail(
                 'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
@@ -379,6 +396,7 @@ def guide_selected(request, id):
                 [user.email, ],
                 fail_silently=False,
             )
+
         return redirect('submitted')
     print("SKIPPED POST IF")
     context = {

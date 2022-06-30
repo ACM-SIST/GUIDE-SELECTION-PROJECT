@@ -270,7 +270,8 @@ footer a:focus {
         width: 100%;
     }
     footer {
-        width: 100%;
+        width: 100% !important;
+        font-family: 10px;
     }
     footer p {
         text-align: center;

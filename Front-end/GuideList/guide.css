@@ -323,7 +323,7 @@ footer a:focus {
    #menu{
     width: 100vh;
    }
-} */
+} 
 @media screen and (max-width: 600px) {
     .blackbox input[type=text] {
       float: none;

@@ -3,7 +3,6 @@
 }*/
 body{
     overflow: hidden;
-
 }
 video {
   width: 100%;
@@ -37,7 +36,7 @@ video {
 .img {
     width: 200px;
     height: 40px;
-    padding-right: 20rem;
+    padding-right: 20px;
     padding-left: 1rem;
     padding-top: 5px;
 }
@@ -325,9 +324,6 @@ footer a:focus {
         height: 40px;
         padding-top: 70px;
     }
-    body{
-        width: 100%;
-    }
     .yellow{
         padding-left: 20px;
     }
@@ -335,7 +331,10 @@ footer a:focus {
         padding-left: 100px;
         padding-right: 200px;
         padding-bottom: 100px;
-
+    }
+    video {
+        width: 100%;
+        height: 100%;
     }
 }
     

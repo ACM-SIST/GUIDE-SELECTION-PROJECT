@@ -2,12 +2,12 @@
     background: url("Image/slider-1.jpg") no-repeat  ;
 }*/
 body{
-    overflow: hidden;
+    /* overflow: hidden; */
     
 }
 video {
   width: 100%;
-  height: 50%;
+  height: 400%;
 }
 .container { position:relative; }
 .container video {
@@ -101,10 +101,6 @@ body {
     /* overflow: hidden; */
     background-blend-mode: darken;
     background: cover;
-}
-
-.footer {
-    background-color: #831238;
 }
 /*@media screen and (max-width: 600px) {
     body {
@@ -263,11 +259,16 @@ body {
     padding-top: 9px;
     color: white;
     height: 50px;
-    /*position: absolute;*/
+    position: absolute;
     bottom: 0;
     width: 100%;
     display: flex;
-    /* align-items: center; */
+    align-items: center;
+    text-align: center;
+}
+
+footer span {
+    padding-left: 25rem;
 }
 
 footer p {
@@ -284,13 +285,13 @@ footer i{
     
 }
 
-.icon {
+/* .icon {
     padding-left: 3rem;
-}
+} */
 
-.footer_a {
+/* .footer_a {
     padding-left: 700px;
-}
+} */
 
 footer a {
     color: white;
@@ -317,6 +318,7 @@ footer a:focus {
         align-items: center;
         justify-content: center;
     }
+    
     .footer{
         display: flex;
         flex-direction: column;

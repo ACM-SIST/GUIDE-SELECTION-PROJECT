@@ -1,11 +1,90 @@
+.member1{
+  padding-bottom:20px;
+  
+}
+ul{
+  padding: 0; 
+  margin: 0;
+  list-style: none; 
+}
+li{
+  float: left;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #831238;
+}
+
+li {
+  float: right;
+} 
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  -webkit-transition: font-size 0.3s ease;
+  -moz-transition: font-size 0.3s ease;
+  -o-transition: font-size 0.3s ease;
+  -ms-transition: font-size 0.3s ease;
+  transition: font-size 0.3s ease;
+  line-height: 20px;
+}
+li a:hover {
+  background-color: lightslategray;
+  font-weight: bold;
+}
+#menu{
+  font-family: cursive !important;
+}
 html {
     box-sizing: border-box;
+    font-family: cursive;
   }
-  
+  img{
+    width: 460px;
+    height: 240px;
+  }
+  .column{
+    width: 465px;
+    border: 1px #000;
+  }
+  #dev{
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 2px;
+    margin-bottom: 0px;
+  }
+  #box{
+     margin-top: 20px;
+  }
+  .column :hover{
+    box-shadow: 0 0 9px 0 #831238;
+    border-radius: 6px;
+    color: darkblue ;
+    background-color: beige;
+  }
+  .container{
+    pointer-events: none;
+  }
+  h2{
+    pointer-events: none;
+  }
+  p{
+    pointer-events: none;
+  }
   *, *:before, *:after {
     box-sizing: inherit;
   }
-  
+  .bluebox{
+    box-shadow: 0 0 15px 0 #831238;
+    border-radius: 7px;
+    border-width: auto;
+  }
   .column {
     float: left;
     width: 33.3%;
@@ -20,9 +99,9 @@ html {
     }
   }
   
-  .card {
+  /*.card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
+  }*/
   
   .container {
     padding: 0 16px;
@@ -35,7 +114,7 @@ html {
   }
   
   .title {
-    color: grey;
+    color: #000;;
   }
   
   .button {
@@ -52,4 +131,11 @@ html {
   
   .button:hover {
     background-color: #555;
+  }
+  fieldset{
+    margin-top: 20px;
+    border-radius: 6px;
+  }
+  .row{
+    margin-top: 2px;
   }

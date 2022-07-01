@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from pages.models import Otp, Otp_Two, Team, Guide
+from pages.models import Otp, Otp_Two, Team, Guide, Temp_Team
 from import_export.admin import ImportExportModelAdmin, ExportActionMixin
 from import_export import resources
 
@@ -43,3 +43,4 @@ admin.site.register(Guide, GuideAdmin)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Otp)
 admin.site.register(Otp_Two)
+admin.site.register(Temp_Team)

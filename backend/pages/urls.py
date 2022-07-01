@@ -21,8 +21,8 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('guides', views.guides, name='guides'),
-    path('submitted', views.submitted, name='submitted'),
+    # path('guides', views.guides, name='guides'),
+    # path('submitted', views.submitted, name='submitted'),
     path('register', views.register, name='register'),
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
@@ -45,7 +45,7 @@ urlpatterns = [
     # otp verify
     path('verify', views.verify, name='verify'),
     path('verify1', views.verify1, name='verify1'),
-    # selected 2 mail
+    # # selected 2 mail
     path('mail1', views.mail1, name='mail1'),
     path('credits', views.credits, name='credits'),
 ]

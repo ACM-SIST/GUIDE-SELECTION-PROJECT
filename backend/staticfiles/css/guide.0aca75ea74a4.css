@@ -6,9 +6,9 @@
     margin: 0;
     list-style: none; 
 }
-/* li{
+li{
     float: left;
-} */
+}
 .blackbox input[type=text] {
     float: right;
     padding: 6px;
@@ -35,7 +35,7 @@
 } */
   
  .blackbox li {
-    float: right;
+    float: left;
   } 
   .blackbox li a {
     display: block;
@@ -108,23 +108,18 @@ a {
 li a:hover {
     color: grey;
 }
-*/
+
 h1 {
     text-align: center;
     background-color: #831238;
     color: #fff;
     margin: 20px;
     padding: 5px;
-    padding-top: 10px;
     font-size: 30px;
-    border-radius: 6px;
-    height: 45px;
-} 
+}*/
 
 .select {
     font-size: 25px;
-    background-color: #831238;
-    text-align: center;
 }
 
 button {

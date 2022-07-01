@@ -1,20 +1,22 @@
 
-from http.client import HTTPResponse
-import string
-from random import choice, randrange
+from random import randrange
 from django.core.mail import send_mail
-from django.http import HttpResponse
+from django.forms import ValidationError
 from guide_project.settings import EMAIL_HOST_USER
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from pages.models import Guide, Team, Otp, Otp_Two
+from pages.models import Guide, Team, Otp, Otp_Two, Temp_Team
+from django.contrib.auth.password_validation import MinimumLengthValidator, CommonPasswordValidator, NumericPasswordValidator
+
 
 # Create your views here.
 
 
 def home(request):
+    # if request.method == 'POST':
+    #     return render(request, 'Register/register.html')
     return render(request, 'Home/home.html')
 
 
@@ -68,6 +70,8 @@ def submitted(request):
 
 
 def register(request):
+    validators = [MinimumLengthValidator,
+                  NumericPasswordValidator, CommonPasswordValidator]
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -76,11 +80,31 @@ def register(request):
         ConfirmPassword = request.POST['password1']
 
         if password == ConfirmPassword:
-            if User.objects.filter(username=email).exists():
-                messages.error(request, 'Username Taken')
+            special_characters = "[~\!@#\$%\^&\*\(\)_\+{}\":;'\[\]]"
+            if len(password) < 8:
+                messages.error(
+                    request, 'Password length must be greater than 8 character.')
                 return redirect('register')
-            elif User.objects.filter(email=email).exists():
+            if not any(char.isdigit() for char in password):
+                messages.error(
+                    request, 'Password must contain at least 1 digit.')
+                return redirect('register')
+            if not any(char.isalpha() for char in password):
+                messages.error(
+                    request, 'Password must contain at least 1 letter and must be alpha-numeric.')
+                return redirect('register')
+            if not any(char in special_characters for char in password):
+                messages.error(
+                    request, 'Password must contain at least 1 special character')
+                return redirect('register')
+            if User.objects.filter(email=email).exists():
                 messages.error(request, 'Email Taken')
+                return redirect('register')
+            elif Team.objects.filter(student_1_email=email).exists():
+                messages.error(request, 'Email Taken in another team')
+                return redirect('register')
+            elif Team.objects.filter(student_2_email=email).exists():
+                messages.error(request, 'Email Taken in another team')
                 return redirect('register')
             else:
 
@@ -96,7 +120,7 @@ def register(request):
 
         else:
             messages.error(request, 'Password not matching')
-            return redirect('register')
+            return render(request, 'Register/register.html')
     else:
         return render(request, 'Register/register.html')
 
@@ -112,13 +136,14 @@ def verify(request):
             auth.logout(request)
             t.delete()
             messages.success(request, 'Account Verified! You can login.')
-            return redirect('login')
+
+            return render(request, 'Login/login.html')
         else:
             auth.logout(request)
             user.delete()
             t.delete()
             messages.error(request, 'Invalid OTP. Please try again.')
-            return redirect('register')
+            return render(request, 'Register/register.html')
     else:
 
         no = randrange(1000, 9999)
@@ -141,6 +166,7 @@ def verify(request):
 
 
 def mail1(request):
+    user = request.user
     if request.method == 'POST':
         # email_1 = request.POST['email_1']
         email_2 = request.POST['email_2']
@@ -151,11 +177,15 @@ def mail1(request):
             t = Otp.objects.filter(user_email=email_2)
             t.delete()
             print("OTP DELETED AND SENT AGAIN")
-        elif Team.objects.filter(student_1_email=request.user.email).exists():
+        if User.objects.filter(email=user.email).exists():
             messages.error(
-                request, 'The First mail id already exists with another team!')
+                request, 'The mail id already registered!')
             return redirect('mail1')
         elif Team.objects.filter(student_2_email=email_2).exists():
+            messages.error(
+                request, 'The Second mail id already exists with another team!')
+            return redirect('mail1')
+        elif Team.objects.filter(student_1_email=email_2).exists():
             messages.error(
                 request, 'The Second mail id already exists with another team!')
             return redirect('mail1')
@@ -169,7 +199,8 @@ def mail1(request):
             [email_2, ],
             fail_silently=False,
         )
-        return redirect('verify1')
+
+        return render(request, 'Register/mail1.html')
     else:
         user = request.user
         context = {
@@ -184,7 +215,7 @@ def verify1(request):
         g_otp = Otp_Two.objects.filter(temp_email=request.user.email).get()
 
         if otp == g_otp.otp:
-            return redirect('project-details-2')
+            return render(request, '2_project_form/2_project_form.html')
     else:
         return render(request, 'Register/verify1.html')
 
@@ -203,11 +234,11 @@ def login(request):
                 auth.logout(request)
                 messages.info(
                     request, 'Your team is already registered and submitted!')
-                return redirect('login')
-            return redirect('no-of-stud')
+                return render(request, 'Login/login.html')
+            return render(request, 'no_of_stud/no_of_stud.html')
         else:
             messages.error(request, 'Invalid Credentials')
-            return redirect('login')
+            return render(request, 'Login/login.html')
     else:
         return render(request, 'Login/login.html')
 
@@ -215,7 +246,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     messages.success(request, 'You are successfully logged Out and can login!')
-    return redirect('login')
+    return render(request, 'Login/login.html')
 
 
 def project_details_1(request):
@@ -223,14 +254,19 @@ def project_details_1(request):
     print("INSIDE PROJECT DETAILS")
     user = request.user
     print(user.username)
+    if Temp_Team.objects.filter(student_1_email=user.email).exists():
+        obj = Temp_Team.objects.filter(student_1_email=user.email).get()
+        obj.delete()
     if Team.objects.filter(teamID=user.username).exists():
         is_team = Team.objects.filter(teamID=user.username).get()
         is_team.delete()
         print("TEAM IS: ", is_team)
         print("TEAM PRESENT AND DELETED!!!!")
+        is_user = User.objects.filter(username=is_team.teamID)
+        is_user.delete()
         messages.info(
-            request, 'Your team is already registered and submitted!')
-        return redirect('login')
+            request, 'Your team is removed please to the process again!!')
+        return render(request, 'Login/login.html')
     print("SKIPPED IF STATEMENT")
     if request.method == 'POST':
 
@@ -238,7 +274,13 @@ def project_details_1(request):
         project_domain = request.POST['project_domain']
         project_description = request.POST['project_description']
         reg_no_1 = request.POST['reg_no_1']
+        if len(reg_no_1) > 8:
+            messages.error(request, 'Register Number be 8 digits long.')
+            return redirect('project-details-1')
         student_1_no = request.POST['student_1_no']
+        if len(student_1_no) > 10:
+            messages.error(request, 'Number must of 10 digits.')
+            return redirect('project-details-1')
 
         student_1_name = user.first_name + ' ' + user.last_name
         student_1_email = user.email
@@ -247,26 +289,10 @@ def project_details_1(request):
         user = User.objects.get(username=curr_user.username)
         print("TYPE OF user.id: ", type(user.id))
 
-        # CSE-<team_id_num> for eg: CSE-007, CSE-008....
+        temp_team = Temp_Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description,
+                                             no_of_members='1', reg_no_1=reg_no_1, student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no)
 
-        team = Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description,
-                                   no_of_members='1', reg_no_1=reg_no_1, student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no)
-        new_username = "CSE-%03d" % (team.id)
-        team.teamID = new_username
-        user.username = new_username
-
-        team.save()
-        user.save()
-
-        send_mail(
-            'YOUR TEAM ID FOR FINAL YEAR PROJECT',
-            'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username +
-            '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
-            EMAIL_HOST_USER,
-            [user.email, ],
-            fail_silently=False,
-
-        )
+        temp_team.save()
 
         context = {
             'user': user,
@@ -285,6 +311,20 @@ def project_details_2(request):
     user = request.user
     guides = Guide.objects.order_by('serial_no')
     student_2_email = Otp_Two.objects.filter(temp_email=user.email).get()
+
+    if Temp_Team.objects.filter(student_1_email=user.email).exists():
+        obj = Temp_Team.objects.filter(student_1_email=user.email).get()
+        obj.delete()
+    if Team.objects.filter(teamID=user.username).exists():
+        is_team = Team.objects.filter(teamID=user.username).get()
+        is_team.delete()
+        print("TEAM IS: ", is_team)
+        print("TEAM PRESENT AND DELETED!!!!")
+        is_user = User.objects.filter(username=is_team.teamID)
+        is_user.delete()
+        messages.info(
+            request, 'Your team is removed please to the process again!!')
+        return render(request, 'Login/login.html')
     if request.method == 'POST':
 
         project_name = request.POST['project_name']
@@ -292,6 +332,13 @@ def project_details_2(request):
         project_description = request.POST['project_description']
         reg_no_1 = request.POST['reg_no_1']
         student_1_no = request.POST['student_1_no']
+        if len(reg_no_1) > 8:
+            messages.error(request, 'Register Number be 8 digits long.')
+            return redirect('project-details-1')
+        student_1_no = request.POST['student_1_no']
+        if len(student_1_no) > 10:
+            messages.error(request, 'Number must of 10 digits.')
+            return redirect('project-details-1')
 
         student_1_name = user.first_name + ' ' + user.last_name
         student_1_email = user.email
@@ -300,6 +347,13 @@ def project_details_2(request):
         last_name_2 = request.POST['last_name_2']
         reg_no_2 = request.POST['reg_no_2']
         student_2_no = request.POST['student_2_no']
+        if len(reg_no_2) > 8:
+            messages.error(request, 'Register Number be 8 digits long.')
+            return redirect('project-details-1')
+        student_2_no = request.POST['student_1_no']
+        if len(student_2_no) > 10:
+            messages.error(request, 'Number must of 10 digits.')
+            return redirect('project-details-1')
 
         student_2_name = first_name_2 + ' ' + last_name_2
         # student_2_email = mail1.user_email1
@@ -308,29 +362,21 @@ def project_details_2(request):
         user = User.objects.get(username=curr_user.username)
         print("TYPE OF user.id: ", type(user.id))
 
-        team = Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description, no_of_members='2', reg_no_1=reg_no_1,
-                                   student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no, reg_no_2=reg_no_2,  student_2_name=student_2_name, student_2_email=student_2_email.user_email, student_2_no=student_2_no)
+        temp_team = Temp_Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description, no_of_members='2', reg_no_1=reg_no_1,
+                                             student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no, reg_no_2=reg_no_2,  student_2_name=student_2_name, student_2_email=student_2_email.user_email, student_2_no=student_2_no)
 
         # CSE-<team_id_num> for eg: CSE-007, CSE-008....
-        new_username = "CSE-%03d" % (team.id)
-        team.teamID = new_username
-        user.username = new_username
+        # new_username = "CSE-%03d" % (team.id)
+        # team.teamID = new_username
+        # user.username = new_username
 
-        team.save()
-        user.save()
+        temp_team.save()
+        # user.save()
 
-        send_mail(
-            'YOUR TEAM ID FOR FINAL YEAR PROJECT',
-            'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username +
-            '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
-            EMAIL_HOST_USER,
-            [user.email, student_2_email],
-            fail_silently=False,
-        )
         context = {
             'guides': guides,
         }
-        # return redirect('select-guide')
+
         return render(request, 'GuideList/guide.html', context)
     else:
         print('INSIDE GET REQUEST ELSE')
@@ -356,57 +402,70 @@ def select_guide(request):
 
     return render(request, 'GuideList/guide.html', context)
 
+# For confirmation page
+
 
 def guide_selected(request, id):
 
     # select_guide = Guide.objects.filter(serial_no=id).get()
     guide_inst = Guide.objects.get(serial_no=id)
-
-    # you can get teamID from username as both are same.
-    team = Team.objects.get(teamID=request.user.username)
-    # team = get_object_or_404(Team, teamID=request.user.username)
     user = request.user
+    # you can get teamID from username as both are same.
+    temp_team = Temp_Team.objects.get(student_1_email=user.email)
+
     obj = Otp_Two.objects.filter(temp_email=user.email)
-    team.guide = guide_inst
+    # temp_team.guide = guide_inst
     print("GUIDE PRESENT VACANCY: ", guide_inst.vacancy)
-    print("REQUEST METHOD IS: ", request.method)
+    # print("REQUEST METHOD IS: ", request.method)
     if request.method == 'POST':
         print("INSIDE POST IF")
         print("REQUEST METHOD IS: ", request.method)
-        guide_inst.vacancy -= 1
-        print("GUIDE AFTER VACANCY: ", guide_inst.vacancy)
-        guide_inst.save()
+
+        team = Team.objects.create(project_name=temp_team.project_name, project_domain=temp_team.project_domain, project_description=temp_team.project_description, no_of_members=temp_team.no_of_members, reg_no_1=temp_team.reg_no_1, student_1_name=temp_team.student_1_name,
+                                   student_1_email=temp_team.student_1_email, student_1_no=temp_team.student_1_no, reg_no_2=temp_team.reg_no_2, student_2_name=temp_team.student_2_name, student_2_email=temp_team.student_2_email, student_2_no=temp_team.student_2_no)
+
+        team.guide = guide_inst
+        new_username = "CSE-%03d" % (team.id)
+        team.teamID = new_username
+        user.username = new_username
+
         team.save()
+        user.save()
         if team.no_of_members == '2':
             send_mail(
                 'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
-                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + '\n\nMembers: ' + team.student_1_name + ' and '+team.student_2_name +
-                '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
+                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + temp_team.project_name + '\n\nProject Description: ' + temp_team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + temp_team.no_of_members + '\n\nMembers: ' + temp_team.student_1_name + ' and '+temp_team.student_2_name +
+                '\n\nNow you can login with your teamID and password(The one you created earlier)',
                 EMAIL_HOST_USER,
-                [user.email, team.student_2_email],
+                [user.email, temp_team.student_2_email],
                 fail_silently=False,
             )
             obj.delete()
+            temp_team.delete()
+            guide_inst.vacancy -= 1
+            print("GUIDE AFTER VACANCY: ", guide_inst.vacancy)
+            guide_inst.save()
         else:
             send_mail(
                 'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
-                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + user.username + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + 'Members: ' + team.student_1_name +
+                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + 'Members: ' + team.student_1_name +
                 '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
                 EMAIL_HOST_USER,
                 [user.email, ],
                 fail_silently=False,
             )
 
-        return redirect('submitted')
+        return render(request, 'submitted.html')
     print("SKIPPED POST IF")
+    temp_team.guide = guide_inst
     context = {
         'guide': select_guide,
-        'team': team,
+        'team': temp_team,
         'id': id,
         'user': user,
     }
-    print("TEAM MEM: ", team.no_of_members)
-    if team.no_of_members == '2':
+    print("TEAM MEM: ", temp_team.no_of_members)
+    if temp_team.no_of_members == '2':
         print('CONFIRM 2')
         return render(request, 'confirmation_2/confirmation.html', context)
     else:

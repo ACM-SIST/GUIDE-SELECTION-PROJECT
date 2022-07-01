@@ -15,8 +15,8 @@ from django.contrib.auth.password_validation import MinimumLengthValidator, Comm
 
 
 def home(request):
-    if request.method == 'POST':
-        return render(request, 'Register/register.html')
+    # if request.method == 'POST':
+    #     return render(request, 'Register/register.html')
     return render(request, 'Home/home.html')
 
 

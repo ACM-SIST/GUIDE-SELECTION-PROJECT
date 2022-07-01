@@ -6,9 +6,9 @@
     margin: 0;
     list-style: none; 
 }
-/* li{
+li{
     float: left;
-} */
+}
 .blackbox input[type=text] {
     float: right;
     padding: 6px;
@@ -34,10 +34,10 @@
     /* margin-top: -5px; 
 } */
   
- .blackbox li {
+  li {
     float: right;
   } 
-  .blackbox li a {
+  li a {
     display: block;
     color: white;
     text-align: center;
@@ -108,23 +108,18 @@ a {
 li a:hover {
     color: grey;
 }
-*/
+
 h1 {
     text-align: center;
     background-color: #831238;
     color: #fff;
     margin: 20px;
     padding: 5px;
-    padding-top: 10px;
     font-size: 30px;
-    border-radius: 6px;
-    height: 45px;
-} 
+}*/
 
 .select {
     font-size: 25px;
-    background-color: #831238;
-    text-align: center;
 }
 
 button {
@@ -168,6 +163,10 @@ footer i{
     padding-left: 1rem;
 }
 
+.icon {
+    padding-left: 3rem;
+}
+
 .footer_a {
     padding-left: 700px;
 }
@@ -180,7 +179,7 @@ footer a:focus {
     /* margin: 100px auto; */
     width: 300px;
     height: 50px;
-    margin-left: 90rem;
+    margin-left: 100rem;
   } 
   
   .container-2{
@@ -230,10 +229,10 @@ footer a:focus {
   }
   
   .container-2 .icon{
-    position: absolute;
+    /* position: absolute; */
     top: 50%;
-    margin-left: 17px;
-    margin-top: 17px;
+    margin-left: -25px;
+    margin-top: 35px !important;
     z-index: 1;
     color: #4f5b66;
   }

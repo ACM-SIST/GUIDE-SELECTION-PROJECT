@@ -11,8 +11,7 @@
     <body>
         <nav id="menu">
             <ul>
-                <!-- <li><a href="#">Rules</a></li> -->
-                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'login' %}">Logout</a></li>
                 <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
         </nav>
@@ -24,6 +23,7 @@
               </div>
               <p class="bluebox">Please fill out with the information that is requested below and submit the Guide selection form. Thank you!</p>
               <hr/>
+              {% include 'partials/_alerts.html' %}
               <fieldset>
                 <legend>Project Information</legend>
                 <div class="project">

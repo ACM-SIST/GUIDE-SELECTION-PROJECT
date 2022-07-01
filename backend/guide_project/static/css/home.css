@@ -1,11 +1,11 @@
 
-body{
+/* body{
     overflow: hidden;
-    
-}
+
+} */
 video {
   width: 100%;
-  height: 50%;
+  height: 100%;
 }
 .container { position:relative; }
 .container video {
@@ -133,7 +133,6 @@ body {
     border-radius: 5px;
     padding: 5px;
     font-size: 10px;
-    /* margin-bottom: 1rem; */
     
 }
 .sidebar ul {
@@ -162,12 +161,12 @@ body {
 }
 #leftsidebar ol li{
     padding: 4px 0 4px 10px;
-    
+
 }
 
 #rightsidebar ol li{
     padding: 17px 0 17px 70px;
-   
+  
 }
 .sidebar ol li a{
     text-decoration: none;
@@ -330,11 +329,12 @@ footer a:focus {
     .yellow{
         padding-left: 20px;
     }
-    #rightsidebar{
-    }
-    #leftsidebar{
-    }
+    #popup{
+        padding-left: 100px;
+        padding-right: 200px;
+        padding-bottom: 100px;
 
+    }
 }
     
 #overlay {

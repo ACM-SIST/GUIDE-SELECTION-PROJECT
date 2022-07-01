@@ -13,23 +13,16 @@
 </head>
 <body>
     <header>
-        <nav class="head" >
-            <a href="{% url 'home' %}">
-                <!-- <img src="{% static 'img/headimg.jpeg' %}" class="img" alt="Home" > -->
-            </a>
-            <ul>
-                <li><a href="{% url 'register' %}">Register</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'home' %}">Home</a></li>
+        <nav id="menu">
+            <ul class="blackbox">
+                <li><a href="{% url 'logout' %}">Logout</a></li>
                 <div class="box">
-                    <form action="#" method="POST">
-                        {% csrf_token %}
-                        <div class="container-2">
-                            <span class="icon"><i class="fa fa-search"></i></span>
-                            <input type="search" id="search" placeholder="Search..." />
-                        </div>
-                    </form>
-                </div>
+                    <div class="container-2">
+                        <form action="#"></form>
+                        <span class="icon"><i class="fa fa-search"></i></span>
+                        <input type="search" id="search" placeholder="Search..." />
+                    </div>
+                  </div>
             </ul>
         </nav>
     </header>
@@ -63,11 +56,11 @@
                                     </td>
                                     <td>
                                         <ul>
-                                            <li>{{ guide.domain_1 }}</li>
-                                            <li>{{ guide.domain_2 }}</li>
-                                            <li>{{ guide.domain_3 }}</li>
+                                            <li>TEST</li>
                                             <br>
+                                            <li>TEST 2</li>
                                             <br>
+                                            <li>TEST 3</li>
                                             <br>
                                         </ul>
                                     </td>

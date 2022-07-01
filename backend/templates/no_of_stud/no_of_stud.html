@@ -15,15 +15,18 @@
 <body>
     <header>
         <nav id="head" class="collapse navbar-collapse" >
-            <a href="{% url 'home' %}">
-                <img src="{% static 'img/headimg.jpeg' %}" class="img">
+            <a href="../Home/home.html">
+                <img src="Image/headimg.jpeg" class="img">
             </a>
             <ul>
-                <li><a href="{% url 'register' %}">Register</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                <li><a href="{% url 'home' %}">Home</a></li>
+                <!-- <li><a href="../Register/register.html">Register</a></li> -->
+                <li><a href="../Login/login.html">Logout</a></li>
+                <li><a href="../Home/home.html">Home</a></li>
             </ul>
         </nav>
+        <!-- <video autoplay muted loop id="myVideo">
+            <source src="Image/SIST.mp4" type="video/mp4">
+        </video> -->
     </header>
     <div class="center">
         <h1>Select Number of team members</h1>

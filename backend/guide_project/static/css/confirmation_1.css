@@ -43,6 +43,35 @@ li a:hover {
 }
 
 
+ 
+/*#menu ul li{
+  float: left;
+  padding: 0 20px;
+  height: 27px;
+  border-right: 1px solid black;
+}    
+#menu ul li:last-child{
+  border-right: none; 
+}
+#menu ul li a{
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 17px;
+  color:black;
+  line-height: 30px;
+  -webkit-transition: font-size 0.3s ease;
+  -moz-transition: font-size 0.3s ease;
+  -o-transition: font-size 0.3s ease;
+  -ms-transition: font-size 0.3s ease;
+  transition: font-size 0.3s ease;
+}
+#menu ul li a:hover, #menu ul li a.active{
+  font-size: 20px;
+  font-weight: bold;
+  color:black;
+}*/
+
+
 .bluebox{
 padding-left: 20rem;
 font-size: 17;
@@ -55,8 +84,8 @@ html, body {
     margin: 0;
     outline: none;
     font-family: Roboto,arial,sans-serif;
-    font-size: 20px;
-    /* color: #666; */
+    /* font-size: 20px; */
+    color: #666;
     line-height: 22px;
     }
     textarea {
@@ -117,7 +146,7 @@ html, body {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    /* background-color: lightgrey; */
+    background-color: lightgrey;
     color: rgb(1, 1, 1);
     }
     input {
@@ -126,6 +155,7 @@ html, body {
     }
 
     textarea {
+      background-color: lightgrey;
       color: black;
     }
     .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
@@ -151,9 +181,15 @@ html, body {
     .question span {
     margin-left: 30px;
     }
-    .btn-block {
+    .btn-block1 {
     margin-top: 10px;
     text-align: center;
+    align-items: center;
+    /* padding-left: 33rem; */
+    /* display: flex; */
+    }
+    .submit {
+      margin-left: 2rem;
     }
     button {
     width: 150px;
@@ -194,6 +230,57 @@ html, body {
   width: 97.5%;
   margin-bottom: 1.2rem;
 }
+
+.footer {
+  background-color: #831238;
+  /* margin-top: 39.8rem; */
+  padding-top: 1px;
+  height: auto;
+  color: white;
+  height: 50px;
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  /* align-items: center; */
+}
+
+footer p {
+  /* text-align: center; */
+  padding-left: 10px;
+}
+
+footer i{
+  align-items: center;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 10px;
+  padding-top: 8px;
+  
+}
+
+.icon {
+  padding-left: 3rem;
+}
+
+.footer_a {
+  padding-left: 45rem;
+  float: right;
+}
+
+footer a {
+  color: white;
+  padding-top: 10px;
+}
+
+.footer a:hover {
+  color: grey;
+}
+
+footer a:focus {
+  color: white;
+}
+
 /* #team-1 {
 padding-left: 3rem !important;
 margin-left: 10rem;

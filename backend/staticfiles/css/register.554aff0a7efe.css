@@ -46,22 +46,19 @@ li{
     font-weight: bold;
   }
  
-  /* #menu{
-    font-family: cursive;
-  } */
-
 body {
-    background: url(../img/slider-1.jpg) no-repeat;
+    background: url("../img/slider-1.c3c5d04fa1b2.jpg") no-repeat;
     margin: 0;
     padding: 0;
     font-family: cursive;
     height: 100vh;
-    /* overflow: hidden; */
+    overflow: hidden;
     background-blend-mode: darken;
 }
 
 .center{
     position: absolute;
+    padding-top: 0px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -126,7 +123,6 @@ form .txt_field{
 .pass{
     margin: -5px 0 20px 5px;
     color: black;
-    /* cursor: pointer; */
 }
 
 .pass a{
@@ -135,7 +131,7 @@ form .txt_field{
 
 .pass a:hover {
     text-decoration: underline;
-    color: #831238;
+    color: black;
 }
 
 input[type="submit"]{
@@ -161,7 +157,7 @@ input[type="submit"]:hover{
     color: black;
 }
 .signup_link a{
-    color: #831238;
+    color: #2691d9;
     text-decoration: none;
 }
 .signup_link a:hover{
@@ -179,18 +175,20 @@ input[type="submit"]:hover{
     justify-content: space-between;
 }
 
-.header{
+header{
     background: #831238;
     color: white;
     padding-top: 0px;
     min-height: 50px;
 }
 
-.header li{
+header li{
     float: right;
     display: inline;
     padding: 0px 2rem 0 20px;
-}*/
+}
+
+
 a:link {
     color: white;
     text-decoration: None;
@@ -199,7 +197,7 @@ a:link {
 a {
     color: white;
 }
-
+*/
 .img {
     width: 200px;
     height: 40px;
@@ -208,11 +206,19 @@ a {
     padding-top: 5px;
 }
 
-/*li a:hover {
-    color: grey;
-
+li a:hover {
+    color: #fff;
 }
-*/
+
+p a {
+    color: grey;
+}
+
+p a:hover {
+    color: #831238;
+    text-decoration: underline;
+}
+
 .footer {
     background-color: #831238;
     /* margin-top: 39.8rem; */
@@ -224,15 +230,10 @@ a {
     width: 100%;
     display: flex;
     align-items: center;
-    text-align: center;
-}
-
-footer span {
-    padding-left: 25rem;
 }
 
 footer p {
-    /* text-align: center; */
+    text-align: center;
     padding-left: 10px;
 }
 
@@ -245,36 +246,24 @@ footer i{
     
 }
 
-/* .icon {
+.icon {
     padding-left: 3rem;
-} */
+}
 
-/* .footer_a {
+.footer_a {
     padding-left: 700px;
-} */
-
-footer a {
-    color: white;
-    padding-top: 10px;
 }
 
 .footer a:hover {
     color: grey;
 }
 
+footer a {
+    color: white;
+}
 footer a:focus {
     color: white;
 }
-@media (max-width: 768px) {
-    #menu{
-        width: 100%;
-    }
-    footer {
-        width: 100%;
-    }
-    footer p {
-        text-align: center;
-        width: 100%;
-        /* font-size:5px; */
-    }
+footer a{
+    color: white;
 }

@@ -25,7 +25,7 @@ ul {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px;
     text-decoration: none;
     -webkit-transition: font-size 0.3s ease;
     -moz-transition: font-size 0.3s ease;
@@ -75,7 +75,7 @@ header{
 header li{
     float: right;
     display: inline;
-    padding: 0px 2rem 0 20px;
+    padding: 0px 0.1px 0 20px;
     overflow: hidden;
 }
 

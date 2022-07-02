@@ -102,8 +102,15 @@ html {
       font-size: 9px;
       display: flex;
       /* padding-top: x20px !important; */
-      height: 65px !important;
+      height: 76px !important;
       /* padding-bottom: 10px !important; */
+    }
+    footer span {
+      padding-left: 10px !important;
+      text-align: center;
+    }
+    footer p{
+      padding-left: 1000px !important;
     }
     footer a{
       font-size: 1px;
@@ -113,6 +120,7 @@ html {
       width: 50px;
       height: 50px;
       display: flex;
+      padding-left: 50px !important;
     }
   }
   
@@ -174,12 +182,12 @@ html {
 }
 
 footer span {
-    padding-left: 200px;
+    padding-left: 300px;
 }
 
 footer p {
     /* text-align: center; */
-    padding-left: 10px;
+    padding-left: 9px;
 }
 
 footer a{
@@ -191,9 +199,9 @@ footer a{
     /* display: flex; */
 }
 
-/* .icon {
-    padding-left: 3rem;
-} */
+.icon {
+    padding-left: 18rem;
+}
 
 /* .footer_a {
     padding-left: 700px;

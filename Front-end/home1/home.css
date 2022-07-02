@@ -1,20 +1,15 @@
-/*body {
-    background: url("Image/slider-1.jpg") no-repeat  ;
-}*/
- body{
-     overflow: hidden;   
-} 
 .orange {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
     position: fixed;
+    left: 0;
     right: 0;
+    top: 0;
     bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-  overflow: hidden;
-}
-video {
-  width: 100%;
-  height: 100%;
+    z-index: -1;
+    overflow-y: hidden;
+    
 }
 .container { position:relative; }
 .container video {
@@ -29,18 +24,6 @@ video {
     width: 100%;
 }
 
-/*.center{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -40%);
-    width: 700px;
-    height: 600px;
-    background: rgba(250, 250, 250, 0.695); 
-    border-radius: 10px;
-    box-shadow: 5px 5px 25px rgba(0,0,0,0.5);
-} 
-*/
 .img {
     width: 200px;
     height: 40px;
@@ -104,8 +87,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: cursive;
-    height: 100vh;
-    /* overflow: hidden; */
+    overflow-x: hidden;
     background-blend-mode: darken;
     background: cover;
 }
@@ -261,25 +243,21 @@ body {
     background-color: #831238;
 }
 .footer {
-    background-color: #831238;
-    /* margin-top: 39.8rem; */
+   background-color: #831238;
     padding-top: 9px;
     color: white;
     height: 50px;
-    position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     display: flex;
-    align-items: center;
-    text-align: center;
 }
 
 footer span {
-    padding-left: 25rem;
+    /*padding-left: 25rem;*/
 }
 
 footer p {
-    /* text-align: center; */
+    text-align: center; 
     padding-left: 10px;
 }
 
@@ -296,9 +274,9 @@ footer i{
     padding-left: 3rem;
 } */
 
-/* .footer_a {
+ .footer_a {
     padding-left: 700px;
-} */
+} 
 
 footer a {
     color: white;
@@ -325,14 +303,18 @@ footer a:focus {
         align-items: center;
         justify-content: center;
     }
+    .orange{
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
     
-    .footer{
+   .footer{
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         height: 40px;
-        padding-top: 70px;
+        font-size: 10px;
     }
     .yellow{
         padding-left: 20px;
@@ -344,7 +326,6 @@ footer a:focus {
         display: block;
     }
 }
-
 
 #overlay {
     display: none;
@@ -387,3 +368,21 @@ footer a:focus {
 #button {
     cursor: pointer;
 }
+footer{
+    background: #831238;
+    padding: 15px 0;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  footer .text span{
+    font-size: 17px;
+    font-weight: 400;
+    color: #fff;
+  }
+  footer .text span a{
+    font-weight: 500;
+    color: #FFF;
+  }
+  footer .text span a:hover{
+    text-decoration: underline;
+  }

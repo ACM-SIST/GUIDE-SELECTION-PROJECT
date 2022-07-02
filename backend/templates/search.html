@@ -19,11 +19,11 @@
                 <li>
                   <div class="box">
                     <div class="container-2">
-                        <form action="{% url 'search' %}">
-                            <span class="icon"><i class="fa fa-search"></i></span>
-                            <input type="search" name="name" id="search" placeholder="Search..." />
-                            <button type="submit">Submit</button>
-                        </form>
+                      <form action="{% url 'search' %}">
+                        <span class="icon"><i class="fa fa-search"></i></span>
+                        <input type="search" name="name" id="search" placeholder="Search..." />
+                        <button type="submit">Submit</button>
+                    </form>
                     </div>
                   </div>
                 </li>
@@ -34,6 +34,7 @@
     <table border="1" cellspacing="0" class="content-table" >
         <div class="row table-responsive" style="position: relative; float: center; width: 100%; margin-top: 0; margin-left: 10px;">
         <table id="tblData" class="table table-bordered table-striped table-hover" style="margin-top:10px; ">
+          {% if guides %}
             <thead>
                 <tr>
                     <th class="text-center">Sr. No.</th>
@@ -45,6 +46,7 @@
             </thead>
             
             <tbody>
+                  
                     {% for guide in guides %}
                         {% if guide.serial_no|divisibleby:"2" %}
                             <tr>
@@ -111,17 +113,22 @@
                             </tr>
                         {% endif %}
                     {% endfor %}
+                  {% else %}
+                  <h1>
+                    No Guide FOUND
+                  </h1>
+                  {% endif %}
             </tbody>
           </table>
         </div>
     </table> 
 
     
-    <footer class="footer">
+    <!-- <footer class="footer">
         <p>&copy; Copyright 2022; ACM Sathyabama Institute of Science and Technology, All rights reserved.</p>
         <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram" class="icon"></i></a>
         <a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
-    </footer>
+    </footer> -->
     <script src="./guide.js"></script>
 </body>
 </html>

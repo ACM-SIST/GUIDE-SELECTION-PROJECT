@@ -81,6 +81,7 @@ def register(request):
 
         if password == ConfirmPassword:
             special_characters = "[~\!@#\$%\^&\*\(\)_\+{}\":;'\[\]]"
+            domain = ["gmail.com"]
             if len(password) < 8:
                 messages.error(
                     request, 'Password length must be greater than 8 character.')
@@ -96,6 +97,12 @@ def register(request):
             if not any(char in special_characters for char in password):
                 messages.error(
                     request, 'Password must contain at least 1 special character')
+                return redirect('register')
+            temp = email.split('@')
+            print("TEMP IS: ", temp)
+            if not any(char in domain for char in temp):
+                messages.error(
+                    request, 'Must be a valid email')
                 return redirect('register')
             if User.objects.filter(email=email).exists():
                 messages.error(request, 'Email Taken')
@@ -177,7 +184,7 @@ def mail1(request):
             t = Otp.objects.filter(user_email=email_2)
             t.delete()
             print("OTP DELETED AND SENT AGAIN")
-        if User.objects.filter(email=user.email).exists():
+        if User.objects.filter(email=email_2).exists():
             messages.error(
                 request, 'The mail id already registered!')
             return redirect('mail1')
@@ -200,7 +207,7 @@ def mail1(request):
             fail_silently=False,
         )
 
-        return render(request, 'Register/mail1.html')
+        return redirect('verify1')
     else:
         user = request.user
         context = {
@@ -215,7 +222,7 @@ def verify1(request):
         g_otp = Otp_Two.objects.filter(temp_email=request.user.email).get()
 
         if otp == g_otp.otp:
-            return render(request, '2_project_form/2_project_form.html')
+            return redirect('project-details-2')
     else:
         return render(request, 'Register/verify1.html')
 
@@ -311,6 +318,8 @@ def project_details_2(request):
     user = request.user
     guides = Guide.objects.order_by('serial_no')
     student_2_email = Otp_Two.objects.filter(temp_email=user.email).get()
+    print("2nd EMAIL: ", student_2_email.user_email)
+    email_2 = student_2_email.user_email
 
     if Temp_Team.objects.filter(student_1_email=user.email).exists():
         obj = Temp_Team.objects.filter(student_1_email=user.email).get()
@@ -475,3 +484,25 @@ def guide_selected(request, id):
 
 def credits(request):
     return render(request, 'credits/credit.html')
+
+
+def search(request):
+    queryset_list = Guide.objects.order_by('serial_no')
+
+    if 'name' in request.GET:
+        name = request.GET['name']
+        if name:
+            queryset_list = queryset_list.filter(name__icontains=name)
+            print(queryset_list)
+        print("NAME: ", name)
+    # if not name:
+    #     print("NOT IN NAME")
+    context = {
+        'guides': queryset_list,
+    }
+
+    return render(request, 'search.html', context)
+
+
+def custom_page_not_found_view(request, exception):
+    return render(request, "errors/404.html", {})

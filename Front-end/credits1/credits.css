@@ -97,6 +97,31 @@ html {
       width: 100%;
       display: block;
     }
+    .footer {
+      width: 200px;
+      font-size: 9px;
+      display: flex;
+      /* padding-top: x20px !important; */
+      height: 76px !important;
+      /* padding-bottom: 10px !important; */
+    }
+    footer span {
+      padding-left: 10px !important;
+      text-align: center;
+    }
+    footer p{
+      padding-left: 1000px !important;
+    }
+    footer a{
+      font-size: 1px;
+    }
+    .icon {
+      /* font-size: 0.1em; */
+      width: 50px;
+      height: 50px;
+      display: flex;
+      padding-left: 50px !important;
+    }
   }
   
   /*.card {
@@ -139,3 +164,58 @@ html {
   .row{
     margin-top: 2px;
   }
+
+  .footer {
+    background-color: #831238;
+    /* margin-top: 39.8rem; */
+    padding-top: 9px;
+    color: white;
+    height: 67px;
+    padding-left: 100px;
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 6px;
+}
+
+footer span {
+    padding-left: 300px;
+}
+
+footer p {
+    /* text-align: center; */
+    padding-left: 9px;
+}
+
+footer a{
+    /* align-items: center; */
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 10px;
+    padding-top: 8px;
+    /* display: flex; */
+}
+
+.icon {
+    padding-left: 18rem;
+}
+
+/* .footer_a {
+    padding-left: 700px;
+} */
+
+footer a {
+    color: white;
+    padding-top: 0px;
+}
+
+.footer a:hover {
+    color: grey;
+}
+
+footer a:focus {
+    color: white;
+}

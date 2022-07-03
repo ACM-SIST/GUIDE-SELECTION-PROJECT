@@ -48,8 +48,10 @@ class Team(models.Model):
 
     student_2_no = models.BigIntegerField(blank=True, null=True)
 
-    guide = models.ForeignKey(
-        Guide, on_delete=models.CASCADE, null=True, blank=True)
+    guide = models.CharField(
+        max_length=100, null=True, blank=True)
+
+    guide_email = models.CharField(max_length=100, default='email@gmail.com')
 
     def __str__(self):
         return self.project_name + ' ' + self.student_1_name + ' Added Sucessfully.'

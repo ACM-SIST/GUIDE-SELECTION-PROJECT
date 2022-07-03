@@ -87,7 +87,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: cursive;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
     background-blend-mode: darken;
     background: cover;
 }
@@ -153,24 +153,23 @@ body {
 #rightsidebar ol li{
     padding: 17px 0 17px 70px;
 }
-.sidebar ol li p{
+.sidebar ol li a{
     text-decoration: none;
-    font-size: 10pt;
+    font-size: 10px;
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    /* -webkit-transition: font-size 0.3s ease;
+    -webkit-transition: font-size 0.3s ease;
     -moz-transition: font-size 0.3s ease;
     -o-transition: font-size 0.3s ease;
     -ms-transition: font-size 0.3s ease;
-    transition: font-size 0.3s ease; */
+    transition: font-size 0.3s ease;
 }
 
-/* .sidebar ol li p:hover, .sidebar ol li p.active{
+.sidebar ol li a:hover, .sidebar ol li a.active{
     text-decoration: none;
     color: black;
     font-size: 10px;
     font-weight: bold;
-} */
+}
 
 
 #leftsidebar{
@@ -195,13 +194,13 @@ body {
  
 }
 .yellow{
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 5px;
     margin-top: 5px;
     background-color: #831238;
 }
 .blue{
-    font-size: 20px;
+    font-size: 10px;
     margin-top: 5px;
     background-color: #831238;
 }
@@ -222,8 +221,8 @@ body {
     font-size: 16px;
     color: #fff;
     cursor: pointer;
-    /* margin-left: 30rem;
-    margin-top: 1rem; */
+    text-decoration: none;
+    margin-top: 1rem;
 }
 #button1{
     width: 150px;
@@ -252,7 +251,7 @@ body {
 }
 
 /* footer span {
-    /*padding-left: 25rem;
+    padding-left: 25rem;
 } */
 
 footer p {
@@ -295,7 +294,6 @@ footer a:focus {
     }
     body{
         width: 100%;
-        /* overflow: hidden; */
     }
     .container-box {
         display: flex;
@@ -308,25 +306,11 @@ footer a:focus {
         height: 100vh;
         overflow: hidden;
     }
-    .yellow{
-        font-size: 10px;
-        margin-bottom: 5px;
-        margin-top: 5px;
-        background-color: #831238;
-    }
-    .blue{
-        font-size: 7px;
-        margin-top: 5px;
-        background-color: #831238;
-    }
-    .sidebar{
-        width: 250px;
-        height: 100px;
-    }
+    
    .footer{
         display: flex;
         flex-direction: column;
-        /* align-items: center; */
+        align-items: center;
         height: 40px;
         font-size: 10px;
     }
@@ -335,63 +319,10 @@ footer a:focus {
     }
     #popup{
         padding-left: 100px;
-        padding-right: 50px;
+        padding-right: 200px;
         padding-bottom: 100px;
-        margin-left: -300px;
-        width: auto;
         display: block;
     }
-    /*.footer {
-        width: 100px;
-        font-size: 9px;
-        display: flex;
-        /* padding-top: x20px !important; 
-        height: 76px !important;
-        padding-bottom: 10px !important;
-      }
-      footer span {
-        padding-left: 5px !important;
-        /* text-align: center; 
-      }
-      /* footer p{
-        padding-left: 50px;
-      } 
-      footer a{
-        /* font-size: 1px; 
-        /* padding-right: -100px !important; 
-        display: flex;
-        height: 10px;
-        padding-left: 10px;
-        /* border: 16px 10px 0px 0; 
-      } */
-      .footer {
-        width: 200px;
-        font-size: 9px;
-        display: flex;
-        /* padding-top: x20px !important; */
-        height: 76px !important;
-        /* padding-bottom: 10px !important; */
-      }
-      footer span {
-        padding-left: 10px !important;
-        text-align: center;
-      }
-      footer p{
-        padding-left: 1000px !important;
-      }
-      .footer_a {
-        padding-left: 90px;
-      }
-      footer a{
-        font-size: 1px;
-      }
-      .icon {
-        /* font-size: 0.1em; */
-        width: 50px;
-        height: 50px;
-        display: flex;
-        padding-left: 50px !important;
-      }
 }
 
 #overlay {
@@ -410,11 +341,11 @@ footer a:focus {
     display: none;
     position: absolute;
     top: 50%;
-    left: 30%;
+    left: 50%;
     background: rgba(255, 255, 255, 0.695);
-    width: auto;
-    height: auto;
-    margin-left: -400px; /*Half the value of width to center div*/
+    width: 600px;
+    height: 600px;
+    margin-left: -250px; /*Half the value of width to center div*/
     margin-top: -250px; /*Half the value of height to center div*/
     z-index: 200;
 }
@@ -435,60 +366,21 @@ footer a:focus {
 #button {
     cursor: pointer;
 }
-.footer {
-    background-color: #831238;
-    /* margin-top: 39.8rem; */
-    padding-top: 9px;
-    color: white;
-    height: 64px;
-    /* padding-left: 100px; */
-    /* position: absolute; */
-    /* bottom: 0; */
-    width: 100%;
-    display: flex;
-    /* align-items: center; */
-    /* text-align: center; */
-    /* border-radius: 6px; */
-}
-
-footer span {
-    padding-left: 450px;
-}
-
-footer p {
-    /* text-align: center; */
-    padding-left: 100rem;
-}
-
-footer a{
-    /* align-items: center; */
-    font-size: 1.5rem;
-    /* padding-left: 1rem; */
-    /* padding-right: 10px; */
-    padding-top: 8px;
-    align-items: center;
-    /* display: flex; */
-}
-
-.icon {
-    /* padding-left: 22rem; */
-    /* display: flex; */
-    align-items: center;
-}
-
-/* .footer_a {
-    padding-left: 700px;
-} */
-
-footer a {
-    color: white;
-    padding-top: 0px;
-}
-
-.footer a:hover {
-    color: grey;
-}
-
-footer a:focus {
-    color: white;
-}
+footer{
+    background: #831238;
+    padding: 15px 0;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  footer .text span{
+    font-size: 17px;
+    font-weight: 400;
+    color: #fff;
+  }
+  footer .text span a{
+    font-weight: 500;
+    color: #FFF;
+  }
+  footer .text span a:hover{
+    text-decoration: underline;
+  }

@@ -155,23 +155,25 @@ body {
     padding: 17px 0 17px 70px;
   /* background: url(images/tick.png) no-repeat left center;*/
 }
-.sidebar ol li a{
+.sidebar ol li p{
     text-decoration: none;
     font-size: 10px;
     color: black;
-    -webkit-transition: font-size 0.3s ease;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* -webkit-transition: font-size 0.3s ease;
     -moz-transition: font-size 0.3s ease;
     -o-transition: font-size 0.3s ease;
     -ms-transition: font-size 0.3s ease;
-    transition: font-size 0.3s ease;
+    transition: font-size 0.3s ease; */
 }
 
-.sidebar ol li a:hover, .sidebar ol li a.active{
+/* .sidebar ol li a:hover, .sidebar ol li a.active{
     text-decoration: none;
     color: black;
     font-size: 10px;
     font-weight: bold;
-}
+} */
 
 
 #leftsidebar{
@@ -411,9 +413,9 @@ footer a:focus {
     display: none;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 30%;
     background: rgba(255, 255, 255, 0.695);
-    width: auto;
+    width: 1100px;
     height: auto;
     margin-left: -250px; /*Half the value of width to center div*/
     margin-top: -250px; /*Half the value of height to center div*/

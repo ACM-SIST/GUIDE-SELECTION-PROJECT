@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" text="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
     <title>HOME</title>
 </head>
 <body>
@@ -16,12 +16,11 @@
                 <a href="{% url 'home' %}">
                     <img src="{% static 'img/headimg.jpeg' %}" class="img">
                 </a>
-                <li id="red">
-									<a href="{% url 'home' %}">Home</a>
-								</li>
+                <!--<li id="red"><a href="../GuideList/guide.html">Guide List</a></li>-->
+                <li id="red"><a href="{% url 'home' %}">Home</a></li>
+                <li></li>
             </ul>
         </nav>
-		</header>
 		<div id="maincontent">
 			<div class="container">
 				<video  class="orange" autoplay muted loop id="myvideo" onclick="play();">
@@ -29,6 +28,12 @@
 				</video>
 				<div class="overlay">
 					<h1 class="first">Sathyabama Institute of Science And Technology <button id="button1">Register Now</button></h1>
+					<!--<form>
+						<p>Content Below Your Video</p>
+						<label for="input">Form Input Label</label>
+						<input id="input" name="input" value="" />
+						<button type="submit">Submit</button>
+					</form>-->
 				</div>
 			</div>
 		</div>
@@ -77,17 +82,14 @@
 							<p>COMPLETING THE SELECTION PROCESS CHECK YOAFTERFOR YOUR CONFIRMATION DETAILS. COPY AND KEEP YOUR TEAM-ID SAFE AND SAVED AS IT IS VERY IMPORTANT FOR FURTHER PROCESS IN THE PROJECT DURATION.</p>
 						</li>	
 					</ol>
-					</ol>
 					<form action="{% url 'register' %}" id="black">
-						{% csrf_token %}
+            {% csrf_token %}
 						<div class="check">
 							<input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" required />
 							<label for="terms_and_conditions">I have read all the rules and regulations to fill the form and i accept all of these.:<span>*</span></label>
 						</div>
 						<div>
-							<div>
-								<a href="{% url 'register' %}" type="submit" id="submit_button" disabled>SUBMIT</a>
-							</div>
+							<a href="{% url 'register' %}" type="submit" id="submit_button" disabled>SUBMIT</a>
 						</div>
 					</form>
 				</div>
@@ -154,12 +156,24 @@
 		  popup.style.display = 'block';
 		}
 	</script>
-	<footer class="footer">
+	<section>
+		<footer class="footer">
+		  <div class="text">
+		  <span> <a href="#"></a> | &#169; 2022 All Rights Reserved ACM Sathyabama Institute of Science and Technology   |</span>
+		  <!-- <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram"></i></a> --> 
+		  <div class="icon">
+			<a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+			<a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
+		  </div>
+		</div>
+		</footer>
+	  </section>
+	<!-- <footer class="footer">
 		<div class="text">
 		<span> <a href="#"></a> | &#169; 2022 All Rights Reserved ACM Sathyabama Institute of Science and Technology   |</span>
 		<a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram"></i></a>
 		<a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
 		</div>
-	</footer>
+	</footer>-->
 </body>
 </html>		

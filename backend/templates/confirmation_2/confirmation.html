@@ -12,6 +12,7 @@
         <nav id="menu">
             <ul>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
         </nav>
         <div class="testbox">
@@ -108,11 +109,11 @@
                 <div class="project">
                   <div class="item-guide">
                       <label for="name">Guide Name </label>
-                      <input class="input-text" id="name" type="text" name="guide_name" value="{{ team.guide }}" disabled/>
+                      <input class="input-text" id="name" type="text" name="guide_name" value="{{ guide.name }}" disabled/>
                   </div>
                   <div class="item-guide">
                       <label for="email">Guide Email Id</label>
-                      <input class="input-text" id="email" type="email" name="guide_email" placeholder="Guide Email Id" value="{{ team.guide.email }}" disabled/>
+                      <input class="input-text" id="email" type="email" name="guide_email" placeholder="Guide Email Id" value="{{ guide.email }}" disabled/>
                   </div>
               </div>  
               </div>

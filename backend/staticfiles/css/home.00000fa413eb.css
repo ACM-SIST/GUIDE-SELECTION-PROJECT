@@ -155,22 +155,21 @@ body {
 }
 .sidebar ol li p{
     text-decoration: none;
-    font-size: 10pt;
+    font-size: 10px;
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    /* -webkit-transition: font-size 0.3s ease;
+    -webkit-transition: font-size 0.3s ease;
     -moz-transition: font-size 0.3s ease;
     -o-transition: font-size 0.3s ease;
     -ms-transition: font-size 0.3s ease;
-    transition: font-size 0.3s ease; */
+    transition: font-size 0.3s ease;
 }
 
-/* .sidebar ol li p:hover, .sidebar ol li p.active{
+.sidebar ol li p:hover, .sidebar ol li p.active{
     text-decoration: none;
     color: black;
     font-size: 10px;
     font-weight: bold;
-} */
+}
 
 
 #leftsidebar{
@@ -410,11 +409,11 @@ footer a:focus {
     display: none;
     position: absolute;
     top: 50%;
-    left: 30%;
+    /* left: 50%; */
     background: rgba(255, 255, 255, 0.695);
     width: auto;
     height: auto;
-    margin-left: -400px; /*Half the value of width to center div*/
+    margin-left: -250px; /*Half the value of width to center div*/
     margin-top: -250px; /*Half the value of height to center div*/
     z-index: 200;
 }

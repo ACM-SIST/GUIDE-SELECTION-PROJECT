@@ -72,7 +72,6 @@ def submitted(request):
 def register(request):
     print('INSIDE REGISTER FUNCTION')
     if request.method == 'POST':
-        print("REQUEST IS : ", request.method)
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
@@ -81,7 +80,6 @@ def register(request):
         temp = email.split('@')
         print("DOMAIN IS: ", temp)
         if temp[1] == 'gmail.com' or temp[1] == 'yahoo.in' or temp[1] == 'hotmail.com':
-            print('INSIDE IF:')
 
             if password == ConfirmPassword:
                 special_characters = "[~\!@#\$%\^&\*\(\)_\+{}\":;'\[\]]"
@@ -112,13 +110,13 @@ def register(request):
                     return redirect('register')
                 else:
 
-                    # user = User.objects.create_user(
-                    #     first_name=first_name, last_name=last_name, username=email, email=email, password=password
-                    # )
+                    user = User.objects.create_user(
+                        first_name=first_name, last_name=last_name, username=email, email=email, password=password
+                    )
 
-                    # user.save()
+                    user.save()
 
-                    # auth.login(request, user)
+                    auth.login(request, user)
 
                     return redirect('verify')
             messages.error(request, 'Password not matching')
@@ -259,23 +257,21 @@ def logout(request):
 
 def project_details_1(request):
     guides = Guide.objects.order_by('serial_no')
-    print("INSIDE PROJECT DETAILS")
-    user = request.user
-    print(user.username)
-    if Temp_Team.objects.filter(student_1_email=user.email).exists():
-        obj = Temp_Team.objects.filter(student_1_email=user.email).get()
+    curr_user = request.user
+    if Temp_Team.objects.filter(student_1_email=curr_user.email).exists():
+        obj = Temp_Team.objects.filter(student_1_email=curr_user.email).get()
         obj.delete()
-    if Team.objects.filter(teamID=user.username).exists():
-        is_team = Team.objects.filter(teamID=user.username).get()
+    if Team.objects.filter(teamID=curr_user.username).exists():
+        is_team = Team.objects.filter(teamID=curr_user.username).get()
+        guide_inst = Guide.objects.filter(serial_no=is_team.guide)
+        print('GUIDE IS: ', guide_inst)
         is_team.delete()
-        print("TEAM IS: ", is_team)
-        print("TEAM PRESENT AND DELETED!!!!")
         is_user = User.objects.filter(username=is_team.teamID)
         is_user.delete()
         messages.info(
             request, 'Your team is removed please to the process again!!')
         return render(request, 'Login/login.html')
-    print("SKIPPED IF STATEMENT")
+
     if request.method == 'POST':
 
         project_name = request.POST['project_name']
@@ -290,12 +286,16 @@ def project_details_1(request):
             messages.error(request, 'Number must of 10 digits.')
             return redirect('project-details-1')
 
-        student_1_name = user.first_name + ' ' + user.last_name
-        student_1_email = user.email
-        curr_user = request.user
+        student_1_name = curr_user.first_name + ' ' + curr_user.last_name
+        student_1_email = curr_user.email
 
         user = User.objects.get(username=curr_user.username)
         print("TYPE OF user.id: ", type(user.id))
+
+        if Temp_Team.objects.filter(reg_no_1=reg_no_1).exists():
+            messages.error(
+                request, 'The Register Number already exists in another team.')
+            return redirect('project-details-1')
 
         temp_team = Temp_Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description,
                                              no_of_members='1', reg_no_1=reg_no_1, student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no)
@@ -303,33 +303,29 @@ def project_details_1(request):
         temp_team.save()
 
         context = {
-            'user': user,
+            'user': curr_user,
             'guides': guides,
         }
-        # return redirect('select-guide')
+
         return render(request, 'GuideList/guide.html', context)
     else:
         context = {
-            'user': user
+            'user': curr_user
         }
         return render(request, '1_project_form/1_project_form.html', context)
 
 
 def project_details_2(request):
-    user = request.user
+    curr_user = request.user
     guides = Guide.objects.order_by('serial_no')
-    student_2_email = Otp_Two.objects.filter(temp_email=user.email).get()
-    print("2nd EMAIL: ", student_2_email.user_email)
-    email_2 = student_2_email.user_email
+    student_2_email = Otp_Two.objects.filter(temp_email=curr_user.email).get()
 
-    if Temp_Team.objects.filter(student_1_email=user.email).exists():
-        obj = Temp_Team.objects.filter(student_1_email=user.email).get()
+    if Temp_Team.objects.filter(student_1_email=curr_user.email).exists():
+        obj = Temp_Team.objects.filter(student_1_email=curr_user.email).get()
         obj.delete()
-    if Team.objects.filter(teamID=user.username).exists():
-        is_team = Team.objects.filter(teamID=user.username).get()
+    if Team.objects.filter(teamID=curr_user.username).exists():
+        is_team = Team.objects.filter(teamID=curr_user.username).get()
         is_team.delete()
-        print("TEAM IS: ", is_team)
-        print("TEAM PRESENT AND DELETED!!!!")
         is_user = User.objects.filter(username=is_team.teamID)
         is_user.delete()
         messages.info(
@@ -350,8 +346,8 @@ def project_details_2(request):
             messages.error(request, 'Number must of 10 digits.')
             return redirect('project-details-2')
 
-        student_1_name = user.first_name + ' ' + user.last_name
-        student_1_email = user.email
+        student_1_name = curr_user.first_name + ' ' + curr_user.last_name
+        student_1_email = curr_user.email
 
         first_name_2 = request.POST['first_name_2']
         last_name_2 = request.POST['last_name_2']
@@ -367,21 +363,31 @@ def project_details_2(request):
 
         student_2_name = first_name_2 + ' ' + last_name_2
 
-        curr_user = request.user
-
         user = User.objects.get(username=curr_user.username)
         print("TYPE OF user.id: ", type(user.id))
+
+        if Team.objects.filter(reg_no_1=reg_no_1).exists():
+            messages.error(
+                request, '1st Register Number already exists in another team.')
+            return redirect('project-details-2')
+        elif Team.objects.filter(reg_no_2=reg_no_2).exists():
+            messages.error(
+                request, '2nd Register Number already exists in another team.')
+            return redirect('project-details-2')
+
+        if Team.objects.filter(student_1_no=student_1_no).exists():
+            messages.error(
+                request, '1st Phone Number already exists in another team.')
+            return redirect('project-details-2')
+        elif Team.objects.filter(student_2_no=student_2_no).exists():
+            messages.error(
+                request, '2nd Phone Number already exists in another team.')
+            return redirect('project-details-2')
 
         temp_team = Temp_Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description, no_of_members='2', reg_no_1=reg_no_1,
                                              student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no, reg_no_2=reg_no_2,  student_2_name=student_2_name, student_2_email=student_2_email.user_email, student_2_no=student_2_no)
 
-        # CSE-<team_id_num> for eg: CSE-007, CSE-008....
-        # new_username = "CSE-%03d" % (team.id)
-        # team.teamID = new_username
-        # user.username = new_username
-
         temp_team.save()
-        # user.save()
 
         context = {
             'guides': guides,
@@ -392,7 +398,7 @@ def project_details_2(request):
         print('INSIDE GET REQUEST ELSE')
         context = {
             'email': student_2_email,
-            'user': user,
+            'user': curr_user,
         }
         return render(request, '2_project_form/2_project_form.html', context)
 
@@ -404,57 +410,53 @@ def select_guide(request):
 
         return redirect('guide-selected')
 
-    # print(type(guides.id))
-
     context = {
         'guides': guides,
     }
 
     return render(request, 'GuideList/guide.html', context)
 
-# For confirmation page
 
+# For confirmation page
 
 def guide_selected(request, id):
 
-    # select_guide = Guide.objects.filter(serial_no=id).get()
     guide_inst = Guide.objects.get(serial_no=id)
     user = request.user
     # you can get teamID from username as both are same.
     temp_team = Temp_Team.objects.get(student_1_email=user.email)
 
     obj = Otp_Two.objects.filter(temp_email=user.email)
-    # temp_team.guide = guide_inst
-    print("GUIDE PRESENT VACANCY: ", guide_inst.vacancy)
-    # print("REQUEST METHOD IS: ", request.method)
+
     if request.method == 'POST':
-        print("INSIDE POST IF")
-        print("REQUEST METHOD IS: ", request.method)
 
         team = Team.objects.create(project_name=temp_team.project_name, project_domain=temp_team.project_domain, project_description=temp_team.project_description, no_of_members=temp_team.no_of_members, reg_no_1=temp_team.reg_no_1, student_1_name=temp_team.student_1_name,
                                    student_1_email=temp_team.student_1_email, student_1_no=temp_team.student_1_no, reg_no_2=temp_team.reg_no_2, student_2_name=temp_team.student_2_name, student_2_email=temp_team.student_2_email, student_2_no=temp_team.student_2_no)
 
-        team.guide = guide_inst
+        team.guide = guide_inst.name
+        team.guide_email = guide_inst.email
         new_username = "CSE-%03d" % (team.id)
         team.teamID = new_username
         user.username = new_username
 
-        team.save()
+        print("TEAM GUIDE SERIAL ID: ", team.guide)
+
         user.save()
         if team.no_of_members == '2':
             send_mail(
                 'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
-                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + temp_team.project_name + '\n\nProject Description: ' + temp_team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + temp_team.no_of_members + '\n\nMembers: ' + temp_team.student_1_name + ' and '+temp_team.student_2_name +
+                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + '\n\nMembers: ' + team.student_1_name + ' and '+team.student_2_name +
                 '\n\nNow you can login with your teamID and password(The one you created earlier)',
                 EMAIL_HOST_USER,
-                [user.email, temp_team.student_2_email],
+                [user.email, team.student_2_email],
                 fail_silently=False,
             )
             obj.delete()
             temp_team.delete()
+            team.save()
             guide_inst.vacancy -= 1
-            print("GUIDE AFTER VACANCY: ", guide_inst.vacancy)
             guide_inst.save()
+
         else:
             send_mail(
                 'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
@@ -464,12 +466,13 @@ def guide_selected(request, id):
                 [user.email, ],
                 fail_silently=False,
             )
-
+            team.save()
+            guide_inst.vacancy -= 1
+            guide_inst.save()
+            temp_team.delete()
         return render(request, 'submitted.html')
-    print("SKIPPED POST IF")
-    temp_team.guide = guide_inst
     context = {
-        'guide': select_guide,
+        'guide': guide_inst,
         'team': temp_team,
         'id': id,
         'user': user,
@@ -495,9 +498,6 @@ def search(request):
         if name:
             queryset_list = queryset_list.filter(name__icontains=name)
             print(queryset_list)
-        print("NAME: ", name)
-    # if not name:
-    #     print("NOT IN NAME")
     context = {
         'guides': queryset_list,
     }
@@ -507,3 +507,15 @@ def search(request):
 
 def custom_page_not_found_view(request, exception):
     return render(request, "errors/404.html", {})
+
+
+def my_custom_error_view(request):
+    return render(request, 'errors/500.html')
+
+
+def my_custom_permission_denied_view(request, exception):
+    return render(request, 'errors/403.html')
+
+
+def my_custom_bad_request_view(request, exception):
+    return render(request, 'errors/400.html')

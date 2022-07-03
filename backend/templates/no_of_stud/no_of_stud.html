@@ -15,13 +15,13 @@
 <body>
     <header>
         <nav id="head" class="collapse navbar-collapse" >
-            <a href="../Home/home.html">
-                <img src="Image/headimg.jpeg" class="img">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'img/headimg.jpeg' %}" class="img">
             </a>
             <ul>
                 <!-- <li><a href="../Register/register.html">Register</a></li> -->
-                <li><a href="../Login/login.html">Logout</a></li>
-                <li><a href="../Home/home.html">Home</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
         </nav>
         <!-- <video autoplay muted loop id="myVideo">

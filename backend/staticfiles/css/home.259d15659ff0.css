@@ -414,7 +414,7 @@ footer a:focus {
     background: rgba(255, 255, 255, 0.695);
     width: auto;
     height: auto;
-    margin-left: -400px; /*Half the value of width to center div*/
+    margin-left: -250px; /*Half the value of width to center div*/
     margin-top: -250px; /*Half the value of height to center div*/
     z-index: 200;
 }

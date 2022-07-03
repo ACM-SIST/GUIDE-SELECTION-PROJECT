@@ -121,6 +121,9 @@ html {
       width: 100%;
       display: block;
     }
+    div #first{
+      margin-left: 20px;
+    }
     .footer {
       width: 200px;
       font-size: 9px;

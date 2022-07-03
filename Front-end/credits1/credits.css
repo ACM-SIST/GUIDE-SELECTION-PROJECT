@@ -129,6 +129,8 @@ html {
       font-size: 9px;
       display: flex;
       /* padding-top: x20px !important; */
+      padding-right: 100px;
+      text-align: center;
       height: 76px !important;
       /* padding-bottom: 10px !important; */
     }
@@ -137,7 +139,8 @@ html {
       text-align: center;
     }
     footer p{
-      padding-left: 1000px !important;
+      /* padding-left: 100px !important; */
+      text-align: center;
     }
     footer a{
       font-size: 1px;

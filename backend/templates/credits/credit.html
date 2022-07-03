@@ -2,60 +2,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Credits</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/credit.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" text="text/css" href="{% static 'css/credit.css' %}">
 </head>
 <body>
-    <!-- <nav id="menu">
-        <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
-        </ul>
-    </nav> -->
-    {% include 'partials/_navbar.html' %}
-    <form action="">
-    <fieldset class="box">                 
-    <figure class="snip0056">
-    <figcaption>
-      <h2>HARIHARAN <span>BP</span></h2>
-      <p></p>
-      <div class="icons"><a href="#"><i class="ion-ios-home"></i></a><a href="#"><i class="ion-ios-email"></i></a><a href="#"><i class="ion-ios-telephone"></i></a></div>
-    </figcaption><img src="{% static 'img/hbp.jpeg' %}" alt="sample8" />
-    <div class="position">FULL STACK DEVELOPER</div>
-  </figure>
-  <figure class="snip0056 ">
-    <figcaption>
-      <h2>JAGADEESH <span>N</span></h2>
-      <p></p>
-      <div class="icons"><a href="#"><i class="ion-ios-home"></i></a><a href="#"><i class="ion-ios-email"></i></a><a href="#"><i class="ion-ios-telephone"></i></a></div>
-    </figcaption><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample9.jpg" alt="sample9" />
-    <div class="position">FULL STACK DEVELOPER</div>
-  </figure>
-  <figure class="snip0056">
-    <figcaption>
-      <h2>MOHNISH <span>DEVARAJ</span></h2>
-      <p></p>
-      <div class="icons"><a href="#"><i class="ion-ios-home"></i></a><a href="#"><i class="ion-ios-email"></i></a><a href="#"><i class="ion-ios-telephone"></i></a></div>
-    </figcaption><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample8.jpg" alt="sample8" />
-    <div class="position">FULL STACK DEVELOPER</div>
-  </figure>
-  <figure class="snip0056" id="sbox">
-    <figcaption>
-      <h2>Abiram <span></span></h2>
-      <p></p>
-      <div class="icons"><a href="#"><i class="ion-ios-home"></i></a><a href="#"><i class="ion-ios-email"></i></a><a href="#"><i class="ion-ios-telephone"></i></a></div>
-    </figcaption><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample8.jpg" alt="sample8" />
-    <div class="position">Web Designer</div>
-  </figure>
-  <figure class="snip0056">
-    <figcaption>
-      <h2>Om Vivek <span></span></h2>
-      <p></p>
-      <div class="icons"><a href="#"><i class="ion-ios-home"></i></a><a href="#"><i class="ion-ios-email"></i></a><a href="#"><i class="ion-ios-telephone"></i></a></div>
-    </figcaption><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample8.jpg" alt="sample8" />
-    <div class="position">Web Designer</div>
-  </figure>
-  <figure class="snip0056">
-  </fieldset>
-  </form>
+  <nav id="menu">
+    <ul>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+    </ul>
+</nav>
+<form class="bluebox">
+<!--<fieldset>--> 
+<h2 id="dev"> DEVELOPED BY:</h2>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'img/hbp.jpeg' %}" alt="HARIARAN B P" style="width:100%">
+      <div class="container">
+        <h2>Hariharan B P</h2>
+        <p class="title">Full Stack Developer</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'img/mohnish.jpeg' %}" alt="MOHNISH DEVARAJ" style="width:100%">
+      <div class="container">
+        <h2>MOHNISH DEVARAJ</h2>
+        <p class="title">FULL STACK DEVELOPER</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'img/jaga.jpeg' %}" alt="JAGADEESH N" style="width:100%">
+      <div class="container">
+        <h2>JAGADEESH N</h2>
+        <p class="title">FULL STACK DEVELOPER</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="column">
+    <div class="card" id="box">
+      <img src="{% static 'img/abiram.jpg' %}" alt="ABHIRAM RAVIPATIL" style="width:100%">
+      <div class="container">
+        <h2>ABHIRAM RAVIPATI</h2>
+        <p class="title"></p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+   <div class="column">
+    <div class="card" id="box">
+      <img src="{% static 'img/vivek.jpeg' %}" alt="KOLLA OM VIVEK" style="width:100%">
+      <div class="container">
+        <h2>KOLLA OM VIVEK</h2>
+        <p class="title"></p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--</fieldset>-->
+</form>
+<section>
+  <footer class="footer">
+    <div class="text">
+    <span> <a href="#"></a> | &#169; 2022 All Rights Reserved ACM Sathyabama Institute of Science and Technology   |</span>
+    <div class="icon">
+      <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </div>
+  </footer>
+</section>
 </body>
-</head>
+</html>

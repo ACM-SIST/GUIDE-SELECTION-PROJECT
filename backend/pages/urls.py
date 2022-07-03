@@ -48,4 +48,5 @@ urlpatterns = [
     # # selected 2 mail
     path('mail1', views.mail1, name='mail1'),
     path('credits', views.credits, name='credits'),
+    path('search', views.search, name='search'),
 ]

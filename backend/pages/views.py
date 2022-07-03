@@ -70,58 +70,66 @@ def submitted(request):
 
 
 def register(request):
-    validators = [MinimumLengthValidator,
-                  NumericPasswordValidator, CommonPasswordValidator]
+    print('INSIDE REGISTER FUNCTION')
     if request.method == 'POST':
+        print("REQUEST IS : ", request.method)
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
         password = request.POST['password']
         ConfirmPassword = request.POST['password1']
+        temp = email.split('@')
+        print("DOMAIN IS: ", temp)
+        if temp[1] == 'gmail.com' or temp[1] == 'yahoo.in' or temp[1] == 'hotmail.com':
+            print('INSIDE IF:')
 
-        if password == ConfirmPassword:
-            special_characters = "[~\!@#\$%\^&\*\(\)_\+{}\":;'\[\]]"
-            if len(password) < 8:
-                messages.error(
-                    request, 'Password length must be greater than 8 character.')
-                return redirect('register')
-            if not any(char.isdigit() for char in password):
-                messages.error(
-                    request, 'Password must contain at least 1 digit.')
-                return redirect('register')
-            if not any(char.isalpha() for char in password):
-                messages.error(
-                    request, 'Password must contain at least 1 letter and must be alpha-numeric.')
-                return redirect('register')
-            if not any(char in special_characters for char in password):
-                messages.error(
-                    request, 'Password must contain at least 1 special character')
-                return redirect('register')
-            if User.objects.filter(email=email).exists():
-                messages.error(request, 'Email Taken')
-                return redirect('register')
-            elif Team.objects.filter(student_1_email=email).exists():
-                messages.error(request, 'Email Taken in another team')
-                return redirect('register')
-            elif Team.objects.filter(student_2_email=email).exists():
-                messages.error(request, 'Email Taken in another team')
-                return redirect('register')
-            else:
+            if password == ConfirmPassword:
+                special_characters = "[~\!@#\$%\^&\*\(\)_\+{}\":;'\[\]]"
+                if len(password) < 8:
+                    messages.error(
+                        request, 'Password length must be greater than 8 character.')
+                    return redirect('register')
+                if not any(char.isdigit() for char in password):
+                    messages.error(
+                        request, 'Password must contain at least 1 digit.')
+                    return redirect('register')
+                if not any(char.isalpha() for char in password):
+                    messages.error(
+                        request, 'Password must contain at least 1 letter and must be alpha-numeric.')
+                    return redirect('register')
+                if not any(char in special_characters for char in password):
+                    messages.error(
+                        request, 'Password must contain at least 1 special character')
+                    return redirect('register')
+                if User.objects.filter(email=email).exists():
+                    messages.error(request, 'Email Taken')
+                    return redirect('register')
+                elif Team.objects.filter(student_1_email=email).exists():
+                    messages.error(request, 'Email Taken in another team')
+                    return redirect('register')
+                elif Team.objects.filter(student_2_email=email).exists():
+                    messages.error(request, 'Email Taken in another team')
+                    return redirect('register')
+                else:
 
-                user = User.objects.create_user(
-                    first_name=first_name, last_name=last_name, username=email, email=email, password=password
-                )
+                    # user = User.objects.create_user(
+                    #     first_name=first_name, last_name=last_name, username=email, email=email, password=password
+                    # )
 
-                user.save()
+                    # user.save()
 
-                auth.login(request, user)
+                    # auth.login(request, user)
 
-                return redirect('verify')
-
-        else:
+                    return redirect('verify')
             messages.error(request, 'Password not matching')
             return render(request, 'Register/register.html')
+        else:
+            messages.error(
+                request, 'Enter a valid email with @gmail.com, @yahoo.in, @hotmail.com')
+            return redirect('register')
+
     else:
+        print("INSIDE ELSE")
         return render(request, 'Register/register.html')
 
 
@@ -177,7 +185,7 @@ def mail1(request):
             t = Otp.objects.filter(user_email=email_2)
             t.delete()
             print("OTP DELETED AND SENT AGAIN")
-        if User.objects.filter(email=user.email).exists():
+        if User.objects.filter(email=email_2).exists():
             messages.error(
                 request, 'The mail id already registered!')
             return redirect('mail1')
@@ -200,7 +208,7 @@ def mail1(request):
             fail_silently=False,
         )
 
-        return render(request, 'Register/mail1.html')
+        return redirect('verify1')
     else:
         user = request.user
         context = {
@@ -215,7 +223,7 @@ def verify1(request):
         g_otp = Otp_Two.objects.filter(temp_email=request.user.email).get()
 
         if otp == g_otp.otp:
-            return render(request, '2_project_form/2_project_form.html')
+            return redirect('project-details-2')
     else:
         return render(request, 'Register/verify1.html')
 
@@ -311,6 +319,8 @@ def project_details_2(request):
     user = request.user
     guides = Guide.objects.order_by('serial_no')
     student_2_email = Otp_Two.objects.filter(temp_email=user.email).get()
+    print("2nd EMAIL: ", student_2_email.user_email)
+    email_2 = student_2_email.user_email
 
     if Temp_Team.objects.filter(student_1_email=user.email).exists():
         obj = Temp_Team.objects.filter(student_1_email=user.email).get()
@@ -338,7 +348,7 @@ def project_details_2(request):
         student_1_no = request.POST['student_1_no']
         if len(student_1_no) > 10:
             messages.error(request, 'Number must of 10 digits.')
-            return redirect('project-details-1')
+            return redirect('project-details-2')
 
         student_1_name = user.first_name + ' ' + user.last_name
         student_1_email = user.email
@@ -349,14 +359,14 @@ def project_details_2(request):
         student_2_no = request.POST['student_2_no']
         if len(reg_no_2) > 8:
             messages.error(request, 'Register Number be 8 digits long.')
-            return redirect('project-details-1')
+            return redirect('project-details-2')
         student_2_no = request.POST['student_1_no']
         if len(student_2_no) > 10:
             messages.error(request, 'Number must of 10 digits.')
-            return redirect('project-details-1')
+            return redirect('project-details-2')
 
         student_2_name = first_name_2 + ' ' + last_name_2
-        # student_2_email = mail1.user_email1
+
         curr_user = request.user
 
         user = User.objects.get(username=curr_user.username)
@@ -475,3 +485,25 @@ def guide_selected(request, id):
 
 def credits(request):
     return render(request, 'credits/credit.html')
+
+
+def search(request):
+    queryset_list = Guide.objects.order_by('serial_no')
+
+    if 'name' in request.GET:
+        name = request.GET['name']
+        if name:
+            queryset_list = queryset_list.filter(name__icontains=name)
+            print(queryset_list)
+        print("NAME: ", name)
+    # if not name:
+    #     print("NOT IN NAME")
+    context = {
+        'guides': queryset_list,
+    }
+
+    return render(request, 'search.html', context)
+
+
+def custom_page_not_found_view(request, exception):
+    return render(request, "errors/404.html", {})

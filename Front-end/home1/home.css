@@ -87,7 +87,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: cursive;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     background-blend-mode: darken;
     background: cover;
 }
@@ -252,9 +252,9 @@ body {
     display: flex;
 }
 
-footer span {
-    /*padding-left: 25rem;*/
-}
+/* footer span {
+    /*padding-left: 25rem;
+} */
 
 footer p {
     text-align: center; 
@@ -296,7 +296,7 @@ footer a:focus {
     }
     body{
         width: 100%;
-        overflow: hidden;
+        /* overflow: hidden; */
     }
     .container-box {
         display: flex;
@@ -379,6 +379,9 @@ footer a:focus {
       }
       footer p{
         padding-left: 1000px !important;
+      }
+      .footer_a {
+        padding-left: 90px;
       }
       footer a{
         font-size: 1px;

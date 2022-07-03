@@ -7,7 +7,7 @@
 }
 
 body {
-    background: rgb(40,40,40);
+    background:aliceblue;
     overflow: hidden;
 }
 
@@ -17,16 +17,18 @@ p {
     margin: 10vh 0 0;
     text-align: center;
     letter-spacing: 5px;
-    background-color: black;
+    background-color:black;
     color: transparent;
     text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
-
-    span {
-        font-size: 1.2rem;
-    }
+}
+span {
+    font-size: 1.2em;
+}
+.error{
+    color:darkslategrey ;
 }
 
 code {
@@ -35,25 +37,23 @@ code {
     display: block;
     font-size: 16px;
     margin: 0 30px 25px;
-
-    span {
-        color: #f0c674;
-    }
-
-    i {
-        color: #b5bd68;
-    }
-
-    em {
-        color: #b294bb;
-        font-style: unset;
-    }
-
-    b {
-        color: #81a2be;
-        font-weight: 500;
-    }
 }
+span {
+    color: #b5bd68;
+}
+
+i {
+    color: #b5bd68;
+}
+em {
+    color: #b294bb;
+    font-style: unset;
+}
+b {
+    color: #81a2be;
+    font-weight: 500;
+}
+
 
 
 a {
@@ -70,3 +70,4 @@ a {
         font-size: 14vw;
     }
 }
+

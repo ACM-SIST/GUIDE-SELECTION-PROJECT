@@ -7,7 +7,7 @@
 }
 
 body {
-    background:aliceblue;
+    background-color: rgb(0 0 0 / 79%);
     overflow: hidden;
 }
 
@@ -28,7 +28,9 @@ span {
     font-size: 1.2em;
 }
 .error{
-    color:darkslategrey ;
+    color:black ;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
 }
 
 code {

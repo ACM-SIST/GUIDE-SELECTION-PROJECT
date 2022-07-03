@@ -12,10 +12,6 @@
 
 <body>
     {% if user.is_authenticated %}
-    <h1>
-        You are not allowed here!
-    </h1>
-    {% else %}
     <header>
         <nav id="menu">
             <!-- <a href="../Home/home.html">
@@ -48,6 +44,10 @@
     <!-- <footer class="footer">
         <p>Already</p>
     </footer> -->
+    {% else %}
+    <h1>
+        You are not allowed here!
+    </h1>
     {% endif %}
 </body>
 </html>

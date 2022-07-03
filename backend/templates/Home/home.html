@@ -16,8 +16,8 @@
                 <a href="{% url 'home' %}">
                     <img src="{% static 'img/headimg.jpeg' %}" class="img">
                 </a>
-                <!--<li id="red"><a href="../GuideList/guide.html">Guide List</a></li>-->
                 <li id="red"><a href="{% url 'home' %}">Home</a></li>
+                <li id="red"><a href="{% url 'credits' %}">Credits</a></li>
                 <li></li>
             </ul>
         </nav>
@@ -83,13 +83,12 @@
 						</li>	
 					</ol>
 					<form action="{% url 'register' %}" id="black">
-            {% csrf_token %}
 						<div class="check">
 							<input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" required />
 							<label for="terms_and_conditions">I have read all the rules and regulations to fill the form and i accept all of these.:<span>*</span></label>
 						</div>
 						<div>
-							<a href="{% url 'register' %}" type="submit" id="submit_button" disabled>SUBMIT</a>
+							<button type="submit" id="submit_button" disabled>Submit</button>
 						</div>
 					</form>
 				</div>

@@ -17,7 +17,7 @@ from django.contrib.auth.password_validation import MinimumLengthValidator, Comm
 def home(request):
     # if request.method == 'POST':
     #     return render(request, 'Register/register.html')
-    return render(request, 'Home/home.html')
+    return render(request, 'home/home.html')
 
 
 def no_of_stud(request):

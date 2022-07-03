@@ -296,6 +296,7 @@ footer a:focus {
     }
     body{
         width: 100%;
+        overflow: hidden;
     }
     .container-box {
         display: flex;
@@ -308,7 +309,21 @@ footer a:focus {
         height: 100vh;
         overflow: hidden;
     }
-    
+    .yellow{
+        font-size: 10px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        background-color: #831238;
+    }
+    .blue{
+        font-size: 7px;
+        margin-top: 5px;
+        background-color: #831238;
+    }
+    .sidebar{
+        width: 250px;
+        height: 100px;
+    }
    .footer{
         display: flex;
         flex-direction: column;
@@ -321,8 +336,10 @@ footer a:focus {
     }
     #popup{
         padding-left: 100px;
-        padding-right: 200px;
+        padding-right: 50px;
         padding-bottom: 100px;
+        margin-left: -300px;
+        width: auto;
         display: block;
     }
 }
@@ -345,8 +362,8 @@ footer a:focus {
     top: 50%;
     left: 50%;
     background: rgba(255, 255, 255, 0.695);
-    width: 600px;
-    height: 600px;
+    width: auto;
+    height: auto;
     margin-left: -250px; /*Half the value of width to center div*/
     margin-top: -250px; /*Half the value of height to center div*/
     z-index: 200;

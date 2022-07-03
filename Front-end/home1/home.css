@@ -363,6 +363,9 @@ footer a:focus {
       footer p{
         padding-left: 1000px !important;
       }
+      .footer_a {
+        padding-left: 90px;
+      }
       footer a{
         font-size: 1px;
       }

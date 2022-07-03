@@ -194,13 +194,13 @@ body {
  
 }
 .yellow{
-    font-size: 20px;
+    font-size: 30px;
     margin-bottom: 5px;
     margin-top: 5px;
     background-color: #831238;
 }
 .blue{
-    font-size: 10px;
+    font-size: 20px;
     margin-top: 5px;
     background-color: #831238;
 }
@@ -221,8 +221,8 @@ body {
     font-size: 16px;
     color: #fff;
     cursor: pointer;
-    text-decoration: none;
-    margin-top: 1rem;
+    /* margin-left: 30rem;
+    margin-top: 1rem; */
 }
 #button1{
     width: 150px;

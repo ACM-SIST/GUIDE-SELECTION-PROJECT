@@ -13,27 +13,22 @@
     <header class="container-box">
         <nav id="menu">
             <ul class="blackbox">
-                <a href="../Home/home.html">
-                    <img src="Image/headimg.jpeg" class="img">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/headimg.jpeg' %}" class="img">
                 </a>
-                <!--<li id="red"><a href="../GuideList/guide.html">Guide List</a></li>-->
-                <li id="red"><a href="../Home/home.html">Home</a></li>
-                <li></li>
+                <li id="red">
+									<a href="{% url 'home' %}">Home</a>
+								</li>
             </ul>
         </nav>
+		</header>
 		<div id="maincontent">
 			<div class="container">
 				<video  class="orange" autoplay muted loop id="myvideo" onclick="play();">
-					<source src="./Image/SIST.mp4" type="video/mp4" />
+					<source src="{% static 'img/SIST.mp4' %}" type="video/mp4" />
 				</video>
 				<div class="overlay">
 					<h1 class="first">Sathyabama Institute of Science And Technology <button id="button1">Register Now</button></h1>
-					<!--<form>
-						<p>Content Below Your Video</p>
-						<label for="input">Form Input Label</label>
-						<input id="input" name="input" value="" />
-						<button type="submit">Submit</button>
-					</form>-->
 				</div>
 			</div>
 		</div>
@@ -48,49 +43,58 @@
 					<ul>
 						<h1 class="yellow">Sathyabama Institute of Science And Technology</h1>
 						<h1 class="blue">Final Year Project Registration And Guide Selection</h1>
-						 <h1 class="yellow">Sathyabama Institute of Science And Technology</h1>
-						<h1 class="blue" style="margin-left: 1rem; width:auto; ">Final Year Project Registration And Guide Selection</h1>
 					</ul>
 				</div>
 				<br>
 				<div id="leftsidebar" class="sidebar">
 					<h3>INSTRUCTIONS:</h3>
 					<ol class="bluebox">
-						<li><a href="#">Register yourself by filling the required details.</a></li>
-						<li><a href="#">asdf</a></li>
-						<li><a href="#">dsfd</a></li>
-						<li><a href="#">dsfsdfs</a></li>
-						<li><a href="#">dfsdfsf</a></li>
-						<li><a href="#">fdsgsdg</a></li>
-						<li><a href="#">sdgsdgsd</a></li>
-						<li><a href="#">sdgsdgsdg</a></li>
-						<li><a href="#">dgsdgs</a></li>
-						<li><a href="#">sdgsdg</a></li>
-						<li><a href="#">sdgsdg</a></li>
-						<li><a href="#">sdgsdgsdg</a></li>
+						<li>
+							<p>REGISTER YOURSELF BY FILLING THE REQUIRED DETAILS.</p>
+						</li>
+						<li>
+							<p>NOT CLOSE THE BROWSER DURING THE WHOLE PRYOU WON'T BE ABLE TO REGISTER AGAIN BECUASE ONCE REGISTERED YOUR EMAIL WILL BE BLOCKED UNTIL YOU VERIFY IT. </p>
+						</li>
+						<li>
+							 <p>CHECK YOUR SPAM FOR OTPs. THE SERVER WILLTHE OTP TO YOUR EMAIL PROVIDED IT IS CORRECT. SO, PLEASE BE PATIENT AND CHECK YOUR SPAM MAIL.</p>
+						</li>
+						<li>
+							<p>YOU CLOSE THE VERIFY TAB WITHOUT VERIFYINIFEMAIL YOU WILL BE BLOCKED FROM USING THAT EMAIL AGAIN.</p>
+						</li>
+						<li>
+							<p>CASE YOU, ARE REGISTERING WITH TEAM, IN"color: red ;" >ONLY ONE PERSON SHOULD REGISTER FOR THAT PARTICULAR TEAM.IF FOUND DUPLICATE NO CHANGE WILL BE ENTERTAINED THEREAFTER.</p>
+						</li>
+						<li>
+							<p>GIVEN CONFIRMATION FOR YOUR PROJECT NO CHONCEBE ENTERTAINED.</p>
+						</li>
+						<li>
+							<p>THE STAFF WHOM YOU WANT TO MAKE AS YOUR GCONTACTREGISTERING YOUR TEAM, AFTER GETTING CONFIRMATION FROM THE STAFF PROCEED TO REGISTERING YOUR TEAM AND SELECT YOUR GUIDE DURING REGISTRATION.</p>
+						</li>
+						<li>
+							<p>HAVE TO DO THE WHOLE PROCESS IN SINGLE GOYOUIS BECUASE YOU CAN ACCESS THE GUIDE SELECTION PAGE ONLY ONCE AND YOU THEN CAN'T SELECT YOUR GUIDE ONCE LOGGED OUT.</p>
+						</li>
+						<li>
+							<p>COMPLETING THE SELECTION PROCESS CHECK YOAFTERFOR YOUR CONFIRMATION DETAILS. COPY AND KEEP YOUR TEAM-ID SAFE AND SAVED AS IT IS VERY IMPORTANT FOR FURTHER PROCESS IN THE PROJECT DURATION.</p>
+						</li>	
 					</ol>
-					<form method="post" id="black">
+					</ol>
+					<form action="{% url 'register' %}" id="black">
+						{% csrf_token %}
 						<div class="check">
 							<input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" required />
 							<label for="terms_and_conditions">I have read all the rules and regulations to fill the form and i accept all of these.:<span>*</span></label>
 						</div>
 						<div>
-							<button type="submit" id="submit_button" disabled>Submit</button>
+							<div>
+								<a href="{% url 'register' %}" type="submit" id="submit_button" disabled>SUBMIT</a>
+							</div>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
-		<!--<video autoplay muted loop id="myVideo">
-            <source src="./Image/SIST.mp4" type="video/mp4">
-        </video>-->
-        <!--<div id="rightsidebar" class="sidebar">
-            <h3></h3>
-            <ul>
-                <h1 class="yellow">Sathyabama Institute of Science And Technology</h1>
-                <h1 class="blue">Final Year Project Registration And Guide Selection</h1>
-            </ul>
-        </div>
+		
+       <!--</div>
         <div id="leftsidebar" class="sidebar">
             <h3>INSTRUCTIONS:</h3>
             <ol class="bluebox">
@@ -150,12 +154,12 @@
 		  popup.style.display = 'block';
 		}
 	</script>
-	<!--<footer class="footer">
+	<footer class="footer">
 		<div class="text">
 		<span> <a href="#"></a> | &#169; 2022 All Rights Reserved ACM Sathyabama Institute of Science and Technology   |</span>
 		<a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram"></i></a>
 		<a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
 		</div>
-	</footer>-->
+	</footer>
 </body>
 </html>		

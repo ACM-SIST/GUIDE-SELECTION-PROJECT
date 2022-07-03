@@ -70,65 +70,66 @@ def submitted(request):
 
 
 def register(request):
-    validators = [MinimumLengthValidator,
-                  NumericPasswordValidator, CommonPasswordValidator]
+    print('INSIDE REGISTER FUNCTION')
     if request.method == 'POST':
+        print("REQUEST IS : ", request.method)
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
         password = request.POST['password']
         ConfirmPassword = request.POST['password1']
+        temp = email.split('@')
+        print("DOMAIN IS: ", temp)
+        if temp[1] == 'gmail.com' or temp[1] == 'yahoo.in' or temp[1] == 'hotmail.com':
+            print('INSIDE IF:')
 
-        if password == ConfirmPassword:
-            special_characters = "[~\!@#\$%\^&\*\(\)_\+{}\":;'\[\]]"
-            domain = ["gmail.com"]
-            if len(password) < 8:
-                messages.error(
-                    request, 'Password length must be greater than 8 character.')
-                return redirect('register')
-            if not any(char.isdigit() for char in password):
-                messages.error(
-                    request, 'Password must contain at least 1 digit.')
-                return redirect('register')
-            if not any(char.isalpha() for char in password):
-                messages.error(
-                    request, 'Password must contain at least 1 letter and must be alpha-numeric.')
-                return redirect('register')
-            if not any(char in special_characters for char in password):
-                messages.error(
-                    request, 'Password must contain at least 1 special character')
-                return redirect('register')
-            temp = email.split('@')
-            print("TEMP IS: ", temp)
-            if not any(char in domain for char in temp):
-                messages.error(
-                    request, 'Must be a valid email')
-                return redirect('register')
-            if User.objects.filter(email=email).exists():
-                messages.error(request, 'Email Taken')
-                return redirect('register')
-            elif Team.objects.filter(student_1_email=email).exists():
-                messages.error(request, 'Email Taken in another team')
-                return redirect('register')
-            elif Team.objects.filter(student_2_email=email).exists():
-                messages.error(request, 'Email Taken in another team')
-                return redirect('register')
-            else:
+            if password == ConfirmPassword:
+                special_characters = "[~\!@#\$%\^&\*\(\)_\+{}\":;'\[\]]"
+                if len(password) < 8:
+                    messages.error(
+                        request, 'Password length must be greater than 8 character.')
+                    return redirect('register')
+                if not any(char.isdigit() for char in password):
+                    messages.error(
+                        request, 'Password must contain at least 1 digit.')
+                    return redirect('register')
+                if not any(char.isalpha() for char in password):
+                    messages.error(
+                        request, 'Password must contain at least 1 letter and must be alpha-numeric.')
+                    return redirect('register')
+                if not any(char in special_characters for char in password):
+                    messages.error(
+                        request, 'Password must contain at least 1 special character')
+                    return redirect('register')
+                if User.objects.filter(email=email).exists():
+                    messages.error(request, 'Email Taken')
+                    return redirect('register')
+                elif Team.objects.filter(student_1_email=email).exists():
+                    messages.error(request, 'Email Taken in another team')
+                    return redirect('register')
+                elif Team.objects.filter(student_2_email=email).exists():
+                    messages.error(request, 'Email Taken in another team')
+                    return redirect('register')
+                else:
 
-                user = User.objects.create_user(
-                    first_name=first_name, last_name=last_name, username=email, email=email, password=password
-                )
+                    # user = User.objects.create_user(
+                    #     first_name=first_name, last_name=last_name, username=email, email=email, password=password
+                    # )
 
-                user.save()
+                    # user.save()
 
-                auth.login(request, user)
+                    # auth.login(request, user)
 
-                return redirect('verify')
-
-        else:
+                    return redirect('verify')
             messages.error(request, 'Password not matching')
             return render(request, 'Register/register.html')
+        else:
+            messages.error(
+                request, 'Enter a valid email with @gmail.com, @yahoo.in, @hotmail.com')
+            return redirect('register')
+
     else:
+        print("INSIDE ELSE")
         return render(request, 'Register/register.html')
 
 
@@ -347,7 +348,7 @@ def project_details_2(request):
         student_1_no = request.POST['student_1_no']
         if len(student_1_no) > 10:
             messages.error(request, 'Number must of 10 digits.')
-            return redirect('project-details-1')
+            return redirect('project-details-2')
 
         student_1_name = user.first_name + ' ' + user.last_name
         student_1_email = user.email
@@ -358,14 +359,14 @@ def project_details_2(request):
         student_2_no = request.POST['student_2_no']
         if len(reg_no_2) > 8:
             messages.error(request, 'Register Number be 8 digits long.')
-            return redirect('project-details-1')
+            return redirect('project-details-2')
         student_2_no = request.POST['student_1_no']
         if len(student_2_no) > 10:
             messages.error(request, 'Number must of 10 digits.')
-            return redirect('project-details-1')
+            return redirect('project-details-2')
 
         student_2_name = first_name_2 + ' ' + last_name_2
-        # student_2_email = mail1.user_email1
+
         curr_user = request.user
 
         user = User.objects.get(username=curr_user.username)

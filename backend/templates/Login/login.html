@@ -14,11 +14,7 @@
 <body>
     {% if user.is_authenticated %}
     <h1>
-<<<<<<< HEAD
-        You are not allowed here!
-=======
         You are already logged-in!
->>>>>>> a9d4e827462ef3604d32b8622cc4494635c00f7c
     </h1>
     {% else %}
     <header>
@@ -41,7 +37,7 @@
                 <label>Email/TeamID(If team is registered)</label>
             </div>
             <div class="txt_field">
-                <input type="password" name="password" required>
+                <input type="password" name="password" id="myInput" required>
                 <label>Password</label>
             </div>
             <input type="checkbox" onclick="myFunction()">Show Password
@@ -55,10 +51,6 @@
     <!-- <footer class="footer">
         <p>Already</p>
     </footer> -->
-<<<<<<< HEAD
-
-=======
->>>>>>> a9d4e827462ef3604d32b8622cc4494635c00f7c
     {% endif %}
     <script>
         function myFunction() {

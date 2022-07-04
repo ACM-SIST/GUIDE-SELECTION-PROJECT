@@ -237,6 +237,9 @@ def login(request):
 
             user = request.user
 
+            if user.is_staff == True:
+                return render(request, 'home/home.html')
+
             if Temp_Team.objects.filter(student_1_email=user.email).exists():
                 team = Temp_Team.objects.filter(
                     student_1_email=user.email).get()

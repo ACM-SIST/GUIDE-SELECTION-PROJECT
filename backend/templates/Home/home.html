@@ -22,7 +22,10 @@
 				<li id="red"><a href="{% url 'home' %}">Home</a></li>
 				<li id="red"><a href="{% url 'credits' %}">Credits</a></li>
 				{% if user.is_authenticated %}
-				<li id="red"><a href="{% url 'logout' %}">Logout</a></li>
+					<li id="red"><a href="{% url 'logout' %}">Logout</a></li>
+					{% if user.is_staff %}
+						<li id="red"><a href="{% url 'edit-team' %}">Edit Team</a></li>
+						<li id="red"><a href="{% url 'edit-team' %}">Delete Team</a></li>
 				{% endif %}
 			</ul>
 		</nav>

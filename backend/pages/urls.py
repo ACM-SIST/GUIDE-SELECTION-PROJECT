@@ -49,4 +49,5 @@ urlpatterns = [
     path('mail1', views.mail1, name='mail1'),
     path('credits', views.credits, name='credits'),
     path('search', views.search, name='search'),
+    path('edit-team', views.edit_team, name='edit-team')
 ]

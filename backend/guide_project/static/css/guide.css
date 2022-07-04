@@ -325,8 +325,15 @@ footer a:focus {
     color: #93a2ad;
   }*/
 @media (max-width: 768px) {
+  body{
+    overflow-x: hidden;
+  }
    #menu{
     width: 100vh;
+   }
+   .container-2 input#search{
+    width: 50px;
+    height: 40px;
    }
 } 
 @media screen and (max-width: 600px) {

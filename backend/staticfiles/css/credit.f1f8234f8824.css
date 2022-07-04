@@ -120,10 +120,7 @@ html {
     .column {
       width: 100%;
       display: block;
-    }
-
-    .card {
-      margin-left: 2rem;
+      margin-left: 1rem;
     }
     div #first{
       margin-left: 20px;

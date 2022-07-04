@@ -10,16 +10,6 @@
   <body>
     <nav id="menu">
       <ul>
-        {% if user.is_autheticated %}
-          <li>
-            <a href="{% url 'logout' %}">Logout</a>
-          </li>
-        {% else %}
-          <li>
-            <a href="{% url 'register' %}">Register</a>
-            <a href="{% url 'login' %}">Login</a>
-          </li>
-        {% endif %}
           <li><a href="{% url 'home' %}">Home</a></li>
       </ul>
     </nav>
@@ -69,7 +59,7 @@
         </div>
         <div class="column">
           <div class="card" id="box">
-            <img src="" alt="ABHIRAM RAVIPATIL" style="width:100%">
+            <img src="{% static 'img/abiram.jpg' %}" alt="ABHIRAM RAVIPATI" style="width:100%">
             <div class="container">
               <h2>ABHIRAM RAVIPATI</h2>
               <p class="title">FULL STACK DEVELOPER</p>
@@ -96,23 +86,7 @@
       <!--</fieldset>-->
     </form>
 
-    <section>
-      <footer class="footer">
-        <div class="text">
-          <span> 
-            <a href="#"></a> | &#169; 2022 All Rights Reserved, ACM Sathyabama Institute of Science and Technology   |
-          </span>
-          <div class="icon">
-            <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank">
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-          </div>
-        </div>
-      </footer>
-    </section>
+    {% include 'partials/_footer.html' %}
 
   </body>
 </html>

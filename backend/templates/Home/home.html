@@ -1,33 +1,38 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
-    <title>HOME</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+	<title>HOME</title>
 </head>
+
 <body>
-    <header class="container-box">
-        <nav id="menu">
-            <ul class="blackbox">
-                <a href="{% url 'home' %}">
-                    <img src="{% static 'img/headimg.jpeg' %}" class="img">
-                </a>
-                <li id="red"><a href="{% url 'home' %}">Home</a></li>
-                <li id="red"><a href="{% url 'credits' %}">Credits</a></li>
-                <li></li>
-            </ul>
-        </nav>
+	<header class="container-box">
+		<nav id="menu">
+			<ul class="blackbox">
+				<a href="{% url 'home' %}">
+					<img src="{% static 'img/headimg.jpeg' %}" class="img">
+				</a>
+				<li id="red"><a href="{% url 'home' %}">Home</a></li>
+				<li id="red"><a href="{% url 'credits' %}">Credits</a></li>
+				{% if user.is_authenticated %}
+				<li id="red"><a href="{% url 'logout' %}">Logout</a></li>
+				{% endif %}
+			</ul>
+		</nav>
 		<div id="maincontent">
 			<div class="container">
-				<video  class="orange" autoplay muted loop id="myvideo" onclick="play();">
+				<video class="orange" autoplay muted loop id="myvideo" onclick="play();">
 					<source src="{% static 'img/SIST.mp4' %}" type="video/mp4" />
 				</video>
 				<div class="overlay">
-					<h1 class="first">Sathyabama Institute of Science And Technology <button id="button1">Register Now</button></h1>
+					<h1 class="first">Sathyabama Institute of Science And Technology <button id="button1">Register Now</button>
+					</h1>
 					<!--<form>
 						<p>Content Below Your Video</p>
 						<label for="input">Form Input Label</label>
@@ -58,44 +63,52 @@
 							<p>REGISTER YOURSELF BY FILLING THE REQUIRED DETAILS.</p>
 						</li>
 						<li>
-							<p>NOT CLOSE THE BROWSER DURING THE WHOLE PRYOU WON'T BE ABLE TO REGISTER AGAIN BECUASE ONCE REGISTERED YOUR EMAIL WILL BE BLOCKED UNTIL YOU VERIFY IT. </p>
+							<p>NOT CLOSE THE BROWSER DURING THE WHOLE PRYOU WON'T BE ABLE TO REGISTER AGAIN BECUASE ONCE REGISTERED
+								YOUR EMAIL WILL BE BLOCKED UNTIL YOU VERIFY IT. </p>
 						</li>
 						<li>
-							 <p>CHECK YOUR SPAM FOR OTPs. THE SERVER WILLTHE OTP TO YOUR EMAIL PROVIDED IT IS CORRECT. SO, PLEASE BE PATIENT AND CHECK YOUR SPAM MAIL.</p>
+							<p>CHECK YOUR SPAM FOR OTPs. THE SERVER WILLTHE OTP TO YOUR EMAIL PROVIDED IT IS CORRECT. SO, PLEASE BE
+								PATIENT AND CHECK YOUR SPAM MAIL.</p>
 						</li>
 						<li>
 							<p>YOU CLOSE THE VERIFY TAB WITHOUT VERIFYINIFEMAIL YOU WILL BE BLOCKED FROM USING THAT EMAIL AGAIN.</p>
 						</li>
 						<li>
-							<p>CASE YOU, ARE REGISTERING WITH TEAM, IN"color: red ;" >ONLY ONE PERSON SHOULD REGISTER FOR THAT PARTICULAR TEAM.IF FOUND DUPLICATE NO CHANGE WILL BE ENTERTAINED THEREAFTER.</p>
+							<p>CASE YOU, ARE REGISTERING WITH TEAM, IN"color: red ;" >ONLY ONE PERSON SHOULD REGISTER FOR THAT
+								PARTICULAR TEAM.IF FOUND DUPLICATE NO CHANGE WILL BE ENTERTAINED THEREAFTER.</p>
 						</li>
 						<li>
 							<p>GIVEN CONFIRMATION FOR YOUR PROJECT NO CHONCEBE ENTERTAINED.</p>
 						</li>
 						<li>
-							<p>THE STAFF WHOM YOU WANT TO MAKE AS YOUR GCONTACTREGISTERING YOUR TEAM, AFTER GETTING CONFIRMATION FROM THE STAFF PROCEED TO REGISTERING YOUR TEAM AND SELECT YOUR GUIDE DURING REGISTRATION.</p>
+							<p>THE STAFF WHOM YOU WANT TO MAKE AS YOUR GCONTACTREGISTERING YOUR TEAM, AFTER GETTING CONFIRMATION FROM
+								THE STAFF PROCEED TO REGISTERING YOUR TEAM AND SELECT YOUR GUIDE DURING REGISTRATION.</p>
 						</li>
 						<li>
-							<p>HAVE TO DO THE WHOLE PROCESS IN SINGLE GOYOUIS BECUASE YOU CAN ACCESS THE GUIDE SELECTION PAGE ONLY ONCE AND YOU THEN CAN'T SELECT YOUR GUIDE ONCE LOGGED OUT.</p>
+							<p>HAVE TO DO THE WHOLE PROCESS IN SINGLE GOYOUIS BECUASE YOU CAN ACCESS THE GUIDE SELECTION PAGE ONLY
+								ONCE AND YOU THEN CAN'T SELECT YOUR GUIDE ONCE LOGGED OUT.</p>
 						</li>
 						<li>
-							<p>COMPLETING THE SELECTION PROCESS CHECK YOAFTERFOR YOUR CONFIRMATION DETAILS. COPY AND KEEP YOUR TEAM-ID SAFE AND SAVED AS IT IS VERY IMPORTANT FOR FURTHER PROCESS IN THE PROJECT DURATION.</p>
-						</li>	
+							<p>COMPLETING THE SELECTION PROCESS CHECK YOAFTERFOR YOUR CONFIRMATION DETAILS. COPY AND KEEP YOUR TEAM-ID
+								SAFE AND SAVED AS IT IS VERY IMPORTANT FOR FURTHER PROCESS IN THE PROJECT DURATION.</p>
+						</li>
 					</ol>
 					<form action="{% url 'register' %}" id="black">
+						{% csrf_token %}
 						<div class="check">
 							<input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" required />
-							<label for="terms_and_conditions">I have read all the rules and regulations to fill the form and i accept all of these.:<span>*</span></label>
+							<label for="terms_and_conditions">I have read all the rules and regulations to fill the form and i accept
+								all of these.:<span>*</span></label>
 						</div>
 						<div>
-							<button type="submit" id="submit_button" disabled>Submit</button>
+							<a href="{% url 'register' %}"  type="submit" id="submit_button" disabled>Submit</a>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
-		
-       <!--</div>
+
+		<!--</div>
         <div id="leftsidebar" class="sidebar">
             <h3>INSTRUCTIONS:</h3>
             <ol class="bluebox">
@@ -125,48 +138,51 @@
 	</header>
 	<script type="text/javascript">
 		// Initialize Variables
-	function terms_changed(termsCheckBox){
-    const btn = document.getElementById('submit_button');
-    btn.style.backgroundColor = 'lightslategray';
-    btn.style.color = 'white';
-    if(termsCheckBox.checked){
-        document.getElementById("submit_button").disabled = false;
-		document.getElementById("popupclose").disabled = false;
-        btn.style.backgroundColor = '#831238';
-        btn.style.color = 'white';
-    } 
-	else{
-        document.getElementById("submit_button").disabled = true;
-        document.getElementById("popupclose").disabled = true;
-    }
-    }
+		function terms_changed(termsCheckBox) {
+			const btn = document.getElementById('submit_button');
+			btn.style.backgroundColor = 'lightslategray';
+			btn.style.color = 'white';
+			if (termsCheckBox.checked) {
+				document.getElementById("submit_button").disabled = false;
+				document.getElementById("popupclose").disabled = false;
+				btn.style.backgroundColor = '#831238';
+				btn.style.color = 'white';
+			}
+			else {
+				document.getElementById("submit_button").disabled = true;
+				document.getElementById("popupclose").disabled = true;
+			}
+		}
 		var closePopup = document.getElementById("popupclose");
 		var overlay = document.getElementById("overlay");
 		var popup = document.getElementById("popup");
 		var button = document.getElementById("button1");
 		// Close Popup Event
-		closePopup.onclick = function() {
-		  overlay.style.display = 'none';
-		  popup.style.display = 'none';
+		closePopup.onclick = function () {
+			overlay.style.display = 'none';
+			popup.style.display = 'none';
 		};
 		// Show Overlay and Popup
-		button.onclick = function() {
-		  overlay.style.display = 'block';
-		  popup.style.display = 'block';
+		button.onclick = function () {
+			overlay.style.display = 'block';
+			popup.style.display = 'block';
 		}
 	</script>
 	<section>
 		<footer class="footer">
-		  <div class="text">
-		  <span> <a href="#"></a> | &#169; 2022 All Rights Reserved ACM Sathyabama Institute of Science and Technology   |</span>
-		  <!-- <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram"></i></a> --> 
-		  <div class="icon">
-			<a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-			<a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
-		  </div>
-		</div>
+			<div class="text">
+				<span> <a href="#"></a> | &#169; 2022 All Rights Reserved ACM Sathyabama Institute of Science and Technology
+					|</span>
+				<!-- <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram"></i></a> -->
+				<div class="icon">
+					<a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i
+							class="fa-brands fa-instagram"></i></a>
+					<a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank"><i
+							class="fa-brands fa-linkedin"></i></a>
+				</div>
+			</div>
 		</footer>
-	  </section>
+	</section>
 	<!-- <footer class="footer">
 		<div class="text">
 		<span> <a href="#"></a> | &#169; 2022 All Rights Reserved ACM Sathyabama Institute of Science and Technology   |</span>
@@ -175,4 +191,5 @@
 		</div>
 	</footer>-->
 </body>
-</html>		
+
+</html>

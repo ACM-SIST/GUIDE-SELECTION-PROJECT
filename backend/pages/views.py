@@ -17,7 +17,7 @@ from django.contrib.auth.password_validation import MinimumLengthValidator, Comm
 def home(request):
     # if request.method == 'POST':
     #     return render(request, 'Register/register.html')
-    return render(request, 'home/home.html')
+    return render(request, 'Home/home.html')
 
 
 def no_of_stud(request):
@@ -234,7 +234,25 @@ def login(request):
         user = auth.authenticate(username=user_name, password=password)
         if user is not None:
             auth.login(request, user)
-            # team = Team.objects.filter(teamID=user.username).exists()
+
+            user = request.user
+
+            if Temp_Team.objects.filter(student_1_email=user.email).exists():
+                team = Temp_Team.objects.filter(
+                    student_1_email=user.email).get()
+                guide_inst = Guide.objects.filter(
+                    serial_no=team.guide.serial_no).get()
+                context = {
+                    'team': team,
+                    'user': user,
+                    'guide': guide_inst,
+                    'id': guide_inst.serial_no
+                }
+
+                if team.no_of_members == '2':
+                    return render(request, 'team_confirm_2/team_confirm_2.html', context)
+                else:
+                    return render(request, 'team_confirm_1/team_confirm_1.html', context)
 
             if Team.objects.filter(teamID=user.username).exists():
                 auth.logout(request)
@@ -264,7 +282,6 @@ def project_details_1(request):
     if Team.objects.filter(teamID=curr_user.username).exists():
         is_team = Team.objects.filter(teamID=curr_user.username).get()
         guide_inst = Guide.objects.filter(serial_no=is_team.guide)
-        print('GUIDE IS: ', guide_inst)
         is_team.delete()
         is_user = User.objects.filter(username=is_team.teamID)
         is_user.delete()

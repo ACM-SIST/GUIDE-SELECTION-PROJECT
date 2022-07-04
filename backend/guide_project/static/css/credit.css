@@ -124,6 +124,10 @@ html {
       width: 100%;
       display: block;
     }
+
+    .card {
+      margin-left: 2rem;
+    }
     div #first{
       margin-left: 20px;
     }

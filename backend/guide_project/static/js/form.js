@@ -9,4 +9,9 @@ function myFunction() {
     {
       text =window.alert("You have submitted the form successfully");
     }
-}    
+}  
+
+
+function preventBack() { window.history.forward(); }  
+            setTimeout("preventBack()", 0);  
+            window.onunload = function () { null }; 

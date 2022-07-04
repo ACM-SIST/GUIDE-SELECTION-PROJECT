@@ -325,11 +325,20 @@ footer a:focus {
     color: #93a2ad;
   }*/
 @media (max-width: 768px) {
+  body{
+    overflow-x: hidden;
+  }
    #menu{
     width: 100vh;
    }
+<<<<<<< HEAD
    body {
     font-family: cursive;
+=======
+   .container-2 input#search{
+    width: 50px;
+    height: 40px;
+>>>>>>> a9d4e827462ef3604d32b8622cc4494635c00f7c
    }
 } 
 @media screen and (max-width: 600px) {

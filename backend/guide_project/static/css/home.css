@@ -147,12 +147,10 @@ body {
 }
 #leftsidebar ol li{
     padding: 4px 0 4px 10px;
-    /*list-style-image: url(images/arrow.png);*/
 }
 
 #rightsidebar ol li{
     padding: 17px 0 17px 70px;
-  /* background: url(images/tick.png) no-repeat left center;*/
 }
 .sidebar ol li a{
     text-decoration: none;

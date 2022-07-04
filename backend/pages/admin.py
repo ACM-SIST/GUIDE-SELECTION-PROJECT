@@ -28,13 +28,13 @@ class TeamResource(resources.ModelResource):
     class Meta:
         model = Team
 
-        fields = ('id', 'project_name', 'no_of_members', 'reg_no_1',
-                  'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'guide')
+        fields = ('teamID', 'project_name', 'no_of_members', 'reg_no_1',
+                  'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'guide', 'guide_email')
 
 
 class TeamAdmin(ImportExportModelAdmin):
     list_display = ('teamID', 'project_name', 'no_of_members', 'reg_no_1',
-                    'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'guide')
+                    'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'guide', 'guide_email')
     ordering = ('teamID',)
     resource_class = TeamResource
 

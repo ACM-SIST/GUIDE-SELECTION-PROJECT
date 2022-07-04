@@ -41,6 +41,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['https://guideselection.herokuapp.com/',
                  'localhost', '127.0.0.1', 'https://www.cse-projectregistration.co.in/']
 
+CSRF_TRUSTED_ORIGINS = ['https://www.cse-projectregistration.co.in',
+                        'https://127.0.0.1:8000', 'https://guideselection.herokuapp.com/']
 
 # Application definition
 

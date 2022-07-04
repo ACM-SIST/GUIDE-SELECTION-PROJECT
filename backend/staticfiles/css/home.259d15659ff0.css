@@ -155,10 +155,9 @@ body {
 }
 .sidebar ol li p{
     text-decoration: none;
-    font-size: 10px;
+    font-size: 10pt;
     color: black;
-    margin-top: 0;
-    margin-bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
     /* -webkit-transition: font-size 0.3s ease;
     -moz-transition: font-size 0.3s ease;
     -o-transition: font-size 0.3s ease;
@@ -166,7 +165,7 @@ body {
     transition: font-size 0.3s ease; */
 }
 
-/* .sidebar ol li a:hover, .sidebar ol li a.active{
+/* .sidebar ol li p:hover, .sidebar ol li p.active{
     text-decoration: none;
     color: black;
     font-size: 10px;
@@ -181,8 +180,7 @@ body {
     margin-top: 1rem;
     margin-right: 5rem;
     margin-bottom: 2rem;*/
-    height: auto;
-    width: auto;
+    height: fit-content;
 } 
 
 #rightsidebar{
@@ -192,8 +190,8 @@ body {
     margin-top: 1rem;
     margin-right: 5rem;
     padding-right: 2rem;*/
-    width: auto;
-    height: auto;
+    width: fit-content;
+    height: fit-content;
  
 }
 .yellow{
@@ -321,18 +319,9 @@ footer a:focus {
         margin-top: 5px;
         background-color: #831238;
     }
-    p{
-        font-size: 8px;
-    }
-    .sidebar #leftsidebar #rightsidebar{
-        width: 300px;
+    .sidebar{
+        width: 250px;
         height: 100px;
-    }
-    #submit_button{
-        width: 65px;
-        height: auto;
-        padding-top: 7px;
-        padding-bottom: 5px;
     }
    .footer{
         display: flex;
@@ -345,15 +334,12 @@ footer a:focus {
         padding-left: 20px;
     }
     #popup{
-        padding-left: 120px;
+        padding-left: 100px;
+        padding-right: 50px;
         padding-bottom: 100px;
-        margin-left: -100px;
+        margin-left: -300px;
         width: auto;
         display: block;
-    }
-    p{
-        margin-top: 0px;
-        margin-bottom: 0px;
     }
     /*.footer {
         width: 100px;
@@ -426,11 +412,10 @@ footer a:focus {
     top: 50%;
     left: 30%;
     background: rgba(255, 255, 255, 0.695);
-    width: 1100px;
+    width: auto;
     height: auto;
-    margin-left: -210px; /*Half the value of width to center div*/
-    margin-top: -310px; /*Half the value of height to center div*/
-    left: 25%;
+    margin-left: -250px; /*Half the value of width to center div*/
+    margin-top: -250px; /*Half the value of height to center div*/
     z-index: 200;
 }
 

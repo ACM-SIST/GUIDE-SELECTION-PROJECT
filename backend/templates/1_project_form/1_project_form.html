@@ -11,7 +11,7 @@
     <body>
         <nav id="menu">
             <ul>
-                <li><a href="{% url 'login' %}">Logout</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
                 <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
         </nav>
@@ -81,6 +81,11 @@
             </form>
             </div>
         <script type="text/javascript" src="{% static 'js/form.js' %}"></script>
+        <script type = "text/javascript" >  
+            function preventBack() { window.history.forward(); }  
+            setTimeout("preventBack()", 0);  
+            window.onunload = function () { null };  
+        </script>
     </body> 
 </html>
 

@@ -129,8 +129,6 @@ html {
       font-size: 9px;
       display: flex;
       /* padding-top: x20px !important; */
-      padding-right: 100px;
-      text-align: center;
       height: 76px !important;
       /* padding-bottom: 10px !important; */
     }
@@ -139,8 +137,7 @@ html {
       text-align: center;
     }
     footer p{
-      /* padding-left: 100px !important; */
-      text-align: center;
+      padding-left: 1000px !important;
     }
     footer a{
       font-size: 1px;
@@ -244,4 +241,8 @@ footer a {
 
 .footer a:hover {
     color: grey;
+}
+
+footer a:focus {
+    color: white;
 }

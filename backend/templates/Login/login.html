@@ -14,11 +14,8 @@
 <body>
     {% if user.is_authenticated %}
     <h1>
-<<<<<<< HEAD
         You are not allowed here!
-=======
         You are already logged-in!
->>>>>>> a9d4e827462ef3604d32b8622cc4494635c00f7c
     </h1>
     {% else %}
     <header>
@@ -44,7 +41,7 @@
                 <input type="password" name="password" required>
                 <label>Password</label>
             </div>
-            <input type="checkbox" onclick="myFunction()">Show Password
+            <input type="checkbox" onclick="myFunction()" id="myInput">Show Password
             <br>
             <br>
             <div class="pass">Don't have an account! <a href="{% url 'register' %}">Create Account</a></div>
@@ -55,10 +52,7 @@
     <!-- <footer class="footer">
         <p>Already</p>
     </footer> -->
-<<<<<<< HEAD
 
-=======
->>>>>>> a9d4e827462ef3604d32b8622cc4494635c00f7c
     {% endif %}
     <script>
         function myFunction() {

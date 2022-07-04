@@ -118,7 +118,7 @@ body {
     background: rgba(255, 255, 255, 0.695);
     border-radius: 5px;
     padding: 5px;
-    font-size: 10px;
+    font-size: 12px;
     
 }
 .sidebar ul {
@@ -298,6 +298,7 @@ footer a:focus {
     }
     body{
         width: 100%;
+        font-family: cursive;
         /* overflow: hidden; */
     }
     .container-box {
@@ -346,11 +347,16 @@ footer a:focus {
         padding-left: 20px;
     }
     #popup{
-        padding-left: 120px;
-        padding-bottom: 100px;
-        margin-left: -100px;
-        width: auto;
-        display: block;
+        /* padding-left: 120px; */
+        /* padding-bottom: 100px; */
+        /* margin-left: -500px; */
+        margin-right: 75px;
+        width: 90%;
+        font-size: 12px;
+        /* padding-bottom: 5px !important; */
+        /* margin-top: -3px !important; */
+        /* width: auto; */
+        /* display: block; */
     }
     p{
         margin-top: 0px;
@@ -429,7 +435,7 @@ footer a:focus {
     background: rgba(255, 255, 255, 0.695);
     width: auto;
     height: auto;
-    margin-left: -210px; /*Half the value of width to center div*/
+    margin-left: -0px; /*Half the value of width to center div*/
     margin-top: -310px; /*Half the value of height to center div*/
     left: 25%;
     z-index: 200;

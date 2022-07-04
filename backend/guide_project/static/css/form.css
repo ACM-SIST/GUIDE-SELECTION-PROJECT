@@ -159,6 +159,9 @@ html, body {
     background: lightslategray;
     }
     @media (max-width: 768px) {
+    body {
+      font-family: cursive;
+    }
     .name-item{
     display: flex;
     flex-wrap: wrap;

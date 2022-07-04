@@ -117,6 +117,9 @@ html {
   }
   
   @media screen and (max-width: 650px) {
+    body {
+      font-family: cursive;
+    }
     .column {
       width: 100%;
       display: block;

@@ -328,8 +328,14 @@ footer a:focus {
    #menu{
     width: 100vh;
    }
+   body {
+    font-family: cursive;
+   }
 } 
 @media screen and (max-width: 600px) {
+    body {
+      font-family: cursive;
+    }
     .blackbox input[type=text] {
       float: none;
       display: block;

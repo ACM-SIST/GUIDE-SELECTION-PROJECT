@@ -108,6 +108,9 @@ html, body {
       background: lightslategray;
       }
       @media (min-width: 768px) {
+      body {
+        font-family: cursive;
+      }
       .name-item {
       display: flex;
       flex-wrap: wrap;

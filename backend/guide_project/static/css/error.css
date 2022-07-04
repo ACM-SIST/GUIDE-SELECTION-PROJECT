@@ -71,5 +71,8 @@ a {
     p {
         font-size: 14vw;
     }
+    body {
+        font-family: cursive;
+    }
 }
 

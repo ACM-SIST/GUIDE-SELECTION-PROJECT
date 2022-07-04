@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,24 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" text="text/css" href="{% static 'css/login.css' %}">
+    <link rel = "icon" href = "{% static 'img/logo.jpg' %}" type = "image/x-icon">
     <title>Login Page</title>
 </head>
 
 <body>
+    {% if user.is_authenticated %}
     <header>
         <nav id="menu">
             <!-- <a href="../Home/home.html">
              <img src="Image/headimg.jpeg" class="img">
             </a> -->
             <ul class="blackbox">
-                <li><a href="../Register/register.html">Register</a></li>
-                <li><a href="../Home/home.html">Home</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
-            <!--<ul>
-            <li><a href="../Register/register.html">Register</a></li>
-            <li><a href="../Login/login.html">Login</a></li>
-            <li><a href="../Home/home.html">Home</a></li>
-            </ul>-->
         </nav>
     </header>
     <div class="center">
@@ -47,5 +45,10 @@
     <!-- <footer class="footer">
         <p>Already</p>
     </footer> -->
+    {% else %}
+    <h1>
+        You are not allowed here!
+    </h1>
+    {% endif %}
 </body>
 </html>

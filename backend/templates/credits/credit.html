@@ -1,91 +1,119 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" text="text/css" href="{% static 'css/credit.css' %}">
-</head>
-<body>
-  <nav id="menu">
-    <ul>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-        <li><a href="{% url 'home' %}">Home</a></li>
-    </ul>
-</nav>
-<form class="bluebox">
-<!--<fieldset>--> 
-<h2 id="dev"> DEVELOPED BY:</h2>
-<br>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" text="text/css" href="{% static 'css/credit.css' %}">
+  <link rel = "icon" href = "{% static 'img/logo.jpg' %}" type = "image/x-icon">
+  </head>
+  <body>
+    <nav id="menu">
+      <ul>
+        {% if user.is_autheticated %}
+          <li>
+            <a href="{% url 'logout' %}">Logout</a>
+          </li>
+        {% else %}
+          <li>
+            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'login' %}">Login</a>
+          </li>
+        {% endif %}
+          <li><a href="{% url 'home' %}">Home</a></li>
+      </ul>
+    </nav>
+    <form class="bluebox">
+      <!--<fieldset>--> 
+      <h2 id="dev"> DEVELOPED BY:</h2>
+      <br>
 
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="{% static 'img/hbp.jpeg' %}" alt="HARIARAN B P" style="width:100%">
-      <div class="container">
-        <h2>Hariharan B P</h2>
-        <p class="title">Full Stack Developer</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
+      <div class="row">
+        <div class="column" id="first">
+          <div class="card">
+            <img src="{% static 'img/hbp.jpeg' %}" alt="HARIARAN B P" style="width:100%">
+            <div class="container">
+              <h2>HARIHARAN B P</h2>
+              <p class="title">Full Stack Developer</p>
+              <p>
+                <button class="button">Contact</button>
+              </p>
+            </div>
+          </div>
+        </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="{% static 'img/mohnish.jpeg' %}" alt="MOHNISH DEVARAJ" style="width:100%">
-      <div class="container">
-        <h2>MOHNISH DEVARAJ</h2>
-        <p class="title">FULL STACK DEVELOPER</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <img src="{% static 'img/jaga.jpeg' %}" alt="JAGADEESH N" style="width:100%">
-      <div class="container">
-        <h2>JAGADEESH N</h2>
-        <p class="title">FULL STACK DEVELOPER</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-  <br>
-  <div class="column">
-    <div class="card" id="box">
-      <img src="{% static 'img/abiram.jpg' %}" alt="ABHIRAM RAVIPATIL" style="width:100%">
-      <div class="container">
-        <h2>ABHIRAM RAVIPATI</h2>
-        <p class="title"></p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
+        <div class="column">
+          <div class="card">
+            <img src="{% static 'img/mohnish.jpeg' %}" alt="MOHNISH DEVARAJ" style="width:100%">
+            <div class="container">
+              <h2>MOHNISH DEVARAJ</h2>
+              <p class="title">FULL STACK DEVELOPER</p>
+              <p>
+                <button class="button">Contact</button>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card">
+            <img src="{% static 'img/jaga.jpeg' %}" alt="JAGADEESH N" style="width:100%">
+            <div class="container">
+              <h2>JAGADEESH N</h2>
+              <p class="title">FULL STACK DEVELOPER</p>
+              <p>
+                <button class="button">Contact</button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card" id="box">
+            <img src="" alt="ABHIRAM RAVIPATIL" style="width:100%">
+            <div class="container">
+              <h2>ABHIRAM RAVIPATI</h2>
+              <p class="title">FULL STACK DEVELOPER</p>
+              <p>
+                <button class="button">Contact</button>
+              </p>
+            </div>
+          </div>
+        </div>
 
-   <div class="column">
-    <div class="card" id="box">
-      <img src="{% static 'img/vivek.jpeg' %}" alt="KOLLA OM VIVEK" style="width:100%">
-      <div class="container">
-        <h2>KOLLA OM VIVEK</h2>
-        <p class="title"></p>
-        <p><button class="button">Contact</button></p>
+        <div class="column">
+          <div class="card" id="box">
+            <img src="{% static 'img/vivek.jpeg' %}" alt="KOLLA OM VIVEK" style="width:100%">
+            <div class="container">
+              <h2>KOLLA OM VIVEK</h2>
+              <p class="title">FULL STACK DEVELOPER</p>
+              <p>
+                <button class="button">Contact</button>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-<!--</fieldset>-->
-</form>
-<section>
-  <footer class="footer">
-    <div class="text">
-    <span> <a href="#"></a> | &#169; 2022 All Rights Reserved ACM Sathyabama Institute of Science and Technology   |</span>
-    <div class="icon">
-      <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
-    </div>
-  </div>
-  </footer>
-</section>
-</body>
+      <!--</fieldset>-->
+    </form>
+
+    <section>
+      <footer class="footer">
+        <div class="text">
+          <span> 
+            <a href="#"></a> | &#169; 2022 All Rights Reserved, ACM Sathyabama Institute of Science and Technology   |
+          </span>
+          <div class="icon">
+            <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+  </body>
 </html>

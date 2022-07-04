@@ -7,11 +7,13 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" >
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{% static 'css/confirmation_2.css' %}">
+        <link rel = "icon" href = "{% static 'img/logo.jpg' %}" type = "image/x-icon">
     </head>
     <body>
         <nav id="menu">
             <ul>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
         </nav>
         <div class="testbox">
@@ -30,7 +32,7 @@
                         <input class="input-text" id="name" type="text" name="project_name" value="{{ team.project_name }}" />
                     </div>
                     <div class="item">
-                        <label for="domain">Project Domain (Eg: ML,AI,DL,Web Dev)</label>
+                        <label for="domain">Project Domain (Eg: ML,AI,DL)</label>
                         <input class="input-text" id="domain" type="text" name="project_domain" value="{{ team.project_domain }}" />
                     </div>
                 </div>
@@ -108,11 +110,11 @@
                 <div class="project">
                   <div class="item-guide">
                       <label for="name">Guide Name </label>
-                      <input class="input-text" id="name" type="text" name="guide_name" value="{{ team.guide }}" disabled/>
+                      <input class="input-text" id="name" type="text" name="guide_name" value="{{ guide.name }}" disabled/>
                   </div>
                   <div class="item-guide">
                       <label for="email">Guide Email Id</label>
-                      <input class="input-text" id="email" type="email" name="guide_email" placeholder="Guide Email Id" value="{{ team.guide.email }}" disabled/>
+                      <input class="input-text" id="email" type="email" name="guide_email" placeholder="Guide Email Id" value="{{ guide.email }}" disabled/>
                   </div>
               </div>  
               </div>
@@ -125,6 +127,11 @@
                 </fieldset>
             </form>
             </div>
+            <script type = "text/javascript" >  
+              function preventBack() { window.history.forward(); }  
+              setTimeout("preventBack()", 0);  
+              window.onunload = function () { null };  
+          </script>
         
     </body> 
 </html>

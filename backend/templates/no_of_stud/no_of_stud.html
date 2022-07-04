@@ -10,18 +10,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" text="text/css" href="{% static 'css/noofstud.css' %}">
+    <link rel = "icon" href = "{% static 'img/logo.jpg' %}" type = "image/x-icon">
     <title>Number of students</title>
 </head>
 <body>
     <header>
         <nav id="head" class="collapse navbar-collapse" >
-            <a href="../Home/home.html">
-                <img src="Image/headimg.jpeg" class="img">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'img/headimg.jpeg' %}" class="img">
             </a>
             <ul>
                 <!-- <li><a href="../Register/register.html">Register</a></li> -->
-                <li><a href="../Login/login.html">Logout</a></li>
-                <li><a href="../Home/home.html">Home</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
         </nav>
         <!-- <video autoplay muted loop id="myVideo">

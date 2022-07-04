@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" text="text/css" href="{% static 'css/login.css' %}">
+    <link rel = "icon" href = "{% static 'img/logo.jpg' %}" type = "image/x-icon">
     <title>Verify Page</title>
 </head>
 
@@ -33,7 +34,7 @@
             {% include 'partials/_alerts.html' %}
             {% csrf_token %}
             <div  class="txt_field">
-                <input type="text" name="otp" placeholder="Enter the OTP sent to your email">
+                <input type="text" name="otp" placeholder="Enter the OTP sent to your email" style="text-align: center; border: 1px solid black;" ><br><br>
                 <input type="submit">
             </div>
         </form>

@@ -280,6 +280,11 @@ footer a:focus {
 footer a{
     color: white;
 }
+.drop {
+    min-width: 160px;
+    text-align: center;
+    margin-left: 20px;
+}
 
 @media (max-width: 768px) {
     body {

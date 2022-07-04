@@ -14,6 +14,7 @@
 <body>
     {% if user.is_authenticated %}
     <h1>
+        You are not allowed here!
         You are already logged-in!
     </h1>
     {% else %}
@@ -40,7 +41,7 @@
                 <input type="password" name="password" id="myInput" required>
                 <label>Password</label>
             </div>
-            <input type="checkbox" onclick="myFunction()">Show Password
+            <input type="checkbox" onclick="myFunction()" id="myInput">Show Password
             <br>
             <br>
             <div class="pass">Don't have an account! <a href="{% url 'register' %}">Create Account</a></div>

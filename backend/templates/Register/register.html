@@ -1,13 +1,12 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" text="text/css" href="{% static 'css/register.css' %}"> 
-    <link rel = "icon" href = "{% static 'img/logo.jpg' %}" type = "image/x-icon">
     <title>Create account</title>
 </head>
 <body>
@@ -20,75 +19,58 @@
                 <li><a href="{% url 'login' %}">Login</a></li>
                 <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
-            <!--<ul>
-            <li><a href="../Register/register.html">Register</a></li>
-            <li><a href="../Login/login.html">Login</a></li>
-            <li><a href="../Home/home.html">Home</a></li>
-            </ul>-->
-        </nav>
+        <!--<nav class="head" >
+            <a href="../Home/home.html">
+                <img src="Image/headimg.jpeg" class="img">
+            </a>
+            <ul>
+                <li><a href="../Login/login.html">Login</a></li>
+                <li><a href="../Home/home.html">Home</a></li>
+            </ul>
+        </nav>-->
     </header>
-<div class="center">
-    {% include 'partials/_alerts.html' %}
-    <h1>Create Account</h1>
-    <form action="{% url 'register' %}" method="POST">
-        {% csrf_token %}
-        <div class="txt_field">
-            <input type="text" name="first_name" required>
-            <label>First Name</label>
-        </div>
-        <div class="txt_field">
-            <input type="text" name="last_name" required>
-            <label>Last Name</label>
-        </div>
-        <div class="txt_field">
-            <input type="text" name="email" required>
-            <label>Enter Email id</label>
-        </div>
-        <div class="txt_field">
-            <input type="password" name="password" id="myInput" required>
-            <label>Enter Password</label>
-        </div>
-        <div class="txt_field">
-            <input type="password" name="password1" id="myInput_1" required>
-            <label>Confirm Password <span>*</span></label>
-        </div>
-        <!-- <input type="checkbox" onclick="myFunction() && myFunction_1()">Show Password -->
-        <br>
-        <div class="txt_field1">
-            <form action="" class="depart">
-                <label for="department" required>Select Department<span>*</span>: </label>
-                <select name="department" class="drop">
-                    <!-- <optgroup> -->
-                        <option value="CSE" class="opt">Department</option>
-                    <!-- </optgroup> -->
-                    <!-- <optgroup> -->
-                        <option value="CSE" name="cse" class="opt">CSE</option>
-                    <!-- </optgroup> -->
-                </select>
+    <div class="center">
+        <h1>Create Account</h1>
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <div class="txt_field">
+                <input type="text" name="first_name" required>
+                <label>First Name</label>
             </div>
-        </div>
-        <br>
-        <input type="submit" value="Register">
-        <p>Already have an account! <a href="{% url 'login' %}">Login</a></p>
-    </form>
-</div>
-<script>
-    function myFunction() {
-        var x = document.getElementsByClassName("myInput");
-        if (x.type === "password") {
-          x.type = "text";
-        } else {
-          x.type = "password";
-        }
-      }
-    function myFunction_1() {
-        var x = document.getElementsByClassName("myInput");
-        if (x.type === "password") {
-          x.type = "text";
-        } else {
-          x.type = "password";
-        }
-      }
-</script>
+            <div class="txt_field">
+                <input type="text" name="last_name" required>
+                <label>Last Name</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="email" required>
+                <label>Enter Email id</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password" required>
+                <label>Enter Password</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password1" required>
+                <label>Confirm Password <span>*</span></label>
+            </div>
+            <div class="txt_field1">
+                <div class="depart">
+                    {% csrf_token %}
+                    <label for="department" required>Select Department<span>*</span>: </label>
+                    <select name="department" class="drop">
+                        <!-- <optgroup> -->
+                            <option value="CSE" class="opt">Department</option>
+                        <!-- </optgroup> -->
+                        <!-- <optgroup> -->
+                            <option value="CSE" class="opt">CSE</option>
+                        <!-- </optgroup> -->
+                    </select>
+                </div>
+            </div>
+            <br>
+            <input type="submit" value="Register">
+            <p>Already have an account! <a href="{% url 'login' %}">Login</a></p>
+        </form>
+    </div>
 </body>
 </html>

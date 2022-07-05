@@ -118,7 +118,7 @@ body {
     background: rgba(255, 255, 255, 0.695);
     border-radius: 5px;
     padding: 5px;
-    font-size: 12px;
+    font-size: 10px;
     
 }
 .sidebar ul {
@@ -154,9 +154,10 @@ body {
 }
 .sidebar ol li p{
     text-decoration: none;
-    font-size: 15px;
+    font-size: 10px;
     color: black;
     margin-top: 0;
+    margin-bottom: 0;
     /* -webkit-transition: font-size 0.3s ease;
     -moz-transition: font-size 0.3s ease;
     -o-transition: font-size 0.3s ease;
@@ -206,6 +207,14 @@ body {
     margin-top: 5px;
     background-color: #831238;
     border-radius: 3px;
+}
+#leftsidebar p{
+    font-size: 15px;
+    font-weight: 200px;
+}
+.check{
+    font-size: 15px;
+    font-weight: 200px;
 }
 #black{
     vertical-align: bottom;
@@ -291,15 +300,13 @@ footer a {
 footer a:focus {
     color: white;
 }
-
 @media (max-width: 768px) {
     #menu{
         width:100%;
     }
     body{
         width: 100%;
-        font-family: cursive;
-        /* overflow: hidden; */
+        overflow-x: hidden;
     }
     .container-box {
         display: flex;
@@ -310,7 +317,7 @@ footer a:focus {
     .orange{
         width: 100vw;
         height: 100vh;
-        overflow: hidden;
+        overflow-x: hidden;
     }
     .yellow{
         font-size: 10px;
@@ -335,6 +342,7 @@ footer a:focus {
         height: auto;
         padding-top: 7px;
         padding-bottom: 5px;
+        margin-bottom: 5px;
     }
    .footer{
         display: flex;
@@ -347,21 +355,18 @@ footer a:focus {
         padding-left: 20px;
     }
     #popup{
-        /* padding-left: 120px; */
-        /* padding-bottom: 100px; */
-        /* margin-left: -500px; */
-        padding-top: 0.5px !important;
-        /* align-items: center; */
-        /* margin-right: 75px; */
-        /* width: 90%; */
-        left: 25%;
-        font-size: 20px;
-        /* padding-bottom: 5px !important; */
-        /* margin-top: -3px !important; */
-        width: auto;
+        width: 380px;
+        height: auto;
+        padding-left: 70px;
+        padding-bottom: 100px;
+        margin-left: -100px;
         display: block;
     }
+    .popupcontent{
+        width: 380px;
+    }
     p{
+
         margin-top: 0px;
         margin-bottom: 0px;
     }
@@ -429,21 +434,19 @@ footer a:focus {
     opacity: 0.8;
     z-index: 100;
 }
-#leftsidebar p {
-    font-size: 13px;
-}
 
 #popup {
     display: none;
     position: absolute;
+    overflow-x: hidden;
     top: 50%;
-    /* left: 50%; */
+    left: 30%;
     background: rgba(255, 255, 255, 0.695);
-    width: auto;
     height: auto;
-    margin-left: -0px; /*Half the value of width to center div*/
+    width: auto;
+    margin-left: -210px; /*Half the value of width to center div*/
     margin-top: -310px; /*Half the value of height to center div*/
-    left: 25%;
+    left: 35%;
     z-index: 200;
 }
 
@@ -458,7 +461,6 @@ footer a:focus {
 
 .popupcontent {
     padding: 10px;
-    font-size: 15px;
 }
 
 #button {

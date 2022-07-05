@@ -22,11 +22,7 @@
 				<li id="red"><a href="{% url 'home' %}">Home</a></li>
 				<li id="red"><a href="{% url 'credits' %}">Credits</a></li>
 				{% if user.is_authenticated %}
-					<li id="red"><a href="{% url 'logout' %}">Logout</a></li>
-					{% if user.is_staff %}
-						<li id="red"><a href="{% url 'edit-team' %}">Edit Team</a></li>
-						<li id="red"><a href="{% url 'edit-team' %}">Delete Team</a></li>
-					{% endif %}
+				<li id="red"><a href="{% url 'logout' %}">Logout</a></li>
 				{% endif %}
 			</ul>
 		</nav>
@@ -68,31 +64,15 @@
 							<p>Register yourself .</p>
 						</li>
 						<li>
-<<<<<<< HEAD
-							<p>Do not close the browser during the registration process.</p>
-						</li>
-						<li>
-							<p>The server will send the OTP to your registered Email id. If required ,check the spam also.</p>
-						</li>
-						<li>
-							<p>If you close the verify tab without verifying the Email, then you are blocked.</p>
-=======
 							<p>Do not close the browser during the registration process.  </p>
 						</li>
 						<li>
 							 <p>The server will send the OTP to your registered Email id . If required ,check the spam also.</p>
->>>>>>> 1adf1db74091c10c1a22bdb5084642049de625da
 						</li>
 						<li>
-							<p>If you are registering as a team, then  only one person should register for the team.</p>
+							<p>If you close the verify tab without verifying the Email, then you are blocked .</p>
 						</li>
 						<li>
-<<<<<<< HEAD
-							<p>After the confirmation, no changes could be done.</p>
-						</li>
-						<li>
-							<p>Complete the registration at once and access the guide selection page.</p>
-=======
 							<p>If you are registering as a team, then  only one person should register for the team. </p>
 						</li>
 						<li>
@@ -100,17 +80,10 @@
 						</li>
 						<li>
 							<p>Complete the registration at once  and  access the guide selection page .</p>
->>>>>>> 1adf1db74091c10c1a22bdb5084642049de625da
 						</li>
 						<li>
 							<p>Once completed,check your registered  E_mail for the confirmation details. Remember the team id  for further communication.</p>
 						</li>
-<<<<<<< HEAD
-=======
-						<!-- <li>
-							<p>COMPLETING THE SELECTION PROCESS CHECK YOAFTERFOR YOUR CONFIRMATION DETAILS. COPY AND KEEP YOUR TEAM-ID SAFE AND SAVED AS IT IS VERY IMPORTANT FOR FURTHER PROCESS IN THE PROJECT DURATION.</p>
-						</li>	 -->
->>>>>>> 1adf1db74091c10c1a22bdb5084642049de625da
 					</ol>
 					<form action="{% url 'register' %}" id="black">
 						<!-- {% csrf_token %} -->
@@ -121,11 +94,7 @@
 						</div>
 						<br>
 						<div>
-<<<<<<< HEAD
-							<button  type="submit" id="submit_button" disabled>Submit</button>
-=======
 							<button href="{% url 'register' %}"  type="submit" id="submit_button" disabled>Submit</button>
->>>>>>> 1adf1db74091c10c1a22bdb5084642049de625da
 						</div>
 					</form>
 				</div>

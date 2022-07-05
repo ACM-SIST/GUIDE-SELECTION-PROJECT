@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-bn!gb+_&96p0e7j+0@in%!o5xxl23m$907%3sgyqlekw&85sgv
 # DEBUG = True
 
 # DEBUG = os.environ.get('DEBUG')
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://guideselection.herokuapp.com/',
                  'localhost', '127.0.0.1', 'https://www.cse-projectregistration.co.in/']

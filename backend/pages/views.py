@@ -258,7 +258,7 @@ def login(request):
             if Team.objects.filter(teamID=user.username).exists():
                 auth.logout(request)
                 messages.info(
-                    request, 'Your team is already registered and submitted!')
+                    request, 'Your team is already registered. Please contact project co-ordinator!')
                 return render(request, 'Login/login.html')
             return render(request, 'no_of_stud/no_of_stud.html')
         else:

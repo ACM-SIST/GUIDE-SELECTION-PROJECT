@@ -158,6 +158,11 @@ html, body {
     box-shadow: 0 0 6px 0 #831238;
     color:#831238;
     }
+    .item textarea:hover {
+    border: 1px solid transparent;
+    box-shadow: 0 0 6px 0 #831238;
+    color:#831238;
+    }
     .item {
     position: relative;
     margin: 10px 0;

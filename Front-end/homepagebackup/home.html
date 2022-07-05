@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./home.css">
+	<link rel = "icon" href = .img/logo.jpg type = "image/x-icon">
+    <title>HOME</title>
+</head>
+
+<body>
+	<header class="container-box">
+		<nav id="menu">
+			<ul class="blackbox">
+				<a href="home">
+					<img src="{% static 'img/headimg.jpeg' %}" class="img">
+				</a>
+				<li id="red"><a href="{% url 'home' %}">Home</a></li>
+				<li id="red"><a href="{% url 'credits' %}">Credits</a></li>
+				{% if user.is_authenticated %}
+				<li id="red"><a href="{% url 'logout' %}">Logout</a></li>
+				{% endif %}
+			</ul>
+		</nav>
+		<div id="maincontent">
+			<div class="container">
+				<video class="orange" autoplay muted loop id="myvideo" onclick="play();">
+					<source src="{% static 'img/SIST.mp4' %}" type="video/mp4" />
+				</video>
+				<div class="overlay">
+					<h1 class="first">Sathyabama Institute of Science And Technology <button id="button1">Register Now</button>
+					</h1>
+					<!--<form>
+						<p>Content Below Your Video</p>
+						<label for="input">Form Input Label</label>
+						<input id="input" name="input" value="" />
+						<button type="submit">Submit</button>
+					</form>-->
+				</div>
+			</div>
+		</div>
+		<div id="overlay"></div>
+		<div id="popup">
+			<div class="popupcontrols">
+				<span id="popupclose"><button type="submit"></button></span>
+			</div>
+			<div class="popupcontent">
+				<div id="rightsidebar" class="sidebar">
+					<h3></h3>
+					<ul>
+						<h1 class="yellow">Sathyabama Institute of Science And Technology</h1>
+						<h1 class="blue">Final Year Project Registration And Guide Selection</h1>
+					</ul>
+				</div>
+				<br>
+				<div id="leftsidebar" class="sidebar">
+					<h3>INSTRUCTIONS:</h3>
+					<ol class="bluebox">
+						<li>
+							<p>Register yourself .</p>
+						</li>
+						<li>
+							<p>Do not close the browser during the registration process.  </p>
+						</li>
+						<li>
+							 <p>The server will send the OTP to your registered Email id . If required ,check the spam also.</p>
+						</li>
+						<li>
+							<p>If you close the verify tab without verifying the Email, then you are blocked .</p>
+						</li>
+						<li>
+							<p>If you are registering as a team, then  only one person should register for the team. </p>
+						</li>
+						<li>
+							<p>After the confirmation , no changes could be  done.</p>
+						</li>
+						<li>
+							<p>Complete the registration at once  and  access the guide selection page .</p>
+						</li>
+						<li>
+							<p>Once completed,check your registered  E_mail for the confirmation details. Remember the team id  for further communication.</p>
+						</li>
+						<!-- <li>
+							<p>COMPLETING THE SELECTION PROCESS CHECK YOAFTERFOR YOUR CONFIRMATION DETAILS. COPY AND KEEP YOUR TEAM-ID SAFE AND SAVED AS IT IS VERY IMPORTANT FOR FURTHER PROCESS IN THE PROJECT DURATION.</p>
+						</li>	 -->
+					</ol>
+					<form action="{% url 'register' %}" id="black">
+						{% csrf_token %}
+						<div class="check">
+							<input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" required />
+							<label for="terms_and_conditions">I have read all the rules and regulations to fill the form and i accept
+								all of these.:<span>*</span></label>
+						</div>
+						<br>
+						<div>
+							<button href="{% url 'register' %}"  type="submit" id="submit_button" disabled>Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<!--</div>
+        <div id="leftsidebar" class="sidebar">
+            <h3>INSTRUCTIONS:</h3>
+            <ol class="bluebox">
+                <li><a href="#">Register yourself by filling the required details.</a></li>
+                <li><a href="#">asdf</a></li>
+                <li><a href="#">dsfd</a></li>
+                <li><a href="#">dsfsdfs</a></li>
+                <li><a href="#">dfsdfsf</a></li>
+                <li><a href="#">fdsgsdg</a></li>
+                <li><a href="#">sdgsdgsd</a></li>
+                <li><a href="#">sdgsdgsdg</a></li>
+                <li><a href="#">dgsdgs</a></li>
+                <li><a href="#">sdgsdg</a></li>
+                <li><a href="#">sdgsdg</a></li>
+                <li><a href="#">sdgsdgsdg</a></li>
+            </ol>
+            <form method="post" id="black">
+                <div>
+                    <input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" required />
+                    <label for="terms_and_conditions">I have read all the rules and regulations to fill the form and i accept all of these.:<span>*</span></label>
+                </div>
+                <div>
+                    <button type="submit" id="submit_button" disabled>Submit</button>
+                </div>
+            </form>
+		</div>-->
+	</header>
+	<script type="text/javascript">
+		// Initialize Variables
+		function terms_changed(termsCheckBox) {
+			const btn = document.getElementById('submit_button');
+			btn.style.backgroundColor = 'lightslategray';
+			btn.style.color = 'white';
+			if (termsCheckBox.checked) {
+				document.getElementById("submit_button").disabled = false;
+				document.getElementById("popupclose").disabled = false;
+				btn.style.backgroundColor = '#831238';
+				btn.style.color = 'white';
+			}
+			else {
+				document.getElementById("submit_button").disabled = true;
+				document.getElementById("popupclose").disabled = true;
+			}
+		}
+		var closePopup = document.getElementById("popupclose");
+		var overlay = document.getElementById("overlay");
+		var popup = document.getElementById("popup");
+		var button = document.getElementById("button1");
+		// Close Popup Event
+		closePopup.onclick = function () {
+			overlay.style.display = 'none';
+			popup.style.display = 'none';
+		};
+		// Show Overlay and Popup
+		button.onclick = function () {
+			overlay.style.display = 'block';
+			popup.style.display = 'block';
+		}
+	</script>
+	<section>
+		<footer class="footer">
+			<div class="text">
+				<span> <a href="#"></a> | &#169; 2022 All Rights Reserved ACM Sathyabama Institute of Science and Technology
+					|</span>
+				<!-- <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram"></i></a> -->
+				<div class="icon">
+					<a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i
+							class="fa-brands fa-instagram"></i></a>
+					<a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank"><i
+							class="fa-brands fa-linkedin"></i></a>
+				</div>
+			</div>
+		</footer>
+	</section>
+	<!-- <footer class="footer">
+		<div class="text">
+		<span> <a href="#"></a> | &#169; 2022 All Rights Reserved ACM Sathyabama Institute of Science and Technology   |</span>
+		<a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+		<a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
+		</div>
+	</footer>-->
+</body>
+
+</html>

@@ -266,6 +266,9 @@ footer a:focus {
     color: white;
 }
 @media (max-width: 768px) {
+    body {
+        font-family: cursive;
+    }
     #menu{
         width: 100%;
     }

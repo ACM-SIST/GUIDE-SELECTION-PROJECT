@@ -5,23 +5,25 @@
     <head>
         <meta charset="utf-8">
         <title> Submission Page</title> 
-        <!-- <link rel="stylesheet" type="text/css" href="submitted.css"> -->
         <link rel="stylesheet" type="text/css" href="{% static 'css/submitted.css' %}">
         <link rel = "icon" href = "{% static 'img/logo.jpg' %}" type = "image/x-icon">
     </head>
     <body>
         <!--<fieldset class="submissionpage">-->
-        <div class="submission">
+            <div class="submission">
                 <div class="testbox">
                     <form action="/">
                     <div class="banner">
-                   
-                        <h1>You have successfully completed filling the form.<br><br><br>Contact the the admin to refill.  <br><br><br>Thank You!! </h1>
-                        
+                        <h1>You have successfully completed filling the form.<br><br><br>Contact your project co-ordinator for further process.<br><br><br>Thank You!! </h1>
                     </div> 
                     </form>   
                 </div>
         </div>
         <!--</fieldset>-->
-    </body> 
-    </html>  
+        <script type = "text/javascript" >  
+            function preventBack() { window.history.forward(); }  
+            setTimeout("preventBack()", 0);  
+            window.onunload = function () { null };  
+        </script>
+</body> 
+</html>  

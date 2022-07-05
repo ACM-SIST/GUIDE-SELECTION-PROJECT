@@ -1,14 +1,12 @@
 
 from random import randrange
 from django.core.mail import send_mail
-from django.forms import ValidationError
 from guide_project.settings import EMAIL_HOST_USER
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from pages.models import Guide, Team, Otp, Otp_Two, Temp_Team
-from django.contrib.auth.password_validation import MinimumLengthValidator, CommonPasswordValidator, NumericPasswordValidator
 
 
 # Create your views here.
@@ -85,7 +83,7 @@ def register(request):
                 special_characters = "[~\!@#\$%\^&\*\(\)_\+{}\":;'\[\]]"
                 if len(password) < 8:
                     messages.error(
-                        request, 'Password length must be greater than 8 character.')
+                        request, 'Password length must be atleast 8 character.')
                     return redirect('register')
                 if not any(char.isdigit() for char in password):
                     messages.error(
@@ -490,7 +488,7 @@ def guide_selected(request, id):
             guide_inst.vacancy -= 1
             guide_inst.save()
             temp_team.delete()
-        return render(request, 'submitted.html')
+        return redirect('submitted')
     context = {
         'guide': guide_inst,
         'team': temp_team,

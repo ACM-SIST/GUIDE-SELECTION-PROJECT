@@ -17,8 +17,6 @@ class Guide(models.Model):
     email = models.CharField(max_length=200)
     myImage = CloudinaryField('image')
     vacancy = models.IntegerField(default=7)
-    # team = models.ManyToOneRel(
-    #     field='Team.guide', to='Team', field_name='Team.guide', related_name='teamID')
 
     def __str__(self):
         return self.name
@@ -28,7 +26,7 @@ class Team(models.Model):
     teamID = models.CharField(max_length=100, default='CSE')
     project_name = models.CharField(max_length=100)
     project_domain = models.CharField(max_length=100)
-    project_description = models.TextField(blank=True, null=True)
+    project_description = models.TextField(blank=True, null=True,)
     no_of_members = models.CharField(
         max_length=10, choices=no_members_choices, default='1')
 

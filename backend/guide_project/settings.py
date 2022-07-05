@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-bn!gb+_&96p0e7j+0@in%!o5xxl23m$907%3sgyqlekw&85sgv
 # DEBUG = True
 
 # DEBUG = os.environ.get('DEBUG')
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://guideselection.herokuapp.com/',
                  'localhost', '127.0.0.1', 'https://www.cse-projectregistration.co.in/']
@@ -183,6 +183,6 @@ django_heroku.settings(locals())
 # Email Configuration
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'codecho.community@gmail.com'
-EMAIL_HOST_PASSWORD = 'jctcqrxwuukneiqa'
+EMAIL_HOST_USER = 'internship.cse@sathyabama.ac.in'
+EMAIL_HOST_PASSWORD = 'gmxwsvmuqvbgvgfk'
 EMAIL_USE_TLS = True

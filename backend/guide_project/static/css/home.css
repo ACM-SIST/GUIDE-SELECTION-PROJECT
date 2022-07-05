@@ -152,23 +152,24 @@ body {
 #rightsidebar ol li{
     padding: 17px 0 17px 70px;
 }
-.sidebar ol li a{
+.sidebar ol li p{
     text-decoration: none;
-    font-size: 10px;
+    font-size: 15px;
     color: black;
-    -webkit-transition: font-size 0.3s ease;
+    margin-top: 0;
+    /* -webkit-transition: font-size 0.3s ease;
     -moz-transition: font-size 0.3s ease;
     -o-transition: font-size 0.3s ease;
     -ms-transition: font-size 0.3s ease;
-    transition: font-size 0.3s ease;
+    transition: font-size 0.3s ease; */
 }
 
-.sidebar ol li a:hover, .sidebar ol li a.active{
+/* .sidebar ol li a:hover, .sidebar ol li a.active{
     text-decoration: none;
     color: black;
     font-size: 10px;
     font-weight: bold;
-}
+} */
 
 
 #leftsidebar{
@@ -346,16 +347,16 @@ footer a:focus {
         padding-left: 20px;
     }
     #popup{
-        /* padding-left: 120px; */
-        /* padding-bottom: 100px; */
-        /* margin-left: -500px; */
+        /* padding-left: 120px; 
+        padding-bottom: 100px; 
+        margin-left: -500px; */
         margin-right: 75px;
         width: 90%;
         font-size: 12px;
-        /* padding-bottom: 5px !important; */
-        /* margin-top: -3px !important; */
-        /* width: auto; */
-        /* display: block; */
+        /* padding-bottom: 5px !important; 
+        margin-top: -3px !important;
+        width: auto;
+        display: block; */
     }
     p{
         margin-top: 0px;

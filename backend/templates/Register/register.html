@@ -49,15 +49,15 @@
             <label>Enter Password</label>
         </div>
         <div class="txt_field">
-            <input type="password" name="password1" id="myInput" required>
+            <input type="password" name="password1" id="myInput_1" required>
             <label>Confirm Password <span>*</span></label>
         </div>
-        <input type="checkbox" onclick="myFunction()">Show Password
+        <!-- <input type="checkbox" onclick="myFunction() && myFunction_1()">Show Password -->
         <br>
         <div class="txt_field1">
             <div class="depart">
                 <label for="department" required>Department<span>*</span>: </label>
-                <select name="department" class="drop">
+                <select name="department" class="drop" required >
                     <!-- <optgroup> -->
                         <option value="CSE" class="opt">Select Department</option>
                     <!-- </optgroup> -->
@@ -74,7 +74,15 @@
 </div>
 <script>
     function myFunction() {
-        var x = document.getElementById("myInput");
+        var x = document.getElementsByClassName("myInput");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+    function myFunction_1() {
+        var x = document.getElementsByClassName("myInput");
         if (x.type === "password") {
           x.type = "text";
         } else {

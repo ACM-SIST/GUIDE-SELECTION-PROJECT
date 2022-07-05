@@ -291,3 +291,10 @@ footer a {
 footer a:focus {
   color: white;
 }
+
+.drop {
+  min-width: 130px;
+  text-align: center;
+  margin-left: 20px;
+  border-radius: 6px;
+}

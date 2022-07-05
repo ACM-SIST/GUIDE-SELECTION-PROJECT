@@ -81,10 +81,11 @@ body {
 p {
     text-align: center;
 }
-/* .depart{
+.depart{
     color: #831238;
     font-family: cursive;
-} */
+    display: flex;
+}
 
 form option, label{
     font-family: cursive;
@@ -281,11 +282,11 @@ footer a{
     color: white;
 }
 .drop {
-    min-width: 160px;
+    min-width: 130px;
     text-align: center;
     margin-left: 20px;
     border-radius: 6px;
-}
+  }
 
 @media (max-width: 768px) {
     body {

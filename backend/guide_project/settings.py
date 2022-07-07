@@ -41,8 +41,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['https://guideselection.herokuapp.com/',
                  'localhost', '127.0.0.1', 'https://www.cse-projectregistration.co.in/']
 
-CSRF_TRUSTED_ORIGINS = ['https://www.cse-projectregistration.co.in',
-                        'https://127.0.0.1:8000', 'https://guideselection.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://www.cse-projectregistration.co.in', 'http://127.0.0.1:8000/',
+                        'http://127.0.0.1:8000/pride-cell', 'https://guideselection.herokuapp.com/']
 
 # Application definition
 
@@ -183,6 +183,12 @@ django_heroku.settings(locals())
 # Email Configuration
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'internship.cse@sathyabama.ac.in'
-EMAIL_HOST_PASSWORD = 'gmxwsvmuqvbgvgfk'
+# EMAIL_HOST_USER = 'internship.cse@sathyabama.ac.in'
+# EMAIL_HOST_USER = 'meantechofficial2906@gmail.com'
+# EMAIL_HOST_PASSWORD = 'gmxwsvmuqvbgvgfk'
+# EMAIL_HOST_USER = 'acm@sathyabama.ac.in'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = 'ylxreronvulenrga'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+# EMAIL_HOST_PASSWORD = 'ofewnyrqtqypfkaj'
 EMAIL_USE_TLS = True

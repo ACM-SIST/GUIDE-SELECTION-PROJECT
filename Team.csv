@@ -1,4 +1,309 @@
-teamID,project_name,no_of_members,reg_no_1,student_1_name,student_1_no,reg_no_2,student_2_name,student_2_no,guide,guide_email
-CSE-001,REACT APP,1,39110373,JOHN DOE,9999991344,,,,LAKSHMANAN L,lakshmanan.cse@sathyabama.ac.in
-CSE-004,REACT APP,2,39110901,RAM,9999991311,39110636,MOHNISH DEVARAJ,9999991311,Dr Vigneshwari S,vigneshwari.cse@sathyabama.ac.in
-CSE-005,REACT APP,2,39110376,HARIHARAN B P,8668199082,39110393,JAGADEESH N,88259 71791,Dr. T. Sasikala,sasi_madhu2k2@yahoo.co.in
+id,teamID,project_name,no_of_members,reg_no_1,student_1_name,student_1_no,reg_no_2,student_2_name,student_2_no,reg_no_3,student_3_name,student_3_no,guide,guide_email
+2,CSE-002,Mobile application development using flutter,2,39110982,Sujeeth  S R,8870985789,39110965,Sreevatsan G,8525836474,,,,Dr Albert Mayan J,albert.cse@sathyabama.ac.in
+3,CSE-003,GUIDE SELECTION PROJECT,2,39110636,MOHNISH DEVARAJ,8637674809,39110393,JAGADEESH N,8825971791,39110373,HARIHARAN B P,8668199082,Dr Albert Mayan J,albert.cse@sathyabama.ac.in
+4,CSE-004,TUFIDCO,2,39110953,SIVA SAI KUMAR REDDY K,9566089074,39110905,DURGA PRASAD  SASUBILLI,8328384813,,,,Dr Albert Mayan J,albert.cse@sathyabama.ac.in
+5,CSE-005,TUFIDCO,2,39110836,Ramesh M S,7010862331,39110687,Naveena Ramesh  Vardhini J,8667245543,,,,Dr Murugan S,murugan.cse@sathyabama.ac.in
+6,CSE-006,Twitter Bot Detection,1,39110936,Kethan Sharvirala,8555928602,,,,,,,Dr. A. Mary Posonia,maryposonia.cse@sathyabama.ac.in
+348,CSE-348,Application on Machine Learning,2,39110244,SRIVAMSI DANDU,9121535759,39110717,MOHAN DEEPAK OMMI,9989248617,,,,Dr. M.D.Anto Praveena,antopraveena.cse@sathyabama.ac.in
+349,CSE-349,Recommendation Systems,2,39110440,Jaswitha Kambham,8688771470,39110437,Harshini Kallur,9440224837,,,,"Dr.A,Yovan  Felix",yovanfelix@sathyabama.ac.in
+350,CSE-350,Application systems,2,39110448,Pranathi Kantipudi,9502285789,39110174,Lakshmi priya Bodepudi,8328502799,,,,"Dr.A,Yovan  Felix",yovanfelix@sathyabama.ac.in
+351,CSE-351,Computer Networking,1,39111049,Vaishnavi R,8248659133,,,,,,,Ms Gracelin  Sheena B,gracelinsheena.cse@sathyabama.ac.in
+352,CSE-352,Brain Tumor Prediction,2,39110840,Abhiram Ravipati,8790122286,39110521,Rakesh Kondamuri,7013583674,,,,Dr. A. Mary Posonia,maryposonia.cse@sathyabama.ac.in
+353,CSE-353,EFFECTIVE TELEMEDICINE WITH MEDICAL ANALYSIS & MEDICINE DISPATCHER,2,39110898,Santhiya R,9003225008,39110417,Juanita Melosha K,8608230009,,,,N Srinivasan,srinivasan.cse@sathyabama.ac.in
+354,CSE-354,Stereo based 3D construction,2,39111024,Thameem Mohamed ,7299249907,39110194,Buddaraju Tarun Varma,8688437857,,,,Dr.Malini Deepika M,malinideepika.cse@sathyabama.ac.in
+355,CSE-355,Online Booking Store Project,2,39110114,Balakishore Mokhamatla,9177994499,39110387,Indukuri Srinivasa Reddy,7675048518,,,,Dr.Sujihelen L,sujihelen.cse@sathyabama.ac.in
+356,CSE-356,Vehical Number Plate Detection System for Indian Vehicals,2,39110942,Shubham  kumar,7906413249,39110795,Prashant Singh,6394602307,,,,Dr. D. Usha Nandini,usha.cse@sathyabama.ac.in
+357,CSE-357,Pothole detection using Machine Learning,2,39110825,Rahul Roonwal,8668089668,39110828,Rajeev Nayan,6206378537,,,,Ms.Deepa D,deepa.cse@sathyabama.ac.in
+358,CSE-358,Health Monitoring system,2,39110938,Shikha Suman,9508520645,39110956,Somdatta Mukherjee,7005220860,,,,Dr. Mercy Paul Selvan Selvan,mercypaulselvan.cse@sathyabama.ac.in
+359,CSE-359,Live Language Classification Using NLP,2,39110935,Sharooq Pasha,9677808246,39110011,Abinesh D,8778932652,,,,Roobini M.S,roobini.cse@sathyabama.ac.in
+360,CSE-360,Web application,2,39110421,Jyotishman Ghatak,7005102750,39110403,Jayesh  Baibhav,8873732500,,,,Dr Albert Mayan J,albert.cse@sathyabama.ac.in
+361,CSE-361,Prediction and Anlaysis,2,39110846,Supriya Repalle,6301727443,39110390,Ishita Reddy Annreddy,7032581145,,,,DR. NANCY NOELLA R S,nancynoella.cse@sathyabama.ac.in
+362,CSE-362,Speech emotion recognition ,2,39110261,DESAI GANNAMARAJU  CHARITH,7995702861,39110006,Abhiram Kantitudi,6301236321,,,,Ms.POTHUMANI S,pothumani.cse@sathyabama.ac.in
+363,CSE-363,Emotion Based Movie Recommendation system,2,39110295,Meghana Elisetti ,8978238522,39110811,Anshu Pulipati,9014730220,,,,Dr Albert Mayan J,albert.cse@sathyabama.ac.in
+364,CSE-364,Skin Disease Detection Using Image Processing with  Deep Learning and CNN,2,39111122,Lakshmi Yochita Yannana,8497961547,39110185,Mounisha Boppana,6303041725,,,,"Dr.A,Yovan  Felix",yovanfelix@sathyabama.ac.in
+365,CSE-365,Collage Discusion Room,1,39110222,Chennuru Rahul,9908265645,,,,,,,Dr Albert Mayan J,albert.cse@sathyabama.ac.in
+366,CSE-366,Cloud computing,1,39110013,Abishek R,8825754187,,,,,,,Mr.Murari Devakannan Kamalesh,kamalesh.cse@sathyabama.ac.in
+367,CSE-367,NP(NOTEPAYS),2,39110593,R V V SATYANARAYANA MURTHY Mamillapalli,9856886888,39110657,MUTTA SATHVIK,8688358596,,,,Dr. D. Usha Nandini,usha.cse@sathyabama.ac.in
+368,CSE-368,Crop classification ,2,39110933,Sharan M,6381294938,39110851,Rithik Sathiyanandan,9884238423,,,,Ms.  Lakshmi Priya S ,lakshmipriyas.cse@sathyabama.ac.in
+369,CSE-369,Project on ML,2,39110219,Dhanusha Chegoni ,8688643194,39110302,Froila  Stephanie,7358460098,,,,Ms. Yogitha. R,yogitha.cse@sathyabama.ac.in
+370,CSE-370,applications on machine learning,2,39110349,Sathvik Sri Harsha Gorli,6302837716,39110136,BHARATH BARMA,7989750260,,,,Ms. Yogitha. R,yogitha.cse@sathyabama.ac.in
+371,CSE-371,AI/Blockchain mining rig ,2,39110902,saran kumar,6385102947,39110857,Rohith Raj,9444524528,,,,Dr S. DHAMODARAN,dhamodaran.cse@sathyabama.ac.in
+372,CSE-372,prediction and analysis,2,39110385,CHAITANYABALAJI INAGANTI,8309715050,39111073,POORNA SIVA SAI VEJANDLA,8688776488,,,,Dr.Sujihelen L,sujihelen.cse@sathyabama.ac.in
+373,CSE-373,Crypto Prediction,2,39111001,Swamy Ganesh Karri,7287957475,39110815,SaiKumar Punugupati,9550862961,,,,Dr. M.D.Anto Praveena,antopraveena.cse@sathyabama.ac.in
+374,CSE-374,Data Mining based Model for water consumption,2,39110844,Saipraneeth Rayavaram,8639190876,39110867,Sahil Gazi,8789413476,,,,Ramya.G Franklin,ramyagfranklin.cse@sathyabama.ac.in
+375,CSE-375,Software for system hardware inventory,2,39110027,Aishwarya Senthil,8839333390,39110015,Vaishnavi APS,7718241645,,,,Dr Murugan S,murugan.cse@sathyabama.ac.in
+376,CSE-376,BLOCK CHAIN IN KYC VERIFICATION,2,39110944,SHWETA  B,9790873651,39110096,ASHWATHA S,9150319287,,,,Dr S. DHAMODARAN,dhamodaran.cse@sathyabama.ac.in
+377,CSE-377,web application security testing framework using flask,2,39110379,Hasan Firnas I,8189963623,39110014,Abisheik M,9962870616,,,,Dr S. DHAMODARAN,dhamodaran.cse@sathyabama.ac.in
+378,CSE-378,Handwritten Text Prediction Using MDRNN,2,39110086,Arunkumar Vaithiyanathan,8925053270,39110626,Mohamed Asraf,9994700396,,,,Roobini M.S,roobini.cse@sathyabama.ac.in
+379,CSE-379,Skin Cancer Prediction using Image Processing,2,39110805,Priyadharshini R,8925659691,39110818,S. Raagavarshini,9791184634,,,,Dr. D. Usha Nandini,usha.cse@sathyabama.ac.in
+380,CSE-380,Phishing website classification and detection,2,39110645,Mudragada Rakesh Babu,7995461678,39110968,SRI VENKATA SAI LAKSHMAN NAMALA,6301365585,,,,Dr. B.Ankayarkanni,ankayarkanni.cse@sathyabama.ac.in
+381,CSE-381,Online Taxi Application,2,39110371,Hariharan R,8925381214,39110368,Hari Krishna,7358882652,,,,Dr.Sujihelen L,sujihelen.cse@sathyabama.ac.in
+382,CSE-382,3D Game using Unreal Engine,2,39110405,Jeeva K,9087505801,39110410,Jethro Jacob,6369438473,,,,Dr S. DHAMODARAN,dhamodaran.cse@sathyabama.ac.in
+383,CSE-383,application on machine learning,2,39110226,sai sindhu meghana cherukuri,9949705102,39110230,sri varshini chilukuri,9384661269,,,,"Dr.A,Yovan  Felix",yovanfelix@sathyabama.ac.in
+384,CSE-384,Analysing and predicting,2,39111090,Vidhya S,8667454110,39110053,Amirtha varsini K S,9360425344,,,,Dr. P. Asha -,asha.cse@sathyabama.ac.in
+503,CSE-385,Lie detector using Arduino Uno,2,39110940,Shreya Chowdhury,9884917328,39110897,Santhiya J,8925267060,,,,Mr R.Vignesh,vignesh.cse@sathyabama.ac.in
+386,CSE-386,Rainfall Prediction Using Regression Model,2,39111038,GNANESHWAR TIRUNAMALA,7569900890,39111046,UTKARSH  ANAND,9852743186,,,,Dr. D. Usha Nandini,usha.cse@sathyabama.ac.in
+387,CSE-387,Analyzing and Prediction System,1,39111126,Yashwant  Saiarjun S V,9940403497,,,,,,,Dr. P. Asha -,asha.cse@sathyabama.ac.in
+388,CSE-388,Real-Time Smart Attendance System using Face Recognition Techniques,2,39110692,Nekkanti  Lakshmi Bhavani,9494341727,39110778,Ponnala Sai Pranathi,9940051769,,,,Dr.C.Hemalatha  Chandrasekaran,Drhemalatha.cse@sathyabama.ac.in
+389,CSE-389,Smart Attendance System,1,39110306,BALA ROHITH REDDY GADE,9515187612,,,,,,,Ms. Yogitha. R,yogitha.cse@sathyabama.ac.in
+390,CSE-390,Action Recognition,2,39110957,Somisetti Naveen,9347272570,39111030,Tholuchuri Gangadhar,7032744928,,,,Dr S. DHAMODARAN,dhamodaran.cse@sathyabama.ac.in
+391,CSE-391,Notes and password manager,1,39110239,Cynthia Senthilkumar,6382668019,,,,,,,Mr.Murari Devakannan Kamalesh,kamalesh.cse@sathyabama.ac.in
+392,CSE-392,Real time medical Analysis.,2,39110384,Immadisetti Tejasri,8688538038,39110374,Haripriyanka Davuluru,8838187281,,,,Dr. Mercy Paul Selvan Selvan,mercypaulselvan.cse@sathyabama.ac.in
+393,CSE-393,Cloud computing for rural banking,2,39111020,Tasmiya Mubeen,8688645661,39110318,Gangineni Jahnavi,9989134615,,,,Ms. R. Aishwarya,aishwarya.cse@sathyabama.ac.in
+394,CSE-394,Sorting and guess of heart disease risk using  Machine Learning.,2,39110099,Atyam vasavi sreya,7675901517,39110381,Hima sri  Koripalli,8688788984,,,,Dr.Sujihelen L,sujihelen.cse@sathyabama.ac.in
+395,CSE-395,Detecting Fake accounts on social media- Instagram,2,39110454,Bhavya Karnati,8688397099,39110443,Nikhitha Kancharla,9515717047,,,,Dr. D. Usha Nandini,usha.cse@sathyabama.ac.in
+396,CSE-396,"object detection , convert object name to text and text to speech",2,39110511,Kolla  om Vivek,8688332442,39110510,kolla om vitesh,8688510013,,,,Dr. D. Usha Nandini,usha.cse@sathyabama.ac.in
+397,CSE-397,store data,2,39117001,sabarish  V,6382727776,39111108,vishnu b,7558162325,,,,Dr. P. Asha -,asha.cse@sathyabama.ac.in
+398,CSE-398,GOOGLE CARDBOARD,2,39110849,RISHI KALIS K,8072898412,39110859,ROHITH V,6379703558,,,,Dr. G.  Kalaiarasi,kalaiarasi.cse@sathyabama.ac.in
+399,CSE-399,3D PRINTER MATERIAL PREDICTION,2,39110347,Gopu Shaji,8496925821,39110348,Gorantla Guruvardhan kumar,7997825769,,,,Dr.Sujihelen L,sujihelen.cse@sathyabama.ac.in
+400,CSE-400,App development,2,39110377,HARIVIGNESH K S,6382580164,39110408,JENISS  KUMAR N S,9360447254,,,,Dr.Sujihelen L,sujihelen.cse@sathyabama.ac.in
+401,CSE-401,Object detection ,2,39110220,Jyothi Swarup  Chelluboina ,9347579047,39110034,Kalva akhil Reddy ,7569536798,,,,Dr. Bharathi B,bharathi.cse@sathyabama.ac.in
+402,CSE-402,EMOJI CREATOR,1,39110397,JANGLI TEJASWINI,7815826662,,,,,,,Dr. Mercy Paul Selvan Selvan,mercypaulselvan.cse@sathyabama.ac.in
+403,CSE-403,QuizUp - A Quiz Application,1,39110248,A.Daril  Stephen,7397166178,,,,,,,Mr.Murari Devakannan Kamalesh,kamalesh.cse@sathyabama.ac.in
+404,CSE-404,Tourism website,2,39110549,Sai sasi vamsi Kunapaneni,8688735696,39110135,charan sai Barla,7680830526,,,,Mr. K AMANDEEP SINGH,amandeepsingh.cse@sathyabama.ac.in
+405,CSE-405,online bus reservation system,2,39110922,Abdul Kareem Shaik,9390050931,39110914,john baji sayyad,6300445562,,,,Ms.Anandhi Tamilvanan,anandhitamil2908@gmail.com
+406,CSE-406,Music Recommendation System,2,39110804,Priyadarshini S,7824925600,39110786,Pragathi R,9384733469,,,,Dr. Mercy Paul Selvan Selvan,mercypaulselvan.cse@sathyabama.ac.in
+407,CSE-407,Sign language Translation in Video Conferencing,2,39110202,Gangadhar Chakali,8919768667,39110235,Govardhan Reddy chinthalacheruvu,7569926282,,,,Dr. Bharathi B,bharathi.cse@sathyabama.ac.in
+408,CSE-408,FamMed,1,39110080,Arjun Dave,9444638486,,,,,,,Dr Murugan S,murugan.cse@sathyabama.ac.in
+409,CSE-409,R.A.W,2,39110891,Sanjay M,8428395292,39110036,Akshai Kanna,9080169582,,,,Ms.  Lakshmi Priya S ,lakshmipriyas.cse@sathyabama.ac.in
+410,CSE-410,Face Recognition Attendance System,2,39110394,P JAGADEESH,9573712539,39110388,Indupuru Viswanada Reddy,9177531832,,,,Dr.Sujihelen L,sujihelen.cse@sathyabama.ac.in
+411,CSE-411,Hotel Reservation,1,39110221,Chennu Nithesh Kumar Reddy,9666212958,,,,,,,Mr. K AMANDEEP SINGH,amandeepsingh.cse@sathyabama.ac.in
+412,CSE-412,Fake news detection ,2,39110927,Shaik Mahaboob Roshan,7075009657,39110928,Mohammad Khasim Shaik,7013757357,,,,Ms.  Lakshmi Priya S ,lakshmipriyas.cse@sathyabama.ac.in
+413,CSE-413,Bitcoin Price Prediction,2,39110960,Soundarya Raghu,6382087844,39110861,Rubasri N,9488358244,,,,Dr.  Maheswari M,maheswari.cse@sathyabama.ac.in
+414,CSE-414,"Blind assistance using tensorflow, open cv",2,39110611,Midhila Sushma Masiboyina,6379370924,39110562,Lakshmi Bhavana  Nittala,8925749850,,,,Mr R.Vignesh,vignesh.cse@sathyabama.ac.in
+415,CSE-415,Real time attendance system using face recognition system,2,39110506,Kode Bhanusree,9492017785,39110512,Kolla Yagnalatha,8106060376,,,,Mr R.Vignesh,vignesh.cse@sathyabama.ac.in
+416,CSE-416,ML APPLICATION,2,39110406,Jeevagan J,6384294681,39110375,Harish P,7639240339,,,,Dr. Mercy Paul Selvan Selvan,mercypaulselvan.cse@sathyabama.ac.in
+417,CSE-417,Fraud App  Detection ,2,39110358,GUNDLAPALLI SAI REVATHI CHINMAYI,9849812991,39110656,Murarishetti Anjali,8688653409,,,,Suja C M,suja.cse@gmail.com
+418,CSE-418,Malware threat analysis using machine learning,1,39110604,Nellore Nellore,8328541631,,,,,,,Ms. Yogitha. R,yogitha.cse@sathyabama.ac.in
+419,CSE-419,Real Time Object Detection,2,39110597,NIKHILA MANDALAPU,6303449846,39110021,Jahnavi Priya Addanki,9100492259,,,,Dr. Meeragandhi G,meeragandhi.cse@sathyabama.ac.in
+420,CSE-420,Impact of Machine Learning techniques in Precision Agriculture,2,39110984,vasantha Sunilreddy,6304698804,39110130,Bandlamudi Yaswanth,9951857486,,,,Dr.Malini Deepika M,malinideepika.cse@sathyabama.ac.in
+421,CSE-421,online bus ticket booking,1,39110234,Moses  krupakar,9705313228,,,,,,,Mr. K AMANDEEP SINGH,amandeepsingh.cse@sathyabama.ac.in
+422,CSE-422,Designing 26*10 board  Double player python Battleship game,2,39111085,Sai Teja Reddy Venna ,8309700321,39110229,Gopi Chilukuri,9347307278,,,,Dr.Malini Deepika M,malinideepika.cse@sathyabama.ac.in
+423,CSE-423,FACE MASK DETECTION USING OPENCV,2,39110558,kurukuri sai shankar,8688205105,39110640,MORASA CHANDRA SURYA PRAKASH,9347912856,,,,Dr. D. Usha Nandini,usha.cse@sathyabama.ac.in
+424,CSE-424,Online Food Booking,1,39110551,Kunduru punith sai Vardhan reddy,9912706009,,,,,,,Mr. K AMANDEEP SINGH,amandeepsingh.cse@sathyabama.ac.in
+425,CSE-425,Automation and Android Development ,2,39110259,Dennis Michael,7010350940,39110492,Kesavan R,9080899318,,,,Ms.  Lakshmi Priya S ,lakshmipriyas.cse@sathyabama.ac.in
+426,CSE-426,Chat bots,2,39110501,Kishore Kumar,7824029830,39110500,Kishor G,9600288573,,,,Ms.  Lakshmi Priya S ,lakshmipriyas.cse@sathyabama.ac.in
+427,CSE-427,DIGI WRITING,2,39110572,Lochan E,7702485006,39110757,SAI PRADEEP PATTIGULLA,7873684605,,,,Dr. P. Asha -,asha.cse@sathyabama.ac.in
+428,CSE-428,Project using Machine learning,2,39110284,Doddi Purna Gana Ramakrishna,8074757842,39110310,Gali Stephen Michael Emmanuel,8688441549,,,,Dr. Mercy Paul Selvan Selvan,mercypaulselvan.cse@sathyabama.ac.in
+429,CSE-429,study on image detection of p - cause using  convolution networks,2,39110246,Manoj Danturthi,9441327688,39110177,Achyuth Bolisetti,9676416788,,,,Dr. D. Usha Nandini,usha.cse@sathyabama.ac.in
+430,CSE-430,CDCP(Code deploy code pipeline),1,39110882,sam Jerine,9360806183,,,,,,,Dr.Karpura Dheepan G.M.,karpuradheepan.cse@sathyabama.ac.in
+431,CSE-431,fitness app development,2,39110941,shreya v,9515084474,39110565,flavya lekkala,8499099261,,,,Dr. Sardar Maran P,psmaran@sathyabama.ac.in
+432,CSE-432,Analyzing Moroccan Stock Market using Machine Learning and Sentiment Analysis,2,39111025,Thammisetty vishnu vardhan,8340952456,39111045,Ummaneni sandeep,8897574996,,,,Dr.Malini Deepika M,malinideepika.cse@sathyabama.ac.in
+433,CSE-433,Waste Food Management & Donation App,2,39110504,Manikanta Kodati,7981789385,39110685,Naveen Gandham,9573278244,,,,Mr.Murari Devakannan Kamalesh,kamalesh.cse@sathyabama.ac.in
+434,CSE-434,BOOK RECOMMENDATION SYSTEM,2,39110146,BAVISETTI GOWTHAM SAISIVA KRISHNA AJAY,7386317081,39110151,BETHA SHANMUKHA SATYA DEV,7989814901,,,,Dr. M.D.Anto Praveena,antopraveena.cse@sathyabama.ac.in
+435,CSE-435,Sign language detection using deep learning,2,39110659,SubbaRAju Nadapana,7670204553,39110204,Murari Sai Kiran Challupu,8499961088,,,,Mr.Murari Devakannan Kamalesh,kamalesh.cse@sathyabama.ac.in
+436,CSE-436,application on machine learning,2,39110217,Durga Pradeep Cheepurupalli,8309335635,39110650,Ashish Mulagapaka,7674940906,,,,Ms. Yogitha. R,yogitha.cse@sathyabama.ac.in
+437,CSE-437,Flood prediction using multiple machine learning algorithms,1,39110010,Abinaya R,9043390581,,,,,,,Mr.Murari Devakannan Kamalesh,kamalesh.cse@sathyabama.ac.in
+438,CSE-438,ChatBot using AI,2,39110189,Brahmeshwar Srivarshanth,9553649900,39110131,Bantu Anil,9032923400,,,,Dr Vigneshwari S,vigneshwari.cse@sathyabama.ac.in
+439,CSE-439,Digitization of data from invoice using OCR,2,39110485,Keerthi Naidu Kamisetty,9100976767,39110582,Lakshmi Prasanna Maddipoti,9652755727,,,,Mr R.Vignesh,vignesh.cse@sathyabama.ac.in
+440,CSE-440,GTAV-RP Server,1,39110913,SAYAN PRAMANIK,9940218268,,,,,,,Dr. A. Mary Posonia,maryposonia.cse@sathyabama.ac.in
+441,CSE-441,detecting data leaks using sql,2,39110245,Vinuthna pravali,7036421559,39111036,chandhana reddy,8367514967,,,,Dr. M.D.Anto Praveena,antopraveena.cse@sathyabama.ac.in
+442,CSE-442,Speech Emotion Recognizer,2,39110407,Jemina Arul Priya J,6382709873,39110409,Jessica Mary Selvaraj,9940069290,,,,Ms. Yogitha. R,yogitha.cse@sathyabama.ac.in
+443,CSE-443,Threat Detector using Surveillance Cameras,2,39110081,ARJUN MARU,9121847157,39110076,Kamalay Arvind,9182676025,,,,Dr.Mohana Prasad K,mohan.cse@sathyabama.ac.in
+444,CSE-444,Email Spam-Filtering System,2,39110391,Isswariya K,7904308464,39110392,Iswariya  Lakshmi S S,6382435994,,,,Dr. Mercy Paul Selvan Selvan,mercypaulselvan.cse@sathyabama.ac.in
+445,CSE-445,Full stack application ,2,39110338,Venkata Sai Rama Reddy  Goluguri ,7287097528,39110339,Sai Vinay Gondrala,8520063021,,,,Dr S. DHAMODARAN,dhamodaran.cse@sathyabama.ac.in
+446,CSE-446,Full Stack Chat Application,1,39110340,Praveen Kumar,9182038110,,,,,,,Dr S. DHAMODARAN,dhamodaran.cse@sathyabama.ac.in
+447,CSE-447,University Campus Online Automation,2,39110418,JUTTIGA ASHOKVARMA,9701772480,39110425,KADAVAKOLLU SAMBA SIVA RAO,8688594384,,,,Dr. A.C. SANTHA  SHEELA,santhasheela.cse@sathyabama.ac.in
+448,CSE-448,To Create and Manage Samba & FTP Server,1,39110585,Mahendra Reddy Reddy,9398321287,,,,,,,Dr. Bharathi B,bharathi.cse@sathyabama.ac.in
+449,CSE-449,Amazon recommendation system,2,39110441,Yuvaraj kanchana,7386923958,39110444,Kandimalla Lucky varma,9000077607,,,,Dr. G.  Kalaiarasi,kalaiarasi.cse@sathyabama.ac.in
+450,CSE-450,Fraud Detection Using Machine Learning,2,39110508,Kolapalli Naga Venkatesh,8523036485,39110460,Karri Narendra Reddy,9676783345,,,,Dr T Prem  Jacob,premjacob.cse@sathyabama.ac.in
+451,CSE-451,Book Store Management using cloud computing,2,39110063,Anish S.J,9962692531,39110028,Ajmal Nayeem,8428979069,,,,Ms.Anandhi Tamilvanan,anandhitamil2908@gmail.com
+452,CSE-452,Drug Classification with Machine learning,2,39111012,Takkellapati Sai Ganesh,8096705349,39111011,Tagini Mythreye,7339429683,,,,Dr. C.Kavitha,kavitha.cse@sathyabama.ac.in
+453,CSE-453,Image Processing,2,39110520,Santosh Kompella,9150996818,39110075,Yugendra Krishna Vamsi Appikatla,8186093245,,,,Ms. Yogitha. R,yogitha.cse@sathyabama.ac.in
+454,CSE-454,Automated Attendance System,2,39110613,Maybel Flora J,8667858425,39110608,Maria Sheryl Fernando,9962150025,,,,Dr. Christy A,christy.cse@sathyabama.ac.in
+455,CSE-455,MOVIE RECOMMENDATION SYSTEMS,2,39110459,KARRI  NAGA RAMA LOVA UDAY SAI GANESH,8688794749,39110463,K.V.S.ADITYA REDDY,9676465681,,,,Ms.Karthika  J,karthika.cse@sathyabama.ac.in
+456,CSE-456,Paint Application,2,39110627,Abdul Ghani Faiz Mohammad,9618217823,39110763,Goutam Naga Sai Varma Penmetsa,7337277251,,,,Dr. Christy A,christy.cse@sathyabama.ac.in
+457,CSE-457,College Enquiry chatbot system,2,39110967,Sri Meenakshi Pandey Pandey,9060497674,39110948,S SINDU,9390442548,,,,Ms.C.A.Daphine Desona Clemency,daphine.cse@sathyabama.ac.in
+458,CSE-458,Human activity recognition with smart phones,2,39111119,vasanth yama,9391289597,39110324,Pavan kumar Garrepelly,9121992001,,,,Dr T Prem  Jacob,premjacob.cse@sathyabama.ac.in
+459,CSE-459,Food Wastage Management App,2,39110725,Padmashetti Rashmitha,8688383369,39110474,Katakam Sudheepa,6301340897,,,,Dr. Sardar Maran P,psmaran@sathyabama.ac.in
+460,CSE-460,Prediction ,2,39110765,ESWAR AKHIL  PENTAPATI ,9493704939,39110674,SUDARSHAN REDDY NANDRA,9493153373,,,,Ms S.R.SRIVIDHYA,srividhyasr.cse@sathyabama.ac.in
+461,CSE-461,Resume Screening,2,39110513,Kolli Giridhar Reddy,9133698518,39110346,Gopisetty Venkata Kalyan,9490962219,,,,Ms S.R.SRIVIDHYA,srividhyasr.cse@sathyabama.ac.in
+462,CSE-462,credit card prediction,2,39110144,BATREDDI SRI VENKATA MANI SUSHMITHA,8499885584,39110198,BUSANAGIRI BINDU MADHAVI,8179971956,,,,Mr R.Vignesh,vignesh.cse@sathyabama.ac.in
+463,CSE-463,Personal Voice Assistant,2,39110985,Srikanth Sravana,8688724009,39110963,Sreenivisan Manikantan,9182124041,,,,Dr. A. Mary Posonia,maryposonia.cse@sathyabama.ac.in
+464,CSE-464,yet to be decided,2,39110069,Anne Dheeraj Chowdary,6300486303,39110119,Balina Charan Teja,7337414474,,,,Dr. Bharathi B,bharathi.cse@sathyabama.ac.in
+465,CSE-465,Image Caption Generator using DeepLearning,2,39110469,Karwan Vishweshwar,8688544886,39110527,Kosanam Srinivas,9182026501,,,,Ms.C.A.Daphine Desona Clemency,daphine.cse@sathyabama.ac.in
+466,CSE-466,Stock price prediction,2,39110874,Madhumitha Saiboina,8688567165,39110051,Praggnya Sai Ambati,7680971106,,,,Mr R.Vignesh,vignesh.cse@sathyabama.ac.in
+467,CSE-467,Question generation using Natural Language Processing algorithms,2,39110837,TharunReddy Ramigani,9949358729,39111056,vamsi bhogaraju,6381870270,,,,DR. NANCY NOELLA R S,nancynoella.cse@sathyabama.ac.in
+468,CSE-468,Refrigerator tracking and Management System,1,39110584,Avinash Naidu Mahanthi,8925407389,,,,,,,Dr T Prem  Jacob,premjacob.cse@sathyabama.ac.in
+469,CSE-469,Software for system hardware inventory,1,39110037,Akshay J,9445070335,,,,,,,Dr Murugan S,murugan.cse@sathyabama.ac.in
+470,CSE-470,Estimating The Presence of Impurities in Iron Ore,2,39110518,pavan chandra,9110371657,39110484,Durga Prashanth,9618442603,,,,Dr. P. Asha -,asha.cse@sathyabama.ac.in
+471,CSE-471,SLE prediction using machine learning ,1,39110012,abiraami senthilkumar,9600729340,,,,,,,Dr.S.Prince  Mary,princemary.cse@sathyabama.ac.in
+472,CSE-472,Text Summarisation ,2,39110507,Sujay Reddy,8688764108,39110129,Mohith Reddy,9573704401,,,,Mr.Murari Devakannan Kamalesh,kamalesh.cse@sathyabama.ac.in
+473,CSE-473,Face recognition using AI,1,39119002,Vidhya VB,6383983646,,,,,,,Dr. P. Asha -,asha.cse@sathyabama.ac.in
+474,CSE-474,NuFace,1,39110904,Saravanan  R,7373333437,,,,,,,Roobini M.S,roobini.cse@sathyabama.ac.in
+475,CSE-475,Gold price predicition,2,39110603,Manoj Sai Rohith Tummalapalli,9912753888,39110154,Bhemineni Prasanth,9948022754,,,,Mr R.Vignesh,vignesh.cse@sathyabama.ac.in
+476,CSE-476,Intelligent Traffic Management System,2,39110095,R Ashwath Ramanathan,9901334603,39110115,BalaMurugan Ravichandran ,9344303709,,,,Dr.R.Sathya Bama  Krishna,sathyabamar.cse@sathyabama.ac.in
+477,CSE-477,Grocery Application development using Flutter,2,39110573,logesh LK,6381531599,39110571,Lithwin Rajesh,6381702125,,,,Dr. A. Mary Posonia,maryposonia.cse@sathyabama.ac.in
+478,CSE-478,Prediction of heart stroke,2,39111015,Talluri Lokesh,9014873840,39111010,Vinay Kumar,7032119917,,,,Dr. Sardar Maran P,psmaran@sathyabama.ac.in
+479,CSE-479,customer segmentation using machine learning,2,39110473,siddartha Katakam,9398571523,39110505,Manikanta Kodati,8555944482,,,,Dr. P. Asha -,asha.cse@sathyabama.ac.in
+480,CSE-480,Direction Tracking using AR,2,39110903,Saran T,9952487568,39110892,Sanjay S,7339046835,,,,Dr. G.  Kalaiarasi,kalaiarasi.cse@sathyabama.ac.in
+481,CSE-481,MobileApp for Press Information Bureau(SIH 22),2,39110149,BenhurEdmondHilary P J,7395958983,39110009,AbiVirshan Suresh,9344768931,,,,Dr Vigneshwari S,vigneshwari.cse@sathyabama.ac.in
+482,CSE-482,accident detection alert android app,2,39110740,Pankhuri Santoshi,7904542771,39110744,Parvadhavardhni R,9884565487,,,,Dr. A. Mary Posonia,maryposonia.cse@sathyabama.ac.in
+483,CSE-483,yet to be decided,2,39110598,Mandava Rahul sai venkat,8667622238,39110128,Bandi Mohan sai,7672065487,,,,Dr. Christy A,christy.cse@sathyabama.ac.in
+484,CSE-484,Cancer prediction,2,39111029,Bipin Kumar,7675821943,39111048,Sai Raja Vadlamudi,7702656160,,,,Ms Sangeetha G,sangeetha.cse@sathyabama.ac.in
+485,CSE-485,Dynamic Pricing prediction for cabs,2,39110380,HEMAM  HUSSAIN,9344942184,39110357,shashank gundagani,9912393128,,,,Suja C M,suja.cse@gmail.com
+486,CSE-486,App development,2,39110702,Niranjan N,8939489525,39110793,Prasath S,7358305351,,,,Ms.Deepa D,deepa.cse@sathyabama.ac.in
+487,CSE-487,MobileApp for Press Information Bureau(SIH 22 ,1,39110073,Anugraha J,9840474461,,,,,,,Dr Vigneshwari S,vigneshwari.cse@sathyabama.ac.in
+488,CSE-488,COVID-19 Detection,2,39110833,RAM K,8925360239,39111084,VENKATAKRISHNAN T,8610332284,,,,Ramya.G Franklin,ramyagfranklin.cse@sathyabama.ac.in
+489,CSE-489,Wind energy forecasting using AI technique,2,39110992,Suriya  M S,8122474050,39110920,Selva A,6382236374,,,,Dr. A. Mary Posonia,maryposonia.cse@sathyabama.ac.in
+490,CSE-490,SMS spam classification ,2,39110997,Madallapalli  Sushanth ,7702216821,39110680,murali reddy,7674857971,,,,Ms.C.A.Daphine Desona Clemency,daphine.cse@sathyabama.ac.in
+491,CSE-491,Deep learning in agriculture remote sensing application,2,39110383,Humritha K,9940266725,39110344,Gopika P,7806998545,,,,Dr. Sardar Maran P,psmaran@sathyabama.ac.in
+492,CSE-492,YouTube Transcript Summarizer,2,39110683,Navamshu Ram  PV,7483044907,39110673,Sriram Nallapaneni ,9182098770,,,,Dr.C.Hemalatha  Chandrasekaran,Drhemalatha.cse@sathyabama.ac.in
+493,CSE-493,Malicious attacks detection ,2,39110578,Tharunkumar Machepalli ,7337200141,39110250,Venkata Jaya Surya  Dasa,9182668316,,,,Dr. M.D.Anto Praveena,antopraveena.cse@sathyabama.ac.in
+494,CSE-494,Ground water potential mapping using machine learning,2,39110378,Harshini K A,9361315797,39110366,Hamsa Varthini E,8072105162,,,,Dr. Sardar Maran P,psmaran@sathyabama.ac.in
+495,CSE-495,Certificate Verification with Blockchain technology,2,39110832,Rakshith R,9787224488,39110863,Saaim Sherif,9884615828,,,,Ms.Nancy  Kirupanithi.D,nancykirupanithi.cse@sathyabama.ac.in
+496,CSE-496,Full Stack Application ,2,39110272,Dhruv Naidu Alti,9949165546,39110353,Sai Bhavan Gubbala,9398810746,,,,Ms S.R.SRIVIDHYA,srividhyasr.cse@sathyabama.ac.in
+497,CSE-497,Patient's Sickness Prediction System,2,39110124,Vara Prasad Bandari,9100585598,39110291,Sharath Chandra Reddy  Dumpali,9133818205,,,,Dr. M.D.Anto Praveena,antopraveena.cse@sathyabama.ac.in
+498,CSE-498,Kovil nagaram kudandai,2,39110369,Hari Visu V R,9489732693,39110336,Gokula Krishnan,9344317992,,,,Ms S.R.SRIVIDHYA,srividhyasr.cse@sathyabama.ac.in
+499,CSE-499,Criminal Identification And weapon detection,2,39110925,Shaik Fareeha,6303688343,39110337,Gollapudi Grishmita,8688897119,,,,Mr.BABU K,babu.cse@sathyabama.ac.in
+500,CSE-500,A comparative study on forest fire prediction using deep learning ,2,39111052,Saketh reddy Vallamreddy,9700970678,39111062,Varshith Velluru,8919143767,,,,Dr. Bharathi B,bharathi.cse@sathyabama.ac.in
+501,CSE-501,Food management system for railways passengers ,2,39110211,Charika Lokesh,9940443204,39110212,Charumathi Devi,9444433286,,,,Ms. R. Aishwarya,aishwarya.cse@sathyabama.ac.in
+502,CSE-502,credit card fraud detection ,2,39110824,rahul roshan ,9360313812,39110268,Dhanush   kumar,6383478457,,,,Ms.Deepa D,deepa.cse@sathyabama.ac.in
+504,CSE-504,Content recommendation based on facial emotion recognition ,1,39110949,Sireesha  Challa,7995904398,,,,,,,GowriManohari  V,gowrimanohari.cse@sathyabama.ac.in
+505,CSE-505,Fraud detection ecosystem ,2,39110047,Aluru Muniveda Indra Nikhil,9494128198,39110019,Adari Vandik,9110388962,,,,Dr. Meeragandhi G,meeragandhi.cse@sathyabama.ac.in
+506,CSE-506,Falcon 9 1st stage Landing Predictive Analysis ,2,39110918,Seemakurthi Hima Vamsi Krishna,8247539309,39110360,Gundumogula  Sadhu Sundhar ,8688534655,,,,Dr Murugan S,murugan.cse@sathyabama.ac.in
+507,CSE-507,Sathyabama college map(application),2,39110699,Nimalan  Sk,9791065948,39110704,Nitheshwaran T,9597319997,,,,Ms.Deepa D,deepa.cse@sathyabama.ac.in
+508,CSE-508,Showrooms experience using ar,2,39110623,Meshil Lenus,8667231836,39110619,Melvin  Ar,9962136952,,,,Ms. R. Aishwarya,aishwarya.cse@sathyabama.ac.in
+509,CSE-509,Regarding Data science,2,39110917,Vinay Reddy,9959630881,39110929,Mohammad Sadikh,9550631242,,,,Suja C M,suja.cse@gmail.com
+510,CSE-510,College Management Application ,1,39110907,Surya Suhas Reddy Sathi,9573928281,,,,,,,Dr. Joshila Grace L.K,joshilagrace.cse@sathyabama.ac.in
+511,CSE-511,3D object visualization using Augmented reality ,2,39110931,Shaik Nazeer,8688617201,39110958,K B Somu,9380996656,,,,Roobini M.S,roobini.cse@sathyabama.ac.in
+512,CSE-512,Analysis of diabetic retinopathy using machine learning,2,39110183,Bonagiri Keerthi,8179534736,39110719,PYDR Priyanka,8179591784,,,,Mr.BABU K,babu.cse@sathyabama.ac.in
+513,CSE-513,Crime Detection and Analysis  From Social media Through NLP,2,39110665,Ramya Sree Nagineni,9160681119,39110642,Bhavya Sree Mucheli,6381302188,,,,Dr. Christy A,christy.cse@sathyabama.ac.in
+514,CSE-514,Hand gesture recognition ,2,39110497,Kharishma  V,8925472433,39110483,Keerthana  J.R,9884153454,,,,Dr. Bharathi B,bharathi.cse@sathyabama.ac.in
+515,CSE-515,Machine learning ,2,39110706,Nithin R,9360703370,39110679,Naresh Kumar ,6369328926,,,,Ms.Deepa D,deepa.cse@sathyabama.ac.in
+516,CSE-516,Helmet Detection,2,39110620,Mephisto Janus J,8870301488,39110625,Mithun Kumar.B,8056068076,,,,Ms. Maria Jones G,mariajones.cse@sathyabama.ac.in
+517,CSE-517,Regarding Data Science ,2,39110895,Sannapureddy  Lohithreddy,8688756364,39110924,Azam ali Azad,8309903345,,,,Suja C M,suja.cse@gmail.com
+518,CSE-518,MobileApp for Press Information Bureau(SIH 22),1,39111109,Vishwa R,8220119695,,,,,,,Dr Vigneshwari S,vigneshwari.cse@sathyabama.ac.in
+519,CSE-519,object detection,2,39111097,Vigneshwar S,9345308077,39111132,Yoganishanth P,9688955551,,,,"Dr.A,Yovan  Felix",yovanfelix@sathyabama.ac.in
+520,CSE-520,Python automation with ML,1,39110389,Isaac Immanuel,9884500993,,,,,,,Suja C M,suja.cse@gmail.com
+521,CSE-521,Analysing and prediction of stock market,1,39111101,Vijayanarasima Raj,8825601207,,,,,,,Dr. Bharathi B,bharathi.cse@sathyabama.ac.in
+522,CSE-522,Analyzing the health condition of a heart by the sound of heart beat.,1,39110420,Jyothi Raghavendra Reddy  Batchu ,9150472861,,,,,,,Dr. S.Jayanthi,jayanthi.cse@sathyabama.ac.in
+523,CSE-523,Recommendation system ,2,39110567,Likitha  Balaji,7550229799,39110482,Kavya Kanmani.M,7806905257,,,,Dr. Christy A,christy.cse@sathyabama.ac.in
+524,CSE-524,Smart stick for visually Impaired people,2,39111105,Vinayak K,9443000262,39111094,Vignesh M,8925163320,,,,Ms.Deepa D,deepa.cse@sathyabama.ac.in
+525,CSE-525,Bitcoin price prediction using bitcoin,2,39110362,Vaishnavi Gurrala,9003014954,39110516,SUMAJA KOLLI,8688661284,,,,Suja C M,suja.cse@gmail.com
+526,CSE-526,Movie Tickets Booking Website,2,39110809,P Madhan Venkata Reddy,9032264444,39110592,Mallipudi Venkata Rama vikas,9581138888,,,,Mr.BABU K,babu.cse@sathyabama.ac.in
+527,CSE-527,Cariovascular Disease Prediction Using Machine Learning Algorithms To Find The Best Accurate Model,2,39110701,Riya Reddy Nimmala,9666337790,39110943,Shweta kumari,8210954515,,,,Dr. Sardar Maran P,psmaran@sathyabama.ac.in
+528,CSE-528,Detection of trouseness while driving car ,2,39110206,Manideep Chanda,6309728074,39110253,Manikanta DlNN,9030320420,,,,Mr.BABU K,babu.cse@sathyabama.ac.in
+529,CSE-529,regarding machine learning,2,39110900,V  Santhosh ,8328308175,39110919,Vara Prasad Seepana,8688670299,,,,Mr.BABU K,babu.cse@sathyabama.ac.in
+530,CSE-530,DIABETIC RETINOPATHY DETECTION FROM EYE  FUNDUS IMAGES USING CNN,2,39110698,Nikitha D,8778279908,39110894,Sanmathi  R,8778763894,,,,Dr.Karpura Dheepan G.M.,karpuradheepan.cse@sathyabama.ac.in
+531,CSE-531,Attendance System using QR and Mobile application,1,39111096,Vignesh S,8610736497,,,,,,,"Dr.A,Yovan  Felix",yovanfelix@sathyabama.ac.in
+532,CSE-532,Self Driving Car,2,39111026,Tharagesh C,9790615622,39110769,Peramuthan T,7904526913,,,,Dr. S.Jayanthi,jayanthi.cse@sathyabama.ac.in
+533,CSE-533,Attendance System using QR and Mobile application,1,39110413,Andrew Jonathan,8148173560,,,,,,,"Dr.A,Yovan  Felix",yovanfelix@sathyabama.ac.in
+534,CSE-534,Experiencing and reviewing products using AR,2,39110535,KOUSALYA P. M,9364646752,39110563,LAVANIPRIYA D,7358458198,,,,Ms. R. Aishwarya,aishwarya.cse@sathyabama.ac.in
+535,CSE-535,Blood Bank Management System,2,39110035,Akilesh  S,9176944497,39110791,pranesh dharshan M,9003243440,,,,Dr. Ronold Doni,doni.cse@sathyabama.ac.in
+536,CSE-536,creating token using blockchain,1,39111081,pramod vendra,7702628686,,,,,,,Ms.Deepa D,deepa.cse@sathyabama.ac.in
+537,CSE-537, Enhancement of Machine Learning Classification Algorithms using Stacking for Bank Loan Approval,2,39110097,Asish Preetham  Gundala ,9177816468,39110065,Poornachand Annam,9866037447,,,,Dr. Meeragandhi G,meeragandhi.cse@sathyabama.ac.in
+538,CSE-538,SUPERSTORE SALES MANAGEMENT SYSTEM,2,39111054,Valliappan L,9443570140,39111017,Tamil Selvan J,9940059171,,,,Dr.Selvi M,selvi.cse@sathyabama.ac.in
+539,CSE-539,Women's safety device ,1,39110138,Barukam vamshikrishna  Yadav,9666690677,,,,,,,Dr A. Viji Amutha Mary,vijiamuthamary.cse@sathyabama.ac.in
+540,CSE-540,Healthcare application ,1,39110164,Bibiana Magdelene,6474399707,,,,,,,Dr A. Viji Amutha Mary,vijiamuthamary.cse@sathyabama.ac.in
+541,CSE-541,E-Patra,1,39110066,ANNAM SAI MANOHAR,9100135071,,,,,,,Dr. Meeragandhi G,meeragandhi.cse@sathyabama.ac.in
+542,CSE-542,Analysis on perfomance of Badminton players during tournaments,2,39110350,Gowsik M,9360247896,39110271,Dharshan Kumar Ramesh,9150991650,,,,Dr Ashokkumar,ashokkumar.cse@sathyabama.ac.in
+543,CSE-543,Website Creation,2,39110813,Mithin Punna,7386859109,39110456,Karnati Pranideep,6309887107,,,,Dr. Ronold Doni,doni.cse@sathyabama.ac.in
+544,CSE-544,Online booking system ,2,39110018,VENKATA NAGENDRA BHARAT ADAPA,6301663928,39110022,Rakesh Sarma Addepalli,8072058092,,,,Dr. Meeragandhi G,meeragandhi.cse@sathyabama.ac.in
+545,CSE-545,BookStore Application ,1,39110821,R.Lakshmi Siva  Samhitha ,9347857098,,,,,,,Dr N.Sridevi,sridevi.cse@sathyabama.ac.in
+546,CSE-546,Web/App development ,2,39110089,Asfia  Shiraz,7488584309,39110847,Rishab  Chouhan ,7488880432,,,,Ms. R. Aishwarya,aishwarya.cse@sathyabama.ac.in
+547,CSE-547,Intelligent Doorbell System,2,39110697,Nikhil Prince,9544362249,39110853,Rohan Thayil,8078107827,,,,Dr. M.D.Anto Praveena,antopraveena.cse@sathyabama.ac.in
+548,CSE-548,Counseling app,1,39110041,Alasakani Pranitha,9392817822,,,,,,,Dr. Meeragandhi G,meeragandhi.cse@sathyabama.ac.in
+549,CSE-549,FLUTER APP DEVELOPMENT ,2,39111070,Veeramani  R,8939303366,39111117,Yadesh Kumar  V,9150156541,,,,Ms.Anandhi Tamilvanan,anandhitamil2908@gmail.com
+550,CSE-550,Crowd Funding Platform Using Smart Contract,2,39110430,Mahendra Kakileti ,9701839811,39110062,Aravind Anisetti,9390670720,,,,Suja C M,suja.cse@gmail.com
+551,CSE-551,Helmet recognition,2,39110600,Manne Mohith Vamsi,9704481974,39110587,Madhan Makineni,6301858588,,,,Dr.Selvi M,selvi.cse@sathyabama.ac.in
+552,CSE-552,Wireless door security system ,2,39110414,Jose M Kanichai,8291750077,39110412,Jithu  J George ,9847073856,,,,Dr. B.Ankayarkanni,ankayarkanni.cse@sathyabama.ac.in
+553,CSE-553,Customer Sales Analysis,1,39110689,Nazhath Nafizza,9150449501,,,,,,,Dr.R.Sathya Bama  Krishna,sathyabamar.cse@sathyabama.ac.in
+554,CSE-554,Covid 19 online test results and booking of covid hospitals,2,39110954,Sivapriya  V,8144332218,39110415,Josephine Kavya francis,7550209787,,,,Dr S. L. JANY SHABU,janyshabu.cse@sathyabama.ac.in
+555,CSE-555,Prediction Of Bank Customer Churn Using Machine Learning technique,2,39110555,Jithendra Sai Adithya Kurasala,9121915129,39110569,Lingampally Tarun,9849568520,,,,Dr.Selvi M,selvi.cse@sathyabama.ac.in
+556,CSE-556,Digit recognition using python,2,39111008,Rizwan syed,8978137019,39111058,Mounika Vangeti,8790823320,,,,Ms.Velvizhi R,velvizhi.cse@sathyabama.ac.in
+557,CSE-557,Virtual Air painting ,1,39110071,Anto Joshwa,6369935663,,,,,,,Dr S. L. JANY SHABU,janyshabu.cse@sathyabama.ac.in
+558,CSE-558,Blockchain with ux ui desigh,2,39110276,Dinesh M,9962688561,39119001,Sitheshwar S,7358460257,,,,Dr Ashokkumar,ashokkumar.cse@sathyabama.ac.in
+559,CSE-559,Catching Illegal Fishing Dataset Using Machine learning ,2,39110932,SHAIK SHEERU  ALI MOULALI ,7013159644,39110906,SATHI SARATH  VENKATA REDDY ,8978561119,,,,Dr. Joshila Grace L.K,joshilagrace.cse@sathyabama.ac.in
+560,CSE-560,Exact Shipment Location Data,2,39110341,Gonnuri Manikanta,9182530054,39110450,Kapisetti Dileep Kumar,6300370314,,,,Dr.Selvi M,selvi.cse@sathyabama.ac.in
+561,CSE-561,Ielts practice test online web portal,2,39110696,Jinugu Nikhil Kumar,8328426396,39110691,Nehal Veeramachaneni,8925652981,,,,N Srinivasan,srinivasan.cse@sathyabama.ac.in
+562,CSE-562,Plus service ,2,39110782,lakshmi sai jaswanth guptha potti,9652998908,39110084,Arumilli Jaswanth,7676463441,,,,Ms. Priyanka N,priyanka.cse@sathyabama.ac.in
+563,CSE-563,Depression detection from social network using machine learning,2,39110564,Lehan  Fayaz,6238977482,39111184,Roshan Joseph,9679589025,,,,Dr. B.Ankayarkanni,ankayarkanni.cse@sathyabama.ac.in
+564,CSE-564,Music Matcher Application,2,39111098,Vigneshwar Thiagesan,6381234961,39111092,Vignesh B,9150739536,,,,Dr A. Viji Amutha Mary,vijiamuthamary.cse@sathyabama.ac.in
+565,CSE-565,"Sentiment Analysis ,Gender and Age Detection,Covid-19 Data Visualization",1,39110710,Niwin Nicho,9360517909,,,,,,,Roobini M.S,roobini.cse@sathyabama.ac.in
+566,CSE-566,Machine Learning,2,39110681,Naru Sai Lohith,7671855257,39110762,Pemmaraju Bhanu Bharadwaj,9182228429,,,,N Srinivasan,srinivasan.cse@sathyabama.ac.in
+567,CSE-567,Rating Prediction of Google Play Store Apps with Application of Data Mining Techniques,2,39111040,T. Yaswanth  Sai,8688754639,39111068,V. Satya Narayana,6302069329,,,,Dr.S.Prince  Mary,princemary.cse@sathyabama.ac.in
+568,CSE-568,Opportunity Traacker,1,39110493,keshav jha,8384065652,,,,,,,Ms Subathra G,subathra.cse@sathyabama.ac.in
+569,CSE-569,LMS,2,38110370,Hariharan R,8939274725,39110372,Hariharan S,6383517059,,,,Ms. Priyanka N,priyanka.cse@sathyabama.ac.in
+570,CSE-570,Machine Learning,2,39110730,Palagiri  Uday Kiran Reddy,9346567825,39110756,Pattan Abdul kalam,9347906250,,,,Dr Veena K,veena.cse@sathyabama.ac.in
+571,CSE-571,Farmer Assistance System,2,39111077,Vemala Sathish,9347332914,39111123,Vamsi Krishna  Yarra,8688763765,,,,Dr.Karpura Dheepan G.M.,karpuradheepan.cse@sathyabama.ac.in
+572,CSE-572,Drug classification in machine learning ,2,39111031,Thota Krishna vamsi ,7095232307,39110550,Venkata Balaji kumar Kundella,9347576803,,,,Ms.Velvizhi R,velvizhi.cse@sathyabama.ac.in
+573,CSE-573,Smartdustbin,2,39110335,Gokul V,9789820063,39110328,Gershome T,7558118776,,,,Dr. Ronold Doni,doni.cse@sathyabama.ac.in
+574,CSE-574,Web Development,2,39110714,S. Om Prakash  Choudhary,9884634430,39110715,Om Prasad Sahu,8328551190,,,,N Srinivasan,srinivasan.cse@sathyabama.ac.in
+575,CSE-575,Image processing using ai,2,39110400,Jawahar Vijay,7695947914,39110331,Giri Vasan,9566667759,,,,Ms. Priyanka N,priyanka.cse@sathyabama.ac.in
+576,CSE-576,Machine learning,2,39110267,DEVI SRI SAI NIKITHA P,6300595945,39110203,SUBHA SRIVANI CHALLA,8008031546,,,,N Srinivasan,srinivasan.cse@sathyabama.ac.in
+577,CSE-577,Classification of cancerous profiles using machine Learning,2,39110708,Nitisha Sharma,9360656023,39110694,Nidhi Sawarn,9772150436,,,,N Srinivasan,srinivasan.cse@sathyabama.ac.in
+578,CSE-578,FITNESS TRACKER                ,2,39110716,Omkar Avhiegya,8797472220,39110678,Narendra  Modi,7709516004,,,,N Srinivasan,srinivasan.cse@sathyabama.ac.in
+579,CSE-579,Classifying the students of a institution ,2,39110187,Bovilla raghunath  Reddy,9100572109,39110767,P.krishna Chaitanya ,6300289694,,,,Dr Vigneshwari S,vigneshwari.cse@sathyabama.ac.in
+580,CSE-580,Road lane line detection using machine Learning ,2,39111009,T D S N M  Srujith Reddy ,9014553323,39111051,Vajrala  Subbareddy,8688692823,,,,Ms Sangeetha G,sangeetha.cse@sathyabama.ac.in
+581,CSE-581,Ecommerce website ,1,39111061,Varshini G,8688413351,,,,,,,Ms.Velvizhi R,velvizhi.cse@sathyabama.ac.in
+582,CSE-582,"Machine Learning, Web Development",2,39110700,Nimmala Akash,9390188859,39110670,Nallamalli Ravi Kanth,9100575729,,,,Dr Veena K,veena.cse@sathyabama.ac.in
+583,CSE-583,Titanic Survival Project,2,39110703,NITHEESH R,6369833883,39110684,Naveen Kumar JS,9597758021,,,,Roobini M.S,roobini.cse@sathyabama.ac.in
+584,CSE-584,Image colorization using GAN,2,39110311,Hitesh  Reddy,6305411558,39110265,Devendra Reddy,6303947830,,,,Ms.POTHUMANI S,pothumani.cse@sathyabama.ac.in
+585,CSE-585,Agriculture crop recommendation,2,39110205,Chama  Karthik Reddy,8688656436,39110170,Bodaballa  Raghu ram,8688650813,,,,Ms.POTHUMANI S,pothumani.cse@sathyabama.ac.in
+586,CSE-586,Fire extinguishing using sensors ,1,39110134,BARATH S P,8220516964,,,,,,,Dr Murugan S,murugan.cse@sathyabama.ac.in
+587,CSE-587,Air pollution level detection,2,39110711,Nomula Sai  Purnesh,9959283770,39110693,Nelakanti Sai srinivasa akash,6302479619,,,,Mr. Venketbabu T,venkatbabu.cse@sathyabama.ac.in
+588,CSE-588,Food Restaurant Website,2,39110224,Uday Kumar,7893438034,39110289,Jaswanth Reddy Duggempudi,9347141603,,,,Dr. Sardar Maran P,psmaran@sathyabama.ac.in
+589,CSE-589,Movie Recommendation Using Chatbot,2,39110539,KRISHNAKUMAR  S,8281744255,39110278,DION PAUL KG,8921410944,,,,Dr J REFONAA,refonna.cse@sathyabama.ac.in
+590,CSE-590,Project  using  block chain ,2,39110705,Nithin Kumar ,9573108534,39110877,P V R Saketh Ram,7013475435,,,,Ms. R. Aishwarya,aishwarya.cse@sathyabama.ac.in
+591,CSE-591,Data Automation View,2,39110382,Himanshu Singh,9660271998,39110055,Amit Prakash,9771268879,,,,Dr Vigneshwari S,vigneshwari.cse@sathyabama.ac.in
+592,CSE-592,Barbie with brains,2,39110354,Guda Srividya,9100792474,39110660,Anusha Nadella,9347862588,,,,Dr.R.Sathya Bama  Krishna,sathyabamar.cse@sathyabama.ac.in
+593,CSE-593,Heart disease prediction,2,39110775,srinivasa prasad polavarapu,9490769039,39110893,veeranjineyulu sankharapu,9059076410,,,,Dr. Christy A,christy.cse@sathyabama.ac.in
+594,CSE-594,Crime rate prediction in the world,2,39110738,Pandre Balaji,934745698,39110423,kadali Chandra Sekhar Karthik,9494130123,,,,Dr.C.Hemalatha  Chandrasekaran,Drhemalatha.cse@sathyabama.ac.in
+595,CSE-595,image processing and identification ,2,39110486,s keerthivas,8688386858,39110764,p hemasagar reddy,9110752177,,,,Dr. V. Saranya Velusamy,saranya.cse@sathyabama.ac.in
+596,CSE-596,face detection and recognition for criminal identification system,2,39110439,KALYANAPU SRIDHAR,9959643036,39110864,SAGAM  NIKHIL REDDY,8897455854,,,,Dr. Aroul Canessane R,aroul.cse@sathyabama.ac.in
+597,CSE-597,Credit card fraud detection using machine learning,2,39110731,GOWTHAM PALLA,8688792058,39111034,RONDA THRILOKESH,9502761768,,,,Roobini M.S,roobini.cse@sathyabama.ac.in
+598,CSE-598,Crime Rate Prediction In The World,2,39110755,Hari pavan Patibandla,6300791469,39110751,Varun Achyuth Ram Pasupuleti,9392789393,,,,Ms.Karthika  J,karthika.cse@sathyabama.ac.in
+599,CSE-599,Strictly Social - Full Stack Development Using Flask,2,39111115,VUTUKURI  ESWAR CHAND,9441476544,39110462,KARRI VENKATA NAGA SAI VAMSI,8688253151,,,,Dr J REFONAA,refonna.cse@sathyabama.ac.in
+600,CSE-600,Crime detection ,2,39110721,Padala Snvvkssa Harish ,7670994996,39110736,Panchikatala Anil,8008712662,,,,Mr. Venketbabu T,venkatbabu.cse@sathyabama.ac.in
+601,CSE-601,face recognition,2,39110133,Syamal Baratam,9121541040,39110531,saroj kumandan,9337247561,,,,Dr. B.Ankayarkanni,ankayarkanni.cse@sathyabama.ac.in
+602,CSE-602,DRIVER DROWSINESS USING MACHINE LEARNING,2,39110648,MUKKAPATI ASHOK KUMAR,9381315512,39110658,sri satya nihanth mutyala,8688691307,,,,Dr. Christy A,christy.cse@sathyabama.ac.in
+603,CSE-603,Social mapper,2,39110532,Kothamasu  Kousik,9347845857,39110499,Kilari  Rajeev,7702027289,,,,Ms.Karthika  J,karthika.cse@sathyabama.ac.in
+604,CSE-604,Smart Agriculture Using Machine Learning,2,39110068,Annamdevula  Sai Durga Manikanta,8555911762,39110251,Chandra Sekhar Dasari,9100634579,,,,Dr Ashokkumar,ashokkumar.cse@sathyabama.ac.in
+605,CSE-605,Credit Card Fraud Intelligent Detection based on Machine Learning,2,39110061,ANEM PRITAM,8688611429,39110057,AMUJARU GNANASAGAR,6301228687,,,,Dr Ashokkumar,ashokkumar.cse@sathyabama.ac.in
+606,CSE-606,Flood Prediction using AI Model,2,39110199,Abhishek Akri Byna,8374824133,39110161,Nithin reddy Bhimireddy,8096953062,,,,Dr. Christy A,christy.cse@sathyabama.ac.in
+607,CSE-607,Movie Tickets Booking,2,39110591,Mallepudi  Mowrrya Chandra Hasan ,6302001419,39110624,Midde Karteek Venkata Durga Prasad ,9441332999,,,,Dr Raja shree S,rajashree.cse@sathyabama.ac.in
+608,CSE-608,Web based Attendance System using Machine Learning and AI,2,39111107,vishanthan shree R,9360625276,39111082,Venkata Naga Sai Sucharith M,9908005872,,,,Dr A. Viji Amutha Mary,vijiamuthamary.cse@sathyabama.ac.in
+609,CSE-609,Comparative Analysis of customer Loan  Approval Prediction Using Machine Learning Algorithm,2,39110529,KOTA SRI RAMA SUBRAHMANYAM,8688418028,39110606,MARAM SRINIVASULU REDDY,7032200906,,,,Dr Ashokkumar,ashokkumar.cse@sathyabama.ac.in
+610,CSE-610,Heart Attack Prediction using nine(9) different types of algorithms ,1,39110831,Nithin Rajulapati,9347047213,,,,,,,Ramya.G Franklin,ramyagfranklin.cse@sathyabama.ac.in
+611,CSE-611,Chat Bot,2,39110191,Bruce Kevin,9150337310,39110190,Brikesh  Vikin,9791658518,,,,Ms. Manju. C. Nair,manjunair.cse@sathyabama.ac.in
+612,CSE-612,automation,2,39110274,DINESH BALAJI R,9003202252,39110258,DENNIS MICHAEL  D,7010350940,,,,Dr Ashokkumar,ashokkumar.cse@sathyabama.ac.in
+613,CSE-613,Project on Web Development,2,39110016,Achanta Sai Bhavana Priya,8688488221,39110025,Adivishnu Sri Mahalakshmi,9347497193,,,,Dr. C.Kavitha,kavitha.cse@sathyabama.ac.in
+614,CSE-614,AI ,1,39110495,Kevin Joe Richard S,9025525879,,,,,,,Dr. V. Saranya Velusamy,saranya.cse@sathyabama.ac.in
+615,CSE-615,Helmet detection using machine learning and automatic licence plate recognition,2,39110666,N.Poorna Rama  Chandra Reddy,8186071111,39110487,Ke6nguva Chaitanya Srinivas,8074050476,,,,Dr.Selvi M,selvi.cse@sathyabama.ac.in
+616,CSE-616,Cyber Saver,2,39110629,MOHAMMAD  YUNUS,9347767856,39110461,SANDEEP SIMHA KARRI,9133018550,,,,Dr J REFONAA,refonna.cse@sathyabama.ac.in
+617,CSE-617,Spam Detection ,2,39110193,Kushyanth  Buddala,8919213166,39110121,Adithya Banda,7731803787,,,,Dr. S.Jayanthi,jayanthi.cse@sathyabama.ac.in
+618,CSE-618,Movie Tickets Booking,1,39110560,Laasya G,8056016051,,,,,,,Dr Raja shree S,rajashree.cse@sathyabama.ac.in
+619,CSE-619,API-Based Ransomware Detection Using Machine Learning-Based Threat Detection Models,2,39110823,RAGHU M.L,8688066291,39110873,SAI VINESH  P.G,6304459759,,,,Dr. Joshila Grace L.K,joshilagrace.cse@sathyabama.ac.in
+620,CSE-620,Human activities recognization ,2,39111032,BHAVANI PRASAD THOTAKURA,6303604842,39110522,NAGA SAI SURYA KRISHNA MANOJ KONDAPALLI,9160822888,,,,Dr T Prem  Jacob,premjacob.cse@sathyabama.ac.in
+621,CSE-621,agricultral lone recommender system,2,39110843,srinivas rayapudi,9150994012,39110554,Tharun kurapati,8688616621,,,,DR. NANCY NOELLA R S,nancynoella.cse@sathyabama.ac.in
+622,CSE-622,Disease prediction by taking attributes from the user,2,39111074,Lalitha Velagapudi,9347393648,39110749,Mohana Akshaya Pasupuleti,7981164880,,,,Ramya.G Franklin,ramyagfranklin.cse@sathyabama.ac.in
+623,CSE-623,Ids storage website,2,39110771,Pericharla Raju,7842111112,39110669,Nallamilli Sai krishna Reddy,6281029510,,,,Mr. Venketbabu T,venkatbabu.cse@sathyabama.ac.in
+624,CSE-624,RH treatment time prediction using ML,2,39110816,Purushottam Kumar,6203541645,39110546,Kumar Bhaskar Prakash,9334462616,,,,Dr Veena K,veena.cse@sathyabama.ac.in
+625,CSE-625,Pneumonia Prediction using chest X-Ray image with Machine Learning,2,39110252,Dasari Jahnavi,8688551478,39110247,Dara Sree Sai Preethi,7095679377,,,,Dr.Mohana Prasad K,mohan.cse@sathyabama.ac.in
+626,CSE-626,Forest Cover Type Prediction,1,39110926,SHAIK JAVEED SUHAIL,7032551006,,,,,,,Dr J REFONAA,refonna.cse@sathyabama.ac.in
+627,CSE-627,Mask detection,2,39110452,K.HC Narasimha  Naidu,7702536585,39110909,Satyavardhan Mallela,7780150811,,,,Ms.Anandhi Tamilvanan,anandhitamil2908@gmail.com
+628,CSE-628,Recommendation system,2,39110503,Kishwar P,8939300450,39110475,Kather Moideen,7550188547,,,,Ms. Lavanya G,lavanya.cse@sathyabama.ac.in
+629,CSE-629,Real time data analysis,2,39110242,DALIPARTHI JEEVANA ADITYA,8985898352,39110987,SUNKI LAXMANRAJ,7075224960,,,,Dr.R.Sathya Bama Krishna,sathyabamar.cse@sathyabama.ac.in
+630,CSE-630,Streaming Website,2,39110314,Sai Kiran Ganesh kumar,7731982618,39110351,Grandhi Chandra Sekhar,9110731576,,,,Dr Murugan S,murugan.cse@sathyabama.ac.in
+631,CSE-631,Agricultural approaches using Machine Learning,1,39110150,BESCHI JOSHUA EMMANUEL,9384832448,,,,,,,Ramya.G Franklin,ramyagfranklin.cse@sathyabama.ac.in
+632,CSE-632,applications of machine learning,2,39110141,Nithish Sai  Batchu,8985361249,39110733,Nithin Pallepati,7569576342,,,,Dr. S.Jayanthi,jayanthi.cse@sathyabama.ac.in
+633,CSE-633,Fish Image Species Classification,2,39110995,Surya Vardhan Reddy Puchalapalli,8309367639,39110601,Vamsi Krishna Mannepalli,9121727213,,,,Ms. R. Aishwarya,aishwarya.cse@sathyabama.ac.in
+634,CSE-634,STUDENT PERFORMANCE ,2,39110307,GAJJALA AMRUTH REDDY,9390611329,39110772,PERUSOMULA  MANOHAR REDDY,8688388943,,,,Dr.C.Hemalatha  Chandrasekaran,Drhemalatha.cse@sathyabama.ac.in
+635,CSE-635,Loan approval prediction ,2,39111089,Vetcha MANIKANTA,7661813239,39110285,Dinesh balaji Dondapati,9502278993,,,,Ms.Anandhi Tamilvanan,anandhitamil2908@gmail.com
+636,CSE-636,Machine learning ,2,39910117,Baliboina  Praveen Kumar ,7288038892,39110110,Bhanu prakash  Bade,9849021789,,,,Ms. Kalaivani A,kalaivani.cse@sathyabama.ac.in
+637,CSE-637,Face mask detection,2,39110852,K Rohan    Kumar,9933227464,39110850,Rithik  Joseph,9345839481,,,,Ms.Nithya S,nithya.cse@sathyabama.ac.in
+638,CSE-638,Fraud app detection ,2,39110580,R Madangopi ,9025022906,39110890,R Sanjai ,9791518333,,,,Dr.Nagarajan G,gnagarajan.cse@sathyabama.ac.in
+639,CSE-639,Online transaction Fraud detection ,2,39110707,Nithyasree C,6383896580,39110709,Nivyaasree  C,6382085748,,,,Dr. Meeragandhi G,meeragandhi.cse@sathyabama.ac.in
+640,CSE-640,machine learning,2,39110838,ramineni loshitha,8688450501,39110595,manchala jyothi prashanth kiran,8897352409,,,,Dr. B.Ankayarkanni,ankayarkanni.cse@sathyabama.ac.in
+641,CSE-641,Vocal based parkinson’s disease dectection,2,39110029,Akana Mahendra narasimha,8309325843,39110734,Palukuri Venkata Bhairava krishna,9494972339,,,,Dr. B.Ankayarkanni,ankayarkanni.cse@sathyabama.ac.in
+642,CSE-642,face detection,2,39110951,Jayaram Siripalli,6305537299,39110596,Noah Vijay Dora Manchala,9121714919,,,,Dr. B.Ankayarkanni,ankayarkanni.cse@sathyabama.ac.in
+643,CSE-643,cartoonify image with machine learning,2,39110457,sathwika karnati,9150986122,39110214,swathika chava,7816007990,,,,Dr.Selvi M,selvi.cse@sathyabama.ac.in
+644,CSE-644,Using augmented reality to showcase information,2,39110822,Raghavee  E.M,6382945122,39110416,Joshna Irene,8489493480,,,,Dr. G.  Kalaiarasi,kalaiarasi.cse@sathyabama.ac.in
+645,CSE-645,”DIABETES PREDICTION USING MACHINE LEARNING,2,39110120,Sivaprasad Balu,7993117501,39110602,MANNURU  NARESH,7993371154,,,,Dr. B.Ankayarkanni,ankayarkanni.cse@sathyabama.ac.in
+646,CSE-646,speech recognization system,2,39110216,cheedella venkata sai ramudu,9502712096,39110231,chinta pavan kalyan reddy,7032689559,,,,Dr.R.Sathya Bama  Krishna,sathyabamar.cse@sathyabama.ac.in
+647,CSE-647,Pneumonia detection using deep learning algorithms,2,39110638,Sarvani Molakala,9346010599,39110490,lakshmi suma kesana,8639774367,,,,Dr.Selvi M,selvi.cse@sathyabama.ac.in
+648,CSE-648,App development with AI and ML,2,39110496,Kevin Richard,9677566900,39110489,Kerthik Rosan,7904154527,,,,Ms. Lavanya G,lavanya.cse@sathyabama.ac.in
+649,CSE-649,image forgery detection,2,39110653,Akhil Mundru,9347507602,39110359,Amarnadh Gundrala,7702023429,,,,Dr. G.  Kalaiarasi,kalaiarasi.cse@sathyabama.ac.in
+650,CSE-650,library management system,2,39110195,Narasimha Buddiga,9912774974,39111013,Nitish Kumar Talanki,8555901899,,,,Dr Vigneshwari S,vigneshwari.cse@sathyabama.ac.in
+658,CSE-658,Real time data analysis,2,39110524,konduru srilaya,8074069627,39110355,Gudavalli Lasya,7995773894,,,,Dr J REFONAA,refonna.cse@sathyabama.ac.in

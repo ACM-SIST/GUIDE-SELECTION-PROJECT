@@ -241,15 +241,18 @@ def login(request):
             if Temp_Team.objects.filter(student_1_email=user.email).exists():
                 team = Temp_Team.objects.filter(
                     student_1_email=user.email).get()
-                guide_inst = Guide.objects.filter(
-                    serial_no=team.guide.serial_no).get()
-                context = {
-                    'team': team,
-                    'user': user,
-                    'guide': guide_inst,
-                    'id': guide_inst.serial_no
-                }
-
+                if Guide.objects.filter(serial_no=team.guide).exists():
+                    guide_inst = Guide.objects.filter(
+                        serial_no=team.guide).get()
+                    context = {
+                        'team': team,
+                        'user': user,
+                        'guide': guide_inst,
+                        'id': guide_inst.serial_no
+                    }
+                else:
+                    team.delete()
+                    return render(request, 'no_of_stud/no_of_stud.html')
                 if team.no_of_members == '2':
                     return render(request, 'team_confirm_2/team_confirm_2.html', context)
                 else:

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./home.css">
-	<link rel = "icon" href = .img/logo.jpg type = "image/x-icon">
+	<link rel = "icon" href = "{% static 'img/logo.jpg' %}" type = "image/x-icon">
     <title>HOME</title>
 </head>
 
@@ -15,7 +15,7 @@
 	<header class="container-box">
 		<nav id="menu">
 			<ul class="blackbox">
-				<a href="home">
+				<a href="{% url 'home' %}">
 					<img src="{% static 'img/headimg.jpeg' %}" class="img">
 				</a>
 				<li id="red"><a href="{% url 'home' %}">Home</a></li>
@@ -28,9 +28,17 @@
 		<div id="maincontent">
 			<div class="container">
 				<video class="orange" autoplay muted loop id="myvideo" onclick="play();">
-					<source src="{% static 'img/SIST.mp4' %}" type="video/mp4" />
+					<source src="./Image/SIST.mp4" type="video/mp4" />
 				</video>
 				<div class="overlay">
+				    <div class="roller">
+						<div class="heading">ANNOUNCEMENT</div>
+						<ul class="news">
+							<li class="flash"><a href="">1.The review dates for the final year project has been releases here.</a></li>
+							<li class="flash"><a href="">2.The final list of student details are uploaded here.</a></li>
+							<li class="flash"><a href="">3.Click here to download the file.</a></li>
+						</ul>
+					</div>
 					<h1 class="first">Sathyabama Institute of Science And Technology <button id="button1">Register Now</button>
 					</h1>
 					<!--<form>
@@ -83,12 +91,9 @@
 						<li>
 							<p>Once completed,check your registered  E_mail for the confirmation details. Remember the team id  for further communication.</p>
 						</li>
-						<!-- <li>
-							<p>COMPLETING THE SELECTION PROCESS CHECK YOAFTERFOR YOUR CONFIRMATION DETAILS. COPY AND KEEP YOUR TEAM-ID SAFE AND SAVED AS IT IS VERY IMPORTANT FOR FURTHER PROCESS IN THE PROJECT DURATION.</p>
-						</li>	 -->
 					</ol>
 					<form action="{% url 'register' %}" id="black">
-						{% csrf_token %}
+						<!-- {% csrf_token %} -->
 						<div class="check">
 							<input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" required />
 							<label for="terms_and_conditions">I have read all the rules and regulations to fill the form and i accept
@@ -96,7 +101,7 @@
 						</div>
 						<br>
 						<div>
-							<button href="{% url 'register' %}"  type="submit" id="submit_button" disabled>Submit</button>
+							<button type="submit" id="submit_button" disabled>Submit</button>
 						</div>
 					</form>
 				</div>

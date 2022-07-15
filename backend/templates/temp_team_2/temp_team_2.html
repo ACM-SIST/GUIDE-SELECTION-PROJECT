@@ -17,7 +17,7 @@
             </ul>
         </nav>
         <div class="testbox">
-            <form action="{% url 'project-details-2' %}" method="POST">
+            <form action="{% url 'select-guide' %}" method="POST">
                 {% csrf_token %}
               <div class="banner">
                 <h1>Final Year Project Guide selection</h1>
@@ -30,16 +30,16 @@
                 <div class="project">
                     <div class="item">
                         <label for="name">Project Title<span>*</span></label>
-                        <input id="name" type="text" name="project_name" placeholder="  Project title" required/>
+                        <input id="name" type="text" value="{{ team.project_name }}" name="project_name" placeholder="  Project title" required/>
                     </div>
                     <div class="item">
                         <label for="domain">Project Domain<span>*</span><p>(Ex: Machine Learning,Cloud Computing,Block Chain)</p></label>
-                        <input id="domain" type="text" name="project_domain" placeholder="  Project domain" required/>
+                        <input id="domain" type="text" value="{{ team.project_domain }}" name="project_domain" placeholder="  Project domain" required/>
                     </div>
                 </div>
                 <div class="item">
                   <label for="description">Project Description<span>*</span></label>
-                  <textarea id="description" type="text" name="project_description" placeholder="  Project description" minlength="50" required></textarea>
+                  <textarea id="description" type="text" name="project_description" placeholder="{{ team.project_description }}" minlength="50" required></textarea>
                 </div> 
                   <div class="item">
                     <div class="name-item">
@@ -54,13 +54,13 @@
                         <div class="item">
                         <label for="name">Name<span>*</span></label>
                         <div class="name-item">
-                        <input id="name" type="text" name="first_name" placeholder="  First" value="{{ user.first_name }}" disabled/>
-                        <input id="name" type="text" name="last_name" placeholder="  Last" value="{{ user.last_name }}" disabled/>
+                        <input id="name" type="text" name="first_name" placeholder="  First" value="{{ team.student_1_name }}" required/>
+                        <!-- <input id="name" type="text" name="last_name" placeholder="  Last" value="{{ user.last_name }}" disabled/> -->
                         </div>
                         </div>
                         <div class="item">
                         <label for="regno">Register Number<span>*</span></label>
-                        <input id="regno" type="text" name="reg_no_1" placeholder="  Register Number" required/>
+                        <input id="regno" type="text" value="{{ team.reg_no_1 }}" name="reg_no_1" placeholder="  Register Number" required/>
                         </div>
                         <div class="item">
                         <label for="email">Email<span>*</span></label>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="item">
                         <label for="phno">Phone Number<span>*</span></label>
-                        <input id="phno" type="text" name="student_1_no" placeholder="  Phone Number" required />
+                        <input id="phno" type="text" value="{{ team.student_1_no }}" name="student_1_no" placeholder="  Phone Number" required />
                         </div>
                     </fieldset>
                 </div>
@@ -78,21 +78,21 @@
                         <div class="item">
                         <label for="name">Name</label>
                         <div class="name-item">
-                        <input id="name" type="text" name="first_name_2" placeholder="  First" required/>
-                        <input id="name" type="text" name="last_name_2" placeholder="  Last" required/>
+                        <input id="name" type="text" value="{{ team.student_2_name }}" name="first_name_2" placeholder="  First" required/>
+                        <!-- <input id="name" type="text" name="last_name_2" placeholder="  Last" required/> -->
                         </div>
                         </div>
                         <div class="item">
                         <label for="regno">Register Number</label>
-                        <input id="regno" type="text" name="reg_no_2" placeholder="  Register Number" required/>
+                        <input id="regno" type="text" name="reg_no_2" placeholder="  Register Number" value="{{ team.reg_no_2 }}"  required/>
                         </div>
                         <div class="item">
                         <label for="email">Email</label>
-                        <input id="email" type="email" name="student_2_email" placeholder="  Email Id" value="{{ email.user_email }}" disabled/>
+                        <input id="email" type="email" name="student_2_email" placeholder="  Email Id" value="{{ team.student_2_email }}" disabled/>
                         </div> 
                         <div class="item">
                         <label for="phno">Phone Number</label>
-                        <input id="phno" type="text" name="student_2_no" placeholder="  Phone Number" required />
+                        <input id="phno" type="text" value="{{ team.student_2_no }}" name="student_2_no" placeholder="  Phone Number" required />
                         </div>
                     </fieldset>
                 </div>

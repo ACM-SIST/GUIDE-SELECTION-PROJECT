@@ -21,7 +21,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('guides', views.guides, name='guides'),
+    path('guides/', views.guides, name='guides'),
     path('submitted', views.submitted, name='submitted'),
     path('register', views.register, name='register'),
     path('login', views.login, name='login'),
@@ -29,7 +29,7 @@ urlpatterns = [
     path('no-of-stud', views.no_of_stud, name='no-of-stud'),
     path('project-details-1', views.project_details_1, name='project-details-1'),
     path('project-details-2', views.project_details_2, name='project-details-2'),
-    path('select-guide', views.select_guide, name='select-guide'),
+    # path('select-guide/', views.select_guide, name='select-guide'),
     path('guide-selected/<int:id>', views.guide_selected, name='guide-selected'),
     # /*****************/
     # reset  password urls
@@ -48,5 +48,5 @@ urlpatterns = [
     # # selected 2 mail
     path('mail1', views.mail1, name='mail1'),
     path('credits', views.credits, name='credits'),
-    path('search', views.search, name='search'),
+    path('search/', views.search, name='search'),
 ]

@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from pages.models import Otp, Otp_Two, Team, Guide, Temp_Team
+from pages.models import Otp, Otp_Two, Team, Guide, Temp_Team, Temp_User
 from import_export.admin import ImportExportModelAdmin, ExportActionMixin
 from import_export import resources
 
@@ -28,19 +28,36 @@ class TeamResource(resources.ModelResource):
     class Meta:
         model = Team
 
-        fields = ('teamID', 'project_name', 'no_of_members', 'reg_no_1',
-                  'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'guide', 'guide_email')
+        fields = ('id', 'teamID', 'project_name', 'no_of_members', 'reg_no_1',
+                  'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'reg_no_3', 'student_3_name', 'student_3_no', 'guide', 'guide_email')
 
 
 class TeamAdmin(ImportExportModelAdmin):
-    list_display = ('teamID', 'project_name', 'no_of_members', 'reg_no_1',
+    list_display = ('id', 'teamID', 'project_name', 'no_of_members', 'reg_no_1',
                     'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'guide', 'guide_email')
     ordering = ('teamID',)
     resource_class = TeamResource
 
 
+class Temp_TeamResource(resources.ModelResource):
+    class Meta:
+        model = Temp_Team
+
+        fields = ('id', 'teamID', 'project_name', 'no_of_members', 'reg_no_1',
+                  'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'reg_no_3', 'student_3_name', 'student_3_no')
+
+
+class Temp_TeamAdmin(ImportExportModelAdmin):
+    list_display = ('id', 'teamID', 'project_name', 'no_of_members', 'reg_no_1',
+                    'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no')
+    # ordering = ('teamID',)
+    resource_class = Temp_TeamResource
+
+
 admin.site.register(Guide, GuideAdmin)
 admin.site.register(Team, TeamAdmin)
+# admin.site.register(Team)
 admin.site.register(Otp)
 admin.site.register(Otp_Two)
-admin.site.register(Temp_Team)
+admin.site.register(Temp_Team, Temp_TeamAdmin)
+admin.site.register(Temp_User)

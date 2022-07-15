@@ -33,8 +33,8 @@
             {% include 'partials/_alerts.html' %}
             {% csrf_token %}
             <div  class="txt_field">
-                <input type="text" name="email_1" style="text-align: center;" value="{{ user.email }}" placeholder="Email of team member 1" disabled ><br><br>
-                <input type="text" name="email_2" style="text-align: center; border: 1px solid black; " placeholder="Enter Email of team member 2"><br><br> 
+                <input type="email" name="email_1" style="text-align: center;" value="{{ user.email }}" placeholder="Email of team member 1" disabled ><br><br>
+                <input type="email" name="email_2" style="text-align: center; border: 1px solid black; " placeholder="Enter Email of team member 2" required><br><br> 
                 <input type="submit">
             </div>
         </form>

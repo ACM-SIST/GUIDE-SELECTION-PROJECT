@@ -19,18 +19,10 @@
                 <li><a href="{% url 'login' %}">Login</a></li>
                 <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
-        <!--<nav class="head" >
-            <a href="../Home/home.html">
-                <img src="Image/headimg.jpeg" class="img">
-            </a>
-            <ul>
-                <li><a href="../Login/login.html">Login</a></li>
-                <li><a href="../Home/home.html">Home</a></li>
-            </ul>
-        </nav>-->
     </header>
     <div class="center">
         <h1>Create Account</h1>
+        {% include 'partials/_alerts.html' %}
         <form action="{% url 'register' %}" method="POST">
             {% csrf_token %}
             <div class="txt_field">
@@ -42,7 +34,7 @@
                 <label>Last Name</label>
             </div>
             <div class="txt_field">
-                <input type="text" name="email" required>
+                <input type="email" name="email" required>
                 <label>Enter Email id</label>
             </div>
             <div class="txt_field">
@@ -55,9 +47,9 @@
             </div>
             <div class="txt_field1">
                 <div class="depart">
-                    {% csrf_token %}
+                    
                     <label for="department" required>Select Department<span>*</span>: </label>
-                    <select name="department" class="drop">
+                    <select name="department" class="drop" required >
                         <!-- <optgroup> -->
                             <option value="CSE" class="opt">Department</option>
                         <!-- </optgroup> -->

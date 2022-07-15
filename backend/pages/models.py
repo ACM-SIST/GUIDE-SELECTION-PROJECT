@@ -31,23 +31,22 @@ class Team(models.Model):
         max_length=10, choices=no_members_choices, default='1')
 
     reg_no_1 = models.BigIntegerField()
-
     student_1_name = models.CharField(max_length=100)
-
     student_1_email = models.CharField(max_length=100)
-
     student_1_no = models.BigIntegerField()
 
     reg_no_2 = models.BigIntegerField(blank=True, null=True)
-
     student_2_name = models.CharField(max_length=100, blank=True, null=True)
-
     student_2_email = models.CharField(max_length=100, blank=True, null=True)
-
     student_2_no = models.BigIntegerField(blank=True, null=True)
 
+    reg_no_3 = models.BigIntegerField(blank=True, null=True)
+    student_3_name = models.CharField(max_length=100, blank=True, null=True)
+    student_3_email = models.CharField(max_length=100, blank=True, null=True)
+    student_3_no = models.BigIntegerField(blank=True, null=True)
+
     guide = models.CharField(
-        max_length=100, null=True, blank=True)
+        max_length=100)
 
     guide_email = models.CharField(max_length=100, default='email@gmail.com')
 
@@ -72,13 +71,14 @@ class Temp_Team(models.Model):
     student_1_no = models.BigIntegerField()
 
     reg_no_2 = models.BigIntegerField(blank=True, null=True)
-
     student_2_name = models.CharField(max_length=100, blank=True, null=True)
-
     student_2_email = models.CharField(max_length=100, blank=True, null=True)
-
     student_2_no = models.BigIntegerField(blank=True, null=True)
 
+    reg_no_3 = models.BigIntegerField(blank=True, null=True)
+    student_3_name = models.CharField(max_length=100, blank=True, null=True)
+    student_3_email = models.CharField(max_length=100, blank=True, null=True)
+    student_3_no = models.BigIntegerField(blank=True, null=True)
     guide = models.ForeignKey(
         Guide, on_delete=models.CASCADE, null=True, blank=True)
 
@@ -98,6 +98,14 @@ class Otp_Two(models.Model):
     user_email = models.CharField(max_length=100)
     temp_email = models.CharField(max_length=100, blank=True, null=True)
     otp = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.user_email
+
+
+class Temp_User(models.Model):
+    user_email = models.EmailField(max_length=100)
+    is_verified = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user_email

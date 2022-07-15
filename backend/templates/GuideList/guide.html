@@ -13,6 +13,7 @@
     <title>List</title>
 </head>
 <body>
+    {% if user.is_authenticated %}
     <header>
         <nav id="menu">
             <ul class="blackbox">
@@ -21,8 +22,8 @@
                 <li>
                   <div class="box">
                     <div class="container-2">
-                        <form action="{% url 'search' %}" >
-                            
+                        <form action="{% url 'search' %}">
+                            <!-- {% csrf_token %} -->
                             <span class="icon"><i class="fa fa-search"></i></span>
                             <input type="search" name="name" id="search" placeholder="Search..." />
                             <button type="submit">Submit</button>
@@ -118,6 +119,16 @@
           </table>
         </div>
     </table> 
+
+    {% else %}
+
+    <h1>
+        YOU ARE NOT ALLOWED AS YOU ARE NOT REGISTERED/LOGGED IN!
+    </h1>
+
+    <p>Click here to </p><a href="{% url 'login' %}">LOGIN</a>
+
+    {% endif %}
 
     
     <footer class="footer">

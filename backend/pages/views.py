@@ -1,6 +1,7 @@
 
 from random import randrange
 from django.core.mail import send_mail
+from django.http import HttpResponse
 from guide_project.settings import EMAIL_HOST_USER
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
@@ -63,13 +64,15 @@ def guides(request):
 
 
 def submitted(request):
-    auth.logout(request)
+    # auth.logout(request)
     return render(request, 'submitted.html')
 
 
 def register(request):
     print('INSIDE REGISTER FUNCTION')
+    print('REQUEST METHOD: ', request.method)
     if request.method == 'POST':
+        print('INSIDE POST IF: ')
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
@@ -113,7 +116,6 @@ def register(request):
                     )
 
                     user.save()
-
                     auth.login(request, user)
 
                     return redirect('verify')
@@ -132,6 +134,7 @@ def register(request):
 def verify(request):
     user = request.user
     t = Otp.objects.filter(user_email=user.email)
+
     if request.method == 'POST':
         otp = request.POST['otp']
         g_otp = Otp.objects.filter(user_email=user.email).get()
@@ -177,8 +180,8 @@ def mail1(request):
 
         no = randrange(1000, 9999)
         print("2nd MEMBER OTP IS: ", no)
-        if Otp.objects.filter(user_email=email_2).exists():
-            t = Otp.objects.filter(user_email=email_2)
+        if Otp_Two.objects.filter(user_email=email_2).exists():
+            t = Otp_Two.objects.filter(user_email=email_2)
             t.delete()
             print("OTP DELETED AND SENT AGAIN")
         if User.objects.filter(email=email_2).exists():
@@ -216,7 +219,8 @@ def mail1(request):
 def verify1(request):
     if request.method == 'POST':
         otp = request.POST['otp']
-        g_otp = Otp_Two.objects.filter(temp_email=request.user.email).get()
+        if Otp_Two.objects.filter(temp_email=request.user.email).exists():
+            g_otp = Otp_Two.objects.filter(temp_email=request.user.email).get()
 
         if otp == g_otp.otp:
             return redirect('project-details-2')
@@ -235,12 +239,10 @@ def login(request):
 
             user = request.user
 
-            if user.is_staff == True:
-                return render(request, 'home/home.html')
-
             if Temp_Team.objects.filter(student_1_email=user.email).exists():
                 team = Temp_Team.objects.filter(
                     student_1_email=user.email).get()
+<<<<<<< HEAD
                 if Guide.objects.filter(serial_no=team.guide).exists():
                     guide_inst = Guide.objects.filter(
                         serial_no=team.guide).get()
@@ -253,10 +255,21 @@ def login(request):
                 else:
                     team.delete()
                     return render(request, 'no_of_stud/no_of_stud.html')
+=======
+                # guide_inst = Guide.objects.filter(
+                #     serial_no=team.guide.serial_no).get()
+                context = {
+                    'team': team,
+                    'user': user,
+                    # 'guide': guide_inst,
+                    # 'id': guide_inst.serial_no
+                }
+
+>>>>>>> 4abf7792c60add63574d1bcddfe7369d7089ab91
                 if team.no_of_members == '2':
-                    return render(request, 'team_confirm_2/team_confirm_2.html', context)
+                    return render(request, 'temp_team_2/temp_team_2.html', context)
                 else:
-                    return render(request, 'team_confirm_1/team_confirm_1.html', context)
+                    return render(request, 'temp_team_1/temp_team_1.html', context)
 
             if Team.objects.filter(teamID=user.username).exists():
                 auth.logout(request)
@@ -342,8 +355,10 @@ def project_details_2(request):
     student_2_email = Otp_Two.objects.filter(temp_email=curr_user.email).get()
 
     if Temp_Team.objects.filter(student_1_email=curr_user.email).exists():
-        obj = Temp_Team.objects.filter(student_1_email=curr_user.email).get()
-        obj.delete()
+        if Temp_Team.objects.filter(student_2_email=student_2_email.user_email).exists():
+            obj = Temp_Team.objects.filter(
+                student_1_email=curr_user.email).get()
+            obj.delete()
     if Team.objects.filter(teamID=curr_user.username).exists():
         is_team = Team.objects.filter(teamID=curr_user.username).get()
         is_team.delete()
@@ -377,7 +392,7 @@ def project_details_2(request):
         if len(reg_no_2) > 8:
             messages.error(request, 'Register Number be 8 digits long.')
             return redirect('project-details-2')
-        student_2_no = request.POST['student_1_no']
+        student_2_no = request.POST['student_2_no']
         if len(student_2_no) > 10:
             messages.error(request, 'Number must of 10 digits.')
             return redirect('project-details-2')
@@ -426,6 +441,10 @@ def project_details_2(request):
 
 def select_guide(request):
 
+    if request.user is None:
+
+        return HttpResponse('YOU ARE NOT ALLOWED HERE!')
+
     guides = Guide.objects.order_by('serial_no')
     if request.method == 'POST':
 
@@ -438,7 +457,54 @@ def select_guide(request):
     return render(request, 'GuideList/guide.html', context)
 
 
+def temp_team_1(request):
+    if request.method == 'POST':
+        temp_team = Temp_Team.objects.filter(
+            student_1_email=request.user.email).get()
+
+        temp_team.delete()
+
+        project_name = request.POST['project_name']
+        project_domain = request.POST['project_domain']
+        project_description = request.POST['project_description']
+        reg_no_1 = request.POST['reg_no_1']
+        student_1_no = request.POST['student_1_no']
+        if len(reg_no_1) > 8:
+            messages.error(request, 'Register Number be 8 digits long.')
+            return redirect('project-details-1')
+        student_1_no = request.POST['student_1_no']
+        if len(student_1_no) > 10:
+            messages.error(request, 'Number must of 10 digits.')
+            return redirect('project-details-2')
+
+        student_1_name = request.user.first_name + ' ' + request.user.last_name
+        student_1_email = request.user.email
+
+        first_name_2 = request.POST['first_name_2']
+        last_name_2 = request.POST['last_name_2']
+        reg_no_2 = request.POST['reg_no_2']
+        student_2_no = request.POST['student_2_no']
+        if len(reg_no_2) > 8:
+            messages.error(request, 'Register Number be 8 digits long.')
+            return redirect('project-details-2')
+        if len(student_2_no) > 10:
+            messages.error(request, 'Number must of 10 digits.')
+            return redirect('project-details-2')
+
+        student_2_email = request.POST['student_2_email']
+
+        student_2_name = first_name_2 + ' ' + last_name_2
+
+        temp_team = Temp_Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description, no_of_members='2', reg_no_1=reg_no_1,
+                                             student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no, reg_no_2=reg_no_2,  student_2_name=student_2_name, student_2_email=student_2_email, student_2_no=student_2_no)
+
+        temp_team.save()
+
+        return redirect('select-guide')
+    return render(request, 'temp_team_2/temp_team_2.html')
+
 # For confirmation page
+
 
 def guide_selected(request, id):
 
@@ -491,7 +557,9 @@ def guide_selected(request, id):
             guide_inst.vacancy -= 1
             guide_inst.save()
             temp_team.delete()
-        return redirect('submitted')
+        auth.logout(request)
+        # return redirect('submitted')
+        return render(request, 'submitted.html')
     context = {
         'guide': guide_inst,
         'team': temp_team,
@@ -512,11 +580,14 @@ def credits(request):
 
 
 def search(request):
+    print("INSIDE SEARCH FUNCTION: ")
     queryset_list = Guide.objects.order_by('serial_no')
 
     if 'name' in request.GET:
+        print("INSIDE GET IF")
         name = request.GET['name']
         if name:
+            print("INSIDE NAME IF..")
             queryset_list = queryset_list.filter(name__icontains=name)
             print(queryset_list)
     context = {

@@ -7,44 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="/manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" text="text/css" href="{% static 'css/noofstud.css' %}">
-    <link rel = "icon" href = "{% static 'img/logo.jpg' %}" type = "image/x-icon">
     <title>Number of students</title>
 </head>
 <body>
     <header>
-        <nav id="head" class="collapse navbar-collapse" >
-            <a href="{% url 'home' %}">
-                <img src="{% static 'img/headimg.jpeg' %}" class="img">
-            </a>
+        <nav id="menu">
             <ul>
-                <!-- <li><a href="../Register/register.html">Register</a></li> -->
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
         </nav>
-        <!-- <video autoplay muted loop id="myVideo">
-            <source src="Image/SIST.mp4" type="video/mp4">
-        </video> -->
     </header>
     <div class="center">
         <h1>Select Number of team members</h1>
         <div class="student-form" >
-            
             <div class="text-center">
-                <a href="{% url 'project-details-1' %}">
-                    <button type="submit" id="btn-stud">1</button>
-                </a>
+                <button type="submit" id="btn-stud" ><a href="{% url 'project-details-1' %}">1</a></button>
             </div>
             <div class="text-center">
-                <a href="{% url 'mail1' %}">
-                    <button type="submit" id="btn-stud">2</button>
-                </a>
+                <button type="submit"><a href="{% url 'mail1' %}">2</a></button>
             </div>
             <!-- <div class="signup_link"></div> -->
         </div>
     </div>
+    <!-- <section>
+        <footer class="footer">
+            <p>| &copy; Copyright 2022; ACM Sathyabama Institute of Science and Technology, All rights reserved.|</p>
+            <a href="https://www.instagram.com/acmsist/" class="footer_a" target="_blank"><i class="fa-brands fa-instagram" class="icon"></i></a>
+            <a href="https://www.linkedin.com/company/acm-sist-student-chapter/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
+        </footer>
+    </section> -->
 </body>
 </html>

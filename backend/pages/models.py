@@ -48,7 +48,7 @@ class Team(models.Model):
     guide = models.CharField(
         max_length=100)
 
-    guide_email = models.CharField(max_length=100, default='email@gmail.com')
+    guide_email = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return self.project_name + ' ' + self.student_1_name + ' Added Sucessfully.'
@@ -63,11 +63,8 @@ class Temp_Team(models.Model):
         max_length=10, choices=no_members_choices, default='1')
 
     reg_no_1 = models.BigIntegerField()
-
     student_1_name = models.CharField(max_length=100)
-
     student_1_email = models.CharField(max_length=100)
-
     student_1_no = models.BigIntegerField()
 
     reg_no_2 = models.BigIntegerField(blank=True, null=True)
@@ -79,8 +76,10 @@ class Temp_Team(models.Model):
     student_3_name = models.CharField(max_length=100, blank=True, null=True)
     student_3_email = models.CharField(max_length=100, blank=True, null=True)
     student_3_no = models.BigIntegerField(blank=True, null=True)
-    guide = models.ForeignKey(
-        Guide, on_delete=models.CASCADE, null=True, blank=True)
+    guide = models.CharField(
+        max_length=100, null=True)
+
+    guide_email = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return self.project_name + ' ' + self.student_1_name + ' Added Sucessfully.'

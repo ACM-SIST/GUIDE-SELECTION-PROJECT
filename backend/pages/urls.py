@@ -29,7 +29,7 @@ urlpatterns = [
     path('no-of-stud', views.no_of_stud, name='no-of-stud'),
     path('project-details-1', views.project_details_1, name='project-details-1'),
     path('project-details-2', views.project_details_2, name='project-details-2'),
-    # path('select-guide/', views.select_guide, name='select-guide'),
+    path('select-guide/', views.select_guide, name='select-guide'),
     path('guide-selected/<int:id>', views.guide_selected, name='guide-selected'),
     # /*****************/
     # reset  password urls
@@ -49,4 +49,7 @@ urlpatterns = [
     path('mail1', views.mail1, name='mail1'),
     path('credits', views.credits, name='credits'),
     path('search/', views.search, name='search'),
+    path('temp-team-1/', views.temp_team_1, name='temp-team-1'),
+    path('temp-team-2/', views.temp_team_2, name='temp-team-2'),
+
 ]

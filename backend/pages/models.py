@@ -72,12 +72,12 @@ class Temp_Team(models.Model):
     student_2_email = models.CharField(max_length=100, blank=True, null=True)
     student_2_no = models.BigIntegerField(blank=True, null=True)
 
-    # reg_no_3 = models.BigIntegerField(blank=True, null=True)
-    # student_3_name = models.CharField(max_length=100, blank=True, null=True)
-    # student_3_email = models.CharField(max_length=100, blank=True, null=True)
-    # student_3_no = models.BigIntegerField(blank=True, null=True)
-    # guide = models.CharField(
-    #     max_length=100, null=True)
+    reg_no_3 = models.BigIntegerField(blank=True, null=True)
+    student_3_name = models.CharField(max_length=100, blank=True, null=True)
+    student_3_email = models.CharField(max_length=100, blank=True, null=True)
+    student_3_no = models.BigIntegerField(blank=True, null=True)
+    guide = models.CharField(
+        max_length=100, null=True)
 
     guide_email = models.CharField(max_length=100, null=True)
 

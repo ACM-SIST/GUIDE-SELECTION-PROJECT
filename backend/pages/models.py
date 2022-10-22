@@ -51,7 +51,7 @@ class Team(models.Model):
     guide_email = models.CharField(max_length=100, null=True)
 
     def __str__(self):
-        return self.project_name + ' ' + self.student_1_name + ' Added Sucessfully.'
+        return self.teamID + self.project_name + ' ' + self.student_1_name + ' Added Sucessfully.'
 
 
 class Temp_Team(models.Model):

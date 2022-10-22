@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from pages.models import Otp, Otp_Two, Team, Guide, Temp_Team, Temp_User
-from import_export.admin import ImportExportModelAdmin, ExportActionMixin
+from import_export.admin import ImportExportModelAdmin
 from import_export import resources
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
@@ -24,6 +24,7 @@ class GuideAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     ordering = ('serial_no',)
 
     resource_class = GuideResource
+    search_fields = ['serial_no', 'emp_id', 'name', 'email', 'vacancy']
 
 
 class TeamResource(resources.ModelResource):
@@ -38,6 +39,8 @@ class TeamAdmin(ImportExportModelAdmin):
     list_display = ('id', 'teamID', 'project_name', 'no_of_members', 'reg_no_1',
                     'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'guide', 'guide_email')
     ordering = ('teamID',)
+    search_fields = ('teamID', 'reg_no_1', 'reg_no_2',
+                     'project_name', 'project_domain', 'student_1_name', 'student_2_name', 'guide')
     resource_class = TeamResource
 
 
@@ -52,30 +55,32 @@ class Temp_TeamResource(resources.ModelResource):
 class Temp_TeamAdmin(ImportExportModelAdmin):
     list_display = ('id', 'teamID', 'project_name', 'no_of_members', 'reg_no_1',
                     'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no')
-    # ordering = ('teamID',)
+    ordering = ('teamID',)
+    search_fields = ('teamID', 'reg_no_1', 'reg_no_2', 'project_name')
     resource_class = Temp_TeamResource
 
 
 class UserResource(resources.ModelResource):
+
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'password'
-                  'email', 'is_active', 'is_staff')
+        fields = ('id', 'username', 'first_name',
+                  'last_name', 'email', 'password', 'is_active', 'is_staff')
 
 
 class UserAdmin(ImportExportModelAdmin):
     list_display = ('username', 'first_name',
-                    'last_name', 'email', 'password', 'is_active', 'is_staff')
-    # list_filter = ('created_at',)
+                    'last_name', 'email', 'is_active', 'is_staff')
+    ordering = ['username']
+    search_fields = ('username', 'email', 'first_name', 'last_name')
     resource_class = UserResource
     pass
 
 
-# admin.site.register(User)
-# admin.site.register(User, UserAdmin)
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
 admin.site.register(Guide, GuideAdmin)
 admin.site.register(Team, TeamAdmin)
-# admin.site.register(Team)
 admin.site.register(Otp)
 admin.site.register(Otp_Two)
 admin.site.register(Temp_Team, Temp_TeamAdmin)

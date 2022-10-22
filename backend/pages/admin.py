@@ -3,6 +3,8 @@ from django.contrib import admin
 from pages.models import Otp, Otp_Two, Team, Guide, Temp_Team, Temp_User
 from import_export.admin import ImportExportModelAdmin, ExportActionMixin
 from import_export import resources
+from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin
 
 
 # Register your models here.
@@ -28,7 +30,7 @@ class TeamResource(resources.ModelResource):
     class Meta:
         model = Team
 
-        fields = ('id', 'teamID', 'project_name', 'no_of_members', 'reg_no_1',
+        fields = ('id', 'teamID', 'project_name', 'project_description', 'no_of_members', 'reg_no_1',
                   'student_1_name', 'student_1_no', 'reg_no_2', 'student_2_name', 'student_2_no', 'reg_no_3', 'student_3_name', 'student_3_no', 'guide', 'guide_email')
 
 
@@ -54,6 +56,23 @@ class Temp_TeamAdmin(ImportExportModelAdmin):
     resource_class = Temp_TeamResource
 
 
+class UserResource(resources.ModelResource):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'first_name', 'last_name', 'password'
+                  'email', 'is_active', 'is_staff')
+
+
+class UserAdmin(ImportExportModelAdmin):
+    list_display = ('username', 'first_name',
+                    'last_name', 'email', 'password', 'is_active', 'is_staff')
+    # list_filter = ('created_at',)
+    resource_class = UserResource
+    pass
+
+
+# admin.site.register(User)
+# admin.site.register(User, UserAdmin)
 admin.site.register(Guide, GuideAdmin)
 admin.site.register(Team, TeamAdmin)
 # admin.site.register(Team)

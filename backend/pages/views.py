@@ -243,6 +243,7 @@ def login(request):
                 team = Temp_Team.objects.filter(
                     student_1_email=user.email).get()
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if Guide.objects.filter(serial_no=team.guide).exists():
                     guide_inst = Guide.objects.filter(
                         serial_no=team.guide).get()
@@ -268,8 +269,34 @@ def login(request):
 >>>>>>> 4abf7792c60add63574d1bcddfe7369d7089ab91
                 if team.no_of_members == '2':
                     return render(request, 'temp_team_2/temp_team_2.html', context)
+=======
+                g_obj = team.guide
+                email_2 = Otp_Two.objects.filter(temp_email=user.email).get()
+                print('TYPE OF g_obj: ', type(g_obj))
+                if g_obj is None:
+                    print('INSIDE NONE IF')
+                    context = {
+                        'email': email_2
+                    }
+
+                    if team.no_of_members == '2':
+                        return render(request, '2_project_form/2_project_form.html', context)
+                    else:
+                        return render(request, '1_project_form`/1_project_form.html')
+>>>>>>> 224e5c37fe1b84ffe7f96e20cbde234c26ae5766
                 else:
-                    return render(request, 'temp_team_1/temp_team_1.html', context)
+                    print('INSIDE NONE ELSE')
+                    context = {
+                        'team': team,
+                        'user': user,
+                        # 'guide': guide_inst,
+                        # 'id': guide_inst.serial_no
+                    }
+
+                    if team.no_of_members == '2':
+                        return render(request, 'temp_team_2/temp_team_2.html', context)
+                    else:
+                        return render(request, 'temp_team_1/temp_team_1.html', context)
 
             if Team.objects.filter(teamID=user.username).exists():
                 auth.logout(request)
@@ -457,51 +484,144 @@ def select_guide(request):
     return render(request, 'GuideList/guide.html', context)
 
 
-def temp_team_1(request):
+def temp_team_2(request):
+    user = request.user
     if request.method == 'POST':
-        temp_team = Temp_Team.objects.filter(
-            student_1_email=request.user.email).get()
+        if Temp_Team.objects.filter(student_1_email=user.email).exists():
+            temp_team = Temp_Team.objects.filter(
+                student_1_email=user.email).get()
+            project_name = request.POST['project_name']
+            project_domain = request.POST['project_domain']
+            project_description = request.POST['project_description']
+            reg_no_1 = request.POST['reg_no_1']
+            if len(reg_no_1) > 8:
+                messages.error(request, 'Register Number be 8 digits long.')
+                return redirect('project-details-1')
+            student_1_no = request.POST['student_1_no']
+            if len(student_1_no) > 10:
+                messages.error(request, 'Number must of 10 digits.')
+                return redirect('project-details-1')
 
-        temp_team.delete()
+            guide = request.POST['guide']
+            guide_email = request.POST['guide_email']
 
-        project_name = request.POST['project_name']
-        project_domain = request.POST['project_domain']
-        project_description = request.POST['project_description']
-        reg_no_1 = request.POST['reg_no_1']
-        student_1_no = request.POST['student_1_no']
-        if len(reg_no_1) > 8:
-            messages.error(request, 'Register Number be 8 digits long.')
-            return redirect('project-details-1')
-        student_1_no = request.POST['student_1_no']
-        if len(student_1_no) > 10:
-            messages.error(request, 'Number must of 10 digits.')
-            return redirect('project-details-2')
+            student_1_name = user.first_name + ' ' + user.last_name
+            student_1_email = user.email
 
-        student_1_name = request.user.first_name + ' ' + request.user.last_name
-        student_1_email = request.user.email
+            reg_no_2 = request.POST['reg_no_2']
+            if len(reg_no_2) > 8:
+                messages.error(request, 'Register Number be 8 digits long.')
+                return redirect('project-details-1')
+            student_2_no = request.POST['student_2_no']
+            if len(student_2_no) > 10:
+                messages.error(request, 'Number must of 10 digits.')
+                return redirect('project-details-1')
 
-        first_name_2 = request.POST['first_name_2']
-        last_name_2 = request.POST['last_name_2']
-        reg_no_2 = request.POST['reg_no_2']
-        student_2_no = request.POST['student_2_no']
-        if len(reg_no_2) > 8:
-            messages.error(request, 'Register Number be 8 digits long.')
-            return redirect('project-details-2')
-        if len(student_2_no) > 10:
-            messages.error(request, 'Number must of 10 digits.')
-            return redirect('project-details-2')
+            guide = request.POST['guide']
+            guide_email = request.POST['guide_email']
 
-        student_2_email = request.POST['student_2_email']
+            student_2_name = user.first_name + ' ' + user.last_name
 
-        student_2_name = first_name_2 + ' ' + last_name_2
+            if Otp_Two.objects.filter(temp_email=user.email).exists():
+                student_2_email = Otp_Two.objects.filter(
+                    temp_email=user.email).get()
 
-        temp_team = Temp_Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description, no_of_members='2', reg_no_1=reg_no_1,
-                                             student_1_name=student_1_name, student_1_email=student_1_email, student_1_no=student_1_no, reg_no_2=reg_no_2,  student_2_name=student_2_name, student_2_email=student_2_email, student_2_no=student_2_no)
+                student_2_email = student_2_email.user_email
 
-        temp_team.save()
+            temp_team.delete()
 
-        return redirect('select-guide')
-    return render(request, 'temp_team_2/temp_team_2.html')
+            temp_team = Temp_Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description, student_1_name=student_1_name, student_1_email=student_1_email,
+                                                 reg_no_1=reg_no_1, student_1_no=student_1_no, student_2_name=student_2_name, student_2_email=student_2_email, reg_no_2=reg_no_2, no_of_members='2', guide=guide, guide_email=guide_email)
+
+            if Guide.objects.filter(email=guide_email).exists():
+                guide = Guide.objects.filter(email=guide_email).get()
+                temp_team.save()
+                context = {
+                    'id': guide.serial_no,
+                    'team': temp_team,
+                    'user': user
+                }
+
+                if temp_team.no_of_members == '2':
+                    return render(request, 'confirmation_2/confirmation.html', context)
+                else:
+                    return render(request, 'confirmation_1/confirmation.html', context)
+            else:
+                temp_team.save()
+                messages.info(
+                    request, 'You have not selected the guide please select!')
+                return redirect('select-guide')
+        else:
+            return redirect('custom_page_not_found_view')
+
+
+def temp_team_1(request):
+    user = request.user
+    if request.method == 'POST':
+        if Temp_Team.objects.filter(student_1_email=user.email).exists():
+            temp_team = Temp_Team.objects.filter(
+                student_1_email=user.email).get()
+            project_name = request.POST['project_name']
+            project_domain = request.POST['project_domain']
+            project_description = request.POST['project_description']
+            reg_no_1 = request.POST['reg_no_1']
+            if len(reg_no_1) > 8:
+                messages.error(request, 'Register Number be 8 digits long.')
+                return redirect('project-details-1')
+            student_1_no = request.POST['student_1_no']
+            if len(student_1_no) > 10:
+                messages.error(request, 'Number must of 10 digits.')
+                return redirect('project-details-1')
+
+            # guide = request.POST['guide']
+            # guide_email = request.POST['guide_email']
+
+            student_1_name = user.first_name + ' ' + user.last_name
+            student_1_email = user.email
+
+            guide_inst = Guide.objects.filter(
+                email=temp_team.guide_email).get()
+            guide, guide_email = guide_inst.name, guide_inst.email
+
+            temp_team.delete()
+
+            temp_team = Temp_Team.objects.create(project_name=project_name, project_domain=project_domain, project_description=project_description, student_1_name=student_1_name,
+                                                 student_1_email=student_1_email, reg_no_1=reg_no_1, student_1_no=student_1_no, no_of_members='1', guide=guide, guide_email=guide_email)
+
+            if Guide.objects.filter(email=guide_email).exists():
+                guide = Guide.objects.filter(email=guide_email).get()
+                temp_team.save()
+                context = {
+                    'id': guide.serial_no,
+                    'team': temp_team,
+                    'user': user
+                }
+
+                if temp_team.no_of_members == '2':
+                    return render(request, 'confirmation_2/confirmation.html', context)
+                else:
+                    return render(request, 'confirmation_1/confirmation.html', context)
+            else:
+                temp_team.save()
+                messages.info(
+                    request, 'You have not selected the guide please select!')
+                return redirect('select-guide')
+        else:
+            return redirect('custom_page_not_found_view')
+    else:
+        temp_team = Temp_Team.objects.filter(student_1_email=user.email).get()
+        guide = Guide.objects.filter(email=temp_team.guide_email).get()
+        context = {
+            'id': guide.serial_no,
+            'guide': guide,
+            'team': temp_team,
+            'user': user
+        }
+        if temp_team.no_of_members == '2':
+            return render(request, 'temp_team_2/temp_team_2.html')
+        else:
+            return render(request, 'temp_team_1/temp_team_1.html')
+
 
 # For confirmation page
 
@@ -512,6 +632,10 @@ def guide_selected(request, id):
     user = request.user
     # you can get teamID from username as both are same.
     temp_team = Temp_Team.objects.get(student_1_email=user.email)
+
+    temp_team.guide = guide_inst.name
+    temp_team.guide_email = guide_inst.email
+    temp_team.save()
 
     obj = Otp_Two.objects.filter(temp_email=user.email)
 
@@ -530,14 +654,14 @@ def guide_selected(request, id):
 
         user.save()
         if team.no_of_members == '2':
-            send_mail(
-                'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
-                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + '\n\nMembers: ' + team.student_1_name + ' and '+team.student_2_name +
-                '\n\nNow you can login with your teamID and password(The one you created earlier)',
-                EMAIL_HOST_USER,
-                [user.email, team.student_2_email],
-                fail_silently=False,
-            )
+            # send_mail(
+            #     'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
+            #     'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + '\n\nMembers: ' + team.student_1_name + ' and '+team.student_2_name +
+            #     '\n\nNow you can login with your teamID and password(The one you created earlier)',
+            #     EMAIL_HOST_USER,
+            #     [user.email, team.student_2_email],
+            #     fail_silently=False,
+            # )
             obj.delete()
             temp_team.delete()
             team.save()
@@ -545,14 +669,14 @@ def guide_selected(request, id):
             guide_inst.save()
 
         else:
-            send_mail(
-                'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
-                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + 'Members: ' + team.student_1_name +
-                '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
-                EMAIL_HOST_USER,
-                [user.email, ],
-                fail_silently=False,
-            )
+            # send_mail(
+            #     'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
+            #     'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + 'Members: ' + team.student_1_name +
+            #     '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
+            #     EMAIL_HOST_USER,
+            #     [user.email, ],
+            #     fail_silently=False,
+            # )
             team.save()
             guide_inst.vacancy -= 1
             guide_inst.save()
@@ -561,7 +685,7 @@ def guide_selected(request, id):
         # return redirect('submitted')
         return render(request, 'submitted.html')
     context = {
-        'guide': guide_inst,
+        # 'guide': guide_inst,
         'team': temp_team,
         'id': id,
         'user': user,
@@ -606,7 +730,10 @@ def my_custom_error_view(request):
 
 
 def my_custom_permission_denied_view(request, exception):
-    return render(request, 'errors/403.html')
+    context = {
+        'exception': exception
+    }
+    return render(request, 'errors/403.html', context)
 
 
 def my_custom_bad_request_view(request, exception):

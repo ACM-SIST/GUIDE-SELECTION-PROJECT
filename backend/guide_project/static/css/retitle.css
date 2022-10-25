@@ -93,15 +93,9 @@
         height: 100px;
       }
     .project {
-      display: flex;
+      display: grid;
       gap: 5rem;
       grid-template-columns: 1fr 1fr;
-    }
-    input:focus::placeholder {
-      color: transparent;
-    }
-    input::placeholder{
-      font-size: 11px;
     }
       legend { 
       color: #fff;
@@ -177,13 +171,6 @@
       position: relative;
       margin: 10px 0;
       }
-
-      .item1 {
-        position: relative;
-        margin: 10px 0;
-        width: 30%;
-      }
-
       .item span {
       color: red;
       }

@@ -68,17 +68,17 @@ class UserResource(resources.ModelResource):
                   'last_name', 'email', 'password', 'is_active', 'is_staff')
 
 
-class UserAdmin(ImportExportModelAdmin):
+class NewUserAdmin(ImportExportModelAdmin, UserAdmin):
     list_display = ('username', 'first_name',
                     'last_name', 'email', 'is_active', 'is_staff')
     ordering = ['username']
     search_fields = ('username', 'email', 'first_name', 'last_name')
+
     resource_class = UserResource
-    pass
 
 
 admin.site.unregister(User)
-admin.site.register(User, UserAdmin)
+admin.site.register(User, NewUserAdmin)
 admin.site.register(Guide, GuideAdmin)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Otp)

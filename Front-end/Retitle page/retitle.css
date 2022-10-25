@@ -100,9 +100,6 @@
     input:focus::placeholder {
       color: transparent;
     }
-    input::placeholder{
-      font-size: 11px;
-    }
       legend { 
       color: #fff;
       background-color: #831238;
@@ -181,7 +178,7 @@
       .item1 {
         position: relative;
         margin: 10px 0;
-        width: 30%;
+        width: 40%;
       }
 
       .item span {

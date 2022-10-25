@@ -32,13 +32,13 @@ urlpatterns = [
     path('select-guide/', views.select_guide, name='select-guide'),
     path('guide-selected/<int:id>', views.guide_selected, name='guide-selected'),
     # /*****************/
-    # reset  password urls
-    path('password_reset/done', auth_views.PasswordResetDoneView.as_view(),
-         name='password_reset_done'),
-    path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(),
-         name='password_reset_confirm'),
-    path('reset/done', auth_views.PasswordResetCompleteView.as_view(),
-         name='password_reset_complete'),
+    # # reset  password urls
+    # path('password_reset/done', auth_views.PasswordResetDoneView.as_view(),
+    #      name='password_reset_done'),
+    # path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(),
+    #      name='password_reset_confirm'),
+    # path('reset/done', auth_views.PasswordResetCompleteView.as_view(),
+    #      name='password_reset_complete'),
     # /*****************/
     # otp verify
     path('verify', views.verify, name='verify'),
@@ -50,5 +50,6 @@ urlpatterns = [
     path('temp-team-1/', views.temp_team_1, name='temp-team-1'),
     path('temp-team-2/', views.temp_team_2, name='temp-team-2'),
     path('retitle/', views.retitle, name='retitle'),
+    path('reset-password/', views.reset_password, name='reset-password')
 
 ]

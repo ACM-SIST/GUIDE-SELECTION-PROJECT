@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" text="text/css" href="{% static 'css/register.css' %}"> 
+    <title>RESET PASSWORD</title>
+</head>
+<body>
+    <header>
+        <nav id="menu">
+            <ul class="blackbox">
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+            </ul>
+    </header>
+    <div class="center">
+        <h1>RESET PASSWORD</h1>
+        {% include 'partials/_alerts.html' %}
+        <form action="{% url 'reset-password' %}" method="POST">
+            {% csrf_token %}
+            <div class="txt_field">
+                <input type="email" name="email" required>
+                <label>Enter Email id <span>*</span></label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="teamID" required>
+                <label>Team ID <span>*</span></label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password" id="myInput" required>
+                <label>Enter Password <span>*</span></label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password1" id="myInput" required>
+                <label>Confirm Password <span>*</span></label>
+            </div>
+            <input type="checkbox" onclick="myFunction()" id="myInput">Show Password
+            <br><br>
+            <input type="submit" value="Reset Password">
+            <p></p>
+        </form>
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+    </script>
+</body>
+</html>

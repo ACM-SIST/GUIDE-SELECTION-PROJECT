@@ -86,18 +86,25 @@ def register(request):
                     messages.error(
                         request, 'Password length must be atleast 8 character.')
                     return redirect('register')
+
+                # Check for digits
                 if not any(char.isdigit() for char in password):
                     messages.error(
                         request, 'Password must contain at least 1 digit.')
                     return redirect('register')
+
+                # Check for alphabets
                 if not any(char.isalpha() for char in password):
                     messages.error(
                         request, 'Password must contain at least 1 letter and must be alpha-numeric.')
                     return redirect('register')
+
+                # Check for spl chars
                 if not any(char in special_characters for char in password):
                     messages.error(
                         request, 'Password must contain at least 1 special character')
                     return redirect('register')
+                # Check for user existence
                 if User.objects.filter(email=email).exists():
                     messages.error(request, 'Email Taken')
                     return redirect('register')
@@ -777,6 +784,56 @@ def retitle(request):
     return render(request, 'Retitle_page/retitle.html', context)
 
 
+def reset_password(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        teamID = request.POST['teamID']
+        password = request.POST['password']
+        password1 = request.POST['password1']
+
+        if password == password1:
+            special_characters = "[~\!@#\$%\^&\*\(\)_\+{}\":;'\[\]]"
+            if len(password) < 8:
+                messages.error(
+                    request, 'Password length must be atleast 8 character.')
+                return redirect('reset-password')
+
+            # Check for dig
+            if not any(char.isdigit() for char in password):
+                messages.error(
+                    request, 'Password must contain at least 1 digit.')
+                return redirect('reset-password')
+
+            # Check for alpha
+            if not any(char.isalpha() for char in password):
+                messages.error(
+                    request, 'Password must contain at least 1 letter and must be alpha-numeric.')
+                return redirect('reset-password')
+
+            # Check spl char
+            if not any(char in special_characters for char in password):
+                messages.error(
+                    request, 'Password must contain at least 1 special character')
+                return redirect('reset-password')
+
+            # Check for user existence
+            if User.objects.filter(username=teamID, email=email).exists():
+                user = User.objects.filter(username=teamID, email=email).get()
+                user.set_password(password)
+                user.save()
+                messages.success(request, 'Password Changed successfully!')
+                return redirect('login')
+            else:
+                messages.error(
+                    request, 'Given Email-id/team ID does not exist. Try Again!')
+                return redirect('reset-password')
+        else:
+            messages.error(request, 'Password not matching!')
+            return redirect('reset-password')
+
+    return render(request, 'resetpass/resetpass.html')
+
+
 def custom_page_not_found_view(request, exception):
     return render(request, "errors/404.html", {})
 
@@ -794,6 +851,3 @@ def my_custom_permission_denied_view(request, exception):
 
 def my_custom_bad_request_view(request, exception):
     return render(request, 'errors/400.html')
-
-
-# def password_reset(request):

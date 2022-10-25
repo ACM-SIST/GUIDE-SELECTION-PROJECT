@@ -1,0 +1,9 @@
+.container .alert-danger {
+  background-color: lightgreen;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-family: cursive;
+  }
+}

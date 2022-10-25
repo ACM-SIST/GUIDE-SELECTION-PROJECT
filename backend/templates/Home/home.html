@@ -21,6 +21,7 @@
 				</a>
 				<li id="red"><a href="{% url 'home' %}">Home</a></li>
 				<li id="red"><a href="{% url 'credits' %}">Credits</a></li>
+				<li id="red"><a href="{% url 'retitle' %}">Change Title</a></li>
 				{% if user.is_authenticated %}
 				<li id="red"><a href="{% url 'logout' %}">Logout</a></li>
 				{% endif %}

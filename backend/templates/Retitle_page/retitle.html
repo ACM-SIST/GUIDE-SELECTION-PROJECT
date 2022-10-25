@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TITLE FORM</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" >
+        <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/retitle.css' %}">
+    </head>
+    <body>
+        <nav id="menu">
+            <ul>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+            </ul>
+        </nav>
+        <div class="testbox">
+            <form action="{% url 'retitle' %}" method="POST">
+                {% csrf_token %}
+              <div class="banner">
+                <h1>Enter your Proper Project Title</h1>
+              </div>
+              <p class="bluebox">Please Re Enter your Project Title.</p>
+              {% include 'partials/_alerts.html' %}
+              <hr/>
+              <fieldset>
+                <legend>Project Information</legend>
+                <div class="project">
+                    <div class="item">
+                        <label for="name">Team Id <span>*</span></label>
+                        <input id="name" type="text" name="teamID" placeholder=" Team Id" required/>
+                    </div>
+                    <div class="item">
+                        <label for="domain">Project Title <span>*</span></label>
+                        <input id="domain" type="text" name="project_name" placeholder=" Project Title" required/>
+                    </div>
+                </div>
+                <!-- <div class="item">
+                  <label for="description">Project Description<span>*</span></label>
+                  <textarea id="description" type="text" name=descriptionn" placeholder="  Project description" required></textarea>
+                </div>  -->
+                  <div class="item">
+                    <div class="name-item">
+                    </div>
+                  </div>
+              </fieldset>
+              </br>
+                    <fieldset>
+                    <div class="btn-block">
+                    <button onclick="myFunction()" type="submit">Submit<a href="../Home/home.html"></a></button>
+                    </div>
+                </fieldset>
+            </form>
+            </div>
+    </body> 
+</html>
+

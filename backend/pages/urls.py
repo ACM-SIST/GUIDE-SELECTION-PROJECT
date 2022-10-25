@@ -51,5 +51,6 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('temp-team-1/', views.temp_team_1, name='temp-team-1'),
     path('temp-team-2/', views.temp_team_2, name='temp-team-2'),
+    path('retitle/', views.retitle, name='retitle'),
 
 ]

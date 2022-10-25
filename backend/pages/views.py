@@ -1,4 +1,5 @@
 
+from genericpath import exists
 from random import randrange
 from django.core.mail import send_mail
 from django.http import HttpResponse
@@ -69,17 +70,13 @@ def submitted(request):
 
 
 def register(request):
-    print('INSIDE REGISTER FUNCTION')
-    print('REQUEST METHOD: ', request.method)
     if request.method == 'POST':
-        print('INSIDE POST IF: ')
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
         password = request.POST['password']
         ConfirmPassword = request.POST['password1']
         temp = email.split('@')
-        print("DOMAIN IS: ", temp)
         if temp[1] == 'gmail.com' or temp[1] == 'yahoo.in' or temp[1] == 'hotmail.com':
 
             if password == ConfirmPassword:
@@ -127,7 +124,6 @@ def register(request):
             return redirect('register')
 
     else:
-        print("INSIDE ELSE")
         return render(request, 'Register/register.html')
 
 
@@ -232,60 +228,43 @@ def login(request):
     if request.method == 'POST':
         user_name = request.POST['email']
         password = request.POST['password']
-
-        user = auth.authenticate(username=user_name, password=password)
+        if not User.objects.filter(username=user_name).exists():
+            messages.error(request, "User does not exist!")
+            return redirect('login')
+        user = User.objects.filter(username=user_name).get()
+        print('USER IS: ', user)
         if user is not None:
-            auth.login(request, user)
+            if user.is_active == False:
+                messages.info(
+                    request, "You're registered and updated your team details")
+                return redirect('login')
+            user = auth.authenticate(username=user_name, password=password)
 
-            user = request.user
+            if user is not None:
 
-            if Temp_Team.objects.filter(student_1_email=user.email).exists():
-                team = Temp_Team.objects.filter(
-                    student_1_email=user.email).get()
-<<<<<<< HEAD
-<<<<<<< HEAD
-                if Guide.objects.filter(serial_no=team.guide).exists():
-                    guide_inst = Guide.objects.filter(
-                        serial_no=team.guide).get()
-                    context = {
-                        'team': team,
-                        'user': user,
-                        'guide': guide_inst,
-                        'id': guide_inst.serial_no
-                    }
-                else:
-                    team.delete()
-                    return render(request, 'no_of_stud/no_of_stud.html')
-=======
-                # guide_inst = Guide.objects.filter(
-                #     serial_no=team.guide.serial_no).get()
-                context = {
-                    'team': team,
-                    'user': user,
-                    # 'guide': guide_inst,
-                    # 'id': guide_inst.serial_no
-                }
+                auth.login(request, user)
 
->>>>>>> 4abf7792c60add63574d1bcddfe7369d7089ab91
-                if team.no_of_members == '2':
-                    return render(request, 'temp_team_2/temp_team_2.html', context)
-=======
-                g_obj = team.guide
-                email_2 = Otp_Two.objects.filter(temp_email=user.email).get()
-                print('TYPE OF g_obj: ', type(g_obj))
-                if g_obj is None:
-                    print('INSIDE NONE IF')
-                    context = {
-                        'email': email_2
-                    }
+                user = request.user
 
-                    if team.no_of_members == '2':
-                        return render(request, '2_project_form/2_project_form.html', context)
+                if Temp_Team.objects.filter(student_1_email=user.email).exists():
+                    team = Temp_Team.objects.filter(
+                        student_1_email=user.email).get()
+
+                    if Guide.objects.filter(serial_no=team.guide).exists():
+                        guide_inst = Guide.objects.filter(
+                            serial_no=team.guide).get()
+                        context = {
+                            'team': team,
+                            'user': user,
+                            'guide': guide_inst,
+                            'id': guide_inst.serial_no
+                        }
                     else:
-                        return render(request, '1_project_form`/1_project_form.html')
->>>>>>> 224e5c37fe1b84ffe7f96e20cbde234c26ae5766
-                else:
-                    print('INSIDE NONE ELSE')
+                        team.delete()
+                        return render(request, 'no_of_stud/no_of_stud.html')
+
+                    # guide_inst = Guide.objects.filter(
+                    #     serial_no=team.guide.serial_no).get()
                     context = {
                         'team': team,
                         'user': user,
@@ -295,18 +274,51 @@ def login(request):
 
                     if team.no_of_members == '2':
                         return render(request, 'temp_team_2/temp_team_2.html', context)
-                    else:
-                        return render(request, 'temp_team_1/temp_team_1.html', context)
 
-            if Team.objects.filter(teamID=user.username).exists():
-                auth.logout(request)
-                messages.info(
-                    request, 'Your team is already registered. Please contact project co-ordinator!')
+                    g_obj = team.guide
+                    email_2 = Otp_Two.objects.filter(
+                        temp_email=user.email).get()
+                    print('TYPE OF g_obj: ', type(g_obj))
+                    if g_obj is None:
+                        print('INSIDE NONE IF')
+                        context = {
+                            'email': email_2
+                        }
+
+                        if team.no_of_members == '2':
+                            return render(request, '2_project_form/2_project_form.html', context)
+                        else:
+                            return render(request, '1_project_form`/1_project_form.html')
+                    else:
+                        context = {
+                            'team': team,
+                            'user': user,
+                            # 'guide': guide_inst,
+                            # 'id': guide_inst.serial_no
+                        }
+
+                        if team.no_of_members == '2':
+                            return render(request, 'temp_team_2/temp_team_2.html', context)
+                        else:
+                            return render(request, 'temp_team_1/temp_team_1.html', context)
+
+                # user = User.objects.filter(username=user_name).get()
+                if Team.objects.filter(teamID=user.username).exists():
+                    print('INSIDE LINE 312 IF: ')
+                    if User.objects.filter(username=user_name).exists():
+                        print('INSIDE LINE 314 IF: ')
+                        if user.is_active == False:
+                            print('INSIDE LINE 316 IF: ')
+                            auth.logout(request)
+                            messages.info(
+                                request, 'Your team is already registered. Please contact project co-ordinator!')
+                            return render(request, 'Login/login.html')
+                        else:
+                            return render(request, 'Retitle_page/retitle.html')
+                return render(request, 'no_of_stud/no_of_stud.html')
+            else:
+                messages.error(request, 'Invalid Credentials')
                 return render(request, 'Login/login.html')
-            return render(request, 'no_of_stud/no_of_stud.html')
-        else:
-            messages.error(request, 'Invalid Credentials')
-            return render(request, 'Login/login.html')
     else:
         return render(request, 'Login/login.html')
 
@@ -573,9 +585,6 @@ def temp_team_1(request):
                 messages.error(request, 'Number must of 10 digits.')
                 return redirect('project-details-1')
 
-            # guide = request.POST['guide']
-            # guide_email = request.POST['guide_email']
-
             student_1_name = user.first_name + ' ' + user.last_name
             student_1_email = user.email
 
@@ -650,18 +659,16 @@ def guide_selected(request, id):
         team.teamID = new_username
         user.username = new_username
 
-        print("TEAM GUIDE SERIAL ID: ", team.guide)
-
         user.save()
         if team.no_of_members == '2':
-            # send_mail(
-            #     'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
-            #     'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + '\n\nMembers: ' + team.student_1_name + ' and '+team.student_2_name +
-            #     '\n\nNow you can login with your teamID and password(The one you created earlier)',
-            #     EMAIL_HOST_USER,
-            #     [user.email, team.student_2_email],
-            #     fail_silently=False,
-            # )
+            send_mail(
+                'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
+                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + '\n\nMembers: ' + team.student_1_name + ' and '+team.student_2_name +
+                '\n\nNow you can login with your teamID and password(The one you created earlier)',
+                EMAIL_HOST_USER,
+                [user.email, team.student_2_email],
+                fail_silently=False,
+            )
             obj.delete()
             temp_team.delete()
             team.save()
@@ -669,14 +676,14 @@ def guide_selected(request, id):
             guide_inst.save()
 
         else:
-            # send_mail(
-            #     'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
-            #     'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + 'Members: ' + team.student_1_name +
-            #     '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
-            #     EMAIL_HOST_USER,
-            #     [user.email, ],
-            #     fail_silently=False,
-            # )
+            send_mail(
+                'CONFIRMATION FOR FINAL YEAR PROJECT REGISTRATION',
+                'Hi, Thank you for registering here is your details:' + '\n\nTeam ID: ' + team.teamID + '\n\nProject Name: ' + team.project_name + '\n\nProject Description: ' + team.project_description + '\n\nGuide Name: ' + guide_inst.name + '\n\nGuide Email: ' + guide_inst.email + '\n\nNo. of members: ' + team.no_of_members + '\n\nMembers: ' + team.student_1_name +
+                '\n\nNow you can login with your TEAMID and password(The one you created earlier)',
+                EMAIL_HOST_USER,
+                [user.email, ],
+                fail_silently=False,
+            )
             team.save()
             guide_inst.vacancy -= 1
             guide_inst.save()
@@ -719,6 +726,44 @@ def search(request):
     }
 
     return render(request, 'search.html', context)
+
+# Re-title
+
+
+def retitle(request):
+    user = request.user
+
+    if request.method == 'POST':
+        teamID = request.POST['teamID']
+        project_name = request.POST['project_name']
+        print(user.username)
+
+        if Team.objects.filter(teamID=user.username).exists():
+
+            team = Team.objects.filter(teamID=user.username).get()
+
+            team.teamID = teamID
+            user.username = teamID
+
+            team.project_name = project_name
+
+            team.save()
+            user.is_active = False
+            user.save()
+            auth.logout(request)
+
+            return render(request, 'submitted.html')
+        else:
+            messages.error(
+                request, "The entered email/teamID is wrong! Please enter the correct details!")
+            return redirect('retitle')
+
+    if not user.is_authenticated:
+        # Redirect to login with message
+        messages.info(request, "You're not logged in!")
+        return redirect('login')
+
+    return render(request, 'Retitle_page/retitle.html')
 
 
 def custom_page_not_found_view(request, exception):

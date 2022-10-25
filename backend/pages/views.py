@@ -1,5 +1,6 @@
 
-from genericpath import exists
+
+from multiprocessing import context
 from random import randrange
 from django.core.mail import send_mail
 from django.http import HttpResponse
@@ -314,7 +315,7 @@ def login(request):
                                 request, 'Your team is already registered. Please contact project co-ordinator!')
                             return render(request, 'Login/login.html')
                         else:
-                            return render(request, 'Retitle_page/retitle.html')
+                            return redirect('retitle')
                 return render(request, 'no_of_stud/no_of_stud.html')
             else:
                 messages.error(request, 'Invalid Credentials')
@@ -741,9 +742,19 @@ def retitle(request):
         if Team.objects.filter(teamID=user.username).exists():
 
             team = Team.objects.filter(teamID=user.username).get()
+            if team.no_of_members == '2':
+                reg_no_2 = request.POST['reg_no_2']
+                student_2_email = request.POST['student_2_email']
+                team.reg_no_2 = reg_no_2
+                team.student_2_email = student_2_email
+                if team.reg_no_2 == reg_no_2:
+                    messages.error(
+                        request, "Entered Register Number for student 2 is wrong!")
+                    return redirect('retitle')
 
             team.teamID = teamID
             user.username = teamID
+            team.reg_no_2 = reg_no_2
 
             team.project_name = project_name
 
@@ -762,8 +773,12 @@ def retitle(request):
         # Redirect to login with message
         messages.info(request, "You're not logged in!")
         return redirect('login')
-
-    return render(request, 'Retitle_page/retitle.html')
+    team = Team.objects.filter(teamID=user.username)
+    print(team)
+    context = {
+        'teams': team,
+    }
+    return render(request, 'Retitle_page/retitle.html', context)
 
 
 def custom_page_not_found_view(request, exception):

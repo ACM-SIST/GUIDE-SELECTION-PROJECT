@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>TITLE FORM</title>
+        <title>FORM</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" >
         <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -12,8 +12,12 @@
     <body>
         <nav id="menu">
             <ul>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="../Home/home.html">Home</a></li>
             </ul>
         </nav>
         <div class="testbox">
@@ -23,20 +27,41 @@
                 <h1>Enter your Proper Project Title</h1>
               </div>
               <p class="bluebox">Please Re Enter your Project Title.</p>
-              {% include 'partials/_alerts.html' %}
               <hr/>
               <fieldset>
                 <legend>Project Information</legend>
                 <div class="project">
                     <div class="item">
-                        <label for="name">Team Id <span>*</span></label>
-                        <input id="name" type="text" name="teamID" placeholder=" Team Id" required/>
+                        <label for="name">Team Id<span>*</span></label>
+                        <input id="name" type="text" name="teamID" placeholder="Enter your Team I'd" required
+                        onfocus="this.placeholder=''" 
+                        onblur="this.placeholder='Enter your Team Id'"/>
                     </div>
                     <div class="item">
-                        <label for="domain">Project Title <span>*</span></label>
-                        <input id="domain" type="text" name="project_name" placeholder=" Project Title" required/>
+                        <label for="domain">Project Title<span>*</span></label>
+                        <input id="domain" type="text" name="project_name" placeholder=" Enter your Project Title" required/>
                     </div>
+                    <div class="item">
+                        <label for="regno">Register Number [Student 1]<span>*</span></label>
+                        <input id="regno" type="number" name="reg_no_1" placeholder="  Enter the Register Number of Student 1" required/>
+                    </div>
+                    {% for team in teams %}
+                        {% if team.no_of_members == '2' %}
+                            <div class="item">
+                                <label for="regno">Register Number [Student 2]</label>
+                                <input id="regno" type="number" name="reg_no_2" placeholder=" Enter the Register Number of Student 2" />
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
+                {% for team in teams %}
+                    {% if team.no_of_members == '2' %}
+                        <div class="item1">
+                            <label for="regno" requried>Email id [Student 2]</label>
+                            <input id="regno" type="number" name="student_2_email" placeholder=" Enter the Email id of Student 2" />
+                        </div>
+                    {% endif %}
+                {% endfor %}
                 <!-- <div class="item">
                   <label for="description">Project Description<span>*</span></label>
                   <textarea id="description" type="text" name=descriptionn" placeholder="  Project description" required></textarea>

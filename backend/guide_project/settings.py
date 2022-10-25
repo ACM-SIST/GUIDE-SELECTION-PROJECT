@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-bn!gb+_&96p0e7j+0@in%!o5xxl23m$907%3sgyqlekw&85sgv
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # DEBUG = os.environ.get('DEBUG')
 # DEBUG = False
@@ -178,7 +178,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Activate Django-Heroku.
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 # Email Configuration
 EMAIL_HOST = 'smtp.gmail.com'

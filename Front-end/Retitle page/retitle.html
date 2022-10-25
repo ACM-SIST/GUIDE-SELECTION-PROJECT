@@ -27,11 +27,21 @@
                 <div class="project">
                     <div class="item">
                         <label for="name">Team I'd<span>*</span></label>
-                        <input id="name" type="text" name="text" placeholder=" Team I'd" required/>
+                        <input id="name" type="text" name="text" placeholder="Enter your Team I'd" required
+                        onfocus="this.placeholder=''" 
+                        onblur="this.placeholder='Enter your Team Id'"/>
                     </div>
                     <div class="item">
                         <label for="domain">Project Title<span>*</span></label>
-                        <input id="domain" type="text" name="domain" placeholder=" Project Title" required/>
+                        <input id="domain" type="text" name="domain" placeholder=" Enter your Project Title" required/>
+                    </div>
+                    <div class="item">
+                        <label for="regno">Register Number [Student 1]<span>*</span></label>
+                        <input id="regno" type="number" name="regno" placeholder="  Enter the Register Number of Student 1" required/>
+                    </div>
+                    <div class="item">
+                        <label for="regno">Register Number [Student 2]</label>
+                        <input id="regno" type="number" name="regno" placeholder=" Enter the Register Number of Student 2" />
                     </div>
                 </div>
                 <!-- <div class="item">

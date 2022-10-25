@@ -93,9 +93,12 @@
         height: 100px;
       }
     .project {
-      display: grid;
+      display: flex;
       gap: 5rem;
       grid-template-columns: 1fr 1fr;
+    }
+    input:focus::placeholder {
+      color: transparent;
     }
       legend { 
       color: #fff;

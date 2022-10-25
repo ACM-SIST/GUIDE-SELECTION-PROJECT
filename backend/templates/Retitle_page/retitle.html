@@ -29,13 +29,14 @@
               <p class="bluebox">Please Re Enter your Project Title.</p>
               <hr/>
               <fieldset>
+                {% include 'partials/_alerts.html' %}
                 <legend>Project Information</legend>
                 <div class="project">
                     <div class="item">
-                        <label for="name">Team Id<span>*</span></label>
+                        <label for="name">New Team Id<span>*</span></label>
                         <input id="name" type="text" name="teamID" placeholder="Enter your Team I'd" required
                         onfocus="this.placeholder=''" 
-                        onblur="this.placeholder='Enter your Team Id'"/>
+                        onblur="this.placeholder='Enter your new Team Id'"/>
                     </div>
                     <div class="item">
                         <label for="domain">Project Title<span>*</span></label>
@@ -43,13 +44,13 @@
                     </div>
                     <div class="item">
                         <label for="regno">Register Number [Student 1]<span>*</span></label>
-                        <input id="regno" type="number" name="reg_no_1" placeholder="  Enter the Register Number of Student 1" required/>
+                        <input id="regno" type="text" name="reg_no_1" placeholder="  Enter the Register Number of Student 1" required/>
                     </div>
                     {% for team in teams %}
                         {% if team.no_of_members == '2' %}
                             <div class="item">
-                                <label for="regno">Register Number [Student 2]</label>
-                                <input id="regno" type="number" name="reg_no_2" placeholder=" Enter the Register Number of Student 2" />
+                                <label for="regno" >Register Number [Student 2]</label>
+                                <input id="regno" type="text" name="reg_no_2" placeholder=" Enter the Register Number of Student 2" required />
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -57,8 +58,8 @@
                 {% for team in teams %}
                     {% if team.no_of_members == '2' %}
                         <div class="item1">
-                            <label for="regno" requried>Email id [Student 2]</label>
-                            <input id="regno" type="number" name="student_2_email" placeholder=" Enter the Email id of Student 2" />
+                            <label for="email">Email id [Student 2]</label>
+                            <input id="regno" type="email" name="student_2_email" placeholder=" Enter the Email id of Student 2" required />
                         </div>
                     {% endif %}
                 {% endfor %}

@@ -21,6 +21,7 @@ from django.urls import include, path
 urlpatterns = [
     path('pride-cell/', admin.site.urls),
     path('', include('pages.urls')),
+    # path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 handler404 = 'pages.views.custom_page_not_found_view'

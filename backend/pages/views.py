@@ -737,6 +737,7 @@ def retitle(request):
     if request.method == 'POST':
         teamID = request.POST['teamID']
         project_name = request.POST['project_name']
+        reg_no_1 = request.POST['reg_no_1']
         print(user.username)
 
         if Team.objects.filter(teamID=user.username).exists():
@@ -747,14 +748,9 @@ def retitle(request):
                 student_2_email = request.POST['student_2_email']
                 team.reg_no_2 = reg_no_2
                 team.student_2_email = student_2_email
-                if team.reg_no_2 == reg_no_2:
-                    messages.error(
-                        request, "Entered Register Number for student 2 is wrong!")
-                    return redirect('retitle')
 
             team.teamID = teamID
             user.username = teamID
-            team.reg_no_2 = reg_no_2
 
             team.project_name = project_name
 
@@ -798,3 +794,6 @@ def my_custom_permission_denied_view(request, exception):
 
 def my_custom_bad_request_view(request, exception):
     return render(request, 'errors/400.html')
+
+
+# def password_reset(request):

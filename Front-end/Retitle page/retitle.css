@@ -100,6 +100,9 @@
     input:focus::placeholder {
       color: transparent;
     }
+    input::placeholder{
+      font-size: 11px;
+    }
       legend { 
       color: #fff;
       background-color: #831238;

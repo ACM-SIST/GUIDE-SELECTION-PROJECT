@@ -93,9 +93,7 @@
         height: 100px;
       }
     .project {
-      display: flex;
-      gap: 5rem;
-      grid-template-columns: 1fr 1fr;
+      display: grid;
     }
     input:focus::placeholder {
       color: transparent;

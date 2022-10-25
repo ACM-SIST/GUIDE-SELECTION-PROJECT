@@ -32,7 +32,7 @@ class Team(models.Model):
 
     reg_no_1 = models.BigIntegerField()
     student_1_name = models.CharField(max_length=100)
-    student_1_email = models.CharField(max_length=100)
+    student_1_email = models.CharField(max_length=100, blank=True, null=True)
     student_1_no = models.BigIntegerField()
 
     reg_no_2 = models.BigIntegerField(blank=True, null=True)

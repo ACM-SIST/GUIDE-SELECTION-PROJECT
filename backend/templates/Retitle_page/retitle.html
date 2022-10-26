@@ -12,31 +12,29 @@
     <body>
         <nav id="menu">
             <ul>
-                {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
+              {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+              {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
-                {% endif %}
-                <li><a href="../Home/home.html">Home</a></li>
+              {% endif %}
+                <li><a href="{% url 'home' %}">Home</a></li>
             </ul>
         </nav>
         <div class="testbox">
             <form action="{% url 'retitle' %}" method="POST">
-                {% csrf_token %}
               <div class="banner">
                 <h1>Enter your Proper Project Title</h1>
               </div>
               <p class="bluebox">Please Re Enter your Project Title.</p>
               <hr/>
               <fieldset>
-                {% include 'partials/_alerts.html' %}
                 <legend>Project Information</legend>
                 <div class="project">
                     <div class="item">
-                        <label for="name">New Team Id<span>*</span></label>
-                        <input id="name" type="text" name="teamID" placeholder="Enter your Team I'd" required
+                        <label for="name">Team Id<span>*</span></label>
+                        <input id="name" type="text" name="teamID" placeholder="Enter your Team Id" required
                         onfocus="this.placeholder=''" 
-                        onblur="this.placeholder='Enter your new Team Id'"/>
+                        onblur="this.placeholder='Enter your Team Id'"/>
                     </div>
                     <div class="item">
                         <label for="domain">Project Title<span>*</span></label>
@@ -47,21 +45,25 @@
                         <input id="regno" type="text" name="reg_no_1" placeholder="  Enter the Register Number of Student 1" required/>
                     </div>
                     {% for team in teams %}
-                        {% if team.no_of_members == '2' %}
-                            <div class="item">
-                                <label for="regno" >Register Number [Student 2]</label>
-                                <input id="regno" type="text" name="reg_no_2" placeholder=" Enter the Register Number of Student 2" required />
-                            </div>
-                        {% endif %}
+                    {% if team.no_of_members == '2' %}
+                    <div class="item">
+                        <label for="regno">Register Number [Student 2]</label>
+                        <input id="regno" type="text" name="reg_no_2" placeholder=" Enter the Register Number of Student 2" />
+                    </div>
+                    {% endif %}
                     {% endfor %}
+                    <!-- <div class="item">
+                        <label for="regno">Email id</label>
+                        <input id="regno" type="number" name="regno" placeholder=" Enter the Email id of Student 2" />
+                    </div> -->
                 </div>
                 {% for team in teams %}
-                    {% if team.no_of_members == '2' %}
-                        <div class="item1">
-                            <label for="email">Email id [Student 2]</label>
-                            <input id="regno" type="email" name="student_2_email" placeholder=" Enter the Email id of Student 2" required />
-                        </div>
-                    {% endif %}
+                {% if team.no_of_members == '2' %}
+                <div class="item1">
+                    <label for="regno">Email id [Student 2]</label>
+                    <input id="regno" type="email" name="student_2_email" placeholder=" Enter the Email id of Student 2" />
+                </div>
+                {% endif %}
                 {% endfor %}
                 <!-- <div class="item">
                   <label for="description">Project Description<span>*</span></label>
@@ -82,4 +84,3 @@
             </div>
     </body> 
 </html>
-

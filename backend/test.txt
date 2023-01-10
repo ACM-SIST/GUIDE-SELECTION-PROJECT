@@ -1,0 +1,13 @@
+[program:GUIDE-SELECTION-PROJECT]
+directory=/home/superuser/GUIDE-PROJECT/GUIDE-SELECTION-PROJECT/backend/guide_p>
+command=/home/superuser/GUIDE-PROJECT/GUIDE-SELECTION-PROJECT/backend/env/bin/g>
+stdout_logfile = /home/superuser/GUIDE-PROJECT/GUIDE-SELECTION-PROJECT/logs/gun>
+stderr_logfile = /home/superuser/GUIDE-PROJECT/GUIDE-SELECTION-PROJECT/logs/gun>
+stdout_logfile_maxbytes=5000000
+stderr_logfile_maxbytes=5000000
+stdout_logfile_backups=100000
+stderr_logfile_backups=100000
+autostart=true
+autorestart=true
+startsecs=10
+stopasgroup=true

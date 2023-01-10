@@ -28,18 +28,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bn!gb+_&96p0e7j+0@in%!o5xxl23m$907%3sgyqlekw&85sgv'
-#SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'django-insecure-bn!gb+_&96p0e7j+0@in%!o5xxl23m$907%3sgyqlekw&85sgv'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 # DEBUG = os.environ.get('DEBUG')
 # DEBUG = False
 
 ALLOWED_HOSTS = ['https://guideselection.herokuapp.com/',
-                 'localhost', '127.0.0.1', 'https://www.cse-projectregistration.co.in/']
+                 'localhost', '127.0.0.1', 'https://www.cse-projectregistration.co.in/', '63.250.59.207', '0.0.0.0:8000']
 
 CSRF_TRUSTED_ORIGINS = ['https://www.cse-projectregistration.co.in', 'http://127.0.0.1:8000/',
                         'http://127.0.0.1:8000/pride-cell', 'https://guideselection.herokuapp.com/']

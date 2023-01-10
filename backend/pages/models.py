@@ -24,7 +24,7 @@ class Guide(models.Model):
 
 class Team(models.Model):
     teamID = models.CharField(max_length=100, default='CSE')
-    project_name = models.CharField(max_length=100)
+    project_name = models.CharField(max_length=100, blank=True, null=True)
     project_domain = models.CharField(max_length=100, blank=True, null=True)
     project_description = models.TextField(blank=True, null=True,)
     no_of_members = models.CharField(
@@ -32,7 +32,7 @@ class Team(models.Model):
 
     reg_no_1 = models.BigIntegerField()
     student_1_name = models.CharField(max_length=100)
-    student_1_email = models.CharField(max_length=100, blank=True, null=True)
+    student_1_email = models.CharField(max_length=100, blank=True)
     student_1_no = models.BigIntegerField()
 
     reg_no_2 = models.BigIntegerField(blank=True, null=True)

@@ -1,5 +1,6 @@
 asgiref==3.5.2
 autopep8==1.6.0
+backports.zoneinfo==0.2.1
 certifi==2022.5.18.1
 charset-normalizer==2.0.12
 cloudinary==1.29.0
@@ -17,6 +18,7 @@ MarkupPy==1.14
 odfpy==1.4.1
 openpyxl==3.0.10
 Pillow==9.1.1
+psycopg2==2.9.5
 pycodestyle==2.8.0
 python-dotenv==0.20.0
 PyYAML==6.0

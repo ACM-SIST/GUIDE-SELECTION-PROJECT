@@ -30,10 +30,10 @@ class Team(models.Model):
     no_of_members = models.CharField(
         max_length=10, choices=no_members_choices, default='1')
 
-    reg_no_1 = models.BigIntegerField()
-    student_1_name = models.CharField(max_length=100)
-    student_1_email = models.CharField(max_length=100, blank=True)
-    student_1_no = models.BigIntegerField()
+    reg_no_1 = models.BigIntegerField(blank=True, null=True)
+    student_1_name = models.CharField(max_length=100, blank=True, null=True)
+    student_1_email = models.CharField(max_length=100, blank=True, null=True)
+    student_1_no = models.BigIntegerField(blank=True, null=True)
 
     reg_no_2 = models.BigIntegerField(blank=True, null=True)
     student_2_name = models.CharField(max_length=100, blank=True, null=True)
@@ -43,10 +43,10 @@ class Team(models.Model):
     guide = models.CharField(
         max_length=100)
 
-    guide_email = models.CharField(max_length=100, null=True)
+    guide_email = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.teamID + self.project_name + ' ' + self.student_1_name + ' Added Sucessfully.'
+        return self.teamID
 
 
 class Temp_Team(models.Model):

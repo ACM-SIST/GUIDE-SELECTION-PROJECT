@@ -28,16 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bn!gb+_&96p0e7j+0@in%!o5xxl23m$907%3sgyqlekw&85sgv'
-# SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'django-insecure-bn!gb+_&96p0e7j+0@in%!o5xxl23m$907%3sgyqlekw&85sgv'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = os.environ.get('DEBUG')
-
-# DEBUG = os.environ.get('DEBUG')
-# DEBUG = False
+# DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [
     'guide-project-env.eba-6tuucars.us-west-2.elasticbeanstalk.com',
@@ -50,7 +47,7 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'guide-project-env.eba-6tuucars.us-west-2.elasticbeanstalk.com',
+    'https://guide-project-env.eba-6tuucars.us-west-2.elasticbeanstalk.com',
     'https://www.cse-projectregistration.co.in', 
     'http://127.0.0.1:8000/',
     'http://127.0.0.1:8000/pride-cell', 
@@ -66,10 +63,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # custom apps
     'pages',
+    # 3rd party apps
     'cloudinary',
     'cloudinary_storage',
     'import_export',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -205,3 +205,9 @@ EMAIL_HOST_PASSWORD = 'ofewnyrqtqypfkaj'
 # EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 # EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
+
+# AWS S3 configs
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_REGION_NAME = 'ap-south-1'

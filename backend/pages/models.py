@@ -40,6 +40,8 @@ class Team(models.Model):
     student_2_email = models.CharField(max_length=100, blank=True, null=True)
     student_2_no = models.BigIntegerField(blank=True, null=True)
 
+    document = models.FileField(null=True, blank=True)
+
     guide = models.CharField(
         max_length=100)
 
